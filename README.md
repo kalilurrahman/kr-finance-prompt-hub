@@ -1,73 +1,117 @@
-# Welcome to your Lovable project
+<div align="center">
 
-## Project info
+# 📊 Financial Engineering & Advisory Prompts Reference
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**Your executive prompt compendium. 661+ curated prompts across 3 AI platforms.**
 
-## How can I edit this code?
+[![Live Preview](https://img.shields.io/badge/Live-Preview-blue)](https://kr-finance-prompt-hub.lovable.app/)
+[![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-5-646CFF.svg)](https://vitejs.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6.svg)](https://www.typescriptlang.org/)
 
-There are several ways of editing your application.
+</div>
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Welcome to the **Financial Engineering & Advisory Prompts Reference** repository. This project is a comprehensive executive prompt compendium, featuring 661+ curated prompts designed for financial professionals, strategists, and analysts. These prompts are meticulously structured and tailored for leading AI platforms.
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Overview
 
-**Use your preferred IDE**
+The Financial Engineering & Advisory Prompts Reference hub serves as a central knowledge base for specialized AI prompts categorized by domain and platform. It helps professionals leverage AI for complex financial modeling, strategic analysis, market research, risk contagion modeling, taxation strategies, and more.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Application Preview
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+<p align="center">
+  <img src="./public/screenshot-home.png" alt="Home Page Full View" width="800" style="border-radius: 8px;" />
+</p>
 
-Follow these steps:
+### Domain Breakdown & AI Platform Coverage
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+<p align="center">
+  <img src="./public/screenshot-hero.png" alt="Hero Stats View" width="800" style="border-radius: 8px;" />
+</p>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 📊 Prompts by Domain
 
-# Step 3: Install the necessary dependencies.
-npm i
+The curated prompts cover the following key domains, essential for navigating the complex financial landscape:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+1. **Corporate Strategy & Growth (260 Prompts)**
+   - McKinsey/Bain/BCG methodologies, digital transformations, market entry analyses.
+2. **Mergers & Acquisitions (78 Prompts)**
+   - LBO models, carve-outs, synergistic planning, operational due diligence, deal refinancings.
+3. **Investment Banking & Equity Research (94 Prompts)**
+   - Fama-French screening, DCF valuations, initiation of coverage strategies, CET1 optimizations.
+4. **Private Equity & Venture Capital (43 Prompts)**
+   - EBITDA growth mandates, DPI restoration strategies, sourcing pipelines.
+5. **Economics & Macroeconomic Analysis (88 Prompts)**
+   - Sovereign asset-liability management, Geoeconomic Fragmentation Index modeling.
+6. **FP&A & Budgeting (98 Prompts)**
+   - Decision-grade continuous forecasting, zero-based budgeting, airport/public sector finance validation.
 
-**Edit a file directly in GitHub**
+## 🤖 Supported AI Platforms
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The prompts are optimized and tested across three major AI platforms for distinct use-cases:
 
-**Use GitHub Codespaces**
+- 🟣 **Perplexity** (500 Prompts) - *76% of total database*
+- 🟠 **Claude** (140 Prompts) - *21% of total database*
+- 🔵 **Google Gemini** (21 Prompts) - *3% of total database*
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 💻 Tech Stack
 
-## What technologies are used for this project?
+This project is built using modern web technologies to ensure a fast, reliable, and smooth user experience:
 
-This project is built with:
+- **Frontend**: [React](https://reactjs.org/) + [Vite](https://vitejs.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **UI Components**: [shadcn-ui](https://ui.shadcn.com/) (using Radix Primitives)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Routing**: [React Router DOM](https://reactrouter.com/)
+- **State/Query Management**: [@tanstack/react-query](https://tanstack.com/query/latest)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🛠️ Getting Started
 
-## How can I deploy this project?
+To run this project locally, follow these steps:
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) (installed via [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) is recommended) and `npm` installed on your machine.
 
-## Can I connect a custom domain to my Lovable project?
+### Installation & Running Locally
 
-Yes, you can!
+1. **Clone the repository:**
+   ```sh
+   git clone <YOUR_GIT_URL>
+   cd <YOUR_PROJECT_NAME>
+   ```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+2. **Install dependencies:**
+   ```sh
+   npm i
+   ```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+3. **Start the development server:**
+   ```sh
+   npm run dev
+   ```
+
+The application will be available at `http://localhost:5173/` (or the port specified by Vite with instant hot-reloading).
+
+## 📂 Repository Structure Navigation
+
+For deeper technical context, check out the specific READMEs inside the sub-directories:
+
+- [`src/README.md`](./src/README.md) - Overview of the source directory.
+- [`src/components/README.md`](./src/components/README.md) - UI components and design system.
+- [`src/data/README.md`](./src/data/README.md) - How prompts are parsed, structured, and queried.
+- [`src/pages/README.md`](./src/pages/README.md) - Documentation on application views.
+
+## 🌐 Deployment & Editing via Lovable
+
+This project is fully compatible with [Lovable](https://lovable.dev/).
+There are several ways of editing your application:
+
+1. **Use Lovable:** Simply visit the Lovable Project and start prompting. Changes will be committed automatically.
+2. **Deploy directly via Lovable:** Click on `Share -> Publish`.
+3. **Use your preferred IDE:** Clone the repo, make edits locally, and push. Lovable will sync automatically.
+
+## 📝 License
+
+© 2026 All Rights Reserved by Kalilur Rahman. Made with 💛.

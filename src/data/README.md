@@ -1,0 +1,55 @@
+# Data Management (`src/data`) Directory
+
+The `data` directory contains the raw prompt content and the TypeScript parsing logic that structures the data for the **Financial Engineering & Advisory Prompts Reference** application.
+
+The logic here handles standardizing disparate data formats (JSON, TXT, inline objects) into a uniform `Prompt` array consumed by the application.
+
+## 📁 Source Files
+
+### 1. `claude-prompts.txt`
+- Contains 140 prompts specifically designed for the Claude AI platform.
+- It is a raw text file where prompts are separated by lines like `PROMPT X - <Title>`.
+- The text file structure is parsed at runtime (or build-time via Vite's `?raw` loader).
+
+### 2. `perplexity-prompts.json`
+- Contains 500 prompts designed for the Perplexity AI platform.
+- It is an array of objects representing an `id`, `title`, `category`, and `content`.
+- It is imported directly as a typed JSON module.
+
+### 3. `prompts.ts`
+The core parser and standardizer. This file is critical for inferring domains, parsing unstructured text, and exposing the unified dataset.
+
+## 🧠 Parsing & Standardization Logic
+
+The `prompts.ts` module handles the following transformations:
+
+### Domain Inference (`inferDomain()`)
+Not all raw prompts come with a standardized domain. The `inferDomain(title, content)` function analyzes the combined text to categorize the prompt into one of the 6 core domains:
+- "Corporate Strategy & Growth"
+- "Mergers & Acquisitions"
+- "Investment Banking & Equity Research"
+- "Private Equity & Venture Capital"
+- "Economics & Macroeconomic Analysis"
+- "FP&A & Budgeting"
+
+It uses strategic keyword matching (e.g., "fp&a", "lbo", "macroeconom", "m&a", "fairness opinion") to automate categorization accurately.
+
+### Parsing Claude Prompts (`parseClaudePrompts()`)
+- It splits the `claudeRaw` string using regular expressions matching the `PROMPT [NUMBER] -` pattern.
+- It extracts the title, removes decorative lines (`---`), and captures the body content.
+- It automatically infers the domain and constructs `Prompt` objects with `platform: "claude"`.
+
+### Normalizing Perplexity Data (`normalizePerplexity()`)
+- Takes the raw JSON array.
+- Truncates overly long titles (using `.slice(0, 80)` or the first ellipsis) to ensure the UI remains clean.
+- Maps the native `category` to a standardized `Domain` (using `categoryToDomain` mapping) or falls back to `inferDomain`.
+- Sets `platform: "perplexity"`.
+
+### Static Gemini Prompts (`geminiPrompts`)
+- Contains 21 statically defined, high-quality prompts curated for Google Gemini.
+- Manually typed and categorized within the file.
+
+## 📤 Exported APIs
+
+- **`getAllPrompts(): Prompt[]`**: Returns the combined, standardized array of all 661 prompts. It caches the result in memory (`_allPrompts`) after the initial parsing.
+- **`getPromptStats()`**: Analyzes the generated dataset and returns aggregated statistics (`total`, `byPlatform`, `byDomain`) used by the `Analytics.tsx` and `Hero.tsx` components for visual breakdowns.
