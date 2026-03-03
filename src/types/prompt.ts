@@ -1,0 +1,42 @@
+export type Platform = "perplexity" | "claude" | "gemini";
+
+export type Domain =
+  | "Corporate Strategy & Growth"
+  | "Mergers & Acquisitions"
+  | "Investment Banking & Equity Research"
+  | "Private Equity & Venture Capital"
+  | "Economics & Macroeconomic Analysis"
+  | "FP&A & Budgeting";
+
+export interface Prompt {
+  id: string;
+  title: string;
+  content: string;
+  category: string;
+  platform: Platform;
+  domain: Domain;
+}
+
+export const DOMAINS: Domain[] = [
+  "Corporate Strategy & Growth",
+  "Mergers & Acquisitions",
+  "Investment Banking & Equity Research",
+  "Private Equity & Venture Capital",
+  "Economics & Macroeconomic Analysis",
+  "FP&A & Budgeting",
+];
+
+export const PLATFORMS: { key: Platform; label: string; icon: string; color: string }[] = [
+  { key: "perplexity", label: "Perplexity", icon: "🟣", color: "hsl(270, 70%, 60%)" },
+  { key: "claude", label: "Claude", icon: "🟠", color: "hsl(25, 90%, 55%)" },
+  { key: "gemini", label: "Google Gemini", icon: "🔵", color: "hsl(210, 80%, 55%)" },
+];
+
+export const DOMAIN_ICONS: Record<Domain, string> = {
+  "Corporate Strategy & Growth": "🏢",
+  "Mergers & Acquisitions": "🤝",
+  "Investment Banking & Equity Research": "📊",
+  "Private Equity & Venture Capital": "💼",
+  "Economics & Macroeconomic Analysis": "🌍",
+  "FP&A & Budgeting": "📈",
+};
