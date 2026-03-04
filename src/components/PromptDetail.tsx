@@ -1,11 +1,13 @@
-import { Copy, Heart, Share2, X } from "lucide-react";
+import { Copy, Heart, Share2, Download } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import type { Prompt } from "@/types/prompt";
 import { DOMAIN_ICONS, PLATFORMS } from "@/types/prompt";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { downloadAsTxt, downloadAsHtml, downloadAsPdf } from "@/utils/downloadPrompt";
 
 interface PromptDetailProps {
   prompt: Prompt | null;
@@ -30,6 +32,13 @@ export function PromptDetail({ prompt, open, onClose, isFavorite, onToggleFavori
     const url = `${window.location.origin}?prompt=${prompt.id}`;
     navigator.clipboard.writeText(url);
     toast.success("Link copied to clipboard!");
+  };
+
+  const downloadData = {
+    title: prompt.title,
+    content: prompt.content,
+    category: prompt.domain,
+    platform: platformInfo?.label || prompt.platform,
   };
 
   return (
@@ -72,6 +81,24 @@ export function PromptDetail({ prompt, open, onClose, isFavorite, onToggleFavori
             <Heart className={cn("h-4 w-4", isFavorite && "fill-gold text-gold")} />
             {isFavorite ? "Saved" : "Save"}
           </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="icon" title="Download prompt">
+                <Download className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => { downloadAsTxt(downloadData); toast.success("Downloaded as TXT"); }}>
+                📄 Download as TXT
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => { downloadAsHtml(downloadData); toast.success("Downloaded as HTML"); }}>
+                🌐 Download as HTML
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => { downloadAsPdf(downloadData); toast.info("Print dialog opened — save as PDF"); }}>
+                📑 Download as PDF
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Button variant="outline" size="icon" onClick={handleShare}>
             <Share2 className="h-4 w-4" />
           </Button>

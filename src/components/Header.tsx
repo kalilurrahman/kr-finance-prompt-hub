@@ -38,7 +38,12 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
           </a>
         </nav>
 
-        {/* Search + Favorites + Theme */}
+        {/* Theme Pills */}
+        <div className="hidden xl:flex">
+          <ThemeSwitcher variant="pills" />
+        </div>
+
+        {/* Search + Favorites + Theme (icon for smaller screens) */}
         <div className="flex items-center gap-2 flex-1 max-w-md">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -63,7 +68,9 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
               </span>
             )}
           </Button>
-          <ThemeSwitcher variant="icon" />
+          <div className="xl:hidden">
+            <ThemeSwitcher variant="icon" />
+          </div>
         </div>
       </div>
     </header>

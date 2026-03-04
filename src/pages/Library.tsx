@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useTerminalPrompts } from "@/hooks/useTerminalPrompts";
 import { useTerminalFavorites } from "@/hooks/useTerminalFavorites";
 import { useTerminalSearch } from "@/hooks/useTerminalSearch";
+import { downloadAsTxt, downloadAsHtml, downloadAsPdf } from "@/utils/downloadPrompt";
 import type { TerminalPrompt } from "@/types/terminal";
 import { TERMINAL_CATEGORIES } from "@/types/terminal";
 import { Header } from "@/components/Header";
@@ -368,7 +369,7 @@ export default function Library() {
                 ))}
               </div>
               {/* Card Preview */}
-              <div className="px-4 py-2 text-[11px] text-[var(--t-text-secondary)] leading-[1.6] flex-1">
+              <div className="px-4 py-2 text-[11px] text-[var(--text-secondary,var(--t-text-secondary))] leading-[1.6] flex-1" style={{ color: "var(--t-text-secondary)" }}>
                 {prompt.prompt_text.slice(0, 140)}...
               </div>
               {/* Card Footer */}
@@ -490,7 +491,7 @@ export default function Library() {
               </div>
             </div>
             {/* Modal Footer */}
-            <div className="px-5 py-3.5 border-t border-[var(--t-border)] flex items-center gap-2.5 bg-[var(--t-bg-3)]">
+            <div className="px-5 py-3.5 border-t border-[var(--t-border)] flex items-center gap-2.5 bg-[var(--t-bg-3)] flex-wrap">
               <button
                 onClick={() => copyPrompt(modalPrompt, true)}
                 className={`border-none text-[11px] font-bold px-6 py-2.5 cursor-pointer tracking-[0.12em] uppercase transition-all ${
@@ -510,6 +511,25 @@ export default function Library() {
                 }`}
               >
                 {isFav(modalPrompt.id) ? "★ SAVED" : "☆ FAVORITE"}
+              </button>
+              {/* Download buttons */}
+              <button
+                onClick={() => downloadAsTxt({ title: modalPrompt.title, content: modalPrompt.prompt_text, category: modalPrompt.category, platform: "FINPROMPT" })}
+                className="bg-transparent border border-[var(--t-border)] text-[var(--t-text-muted)] text-[10px] px-3 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)]"
+              >
+                ↓ TXT
+              </button>
+              <button
+                onClick={() => downloadAsHtml({ title: modalPrompt.title, content: modalPrompt.prompt_text, category: modalPrompt.category, platform: "FINPROMPT" })}
+                className="bg-transparent border border-[var(--t-border)] text-[var(--t-text-muted)] text-[10px] px-3 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)]"
+              >
+                ↓ HTML
+              </button>
+              <button
+                onClick={() => downloadAsPdf({ title: modalPrompt.title, content: modalPrompt.prompt_text, category: modalPrompt.category, platform: "FINPROMPT" })}
+                className="bg-transparent border border-[var(--t-border)] text-[var(--t-text-muted)] text-[10px] px-3 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)]"
+              >
+                ↓ PDF
               </button>
               <span className="ml-auto text-[10px] text-[var(--t-text-muted)]">
                 {modalPrompt.prompt_text.length} chars
