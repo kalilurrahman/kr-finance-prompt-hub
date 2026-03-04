@@ -36,7 +36,10 @@ function inferDomain(title: string, content: string): Domain {
 
 function parseClaudePrompts(raw: string): Prompt[] {
   const prompts: Prompt[] = [];
-  const sections = raw.split(/\nPROMPT\s+(\d+)\s*[—–-]\s*/);
+  // More permissive regex: match PROMPT followed by number and any dash-like char
+  const sections = raw.split(/\nPROMPT\s+0*(\d+)\s*[—–\-\u2014\u2013]+\s*/);
+
+  console.log(`[FinPrompt] Claude raw length: ${raw.length}, split sections: ${sections.length}, expected prompts: ${Math.floor((sections.length - 1) / 2)}`);
 
   for (let i = 1; i < sections.length; i += 2) {
     const num = parseInt(sections[i]);
@@ -46,9 +49,10 @@ function parseClaudePrompts(raw: string): Prompt[] {
     const lines = body.trim().split("\n");
     const title = lines[0]?.replace(/^[─\-─]+$/, "").trim() || `Claude Prompt ${num}`;
 
+    // Find separator line (series of dashes/box-drawing chars), or default to line 1
     let contentStart = 1;
-    for (let j = 1; j < lines.length; j++) {
-      if (/^[─\-]+$/.test(lines[j].trim())) {
+    for (let j = 1; j < Math.min(lines.length, 5); j++) {
+      if (/^[─\-─═]+$/.test(lines[j].trim())) {
         contentStart = j + 1;
         break;
       }
@@ -69,6 +73,7 @@ function parseClaudePrompts(raw: string): Prompt[] {
     });
   }
 
+  console.log(`[FinPrompt] Claude prompts parsed: ${prompts.length}`);
   return prompts;
 }
 
@@ -113,6 +118,8 @@ export function getAllPrompts(): Prompt[] {
   const perplexity = normalizePerplexity(perplexityRaw);
   const gemini = normalizeGemini(geminiRaw);
   const claude = parseClaudePrompts(claudeRaw);
+
+  console.log(`[FinPrompt] Counts — Claude: ${claude.length}, Gemini: ${gemini.length}, Perplexity: ${perplexity.length}, Total: ${claude.length + gemini.length + perplexity.length}`);
 
   _allPrompts = [...claude, ...gemini, ...perplexity];
   return _allPrompts;
