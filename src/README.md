@@ -15,11 +15,15 @@ It is structured to separate concerns, making the codebase scalable and easy to 
 Here's what each directory handles:
 
 - **[`components/`](./components/README.md)**: Reusable React components that make up the user interface (e.g., headers, footers, prompt cards, and filter bars). It also includes foundational elements built with `shadcn-ui`.
+- **`contexts/`**: React contexts for managing global application state, such as `ThemeContext` (if applicable) and other providers.
 - **[`data/`](./data/README.md)**: Contains the raw prompt data files (`.json`, `.txt`) and the TypeScript logic (`prompts.ts`) responsible for parsing, inferring domains, and standardizing prompt structures across different AI platforms.
 - **`hooks/`**: Custom React hooks (e.g., `use-toast.ts`, `use-mobile.tsx`) for managing UI state and reusable side effects.
 - **`lib/`**: Utility functions (e.g., `utils.ts` for class merging) that are used across the application.
-- **[`pages/`](./pages/README.md)**: Top-level route components that represent full application views (e.g., the main `Index.tsx` dashboard and the `NotFound.tsx` fallback).
+- **[`pages/`](./pages/README.md)**: Top-level route components that represent full application views (e.g., the main `Index.tsx` dashboard, `Library.tsx` for exploring prompts, and the `NotFound.tsx` fallback).
+- **`styles/`**: Additional or custom stylesheets that supplement the main `index.css`.
+- **`test/`**: Contains testing configuration and setup files (like `setup.ts` for vitest).
 - **`types/`**: Application-wide TypeScript definitions ensuring type safety (e.g., `prompt.ts` which defines the structure of a `Prompt`, its `Domain`, and `Platform`).
+- **`utils/`**: Helper utilities and functions that may not fit neatly into `lib/`.
 
 ## 🛠️ Key Entry Files
 

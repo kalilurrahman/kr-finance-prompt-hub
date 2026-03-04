@@ -6,18 +6,22 @@ The logic here handles standardizing disparate data formats (JSON, TXT, inline o
 
 ## 📁 Source Files
 
-### 1. `claude-prompts.txt`
-- Contains 140 prompts specifically designed for the Claude AI platform.
+### 1. `claude-prompts-full.txt`
+- Contains prompts specifically designed for the Claude AI platform.
 - It is a raw text file where prompts are separated by lines like `PROMPT X - <Title>`.
 - The text file structure is parsed at runtime (or build-time via Vite's `?raw` loader).
 
 ### 2. `perplexity-prompts.json`
-- Contains 500 prompts designed for the Perplexity AI platform.
+- Contains structured prompts designed for the Perplexity AI platform.
 - It is an array of objects representing an `id`, `title`, `category`, and `content`.
 - It is imported directly as a typed JSON module.
 
-### 3. `prompts.ts`
-The core parser and standardizer. This file is critical for inferring domains, parsing unstructured text, and exposing the unified dataset.
+### 3. `prompts-library.json`
+- Contains structured prompts specifically designed for Google Gemini.
+- Uses fields like `id`, `title`, `category`, and `prompt_text`.
+
+### 4. `prompts.ts`
+The core parser and standardizer. This file is critical for inferring domains, parsing unstructured text, mapping disparate object keys (like `prompt_text` vs `content`), and exposing the unified dataset.
 
 ## 🧠 Parsing & Standardization Logic
 
@@ -40,14 +44,16 @@ It uses strategic keyword matching (e.g., "fp&a", "lbo", "macroeconom", "m&a", "
 - It automatically infers the domain and constructs `Prompt` objects with `platform: "claude"`.
 
 ### Normalizing Perplexity Data (`normalizePerplexity()`)
-- Takes the raw JSON array.
+- Takes the raw JSON array (`perplexity-prompts.json`).
 - Truncates overly long titles (using `.slice(0, 80)` or the first ellipsis) to ensure the UI remains clean.
 - Maps the native `category` to a standardized `Domain` (using `categoryToDomain` mapping) or falls back to `inferDomain`.
 - Sets `platform: "perplexity"`.
 
-### Static Gemini Prompts (`geminiPrompts`)
-- Contains 21 statically defined, high-quality prompts curated for Google Gemini.
-- Manually typed and categorized within the file.
+### Normalizing Gemini Data (`normalizeGemini()`)
+- Normalizes objects from `prompts-library.json` specifically curated for Google Gemini.
+- Maps the `prompt_text` key to the uniform `content` key.
+- Resolves domains through mapping or fallback keyword inference.
+- Sets `platform: "gemini"`.
 
 ## 📤 Exported APIs
 
