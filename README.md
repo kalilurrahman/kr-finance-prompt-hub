@@ -31,6 +31,14 @@ The Financial Engineering & Advisory Prompts Reference hub serves as a central k
   <img src="./public/screenshot-hero.png" alt="Hero Stats View" width="800" style="border-radius: 8px;" />
 </p>
 
+### FINPROMPT Library
+
+The **[Prompt Library](https://kr-finance-prompt-hub.lovable.app/library)** page provides a full searchable, filterable grid of all 661+ prompts, allowing users to drill down by AI Platform and Domain. It provides an immersive experience to quickly find the exact financial engineering or advisory prompt you need.
+
+<p align="center">
+  <img src="./public/screenshot-library.png" alt="Prompt Library View" width="800" style="border-radius: 8px;" />
+</p>
+
 ## 📊 Prompts by Domain
 
 The curated prompts cover the following key domains, essential for navigating the complex financial landscape:
