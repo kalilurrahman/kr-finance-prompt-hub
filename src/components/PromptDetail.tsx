@@ -1,7 +1,6 @@
 import { Copy, Heart, Share2, Download } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import type { Prompt } from "@/types/prompt";
 import { DOMAIN_ICONS, PLATFORMS } from "@/types/prompt";
@@ -43,7 +42,7 @@ export function PromptDetail({ prompt, open, onClose, isFavorite, onToggleFavori
 
   return (
     <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
-      <DialogContent className="max-w-2xl max-h-[85vh] flex flex-col border-border/50 bg-card p-0 overflow-hidden">
+      <DialogContent className="max-w-2xl max-h-[85vh] !flex !flex-col border-border/50 bg-card p-0 overflow-hidden">
         <DialogHeader className="border-b border-border/30 px-6 pt-6 pb-4">
           <div className="flex items-start gap-3">
             <span className="mt-1 text-2xl">{domainIcon}</span>
@@ -66,11 +65,11 @@ export function PromptDetail({ prompt, open, onClose, isFavorite, onToggleFavori
           </div>
         </DialogHeader>
 
-        <ScrollArea className="flex-1 min-h-0 px-6 py-4" style={{ maxHeight: 'calc(85vh - 180px)' }}>
+        <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-6 py-4">
           <div className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-foreground/90 pr-4">
             {prompt.content}
           </div>
-        </ScrollArea>
+        </div>
 
         {/* Actions */}
         <div className="flex items-center gap-2 border-t border-border/30 px-6 py-4">
