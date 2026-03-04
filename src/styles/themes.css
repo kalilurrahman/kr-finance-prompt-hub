@@ -1,0 +1,117 @@
+/* ============================================================
+   FINPROMPT — themes.css   (Lovable / Tailwind compatible)
+   Path:   src/styles/themes.css
+   Import: add  @import './styles/themes.css';  to src/index.css
+
+   Tailwind integration — add to tailwind.config.ts theme.extend:
+
+   colors: {
+     bg0: 'var(--bg-0)', bg1: 'var(--bg-1)', bg2: 'var(--bg-2)',
+     bg3: 'var(--bg-3)', bg4: 'var(--bg-4)',
+     accent: { DEFAULT: 'var(--accent)', dim: 'var(--accent-dim)' },
+     tp: 'var(--text-primary)',
+     ts: 'var(--text-secondary)',
+     tm: 'var(--text-muted)',
+   },
+   borderColor: { theme: 'var(--border)', bright: 'var(--border-bright)' },
+   ============================================================ */
+
+:root,
+[data-theme="terminal"] {
+  --bg-0:#060a0f; --bg-1:#0a0e14; --bg-2:#0e1520; --bg-3:#141c2a; --bg-4:#1a2333;
+  --accent:#ffb800; --accent-dim:#cc9400; --accent-glow:rgba(255,184,0,0.15); --accent-contrast:#000;
+  --success:#00d68f; --danger:#ff4b4b; --info:#4da6ff;
+  --border:rgba(255,184,0,0.12); --border-bright:rgba(255,184,0,0.35);
+  --text-primary:#e8e0cc; --text-secondary:#8a8070; --text-muted:#4a4540;
+  --card-bg:#0e1520; --card-hover:#141c2a;
+  --header-bg:rgba(6,10,15,0.97); --footer-bg:#060a0f; --footer-text:#8a8070;
+  --tag-bg:rgba(255,184,0,0.07); --tag-border:rgba(255,184,0,0.20); --tag-text:#cc9400;
+  --badge-claude:#b45309; --badge-perplexity:#6d28d9; --badge-chatgpt:#065f46;
+  --badge-gemini:#1e40af; --badge-general:#374151;
+  --scrollbar-thumb:#cc9400; --scanlines:0.025;
+  color-scheme:dark;
+}
+
+[data-theme="matrix"] {
+  --bg-0:#000; --bg-1:#020804; --bg-2:#041008; --bg-3:#061a0c; --bg-4:#0a2414;
+  --accent:#00ff41; --accent-dim:#00cc33; --accent-glow:rgba(0,255,65,0.12); --accent-contrast:#000;
+  --success:#00ff41; --danger:#ff4b4b; --info:#00d4ff;
+  --border:rgba(0,255,65,0.10); --border-bright:rgba(0,255,65,0.30);
+  --text-primary:#ccffe0; --text-secondary:#4dcc70; --text-muted:#1a5c2e;
+  --card-bg:#041008; --card-hover:#061a0c;
+  --header-bg:rgba(0,0,0,0.97); --footer-bg:#000; --footer-text:#4dcc70;
+  --tag-bg:rgba(0,255,65,0.06); --tag-border:rgba(0,255,65,0.18); --tag-text:#00cc33;
+  --badge-claude:#f59e0b; --badge-perplexity:#8b5cf6; --badge-chatgpt:#10b981;
+  --badge-gemini:#3b82f6; --badge-general:#374151;
+  --scrollbar-thumb:#00cc33; --scanlines:0.04;
+  color-scheme:dark;
+}
+
+[data-theme="arctic"] {
+  --bg-0:#eef2f7; --bg-1:#f8fafc; --bg-2:#fff; --bg-3:#e2eaf2; --bg-4:#cdd8e5;
+  --accent:#0057b8; --accent-dim:#004494; --accent-glow:rgba(0,87,184,0.10); --accent-contrast:#fff;
+  --success:#0a7c4e; --danger:#cc1e1e; --info:#0057b8;
+  --border:rgba(0,87,184,0.12); --border-bright:rgba(0,87,184,0.30);
+  --text-primary:#0f1f33; --text-secondary:#3d5470; --text-muted:#7a94aa;
+  --card-bg:#fff; --card-hover:#eef2f7;
+  --header-bg:rgba(248,250,252,0.97); --footer-bg:#0f1f33; --footer-text:#94a3b8;
+  --tag-bg:rgba(0,87,184,0.06); --tag-border:rgba(0,87,184,0.18); --tag-text:#004494;
+  --badge-claude:#b45309; --badge-perplexity:#6d28d9; --badge-chatgpt:#065f46;
+  --badge-gemini:#1e40af; --badge-general:#6b7280;
+  --scrollbar-thumb:#7a94aa; --scanlines:0;
+  color-scheme:light;
+}
+
+[data-theme="crimson"] {
+  --bg-0:#0c0608; --bg-1:#120a0c; --bg-2:#1a0e12; --bg-3:#221418; --bg-4:#2c1c22;
+  --accent:#e8304a; --accent-dim:#c0243c; --accent-glow:rgba(232,48,74,0.15); --accent-contrast:#fff;
+  --success:#00d68f; --danger:#ff6b6b; --info:#4da6ff;
+  --border:rgba(232,48,74,0.12); --border-bright:rgba(232,48,74,0.32);
+  --text-primary:#f0e0e4; --text-secondary:#9a7080; --text-muted:#5a3840;
+  --card-bg:#1a0e12; --card-hover:#221418;
+  --header-bg:rgba(12,6,8,0.97); --footer-bg:#0c0608; --footer-text:#9a7080;
+  --tag-bg:rgba(232,48,74,0.07); --tag-border:rgba(232,48,74,0.20); --tag-text:#c0243c;
+  --badge-claude:#f59e0b; --badge-perplexity:#a78bfa; --badge-chatgpt:#34d399;
+  --badge-gemini:#60a5fa; --badge-general:#6b7280;
+  --scrollbar-thumb:#c0243c; --scanlines:0.025;
+  color-scheme:dark;
+}
+
+[data-theme="slate"] {
+  --bg-0:#0d1117; --bg-1:#161b22; --bg-2:#1c2330; --bg-3:#222d3d; --bg-4:#2a374a;
+  --accent:#58a6ff; --accent-dim:#388bfd; --accent-glow:rgba(88,166,255,0.12); --accent-contrast:#000;
+  --success:#3fb950; --danger:#f85149; --info:#79c0ff;
+  --border:rgba(88,166,255,0.10); --border-bright:rgba(88,166,255,0.28);
+  --text-primary:#e6edf3; --text-secondary:#8b949e; --text-muted:#484f58;
+  --card-bg:#1c2330; --card-hover:#222d3d;
+  --header-bg:rgba(13,17,23,0.97); --footer-bg:#0d1117; --footer-text:#8b949e;
+  --tag-bg:rgba(88,166,255,0.07); --tag-border:rgba(88,166,255,0.18); --tag-text:#388bfd;
+  --badge-claude:#f0883e; --badge-perplexity:#bc8cff; --badge-chatgpt:#56d364;
+  --badge-gemini:#79c0ff; --badge-general:#6e7681;
+  --scrollbar-thumb:#388bfd; --scanlines:0;
+  color-scheme:dark;
+}
+
+/* ── GLOBAL ── */
+::-webkit-scrollbar { width:5px; height:5px; }
+::-webkit-scrollbar-track { background:var(--bg-1); }
+::-webkit-scrollbar-thumb { background:var(--scrollbar-thumb); border-radius:2px; }
+
+body { background-color:var(--bg-0); color:var(--text-primary); }
+
+/* Scanlines overlay — only visible when --scanlines > 0 */
+body::after {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:9998;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,
+    rgba(0,0,0,var(--scanlines,0)) 2px,rgba(0,0,0,var(--scanlines,0)) 4px);
+}
+
+/* Smooth theme transitions */
+body, header, nav, footer, aside, main { transition:background-color .25s ease, color .15s ease; }
+
+/* Source badge classes — use with font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 */
+.badge-claude      { background-color:var(--badge-claude);     color:#fff; }
+.badge-perplexity  { background-color:var(--badge-perplexity); color:#fff; }
+.badge-chatgpt     { background-color:var(--badge-chatgpt);    color:#fff; }
+.badge-gemini      { background-color:var(--badge-gemini);     color:#fff; }
+.badge-general     { background-color:var(--badge-general);    color:#fff; }
