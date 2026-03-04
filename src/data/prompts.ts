@@ -75,7 +75,7 @@ function normalizeGemini(raw: typeof geminiRaw): Prompt[] {
       title: shortTitle,
       content: p.content,
       category: p.category,
-      platform: "gemini" as Platform,
+      platform: "perplexity" as Platform,
       domain,
     };
   });
