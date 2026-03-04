@@ -1,79 +1,38 @@
 
+Goal: fix the landing-page prompt modal so long prompt content is always scrollable (without affecting Copy/Download/Favorite actions).
 
-# Financial Engineering & Advisory Prompts Reference — PWA
+What I found:
+- The landing page modal uses `PromptDetail` (`src/components/PromptDetail.tsx`).
+- It currently relies on Radix `ScrollArea` with `maxHeight` but no guaranteed fixed inner height.
+- `DialogContent` base component includes `grid` by default (`src/components/ui/dialog.tsx`), while `PromptDetail` tries to use `flex`. This can create layout ambiguity and prevent the scroll region from getting a proper constrained height.
+- FINPROMPT’s modal works because it uses a simple, explicit pattern: `max-h[...] + flex flex-col + body flex-1 overflow-y-auto`.
 
-## Overview
-A beautiful, mobile-first PWA reference app containing ~1,500 curated Senior Partner/MD-level finance & economics prompts across three AI platforms (Perplexity, Claude, Google Gemini). Styled to match the dark/gold theme of your existing portfolio sites (kalilurrahman.lovable.app / kr-quantum-hub.lovable.app).
+Implementation plan:
+1. Update `src/components/PromptDetail.tsx` modal layout to a deterministic flex structure.
+   - Force dialog container to flex-column (`!flex !flex-col`) and keep `max-h-[85vh] overflow-hidden`.
+   - Keep header fixed at top and actions fixed at bottom.
 
----
+2. Replace the current `ScrollArea` usage in `PromptDetail` with a native scroll body:
+   - Use a middle wrapper like `className="flex-1 min-h-0 overflow-y-auto px-6 py-4"`.
+   - Keep the prompt text block inside (`whitespace-pre-wrap`, mono font, readable line height).
+   - This mirrors the working FINPROMPT modal behavior and avoids Radix height edge-cases.
 
-## Design & Theme
-- **Dark mode default** with gold accents, matching your existing portfolio brand
-- **Theme switcher**: Dark, Light, Sepia, Midnight (consistent with your other sites)
-- **Header**: "KR" logo + "KALILUR RAHMAN" branding, nav links (HOME → portfolio site, Knowledge Hub, AI Agents, Digital Hub, Q-Ref → Quantum Hub), search bar, favorites toggle
-- **Footer**: Consistent with portfolio site footer — social links, copyright, "Made with ❤️ by Kalilur Rahman"
-- **PWA**: Installable from browser, offline-ready with service worker caching all prompt data
+3. Keep all action buttons unchanged.
+   - Copy/Save/Download/Share section remains exactly as-is in behavior and location.
 
----
+4. (Optional hardening) If needed after step 2, add `overscroll-contain` to the scrollable content area to prevent scroll-chain issues on trackpads/mobile.
 
-## Core Features
+5. Verification checklist after change:
+   - On `/`, open “The Lazard Due Diligence Orchestration & Red Flag Tracker”.
+   - Confirm full prompt can be scrolled top-to-bottom with mouse wheel, trackpad, and scrollbar drag.
+   - Confirm footer actions remain visible/pinned.
+   - Confirm modal close button and overlay-close still work.
+   - Quick responsive check at mobile width to ensure scrolling still works.
 
-### 1. Hero Section
-- Animated title: "Financial Engineering & Advisory *Prompts* Reference"
-- Subtitle: "Your executive prompt compendium. 1,500+ curated prompts across 3 AI platforms."
-- Status badge: "● 1,500+ curated prompts · Offline ready"
+Why this will fix it:
+- The failure mode is layout/height constraint, not button logic.
+- Native `overflow-y-auto` inside a guaranteed `flex-1 min-h-0` container is the most reliable pattern in this codebase (already proven in `Library.tsx`).
 
-### 2. Multi-Level Filtering System
-- **By AI Platform** (tab row with icons): All Platforms | 🟣 Perplexity | 🟠 Claude | 🔵 Google Gemini
-- **By Domain** (category pills): All Domains | Corporate Strategy & Growth | Mergers & Acquisitions | Investment Banking & Equity Research | Private Equity & Venture Capital | Economics & Macroeconomic Analysis | FP&A & Budgeting
-- **Live search bar** with keyboard shortcut (press /)
-- **Counter**: "X prompts · Y showing"
-
-### 3. Prompt Cards Grid
-- Responsive grid (4 columns desktop → 2 tablet → 1 mobile)
-- Each card shows: category icon, prompt title (truncated), AI platform badge, domain tag, preview snippet
-- Click to expand full prompt in a modal/drawer
-- **Copy to clipboard** button on each prompt
-- **Save to favorites** (heart icon, persisted in localStorage)
-
-### 4. Prompt Detail View (Modal/Drawer)
-- Full prompt text with proper formatting
-- AI platform indicator with color coding
-- Domain & sub-category tags
-- Copy button (copies full prompt text)
-- Favorite toggle
-- Share button (copy link)
-
-### 5. Favorites Section
-- Toggle to view only saved/favorited prompts
-- Persisted in localStorage for offline access
-
-### 6. Analytics Dashboard (Top Section)
-- Horizontal bar chart showing prompt count by domain (similar to the Google Gemini HTML reference)
-- Platform distribution donut/pie chart
-
----
-
-## Data Organization
-All prompt data stored as static JSON files in `src/data/`:
-- `perplexity-prompts.json` — 500 prompts (from uploaded JSON)
-- `claude-prompts.json` — 500 prompts (parsed from TXT file)
-- `gemini-prompts.json` — 500 prompts (parsed from PDF)
-
-Each prompt normalized to: `{ id, title, content, category, platform, domain }`
-
----
-
-## Pages & Routes
-- `/` — Main prompt reference (hero + filters + grid)
-- `/favorites` — Saved prompts view
-- `/install` — PWA install prompt page
-
----
-
-## Mobile Experience
-- Bottom navigation bar on mobile for quick access
-- Swipe-friendly card interactions
-- Full-screen prompt reader mode
-- Touch-optimized filter chips
-
+Files involved:
+- `src/components/PromptDetail.tsx` (primary fix)
+- No changes expected in `src/components/ui/dialog.tsx` unless fallback is needed
