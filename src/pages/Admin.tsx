@@ -6,12 +6,9 @@ import { fixPerplexityLabels } from "@/lib/promptSource";
 
 export default function Admin() {
   const { clear: clearFavs } = useTerminalFavorites();
-  const [sbUrl, setSbUrl] = useState(() => {
-    try { return JSON.parse(localStorage.getItem("finprompt_config") || "{}").url || ""; } catch { return ""; }
-  });
-  const [sbKey, setSbKey] = useState(() => {
-    try { return JSON.parse(localStorage.getItem("finprompt_config") || "{}").key || ""; } catch { return ""; }
-  });
+  // Credentials are session-only — never persisted to localStorage
+  const [sbUrl, setSbUrl] = useState("");
+  const [sbKey, setSbKey] = useState("");
   const [logs, setLogs] = useState<{ type: "ok" | "err" | "info" | "dim"; msg: string }[]>([
     { type: "dim", msg: "// Waiting for operation..." },
   ]);
@@ -25,11 +22,6 @@ export default function Admin() {
   const log = useCallback((type: "ok" | "err" | "info" | "dim", msg: string) => {
     setLogs((prev) => [...prev, { type, msg }]);
   }, []);
-
-  const saveConfig = () => {
-    localStorage.setItem("finprompt_config", JSON.stringify({ url: sbUrl, key: sbKey }));
-    log("ok", "Configuration saved to localStorage");
-  };
 
   const handleFile = (file: File) => {
     const reader = new FileReader();
@@ -145,10 +137,10 @@ CREATE POLICY "Public read" ON prompts FOR SELECT USING (true);`;
               CONNECT TO SUPABASE
             </button>
             <button
-              onClick={saveConfig}
+              onClick={() => log("info", "Credentials are session-only and will not be persisted.")}
               className="bg-[var(--t-bg-4)] text-[var(--t-text-secondary)] border border-[var(--t-border)] text-xs px-7 py-3 cursor-pointer tracking-[0.12em] uppercase transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)]"
             >
-              SAVE CONFIG
+              SESSION ONLY
             </button>
           </div>
           <div className="mt-4">
