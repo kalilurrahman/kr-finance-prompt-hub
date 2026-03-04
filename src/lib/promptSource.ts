@@ -8,7 +8,8 @@
 // 3. SQL alternative if you prefer to run it in Supabase directly
 // ============================================================
 
-import { supabase } from './supabase';
+// supabase import removed — Lovable Cloud not enabled
+// import { supabase } from './supabase';
 
 // ── Types ────────────────────────────────────────────────────
 export type PromptSource = 'claude' | 'perplexity' | 'chatgpt' | 'gemini' | 'grok' | 'general';
@@ -90,84 +91,12 @@ export function getSourceMeta(source?: string | null): SourceMeta {
  */
 export async function fixPerplexityLabels(
   onProgress?: (msg: string) => void,
-  explicitIds?: number[]
+  _explicitIds?: number[]
 ): Promise<{ fixed: number; skipped: number; errors: number }> {
   const log = (msg: string) => onProgress?.(msg);
-
-  log('→ Fetching prompts currently labeled as "claude"...');
-
-  const { data, error } = await supabase
-    .from('prompts')
-    .select('id, title, prompt_text, tags, prompt_source')
-    .eq('prompt_source', 'claude');
-
-  if (error) {
-    log(`[ERR] ${error.message}`);
-    return { fixed: 0, skipped: 0, errors: 1 };
-  }
-
-  const candidates = data ?? [];
-  log(`→ ${candidates.length} records labeled 'claude'. Running heuristic...`);
-
-  const toFix: number[] = [];
-
-  for (const p of candidates) {
-    // Explicit ID override
-    if (explicitIds?.length && explicitIds.includes(p.id)) {
-      toFix.push(p.id);
-      continue;
-    }
-
-    const text  = (p.prompt_text ?? '').toLowerCase();
-    const title = (p.title ?? '').toLowerCase();
-    const tags: string[] = p.tags ?? [];
-
-    // Perplexity-style patterns: web search, citations, real-time
-    const isPerplexity =
-      tags.some((t: string) => t.toLowerCase().includes('perplexity')) ||
-      title.includes('perplexity') ||
-      text.includes('perplexity') ||
-      text.includes('search the web') ||
-      text.includes('web search') ||
-      text.includes('real-time data') ||
-      text.includes('real-time information') ||
-      text.includes('browse the web') ||
-      text.includes('latest news') ||
-      // Citations pattern common in Perplexity prompts
-      (text.includes('cite') && (text.includes('source') || text.includes('reference'))) ||
-      (text.includes('[') && text.includes(']') && text.includes('http'));
-
-    if (isPerplexity) toFix.push(p.id);
-  }
-
-  log(`→ ${toFix.length} records identified as Perplexity. Updating...`);
-
-  if (toFix.length === 0) {
-    log('→ Nothing to fix. Pass explicitIds if you know specific IDs.');
-    return { fixed: 0, skipped: candidates.length, errors: 0 };
-  }
-
-  const CHUNK = 100;
-  let fixed = 0, errors = 0;
-
-  for (let i = 0; i < toFix.length; i += CHUNK) {
-    const chunk = toFix.slice(i, i + CHUNK);
-    const { error: err } = await supabase
-      .from('prompts')
-      .update({ prompt_source: 'perplexity' })
-      .in('id', chunk);
-
-    if (err) {
-      log(`[ERR] chunk ${Math.floor(i / CHUNK) + 1}: ${err.message}`);
-      errors += chunk.length;
-    } else {
-      fixed += chunk.length;
-      log(`[OK] Updated IDs ${chunk[0]}–${chunk[chunk.length - 1]}`);
-    }
-  }
-
-  log(`→ Complete. Fixed: ${fixed}  |  Errors: ${errors}  |  Unchanged: ${candidates.length - toFix.length}`);
-  return { fixed, skipped: candidates.length - toFix.length, errors };
+  log('→ Supabase not connected — Lovable Cloud is disabled.');
+  log('[ERR] Enable Lovable Cloud to run this migration.');
+  return { fixed: 0, skipped: 0, errors: 1 };
 }
 
 // ── SQL alternative (run in Supabase SQL Editor) ─────────────

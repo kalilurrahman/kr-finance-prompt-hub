@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import type { TerminalPrompt } from "@/types/terminal";
 import { useTerminalFavorites } from "@/hooks/useTerminalFavorites";
+import { fixPerplexityLabels } from "@/lib/promptSource";
 
 export default function Admin() {
   const { clear: clearFavs } = useTerminalFavorites();
@@ -237,6 +238,9 @@ CREATE POLICY "Public read" ON prompts FOR SELECT USING (true);`;
             Danger Zone
           </h2>
           <p className="text-[11px] text-[var(--t-text-muted)] mb-3.5">These operations are irreversible.</p>
+          <div className="flex gap-2.5 flex-wrap mb-4">
+            <FixPerplexityButton onLog={log} />
+          </div>
           <div className="flex gap-2.5 flex-wrap">
             <button
               onClick={clearFavorites}
@@ -254,5 +258,26 @@ CREATE POLICY "Public read" ON prompts FOR SELECT USING (true);`;
         </section>
       </main>
     </div>
+  );
+}
+
+function FixPerplexityButton({ onLog }: { onLog: (type: "ok" | "err" | "info" | "dim", msg: string) => void }) {
+  const [status, setStatus] = useState<"idle" | "running" | "done">("idle");
+  const handleClick = async () => {
+    setStatus("running");
+    await fixPerplexityLabels((msg) => {
+      const type = msg.startsWith("[ERR]") ? "err" as const : msg.startsWith("[OK]") ? "ok" as const : "info" as const;
+      onLog(type, msg);
+    });
+    setStatus("done");
+  };
+  return (
+    <button
+      onClick={handleClick}
+      disabled={status === "running"}
+      className="bg-[var(--t-amber)] text-black border-none text-xs font-bold px-7 py-3 cursor-pointer tracking-[0.12em] uppercase transition-all hover:brightness-110 disabled:opacity-60 disabled:cursor-not-allowed"
+    >
+      {status === "idle" ? "FIX PERPLEXITY LABELS" : status === "running" ? "RUNNING..." : "DONE ✓"}
+    </button>
   );
 }
