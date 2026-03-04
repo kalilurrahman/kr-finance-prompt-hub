@@ -13,6 +13,9 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
+  optimizeDeps: {
+    force: true,
+  },
   plugins: [
     react(),
     mode === "development" && componentTagger(),
@@ -27,7 +30,7 @@ export default defineConfig(({ mode }) => ({
       manifest: {
         name: "KR Financial Prompts Reference",
         short_name: "KR Prompts",
-        description: "1,500+ curated Senior Partner/MD-level finance & economics prompts",
+        description: "1,120+ curated Senior Partner/MD-level finance & economics prompts",
         start_url: "/",
         display: "standalone",
         background_color: "#060a0f",
