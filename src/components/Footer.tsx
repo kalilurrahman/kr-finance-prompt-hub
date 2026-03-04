@@ -20,8 +20,8 @@ export function Footer() {
           <div className="flex items-center gap-3">
             <SocialLink href="https://github.com/kalilurrahman" icon={<Github className="h-4 w-4" />} />
             <SocialLink href="https://linkedin.com/in/kalilurrahman" icon={<Linkedin className="h-4 w-4" />} />
-            <SocialLink href="https://twitter.com/kalilurrahman" icon={<Twitter className="h-4 w-4" />} />
-            <SocialLink href="mailto:kalilur.rahman@example.com" icon={<Mail className="h-4 w-4" />} />
+            <SocialLink href="https://twitter.com/krahman" icon={<Twitter className="h-4 w-4" />} />
+            <SocialLink href="mailto:kalilur_r@outlook.com" icon={<Mail className="h-4 w-4" />} />
           </div>
 
           {/* Copyright */}
