@@ -19,7 +19,7 @@ export function Hero() {
           Reference
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-          Your executive prompt compendium. {stats.total.toLocaleString()}+ curated prompts across 2 AI platforms.
+          Your executive prompt compendium. {stats.total.toLocaleString()}+ curated prompts across 3 AI platforms.
         </p>
 
         {/* Status Badge */}
@@ -37,7 +37,7 @@ export function Hero() {
           </span>
           <span className="text-border">·</span>
           <span className="flex items-center gap-1 text-muted-foreground">
-            <Sparkles className="h-3 w-3 text-gold" /> 2 AI platforms
+            <Sparkles className="h-3 w-3 text-gold" /> 3 AI platforms
           </span>
         </div>
       </div>

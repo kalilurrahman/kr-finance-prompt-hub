@@ -1,5 +1,6 @@
 import type { Prompt, Domain, Platform } from "@/types/prompt";
-import geminiRaw from "./perplexity-prompts.json";
+import perplexityRaw from "./perplexity-prompts.json";
+import geminiRaw from "./prompts-library.json";
 import claudeRaw from "./claude-prompts-full.txt?raw";
 
 const categoryToDomain: Record<string, Domain> = {
@@ -9,6 +10,13 @@ const categoryToDomain: Record<string, Domain> = {
   "Private Equity": "Private Equity & Venture Capital",
   Macroeconomics: "Economics & Macroeconomic Analysis",
   "FP&A / Finance": "FP&A & Budgeting",
+  "Corporate Strategy & Growth": "Corporate Strategy & Growth",
+  "Mergers & Acquisitions": "Mergers & Acquisitions",
+  "Investment Banking & Equity Research": "Investment Banking & Equity Research",
+  "Private Equity & Venture Capital": "Private Equity & Venture Capital",
+  "Economics & Macroeconomic Analysis": "Economics & Macroeconomic Analysis",
+  "Financial Planning & Analysis (FP&A)": "FP&A & Budgeting",
+  "FP&A & Budgeting": "FP&A & Budgeting",
 };
 
 function inferDomain(title: string, content: string): Domain {
@@ -64,18 +72,34 @@ function parseClaudePrompts(raw: string): Prompt[] {
   return prompts;
 }
 
+function normalizePerplexity(raw: typeof perplexityRaw): Prompt[] {
+  return (raw as { id: number; title: string; category: string; content: string }[])
+    .filter((p) => p.id <= 120)
+    .map((p) => {
+      const domain = categoryToDomain[p.category] || inferDomain(p.title, p.content);
+      const shortTitle = p.title.length > 80
+        ? p.title.slice(0, p.title.indexOf("...") > 0 ? p.title.indexOf("...") : 80).trim()
+        : p.title;
+      return {
+        id: `perplexity-${p.id}`,
+        title: shortTitle,
+        content: p.content,
+        category: p.category,
+        platform: "perplexity" as Platform,
+        domain,
+      };
+    });
+}
+
 function normalizeGemini(raw: typeof geminiRaw): Prompt[] {
-  return (raw as { id: number; title: string; category: string; content: string }[]).map((p) => {
-    const domain = categoryToDomain[p.category] || inferDomain(p.title, p.content);
-    const shortTitle = p.title.length > 80
-      ? p.title.slice(0, p.title.indexOf("...") > 0 ? p.title.indexOf("...") : 80).trim()
-      : p.title;
+  return (raw as { id: number; title: string; category: string; prompt_text: string }[]).map((p) => {
+    const domain = categoryToDomain[p.category] || inferDomain(p.title, p.prompt_text);
     return {
       id: `gemini-${p.id}`,
-      title: shortTitle,
-      content: p.content,
+      title: p.title,
+      content: p.prompt_text,
       category: p.category,
-      platform: "perplexity" as Platform,
+      platform: "gemini" as Platform,
       domain,
     };
   });
@@ -86,10 +110,11 @@ let _allPrompts: Prompt[] | null = null;
 export function getAllPrompts(): Prompt[] {
   if (_allPrompts) return _allPrompts;
 
+  const perplexity = normalizePerplexity(perplexityRaw);
   const gemini = normalizeGemini(geminiRaw);
   const claude = parseClaudePrompts(claudeRaw);
 
-  _allPrompts = [...gemini, ...claude];
+  _allPrompts = [...claude, ...gemini, ...perplexity];
   return _allPrompts;
 }
 
