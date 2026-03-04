@@ -254,17 +254,17 @@ export default function Library() {
         <div className="text-[9px] tracking-[0.25em] text-[rgba(255,255,255,0.6)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2">
           Stats
         </div>
-        <div className="px-4 py-1.5 flex justify-between items-center">
-          <span className="text-[9px] text-[var(--t-text-muted)] tracking-[0.15em] uppercase">Total</span>
-          <span className="text-[13px] text-[var(--t-amber)] font-semibold">{prompts.length}</span>
+        <div className="flex items-center justify-between px-4 py-2 text-[11px] tracking-[0.04em] border-l-2 border-l-transparent hover:bg-[var(--t-bg-3)] transition-all">
+          <span className="text-[var(--t-text-secondary)]">Total</span>
+          <span className="text-[9px] px-[7px] py-px font-semibold bg-[var(--t-bg-4)] text-[var(--t-text-muted)]">{prompts.length}</span>
         </div>
-        <div className="px-4 py-1.5 flex justify-between items-center">
-          <span className="text-[9px] text-[var(--t-text-muted)] tracking-[0.15em] uppercase">Filtered</span>
-          <span className="text-[13px] text-[var(--t-amber)] font-semibold">{filtered.length}</span>
+        <div className="flex items-center justify-between px-4 py-2 text-[11px] tracking-[0.04em] border-l-2 border-l-transparent hover:bg-[var(--t-bg-3)] transition-all">
+          <span className="text-[var(--t-text-secondary)]">Filtered</span>
+          <span className="text-[9px] px-[7px] py-px font-semibold bg-[var(--t-bg-4)] text-[var(--t-text-muted)]">{filtered.length}</span>
         </div>
-        <div className="px-4 py-1.5 flex justify-between items-center">
-          <span className="text-[9px] text-[var(--t-text-muted)] tracking-[0.15em] uppercase">Favorites</span>
-          <span className="text-[13px] text-[var(--t-amber)] font-semibold">{favCount}</span>
+        <div className="flex items-center justify-between px-4 py-2 text-[11px] tracking-[0.04em] border-l-2 border-l-transparent hover:bg-[var(--t-bg-3)] transition-all">
+          <span className="text-[var(--t-text-secondary)]">Favorites</span>
+          <span className="text-[9px] px-[7px] py-px font-semibold bg-[var(--t-bg-4)] text-[var(--t-text-muted)]">{favCount}</span>
         </div>
 
         <div className="border-t border-[var(--t-border)] my-3" />
@@ -359,7 +359,7 @@ export default function Library() {
               </div>
               {/* Card Meta */}
               <div className="px-4 py-2 flex items-center gap-2 flex-wrap">
-                <span className="text-[9px] tracking-[0.15em] uppercase text-[var(--t-text-muted)] bg-[var(--t-bg-4)] px-2 py-[3px]">
+                <span className="text-[9px] tracking-[0.15em] uppercase text-[var(--t-text-muted)] bg-[var(--t-bg-4)] px-2 py-[3px] border border-transparent transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] hover:bg-[rgba(255,184,0,0.06)] cursor-default">
                   {prompt.category}
                 </span>
                 {prompt.tags?.map((tag) => (
@@ -475,7 +475,7 @@ export default function Library() {
             </div>
             {/* Modal Meta */}
             <div className="px-5 py-3 border-b border-[var(--t-border)] flex gap-2 flex-wrap bg-[var(--t-bg-2)]">
-              <span className="text-[9px] tracking-[0.15em] uppercase text-[var(--t-text-muted)] bg-[var(--t-bg-4)] px-2 py-[3px]">
+              <span className="text-[9px] tracking-[0.15em] uppercase text-[var(--t-text-muted)] bg-[var(--t-bg-4)] px-2 py-[3px] border border-transparent transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] hover:bg-[rgba(255,184,0,0.06)] cursor-default">
                 {modalPrompt.category}
               </span>
               {modalPrompt.tags?.map((tag) => (
