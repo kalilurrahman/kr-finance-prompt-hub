@@ -29,7 +29,39 @@
   --badge-claude:#b45309; --badge-perplexity:#6d28d9; --badge-chatgpt:#065f46;
   --badge-gemini:#1e40af; --badge-general:#374151;
   --scrollbar-thumb:#cc9400; --scanlines:0.025;
+  --radius: 0.75rem;
   color-scheme:dark;
+  /* Tailwind semantic tokens */
+  --background: 215 43% 3%;
+  --foreground: 38 35% 85%;
+  --card: 215 38% 9%;
+  --card-foreground: 38 35% 85%;
+  --popover: 215 38% 9%;
+  --popover-foreground: 38 35% 85%;
+  --primary: 43 100% 50%;
+  --primary-foreground: 220 30% 8%;
+  --secondary: 218 35% 12%;
+  --secondary-foreground: 37 10% 49%;
+  --muted: 218 35% 12%;
+  --muted-foreground: 37 10% 49%;
+  --accent-tw: 218 35% 12%;
+  --accent-foreground: 43 100% 50%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border-tw: 218 30% 15%;
+  --input: 218 30% 15%;
+  --ring: 43 100% 50%;
+  --gold: 43 100% 50%;
+  --gold-light: 43 100% 65%;
+  --gold-dark: 43 100% 38%;
+  --sidebar-background: 215 38% 6%;
+  --sidebar-foreground: 38 35% 85%;
+  --sidebar-primary: 43 100% 50%;
+  --sidebar-primary-foreground: 220 30% 8%;
+  --sidebar-accent: 218 35% 12%;
+  --sidebar-accent-foreground: 38 35% 85%;
+  --sidebar-border: 218 30% 15%;
+  --sidebar-ring: 43 100% 50%;
 }
 
 [data-theme="matrix"] {
@@ -45,6 +77,37 @@
   --badge-gemini:#3b82f6; --badge-general:#374151;
   --scrollbar-thumb:#00cc33; --scanlines:0.04;
   color-scheme:dark;
+  /* Tailwind semantic tokens */
+  --background: 0 0% 0%;
+  --foreground: 140 100% 90%;
+  --card: 140 33% 3%;
+  --card-foreground: 140 100% 90%;
+  --popover: 140 33% 3%;
+  --popover-foreground: 140 100% 90%;
+  --primary: 135 100% 50%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 140 33% 5%;
+  --secondary-foreground: 140 45% 55%;
+  --muted: 140 33% 5%;
+  --muted-foreground: 140 45% 45%;
+  --accent-tw: 140 33% 5%;
+  --accent-foreground: 135 100% 50%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border-tw: 140 30% 8%;
+  --input: 140 30% 8%;
+  --ring: 135 100% 50%;
+  --gold: 135 100% 50%;
+  --gold-light: 135 100% 65%;
+  --gold-dark: 135 100% 38%;
+  --sidebar-background: 140 33% 2%;
+  --sidebar-foreground: 140 100% 90%;
+  --sidebar-primary: 135 100% 50%;
+  --sidebar-primary-foreground: 0 0% 0%;
+  --sidebar-accent: 140 33% 5%;
+  --sidebar-accent-foreground: 140 100% 90%;
+  --sidebar-border: 140 30% 8%;
+  --sidebar-ring: 135 100% 50%;
 }
 
 [data-theme="arctic"] {
@@ -60,6 +123,37 @@
   --badge-gemini:#1e40af; --badge-general:#6b7280;
   --scrollbar-thumb:#7a94aa; --scanlines:0;
   color-scheme:light;
+  /* Tailwind semantic tokens */
+  --background: 215 33% 95%;
+  --foreground: 215 53% 13%;
+  --card: 0 0% 100%;
+  --card-foreground: 215 53% 13%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 215 53% 13%;
+  --primary: 210 100% 36%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 215 30% 90%;
+  --secondary-foreground: 215 35% 30%;
+  --muted: 215 25% 92%;
+  --muted-foreground: 215 25% 45%;
+  --accent-tw: 215 30% 90%;
+  --accent-foreground: 210 100% 36%;
+  --destructive: 0 72% 45%;
+  --destructive-foreground: 0 0% 100%;
+  --border-tw: 215 25% 82%;
+  --input: 215 25% 82%;
+  --ring: 210 100% 36%;
+  --gold: 210 100% 36%;
+  --gold-light: 210 100% 50%;
+  --gold-dark: 210 100% 28%;
+  --sidebar-background: 215 33% 97%;
+  --sidebar-foreground: 215 53% 13%;
+  --sidebar-primary: 210 100% 36%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 215 30% 90%;
+  --sidebar-accent-foreground: 215 53% 13%;
+  --sidebar-border: 215 25% 82%;
+  --sidebar-ring: 210 100% 36%;
 }
 
 [data-theme="crimson"] {
@@ -75,6 +169,37 @@
   --badge-gemini:#60a5fa; --badge-general:#6b7280;
   --scrollbar-thumb:#c0243c; --scanlines:0.025;
   color-scheme:dark;
+  /* Tailwind semantic tokens */
+  --background: 340 33% 4%;
+  --foreground: 345 33% 91%;
+  --card: 340 30% 8%;
+  --card-foreground: 345 33% 91%;
+  --popover: 340 30% 8%;
+  --popover-foreground: 345 33% 91%;
+  --primary: 352 80% 55%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 340 25% 11%;
+  --secondary-foreground: 340 20% 55%;
+  --muted: 340 25% 11%;
+  --muted-foreground: 340 20% 47%;
+  --accent-tw: 340 25% 11%;
+  --accent-foreground: 352 80% 55%;
+  --destructive: 0 72% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border-tw: 340 20% 14%;
+  --input: 340 20% 14%;
+  --ring: 352 80% 55%;
+  --gold: 352 80% 55%;
+  --gold-light: 352 80% 65%;
+  --gold-dark: 352 80% 42%;
+  --sidebar-background: 340 33% 5%;
+  --sidebar-foreground: 345 33% 91%;
+  --sidebar-primary: 352 80% 55%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 340 25% 11%;
+  --sidebar-accent-foreground: 345 33% 91%;
+  --sidebar-border: 340 20% 14%;
+  --sidebar-ring: 352 80% 55%;
 }
 
 [data-theme="slate"] {
@@ -90,6 +215,37 @@
   --badge-gemini:#79c0ff; --badge-general:#6e7681;
   --scrollbar-thumb:#388bfd; --scanlines:0;
   color-scheme:dark;
+  /* Tailwind semantic tokens */
+  --background: 215 29% 7%;
+  --foreground: 210 33% 93%;
+  --card: 215 25% 15%;
+  --card-foreground: 210 33% 93%;
+  --popover: 215 25% 15%;
+  --popover-foreground: 210 33% 93%;
+  --primary: 212 100% 67%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 215 28% 19%;
+  --secondary-foreground: 215 8% 65%;
+  --muted: 215 28% 19%;
+  --muted-foreground: 215 8% 57%;
+  --accent-tw: 215 28% 19%;
+  --accent-foreground: 212 100% 67%;
+  --destructive: 0 80% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border-tw: 215 20% 20%;
+  --input: 215 20% 20%;
+  --ring: 212 100% 67%;
+  --gold: 212 100% 67%;
+  --gold-light: 212 100% 78%;
+  --gold-dark: 212 100% 52%;
+  --sidebar-background: 215 29% 8%;
+  --sidebar-foreground: 210 33% 93%;
+  --sidebar-primary: 212 100% 67%;
+  --sidebar-primary-foreground: 0 0% 0%;
+  --sidebar-accent: 215 28% 19%;
+  --sidebar-accent-foreground: 210 33% 93%;
+  --sidebar-border: 215 20% 20%;
+  --sidebar-ring: 212 100% 67%;
 }
 
 /* ── GLOBAL ── */

@@ -6,72 +6,9 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 40 20% 97%;
-    --foreground: 220 25% 10%;
-    --card: 40 15% 95%;
-    --card-foreground: 220 25% 10%;
-    --popover: 40 15% 95%;
-    --popover-foreground: 220 25% 10%;
-    --primary: 43 72% 54%;
-    --primary-foreground: 220 30% 8%;
-    --secondary: 40 10% 90%;
-    --secondary-foreground: 220 20% 20%;
-    --muted: 40 10% 90%;
-    --muted-foreground: 220 10% 45%;
-    --accent: 43 72% 54%;
-    --accent-foreground: 220 30% 8%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 40 15% 85%;
-    --input: 40 15% 85%;
-    --ring: 43 72% 54%;
-    --radius: 0.75rem;
-    --gold: 43 72% 54%;
-    --gold-light: 43 72% 70%;
-    --gold-dark: 43 72% 40%;
-    --sidebar-background: 40 15% 95%;
-    --sidebar-foreground: 220 25% 10%;
-    --sidebar-primary: 43 72% 54%;
-    --sidebar-primary-foreground: 220 30% 8%;
-    --sidebar-accent: 40 10% 90%;
-    --sidebar-accent-foreground: 220 25% 10%;
-    --sidebar-border: 40 15% 85%;
-    --sidebar-ring: 43 72% 54%;
-  }
-
-  .dark {
-    --background: 220 25% 6%;
-    --foreground: 40 20% 92%;
-    --card: 220 20% 10%;
-    --card-foreground: 40 20% 92%;
-    --popover: 220 20% 10%;
-    --popover-foreground: 40 20% 92%;
-    --primary: 43 72% 54%;
-    --primary-foreground: 220 30% 8%;
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 40 20% 85%;
-    --muted: 220 15% 15%;
-    --muted-foreground: 220 10% 55%;
-    --accent: 220 15% 15%;
-    --accent-foreground: 43 72% 54%;
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 43 72% 54%;
-    --gold: 43 72% 54%;
-    --gold-light: 43 72% 70%;
-    --gold-dark: 43 72% 40%;
-    --sidebar-background: 220 25% 8%;
-    --sidebar-foreground: 40 20% 92%;
-    --sidebar-primary: 43 72% 54%;
-    --sidebar-primary-foreground: 220 30% 8%;
-    --sidebar-accent: 220 15% 15%;
-    --sidebar-accent-foreground: 40 20% 92%;
-    --sidebar-border: 220 15% 18%;
-    --sidebar-ring: 43 72% 54%;
-  }
+  /* Tailwind semantic tokens are now defined per-theme in src/styles/themes.css.
+     The :root/[data-theme="terminal"] block provides defaults.
+     This avoids duplication and ensures all themes propagate to Tailwind components. */
 }
 
 @layer base {
