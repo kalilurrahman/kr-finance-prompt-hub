@@ -13,11 +13,23 @@ export default {
       },
     },
     extend: {
-      fontFamily: {
-        display: ['"Playfair Display"', "serif"],
-        sans: ["Inter", "system-ui", "sans-serif"],
-      },
-      colors: {
+        fontFamily: {
+          display: ['"Playfair Display"', "serif"],
+          sans: ["Inter", "system-ui", "sans-serif"],
+        },
+        colors: {
+          bg0: 'var(--bg-0)',
+          bg1: 'var(--bg-1)',
+          bg2: 'var(--bg-2)',
+          bg3: 'var(--bg-3)',
+          bg4: 'var(--bg-4)',
+        accent: {
+          DEFAULT: 'var(--accent)',
+          dim: 'var(--accent-dim)',
+        },
+        tp: 'var(--text-primary)',
+        ts: 'var(--text-secondary)',
+        tm: 'var(--text-muted)',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
