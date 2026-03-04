@@ -31,6 +31,10 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
           <NavItem href="https://kalilurrahman.lovable.app" icon={<Bot className="h-3.5 w-3.5" />} label="AI Agents" />
           <NavItem href="https://kalilurrahman.lovable.app" icon={<Globe className="h-3.5 w-3.5" />} label="Digital Hub" />
           <NavItem href="https://kr-quantum-hub.lovable.app" icon={<Atom className="h-3.5 w-3.5" />} label="Q-Ref" />
+          <a href="/library" className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-gold hover:bg-secondary/50">
+            <BookOpen className="h-3.5 w-3.5" />
+            FINPROMPT
+          </a>
         </nav>
 
         {/* Search + Favorites */}
