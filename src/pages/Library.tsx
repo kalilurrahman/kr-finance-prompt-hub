@@ -5,12 +5,18 @@ import { useTerminalFavorites } from "@/hooks/useTerminalFavorites";
 import { useTerminalSearch } from "@/hooks/useTerminalSearch";
 import type { TerminalPrompt } from "@/types/terminal";
 import { TERMINAL_CATEGORIES } from "@/types/terminal";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { useFavorites } from "@/hooks/useFavorites";
 
 const PER_PAGE = 24;
 
 export default function Library() {
   const { prompts, loading } = useTerminalPrompts();
-  const { favorites, toggle, isFav, count: favCount } = useTerminalFavorites();
+  const { favorites: termFavs, toggle, isFav, count: favCount } = useTerminalFavorites();
+  const { count: siteFavCount } = useFavorites();
+  const [siteSearch, setSiteSearch] = useState("");
+  const [showSiteFavs, setShowSiteFavs] = useState(false);
   const fuse = useTerminalSearch(prompts);
 
   const [query, setQuery] = useState("");
@@ -107,19 +113,25 @@ export default function Library() {
 
   if (loading) {
     return (
-      <div className="terminal flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <div className="w-10 h-10 border-2 border-[var(--t-border)] border-t-[var(--t-amber)] rounded-full animate-spin mx-auto" />
-          <p className="mt-4 text-xs tracking-[0.2em] text-[var(--t-amber)]">INITIALIZING...</p>
+      <div className="flex min-h-screen flex-col bg-background">
+        <Header search={siteSearch} onSearchChange={setSiteSearch} showFavorites={showSiteFavs} onToggleFavorites={() => setShowSiteFavs(!showSiteFavs)} favCount={siteFavCount} />
+        <div className="terminal flex items-center justify-center flex-1">
+          <div className="text-center">
+            <div className="w-10 h-10 border-2 border-[var(--t-border)] border-t-[var(--t-amber)] rounded-full animate-spin mx-auto" />
+            <p className="mt-4 text-xs tracking-[0.2em] text-[var(--t-amber)]">INITIALIZING...</p>
+          </div>
         </div>
+        <Footer />
       </div>
     );
   }
 
   return (
-    <div className="terminal">
+    <div className="flex min-h-screen flex-col bg-background">
+      <Header search={siteSearch} onSearchChange={setSiteSearch} showFavorites={showSiteFavs} onToggleFavorites={() => setShowSiteFavs(!showSiteFavs)} favCount={siteFavCount} />
+      <div className="terminal pt-0">
       {/* TICKER BAR */}
-      <div className="fixed top-0 left-0 right-0 z-[100] bg-[var(--t-bg-1)] border-b border-[var(--t-amber)] h-7 flex items-center">
+      <div className="fixed top-12 left-0 right-0 z-[100] bg-[var(--t-bg-1)] border-b border-[var(--t-amber)] h-7 flex items-center">
         <div className="bg-[var(--t-amber)] text-black text-[10px] font-bold px-3 h-full flex items-center tracking-[0.15em] shrink-0">
           FINPROMPT
         </div>
@@ -152,7 +164,7 @@ export default function Library() {
       </div>
 
       {/* HEADER */}
-      <header className="fixed top-7 left-0 right-0 z-[90] bg-[rgba(6,10,15,0.97)] border-b border-[var(--t-border-bright)] backdrop-blur-xl">
+      <header className="fixed top-[76px] left-0 right-0 z-[90] bg-[rgba(6,10,15,0.97)] border-b border-[var(--t-border-bright)] backdrop-blur-xl">
         <div className="max-w-[1600px] mx-auto px-6 flex items-center gap-5 h-16">
           <Link to="/library" className="flex items-baseline gap-2 shrink-0 no-underline">
             <span className="font-bold text-lg text-[var(--t-amber)] tracking-[0.05em]" style={{ textShadow: "0 0 20px rgba(255,184,0,0.5)" }}>
@@ -203,7 +215,7 @@ export default function Library() {
       </header>
 
       {/* SIDEBAR */}
-      <nav className="fixed top-[92px] left-0 bottom-0 z-[80] w-[230px] bg-[var(--t-bg-1)] border-r border-[var(--t-border)] overflow-y-auto py-4 hidden lg:block">
+      <nav className="fixed top-[140px] left-0 bottom-0 z-[80] w-[230px] bg-[var(--t-bg-1)] border-r border-[var(--t-border)] overflow-y-auto py-4 hidden lg:block">
         <div className="text-[9px] tracking-[0.25em] text-[var(--t-text-muted)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2">
           Categories
         </div>
@@ -266,7 +278,7 @@ export default function Library() {
       </nav>
 
       {/* MAIN CONTENT */}
-      <main className="mt-[92px] lg:ml-[230px] p-6 min-h-[calc(100vh-92px)] relative z-[1]">
+      <main className="mt-[140px] lg:ml-[230px] p-6 min-h-[calc(100vh-140px)] relative z-[1]">
         {/* View header */}
         <div className="flex items-center justify-between mb-5 pb-3.5 border-b border-[var(--t-border)]">
           <div className="text-[11px] text-[var(--t-text-secondary)] tracking-[0.2em] uppercase flex items-center gap-2.5">
@@ -473,7 +485,7 @@ export default function Library() {
             </div>
             {/* Modal Body */}
             <div className="p-5 overflow-y-auto flex-1">
-              <div className="bg-[var(--t-bg-1)] border border-[var(--t-border)] p-5 text-xs leading-[1.85] text-[var(--t-text-secondary)] whitespace-pre-wrap">
+              <div className="bg-[var(--t-bg-1)] border border-[var(--t-border)] p-5 text-xs leading-[1.85] text-[var(--t-text-primary)] whitespace-pre-wrap font-mono">
                 {modalPrompt.prompt_text}
               </div>
             </div>
@@ -506,6 +518,8 @@ export default function Library() {
           </div>
         </div>
       )}
+      </div>
+      <Footer />
     </div>
   );
 }

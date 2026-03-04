@@ -4,6 +4,7 @@ import type { Prompt } from "@/types/prompt";
 import { DOMAIN_ICONS, PLATFORMS } from "@/types/prompt";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { getSourceMeta } from "@/lib/promptSource";
 
 interface PromptCardProps {
   prompt: Prompt;
@@ -15,6 +16,7 @@ interface PromptCardProps {
 export function PromptCard({ prompt, isFavorite, onToggleFavorite, onClick }: PromptCardProps) {
   const platformInfo = PLATFORMS.find((p) => p.key === prompt.platform);
   const domainIcon = DOMAIN_ICONS[prompt.domain] || "📄";
+  const sourceMeta = getSourceMeta((prompt as any).prompt_source);
 
   const handleCopy = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -42,6 +44,9 @@ export function PromptCard({ prompt, isFavorite, onToggleFavorite, onClick }: Pr
               style={{ backgroundColor: `${platformInfo?.color}20`, color: platformInfo?.color }}
             >
               {platformInfo?.icon} {platformInfo?.label}
+            </span>
+            <span className={`${sourceMeta.badgeClass} font-mono text-[9px] tracking-wider uppercase px-2 py-0.5 rounded`}>
+              {sourceMeta.icon} {sourceMeta.shortLabel}
             </span>
           </div>
           <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">

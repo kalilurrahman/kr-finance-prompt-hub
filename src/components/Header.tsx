@@ -1,6 +1,7 @@
 import { Search, Heart, Home, BookOpen, Bot, Globe, Atom } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 interface HeaderProps {
   search: string;
@@ -37,7 +38,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
           </a>
         </nav>
 
-        {/* Search + Favorites */}
+        {/* Search + Favorites + Theme */}
         <div className="flex items-center gap-2 flex-1 max-w-md">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -62,6 +63,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
               </span>
             )}
           </Button>
+          <ThemeSwitcher variant="icon" />
         </div>
       </div>
     </header>
