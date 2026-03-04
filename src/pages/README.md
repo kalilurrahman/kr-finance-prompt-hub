@@ -9,6 +9,10 @@ The application utilizes React Router DOM (`react-router-dom`) configured in `Ap
 ### 1. `Index.tsx`
 This is the main, single-page view of the application (`/`). It is a complex orchestrator component that manages the core functionality of the prompt compendium.
 
+<p align="center">
+  <img src="../../public/screenshot-home.png" alt="Application Index View" width="800" style="border-radius: 8px; margin-bottom: 16px;" />
+</p>
+
 - **Layout Structure:**
   - `Header`: The persistent top navigation and search bar.
   - `Hero`: The introductory section with dynamic statistics.
