@@ -43,7 +43,7 @@ export function PromptDetail({ prompt, open, onClose, isFavorite, onToggleFavori
 
   return (
     <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
-      <DialogContent className="max-w-2xl max-h-[85vh] flex flex-col border-border/50 bg-card p-0">
+      <DialogContent className="max-w-2xl max-h-[85vh] flex flex-col border-border/50 bg-card p-0 overflow-hidden">
         <DialogHeader className="border-b border-border/30 px-6 pt-6 pb-4">
           <div className="flex items-start gap-3">
             <span className="mt-1 text-2xl">{domainIcon}</span>
@@ -66,8 +66,8 @@ export function PromptDetail({ prompt, open, onClose, isFavorite, onToggleFavori
           </div>
         </DialogHeader>
 
-        <ScrollArea className="flex-1 px-6 py-4">
-          <div className="whitespace-pre-wrap text-sm leading-relaxed text-foreground/90">
+        <ScrollArea className="flex-1 min-h-0 px-6 py-4" style={{ maxHeight: 'calc(85vh - 180px)' }}>
+          <div className="whitespace-pre-wrap font-mono text-sm leading-relaxed text-foreground/90 pr-4">
             {prompt.content}
           </div>
         </ScrollArea>

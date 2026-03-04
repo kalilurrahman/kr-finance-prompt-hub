@@ -217,7 +217,7 @@ export default function Library() {
 
       {/* SIDEBAR */}
       <nav className="fixed top-[140px] left-0 bottom-0 z-[80] w-[230px] bg-[var(--t-bg-1)] border-r border-[var(--t-border)] overflow-y-auto py-4 hidden lg:block">
-        <div className="text-[9px] tracking-[0.25em] text-[var(--t-text-muted)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2">
+        <div className="text-[9px] tracking-[0.25em] text-[rgba(255,255,255,0.6)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2">
           Categories
         </div>
         <button
@@ -251,7 +251,7 @@ export default function Library() {
         ))}
 
         <div className="border-t border-[var(--t-border)] my-3" />
-        <div className="text-[9px] tracking-[0.25em] text-[var(--t-text-muted)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2">
+        <div className="text-[9px] tracking-[0.25em] text-[rgba(255,255,255,0.6)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2">
           Stats
         </div>
         <div className="px-4 py-1.5 flex justify-between items-center">
