@@ -4,6 +4,12 @@ The `src` directory contains the core application logic and presentation layer f
 
 It is structured to separate concerns, making the codebase scalable and easy to navigate.
 
+### Visual Overview
+
+<p align="center">
+  <img src="../public/screenshot-home.png" alt="Application Home View" width="800" style="border-radius: 8px;" />
+</p>
+
 ## 📁 Structure Overview
 
 Here's what each directory handles:

@@ -42,6 +42,10 @@ A modal/dialog component providing a comprehensive view of a selected prompt.
 - Renders the full `content` and `title`.
 - Provides quick actions like "Copy to Clipboard" using utility hooks (`use-toast`).
 
+<p align="center">
+  <img src="../../public/screenshot-prompt-detail.png" alt="Prompt Detail View" width="600" style="border-radius: 8px; margin-top: 16px;" />
+</p>
+
 ## 🎨 Styling Philosophy
 
 - **Utility First**: All custom styles rely on Tailwind CSS classes (`className="..."`).

@@ -31,6 +31,12 @@ The Financial Engineering & Advisory Prompts Reference hub serves as a central k
   <img src="./public/screenshot-hero.png" alt="Hero Stats View" width="800" style="border-radius: 8px;" />
 </p>
 
+### Prompt Detail View
+
+<p align="center">
+  <img src="./public/screenshot-prompt-detail.png" alt="Prompt Detail View" width="800" style="border-radius: 8px;" />
+</p>
+
 ## 📊 Prompts by Domain
 
 The curated prompts cover the following key domains, essential for navigating the complex financial landscape:
