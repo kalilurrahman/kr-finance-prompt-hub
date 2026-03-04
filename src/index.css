@@ -70,7 +70,7 @@
   --t-border-bright: rgba(255, 184, 0, 0.35);
   --t-text-primary: #e8e0cc;
   --t-text-secondary: #8a8070;
-  --t-text-muted: #4a4540;
+  --t-text-muted: #7a7468;
   font-family: 'IBM Plex Mono', 'Courier New', monospace;
   background: var(--t-bg-0);
   color: var(--t-text-primary);
