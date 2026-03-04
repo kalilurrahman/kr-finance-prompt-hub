@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -109,4 +109,96 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TERMINAL THEME — FINPROMPT
+   ═══════════════════════════════════════════════════════════ */
+
+.terminal {
+  --t-bg-0: #060a0f;
+  --t-bg-1: #0a0e14;
+  --t-bg-2: #0e1520;
+  --t-bg-3: #141c2a;
+  --t-bg-4: #1a2333;
+  --t-amber: #ffb800;
+  --t-amber-dim: #cc9400;
+  --t-amber-glow: rgba(255, 184, 0, 0.15);
+  --t-green: #00d68f;
+  --t-green-dim: #00a86b;
+  --t-red: #ff4b4b;
+  --t-blue: #4da6ff;
+  --t-border: rgba(255, 184, 0, 0.12);
+  --t-border-bright: rgba(255, 184, 0, 0.35);
+  --t-text-primary: #e8e0cc;
+  --t-text-secondary: #8a8070;
+  --t-text-muted: #4a4540;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  background: var(--t-bg-0);
+  color: var(--t-text-primary);
+  min-height: 100vh;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px);
+}
+
+.terminal .font-sans-ibm {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* Terminal scrollbar */
+.terminal ::-webkit-scrollbar { width: 6px; height: 6px; }
+.terminal ::-webkit-scrollbar-track { background: var(--t-bg-1); }
+.terminal ::-webkit-scrollbar-thumb { background: var(--t-amber-dim); }
+
+/* Terminal ticker animation */
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Terminal card hover effect */
+.t-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.18s;
+}
+.t-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--t-amber), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.t-card:hover {
+  border-color: var(--t-border-bright);
+  background: var(--t-bg-3);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4), 0 0 0 1px rgba(255,184,0,.1);
+}
+.t-card:hover::before { opacity: 1; }
+
+/* Terminal modal animations */
+@keyframes t-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes t-slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Terminal pulse */
+@keyframes t-pulse-green {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Terminal mark/highlight */
+.terminal mark {
+  background: rgba(255, 184, 0, 0.2);
+  color: var(--t-amber);
+  padding: 0 2px;
 }

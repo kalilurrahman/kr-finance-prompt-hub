@@ -1,4 +1,4 @@
-export type Platform = "perplexity" | "claude" | "gemini";
+export type Platform = "claude" | "gemini";
 
 export type Domain =
   | "Corporate Strategy & Growth"
@@ -27,7 +27,6 @@ export const DOMAINS: Domain[] = [
 ];
 
 export const PLATFORMS: { key: Platform; label: string; icon: string; color: string }[] = [
-  { key: "perplexity", label: "Perplexity", icon: "🟣", color: "hsl(270, 70%, 60%)" },
   { key: "claude", label: "Claude", icon: "🟠", color: "hsl(25, 90%, 55%)" },
   { key: "gemini", label: "Google Gemini", icon: "🔵", color: "hsl(210, 80%, 55%)" },
 ];
