@@ -38,7 +38,7 @@ The full **Prompt Library** view (`/library`). This dedicated page functions as 
   <img src="../../public/screenshot-library.png" alt="Library Application View" width="800" style="border-radius: 8px; margin-bottom: 16px; margin-top: 16px;" />
 </p>
 
-- Provides advanced search and filtering mechanisms to query the 661+ prompts by domain and platform.
+- Provides advanced search and filtering mechanisms to query the 1,120+ prompts by domain and platform.
 - Displays results in an immersive grid layout, distinct from the `Index` dashboard but using similar generic search components like `FilterBar`.
 - Designed to help financial engineers and advisory professionals drill down efficiently to find exactly the right prompt.
 

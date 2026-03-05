@@ -2,7 +2,7 @@
 
 # 📊 Financial Engineering & Advisory Prompts Reference
 
-**Your executive prompt compendium. 661+ curated prompts across 3 AI platforms.**
+**Your executive prompt compendium. 1,120+ curated prompts across 3 AI platforms.**
 
 [![Live Preview](https://img.shields.io/badge/Live-Preview-blue)](https://kr-finance-prompt-hub.lovable.app/)
 [![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/)
@@ -20,7 +20,7 @@ Welcome to the **Financial Engineering & Advisory Prompts Reference** repository
 The Financial Engineering & Advisory Prompts Reference hub serves as a central knowledge base for specialized AI prompts categorized by domain and platform. It helps professionals leverage AI for complex financial modeling, strategic analysis, market research, risk contagion modeling, taxation strategies, and more.
 
 ### Key Features
-- **Extensive Collection:** Over 661 ready-to-use prompts divided across 6 main financial domains.
+- **Extensive Collection:** Over 1,120 ready-to-use prompts divided across 6 main financial domains.
 - **Platform Specificity:** Prompts individually curated and formatted for Perplexity, Claude, and Google Gemini to maximize each model's strengths.
 - **Advanced Filtering:** Quickly find prompts by searching keywords, selecting specific AI platforms, or filtering by specialized financial domains.
 - **Interactive Analytics:** Visual breakdown of prompts across various platforms and domains.
@@ -41,42 +41,41 @@ The Financial Engineering & Advisory Prompts Reference hub serves as a central k
 ### Prompt Detail View
 
 <p align="center">
-  <img src="./public/screenshot-prompt-detail.png" alt="Prompt Detail View" width="800" style="border-radius: 8px;" />
+  <img src="public/screenshot-prompt-detail.png" alt="Prompt Detail View" width="800" style="border-radius: 8px;" />
 </p>
 
 ### FINPROMPT Library
 
-The **[Prompt Library](https://kr-finance-prompt-hub.lovable.app/library)** page provides a full searchable, filterable grid of all 661+ prompts, allowing users to drill down by AI Platform and Domain. It provides an immersive experience to quickly find the exact financial engineering or advisory prompt you need.
+The **[Prompt Library](https://kr-finance-prompt-hub.lovable.app/library)** page provides a full searchable, filterable grid of all 1,120+ prompts, allowing users to drill down by AI Platform and Domain. It provides an immersive experience to quickly find the exact financial engineering or advisory prompt you need.
 
 <p align="center">
-  <img src="./public/screenshot-library.png" alt="Prompt Library View" width="800" style="border-radius: 8px;" />
-  <img src="public/screenshot-prompt-detail.png" alt="Prompt Detail View" width="800" style="border-radius: 8px;" />
+  <img src="public/screenshot-library.png" alt="Prompt Library View" width="800" style="border-radius: 8px;" />
 </p>
 
 ## 📊 Prompts by Domain
 
 The curated prompts cover the following key domains, essential for navigating the complex financial landscape:
 
-1. **Corporate Strategy & Growth (260 Prompts)**
+1. **Corporate Strategy & Growth (196 Prompts)**
    - McKinsey/Bain/BCG methodologies, digital transformations, market entry analyses.
-2. **Mergers & Acquisitions (78 Prompts)**
+2. **Mergers & Acquisitions (161 Prompts)**
    - LBO models, carve-outs, synergistic planning, operational due diligence, deal refinancings.
-3. **Investment Banking & Equity Research (94 Prompts)**
+3. **Investment Banking & Equity Research (229 Prompts)**
    - Fama-French screening, DCF valuations, initiation of coverage strategies, CET1 optimizations.
-4. **Private Equity & Venture Capital (43 Prompts)**
+4. **Private Equity & Venture Capital (163 Prompts)**
    - EBITDA growth mandates, DPI restoration strategies, sourcing pipelines.
-5. **Economics & Macroeconomic Analysis (88 Prompts)**
+5. **Economics & Macroeconomic Analysis (197 Prompts)**
    - Sovereign asset-liability management, Geoeconomic Fragmentation Index modeling.
-6. **FP&A & Budgeting (98 Prompts)**
+6. **FP&A & Budgeting (174 Prompts)**
    - Decision-grade continuous forecasting, zero-based budgeting, airport/public sector finance validation.
 
 ## 🤖 Supported AI Platforms
 
 The prompts are optimized and tested across three major AI platforms for distinct use-cases:
 
-- 🟣 **Perplexity** (500 Prompts) - *76% of total database*
-- 🟠 **Claude** (140 Prompts) - *21% of total database*
-- 🔵 **Google Gemini** (21 Prompts) - *3% of total database*
+- 🟣 **Perplexity** (120 Prompts) - *11% of total database*
+- 🟠 **Claude** (500 Prompts) - *45% of total database*
+- 🔵 **Google Gemini** (500 Prompts) - *45% of total database*
 
 ## 💻 Tech Stack
 
