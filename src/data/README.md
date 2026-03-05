@@ -64,5 +64,5 @@ It uses strategic keyword matching (e.g., "fp&a", "lbo", "macroeconom", "m&a", "
 
 ## 📤 Exported APIs
 
-- **`getAllPrompts(): Prompt[]`**: Returns the combined, standardized array of all 661 prompts. It caches the result in memory (`_allPrompts`) after the initial parsing.
+- **`getAllPrompts(): Prompt[]`**: Returns the combined, standardized array of all 1,120 prompts. It caches the result in memory (`_allPrompts`) after the initial parsing.
 - **`getPromptStats()`**: Analyzes the generated dataset and returns aggregated statistics (`total`, `byPlatform`, `byDomain`) used by the `Analytics.tsx` and `Hero.tsx` components for visual breakdowns.

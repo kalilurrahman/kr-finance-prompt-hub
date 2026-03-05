@@ -19,7 +19,7 @@ These components form the persistent layout wrapper.
 ### 2. `Hero.tsx`
 The expansive hero section displayed at the top of the main index page (`Index.tsx`).
 - It presents the core proposition: "Financial Engineering & Advisory Prompts Reference".
-- Displays quick stats like "661 curated prompts", "Offline ready", and "3 AI platforms" dynamically.
+- Displays quick stats like "1,120 curated prompts", "Offline ready", and "3 AI platforms" dynamically.
 
 ### 3. `Analytics.tsx`
 Provides visual summaries and metrics on the prompt data available.
