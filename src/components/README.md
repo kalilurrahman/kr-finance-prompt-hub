@@ -26,6 +26,10 @@ Provides visual summaries and metrics on the prompt data available.
 - Renders the "Prompts by Domain" progress bars showing category breakdowns (e.g., "Corporate Strategy & Growth", "M&A").
 - Renders the "Prompts by Platform" visual rings for Perplexity, Claude, and Google Gemini with calculated percentages.
 
+<p align="center">
+  <img src="../../public/screenshot-hero.png" alt="Hero Stats and Analytics View" width="800" style="border-radius: 8px; margin-top: 16px; margin-bottom: 16px;" />
+</p>
+
 ### 4. `FilterBar.tsx`
 The interactive controls allowing users to drill down into specific subsets of prompts.
 - Controls state for filtering by **Platforms** (e.g., Perplexity vs. Gemini) and **Domains** (e.g., Investment Banking vs. Private Equity).

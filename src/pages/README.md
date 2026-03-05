@@ -31,6 +31,22 @@ This is the main, single-page view of the application (`/`). It is a complex orc
   - Handles the filtering logic, combining search text, platform selections, and domain selections to derive the currently visible set of prompts.
   - Fetches the initial data set and statistics using the utility functions exported from `src/data/prompts.ts` (`getAllPrompts`, `getPromptStats`).
 
+### 2. `Library.tsx`
+The full **Prompt Library** view (`/library`). This dedicated page functions as the comprehensive catalog for all prompts.
+
+<p align="center">
+  <img src="../../public/screenshot-library.png" alt="Library Application View" width="800" style="border-radius: 8px; margin-bottom: 16px; margin-top: 16px;" />
+</p>
+
+- Provides advanced search and filtering mechanisms to query the 661+ prompts by domain and platform.
+- Displays results in an immersive grid layout, distinct from the `Index` dashboard but using similar generic search components like `FilterBar`.
+- Designed to help financial engineers and advisory professionals drill down efficiently to find exactly the right prompt.
+
+### 3. `Admin.tsx`
+Provides an interactive view for editing and generating prompts.
+- Serves as a playground for administrators and engineers to mock up new templates.
+
+### 4. `NotFound.tsx`
 ### 2. `NotFound.tsx`
 This is the fallback "404 Error" page rendered when a user navigates to an undefined route (`*` in React Router).
 
