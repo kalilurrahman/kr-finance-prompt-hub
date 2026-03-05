@@ -50,6 +50,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
             <Input
               type="search"
               placeholder="Search prompts... (press /)"
+              aria-label="Search prompts"
               className="pl-9 h-9 bg-secondary/50 border-border/50 text-sm"
               value={search}
               onChange={(e) => onSearchChange(e.target.value)}
@@ -60,6 +61,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
             size="icon"
             className="h-9 w-9 shrink-0 relative"
             onClick={onToggleFavorites}
+            aria-label={showFavorites ? "Hide favorites" : "Show favorites"}
           >
             <Heart className={`h-4 w-4 ${showFavorites ? "fill-current" : ""}`} />
             {favCount > 0 && (

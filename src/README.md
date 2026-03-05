@@ -14,6 +14,12 @@ It is structured to separate concerns, making the codebase scalable and easy to 
   <img src="../public/screenshot-library.png" alt="Prompt Library View" width="800" style="border-radius: 8px; margin-top: 16px;" />
 </p>
 
+## 🏛️ Code Architecture Highlights
+
+- **Component Driven**: UIs are composed of atomic components combined into feature-specific views.
+- **Data Standardization**: Diverse data formats (JSON, TXT) are read and standardized through a single parsing interface located in `src/data/prompts.ts` to provide a uniform array of Prompt objects to the UI.
+- **Client-Side Search**: Filtering and searching algorithms perform on the client-side for immediate user feedback.
+
 ## 📁 Structure Overview
 
 Here's what each directory handles:

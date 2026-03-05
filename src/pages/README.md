@@ -52,5 +52,9 @@ This is the fallback "404 Error" page rendered when a user navigates to an undef
 
 The application is intentionally designed as a lean, client-side rendered Single Page Application (SPA). The routing logic is defined entirely within `App.tsx` and delegates full-page rendering to the components in this `pages/` directory.
 
+### Performance & Hydration
+
+By leveraging a React + Vite setup, the application enables rapid Hot Module Replacement (HMR) during development. The `Index.tsx` page operates efficiently by caching prompt data in memory, ensuring that complex filter combinations return results without noticeable UI lag.
+
 - The application uses `BrowserRouter` for standard, clean URLs.
 - The `Index.tsx` component is the heavy lifter, demonstrating a dashboard-style pattern where the majority of interaction happens without navigating to distinct sub-pages.
