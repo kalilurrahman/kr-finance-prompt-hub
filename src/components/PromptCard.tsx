@@ -54,6 +54,7 @@ export function PromptCard({ prompt, isFavorite, onToggleFavorite, onClick }: Pr
               onClick={handleCopy}
               className="rounded-md p-1.5 text-muted-foreground hover:bg-secondary hover:text-foreground"
               title="Copy prompt"
+              aria-label="Copy prompt"
             >
               <Copy className="h-3.5 w-3.5" />
             </button>
@@ -64,6 +65,7 @@ export function PromptCard({ prompt, isFavorite, onToggleFavorite, onClick }: Pr
                 isFavorite ? "text-gold" : "text-muted-foreground hover:text-gold"
               )}
               title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+              aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
             >
               <Heart className={cn("h-3.5 w-3.5", isFavorite && "fill-current")} />
             </button>
