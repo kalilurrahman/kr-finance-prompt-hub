@@ -9,7 +9,6 @@ import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
 const Library = lazy(() => import("./pages/Library"));
-const Admin = lazy(() => import("./pages/Admin"));
 
 const queryClient = new QueryClient();
 
@@ -25,7 +24,6 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/library" element={<Library />} />
-                <Route path="/admin" element={<Admin />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
