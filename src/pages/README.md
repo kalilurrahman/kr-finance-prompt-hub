@@ -47,6 +47,7 @@ Provides an interactive view for editing and generating prompts.
 - Serves as a playground for administrators and engineers to mock up new templates.
 
 ### 4. `NotFound.tsx`
+### 2. `NotFound.tsx`
 This is the fallback "404 Error" page rendered when a user navigates to an undefined route (`*` in React Router).
 
 - It provides a simple, styled, and user-friendly error message indicating the page doesn't exist.
@@ -56,6 +57,10 @@ This is the fallback "404 Error" page rendered when a user navigates to an undef
 ## 🔗 Routing Architecture
 
 The application is intentionally designed as a lean, client-side rendered Single Page Application (SPA). The routing logic is defined entirely within `App.tsx` and delegates full-page rendering to the components in this `pages/` directory.
+
+### Performance & Hydration
+
+By leveraging a React + Vite setup, the application enables rapid Hot Module Replacement (HMR) during development. The `Index.tsx` page operates efficiently by caching prompt data in memory, ensuring that complex filter combinations return results without noticeable UI lag.
 
 - The application uses `BrowserRouter` for standard, clean URLs.
 - The `Index.tsx` component is the heavy lifter, demonstrating a dashboard-style pattern where the majority of interaction happens without navigating to distinct sub-pages.

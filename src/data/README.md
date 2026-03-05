@@ -55,6 +55,13 @@ It uses strategic keyword matching (e.g., "fp&a", "lbo", "macroeconom", "m&a", "
 - Resolves domains through mapping or fallback keyword inference.
 - Sets `platform: "gemini"`.
 
+## 🔄 Data Flow
+
+1. **Source Loading**: The application imports unstructured JSON and TXT documents.
+2. **Transformations**: The files undergo schema standardization in `prompts.ts`, enforcing strict mapping formats.
+3. **Cache Storage**: The parsed payload is cached locally (`_allPrompts`) for speedy access without backend interaction.
+4. **Access Control**: Exposed strictly by the functions detailed below.
+
 ## 📤 Exported APIs
 
 - **`getAllPrompts(): Prompt[]`**: Returns the combined, standardized array of all 661 prompts. It caches the result in memory (`_allPrompts`) after the initial parsing.

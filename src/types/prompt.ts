@@ -15,6 +15,8 @@ export interface Prompt {
   category: string;
   platform: Platform;
   domain: Domain;
+  // ⚡ Bolt: Pre-computed string containing title, content, and domain for fast O(1) search filtering
+  _searchableText?: string;
 }
 
 export const DOMAINS: Domain[] = [
