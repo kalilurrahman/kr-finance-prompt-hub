@@ -82,7 +82,7 @@ export function PromptDetail({ prompt, open, onClose, isFavorite, onToggleFavori
           </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="icon" title="Download prompt">
+              <Button variant="outline" size="icon" title="Download prompt" aria-label="Download prompt options">
                 <Download className="h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
@@ -98,7 +98,7 @@ export function PromptDetail({ prompt, open, onClose, isFavorite, onToggleFavori
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button variant="outline" size="icon" onClick={handleShare}>
+          <Button variant="outline" size="icon" onClick={handleShare} aria-label="Share prompt">
             <Share2 className="h-4 w-4" />
           </Button>
         </div>
