@@ -268,14 +268,6 @@ export default function Library() {
         </div>
 
         <div className="border-t border-[var(--t-border)] my-3" />
-        <div className="px-4 py-2">
-          <Link
-            to="/admin"
-            className="text-[10px] text-[var(--t-text-muted)] tracking-[0.12em] uppercase no-underline transition-colors hover:text-[var(--t-amber)]"
-          >
-            ⚙ Admin Panel
-          </Link>
-        </div>
       </nav>
 
       {/* MAIN CONTENT */}
