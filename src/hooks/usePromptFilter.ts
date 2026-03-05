@@ -21,11 +21,10 @@ export function usePromptFilter() {
     }
     if (search.trim()) {
       const q = search.toLowerCase();
+      // ⚡ Bolt: Use pre-computed, normalized search string for fast filtering
+      // Expected impact: Prevents main thread blocking during rapid search typing
       result = result.filter(
-        (p) =>
-          p.title.toLowerCase().includes(q) ||
-          p.content.toLowerCase().includes(q) ||
-          p.domain.toLowerCase().includes(q)
+        (p) => p._searchableText?.includes(q)
       );
     }
     if (showFavorites) {
