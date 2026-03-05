@@ -46,6 +46,11 @@ A modal/dialog component providing a comprehensive view of a selected prompt.
   <img src="../../public/screenshot-prompt-detail.png" alt="Prompt Detail View" width="600" style="border-radius: 8px; margin-top: 16px;" />
 </p>
 
+## 🧩 Component Composition Strategy
+
+- **Atomic Design principles**: Components are primarily developed from the bottom up, utilizing `ui/` components to construct specialized domain specific parts.
+- **Props Interfaces**: Typescript interfaces clearly define requirements of properties to guarantee safety for developers configuring components.
+
 ## 🎨 Styling Philosophy
 
 - **Utility First**: All custom styles rely on Tailwind CSS classes (`className="..."`).
