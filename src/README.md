@@ -7,7 +7,7 @@ It is structured to separate concerns, making the codebase scalable and easy to 
 ### Visual Overview
 
 <p align="center">
-  <img src="../public/screenshot-home-new.png" alt="Application Home View" width="800" style="border-radius: 8px;" />
+  <img src="../public/screenshot-home.png" alt="Application Home View" width="800" style="border-radius: 8px;" />
 </p>
 
 <p align="center">
