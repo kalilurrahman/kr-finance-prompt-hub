@@ -19,22 +19,29 @@ Welcome to the **Financial Engineering & Advisory Prompts Reference** repository
 
 The Financial Engineering & Advisory Prompts Reference hub serves as a central knowledge base for specialized AI prompts categorized by domain and platform. It helps professionals leverage AI for complex financial modeling, strategic analysis, market research, risk contagion modeling, taxation strategies, and more.
 
+### Key Features
+- **Extensive Collection:** Over 661 ready-to-use prompts divided across 6 main financial domains.
+- **Platform Specificity:** Prompts individually curated and formatted for Perplexity, Claude, and Google Gemini to maximize each model's strengths.
+- **Advanced Filtering:** Quickly find prompts by searching keywords, selecting specific AI platforms, or filtering by specialized financial domains.
+- **Interactive Analytics:** Visual breakdown of prompts across various platforms and domains.
+- **One-Click Copy:** Easily copy complex prompts to your clipboard for immediate use.
+
 ### Application Preview
 
 <p align="center">
-  <img src="./public/screenshot-home.png" alt="Home Page Full View" width="800" style="border-radius: 8px;" />
+  <img src="public/screenshot-home.png" alt="Home Page Full View" width="800" style="border-radius: 8px;" />
 </p>
 
 ### Domain Breakdown & AI Platform Coverage
 
 <p align="center">
-  <img src="./public/screenshot-hero.png" alt="Hero Stats View" width="800" style="border-radius: 8px;" />
+  <img src="public/screenshot-hero.png" alt="Hero Stats View" width="800" style="border-radius: 8px;" />
 </p>
 
 ### Prompt Detail View
 
 <p align="center">
-  <img src="./public/screenshot-prompt-detail.png" alt="Prompt Detail View" width="800" style="border-radius: 8px;" />
+  <img src="public/screenshot-prompt-detail.png" alt="Prompt Detail View" width="800" style="border-radius: 8px;" />
 </p>
 
 ## 📊 Prompts by Domain
