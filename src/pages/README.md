@@ -10,7 +10,7 @@ The application utilizes React Router DOM (`react-router-dom`) configured in `Ap
 This is the main, single-page view of the application (`/`). It is a complex orchestrator component that manages the core functionality of the prompt compendium.
 
 <p align="center">
-  <img src="../../public/screenshot-home.png" alt="Application Index View" width="800" style="border-radius: 8px; margin-bottom: 16px;" />
+  <img src="../../public/screenshot-home-new.png" alt="Application Index View" width="800" style="border-radius: 8px; margin-bottom: 16px;" />
 </p>
 
 - **Layout Structure:**
@@ -31,7 +31,17 @@ This is the main, single-page view of the application (`/`). It is a complex orc
   - Handles the filtering logic, combining search text, platform selections, and domain selections to derive the currently visible set of prompts.
   - Fetches the initial data set and statistics using the utility functions exported from `src/data/prompts.ts` (`getAllPrompts`, `getPromptStats`).
 
-### 2. `NotFound.tsx`
+### 2. `Library.tsx`
+The primary directory of prompts accessible at (`/library`). It presents the curated list of prompts focusing extensively on quick consumption and searching.
+
+<p align="center">
+  <img src="../../public/screenshot-library.png" alt="Application Library View" width="800" style="border-radius: 8px; margin-bottom: 16px;" />
+</p>
+
+- Emphasizes the `FilterBar` and `PromptCard` components to enable rapid exploration and discovery.
+- Filters and categorizes prompts across AI platforms and domains similarly to `Index.tsx`.
+
+### 3. `NotFound.tsx`
 This is the fallback "404 Error" page rendered when a user navigates to an undefined route (`*` in React Router).
 
 - It provides a simple, styled, and user-friendly error message indicating the page doesn't exist.

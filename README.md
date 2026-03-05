@@ -19,10 +19,16 @@ Welcome to the **Financial Engineering & Advisory Prompts Reference** repository
 
 The Financial Engineering & Advisory Prompts Reference hub serves as a central knowledge base for specialized AI prompts categorized by domain and platform. It helps professionals leverage AI for complex financial modeling, strategic analysis, market research, risk contagion modeling, taxation strategies, and more.
 
-### Application Preview
+### Application Home View
 
 <p align="center">
-  <img src="./public/screenshot-home.png" alt="Home Page Full View" width="800" style="border-radius: 8px;" />
+  <img src="./public/screenshot-home-new.png" alt="Home Page Full View" width="800" style="border-radius: 8px;" />
+</p>
+
+### Prompt Library View
+
+<p align="center">
+  <img src="./public/screenshot-library.png" alt="Prompt Library View" width="800" style="border-radius: 8px;" />
 </p>
 
 ### Domain Breakdown & AI Platform Coverage
