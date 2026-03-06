@@ -65,6 +65,15 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
     return null;
   }
 
+  // Security: Sanitize color values to prevent XSS via dangerouslySetInnerHTML
+  // Since CSS variables can theoretically contain malicious code if unescaped
+  const sanitizeColor = (color: string) => {
+    if (!color) return "";
+    // Basic sanitization: remove quotes, angle brackets, semicolons, and curly braces to prevent escaping the CSS context
+    // while allowing valid CSS functions like hsl() or var()
+    return color.replace(/['";\\<>{}]/g, "").trim();
+  };
+
   return (
     <style
       dangerouslySetInnerHTML={{
@@ -75,7 +84,7 @@ ${prefix} [data-chart=${id}] {
 ${colorConfig
   .map(([key, itemConfig]) => {
     const color = itemConfig.theme?.[theme as keyof typeof itemConfig.theme] || itemConfig.color;
-    return color ? `  --color-${key}: ${color};` : null;
+    return color ? `  --color-${key}: ${sanitizeColor(color)};` : null;
   })
   .join("\n")}
 }
