@@ -409,6 +409,7 @@ export default function Library() {
               disabled={page === 1}
               onClick={() => setPage(page - 1)}
               className="bg-transparent border border-[var(--t-border)] text-[var(--t-text-secondary)] text-[11px] px-3 py-1.5 cursor-pointer transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] disabled:opacity-30 disabled:cursor-not-allowed"
+              aria-label="Previous page"
             >
               ← PREV
             </button>
@@ -440,6 +441,7 @@ export default function Library() {
               disabled={page === totalPages}
               onClick={() => setPage(page + 1)}
               className="bg-transparent border border-[var(--t-border)] text-[var(--t-text-secondary)] text-[11px] px-3 py-1.5 cursor-pointer transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] disabled:opacity-30 disabled:cursor-not-allowed"
+              aria-label="Next page"
             >
               NEXT →
             </button>
@@ -469,6 +471,7 @@ export default function Library() {
               <button
                 onClick={() => setModalPrompt(null)}
                 className="bg-transparent border border-[var(--t-border)] text-[var(--t-text-secondary)] text-[13px] w-8 h-8 cursor-pointer flex items-center justify-center shrink-0 transition-all hover:border-[var(--t-red)] hover:text-[var(--t-red)]"
+                aria-label="Close modal"
               >
                 ✕
               </button>
