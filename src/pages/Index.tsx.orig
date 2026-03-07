@@ -81,7 +81,7 @@ const Index = () => {
               <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.3) 2px, rgba(0,0,0,0.3) 4px)" }} />
               {/* Amber top line */}
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
-              
+
               <div className="relative flex items-center gap-5">
                 <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gold/10 border border-gold/20 shrink-0">
                   <Terminal className="h-7 w-7 text-gold" />
@@ -147,8 +147,8 @@ const Index = () => {
               <PromptCard
                 prompt={prompt}
                 isFavorite={isFavorite(prompt.id)}
-                onToggleFavorite={toggleFavorite}
-                onClick={setSelectedPrompt}
+                onToggleFavorite={() => toggleFavorite(prompt.id)}
+                onClick={() => setSelectedPrompt(prompt)}
               />
             </div>
           ))}
