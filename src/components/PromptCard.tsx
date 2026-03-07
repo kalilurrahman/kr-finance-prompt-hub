@@ -17,8 +17,7 @@ interface PromptCardProps {
 export const PromptCard = React.memo(function PromptCard({ prompt, isFavorite, onToggleFavorite, onClick }: PromptCardProps) {
   const platformInfo = PLATFORMS.find((p) => p.key === prompt.platform);
   const domainIcon = DOMAIN_ICONS[prompt.domain] || "📄";
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const sourceMeta = getSourceMeta((prompt as any).prompt_source);
+  const sourceMeta = getSourceMeta((prompt as Prompt & { prompt_source?: string }).prompt_source);
 
   const handleCopy = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -31,10 +30,20 @@ export const PromptCard = React.memo(function PromptCard({ prompt, isFavorite, o
     onToggleFavorite(prompt.id);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onClick();
+    }
+  };
+
   return (
     <Card
-      className="group cursor-pointer border-border/50 bg-card/50 transition-all duration-200 hover:border-gold/30 hover:shadow-lg hover:shadow-gold/5"
-      onClick={() => onClick(prompt)}
+      role="button"
+      tabIndex={0}
+      className="group cursor-pointer border-border/50 bg-card/50 transition-all duration-200 hover:border-gold/30 hover:shadow-lg hover:shadow-gold/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      onClick={onClick}
+      onKeyDown={handleKeyDown}
     >
       <CardContent className="flex flex-col gap-3 p-4">
         {/* Top row: domain icon + platform badge */}
