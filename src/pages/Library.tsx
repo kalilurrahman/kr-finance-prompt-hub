@@ -57,7 +57,7 @@ export default function Library() {
   }, [modalPrompt, query]);
 
   // Filtering
-  const filtered = useMemo(() => {
+  const searchAndCategoryFiltered = useMemo(() => {
     let result: TerminalPrompt[];
 
     if (debouncedQuery) {
@@ -70,6 +70,14 @@ export default function Library() {
       result = result.filter((p) => p.category === activeCategory);
     }
 
+    return result;
+  }, [prompts, debouncedQuery, activeCategory, fuse]);
+
+  // ⚡ Bolt: Split sorting and favorites filtering from heavy fuse.js search
+  // Expected impact: Prevents expensive re-searching when user toggles a favorite
+  const filtered = useMemo(() => {
+    let result = [...searchAndCategoryFiltered];
+
     if (favFilter) {
       result = result.filter((p) => isFav(p.id));
     }
@@ -80,7 +88,7 @@ export default function Library() {
     else if (!debouncedQuery) result.sort((a, b) => a.id - b.id);
 
     return result;
-  }, [prompts, debouncedQuery, activeCategory, favFilter, sort, fuse, isFav]);
+  }, [searchAndCategoryFiltered, favFilter, sort, debouncedQuery, isFav]);
 
   // Category counts
   const categoryCounts = useMemo(() => {
