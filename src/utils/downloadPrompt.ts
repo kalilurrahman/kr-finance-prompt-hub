@@ -55,7 +55,9 @@ export function downloadAsHtml(prompt: DownloadData) {
 }
 
 export function downloadAsPdf(prompt: DownloadData) {
-  // Use browser print dialog as PDF generator — opens styled HTML in new window
+  // 🛡️ Sentinel enhancement: Use secure Blob URL instead of unsafe window.open("") + document.write()
+  // This prevents the new window from retaining a reference to the parent (window.opener)
+  // and avoids using document.write() which is a known security risk.
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,11 +85,13 @@ export function downloadAsPdf(prompt: DownloadData) {
   <script>window.onload = () => { window.print(); }</script>
 </body>
 </html>`;
-  const win = window.open("", "_blank");
-  if (win) {
-    win.document.write(html);
-    win.document.close();
-  }
+
+  const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  window.open(url, "_blank", "noopener,noreferrer");
+
+  // Clean up the URL object after allowing time for the window to load and print dialog to open
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
 }
 
 function triggerDownload(blob: Blob, filename: string) {
