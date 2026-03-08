@@ -46,6 +46,7 @@ export function Resources() {
             key={r.platform}
             href={`/downloads/${r.filename}`}
             download
+            aria-label={`Download ${r.platform} prompts in ${r.format} format`}
             className="group relative flex flex-col gap-3 rounded-xl border border-border/50 bg-card/50 p-5 transition-all hover:border-gold/40 hover:shadow-md hover:shadow-gold/5 no-underline"
           >
             {/* Platform badge */}
