@@ -16,6 +16,7 @@ interface PromptCardProps {
 export function PromptCard({ prompt, isFavorite, onToggleFavorite, onClick }: PromptCardProps) {
   const platformInfo = PLATFORMS.find((p) => p.key === prompt.platform);
   const domainIcon = DOMAIN_ICONS[prompt.domain] || "📄";
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const sourceMeta = getSourceMeta((prompt as any).prompt_source);
 
   const handleCopy = (e: React.MouseEvent) => {
