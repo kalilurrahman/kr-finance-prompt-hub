@@ -25,20 +25,7 @@ The Financial Engineering & Advisory Prompts Reference hub serves as a central k
   <img src="./public/screenshot-home.png" alt="Home Page Full View" width="800" style="border-radius: 8px;" />
 </p>
 
-### Prompt Library View
-
-<p align="center">
-  <img src="./public/screenshot-library.png" alt="Prompt Library View" width="800" style="border-radius: 8px;" />
-</p>
-
-### Key Features
-- **Extensive Collection:** Over 1,120 ready-to-use prompts divided across 6 main financial domains.
-- **Platform Specificity:** Prompts individually curated and formatted for Perplexity, Claude, and Google Gemini to maximize each model's strengths.
-- **Advanced Filtering:** Quickly find prompts by searching keywords, selecting specific AI platforms, or filtering by specialized financial domains.
-- **Interactive Analytics:** Visual breakdown of prompts across various platforms and domains.
-- **One-Click Copy:** Easily copy complex prompts to your clipboard for immediate use.
-
-### Domain Breakdown & AI Platform Coverage
+### Domain Breakdown & AI Platform Coverage (Hero)
 
 <p align="center">
   <img src="./public/screenshot-hero.png" alt="Hero Stats View" width="800" style="border-radius: 8px;" />
@@ -50,13 +37,26 @@ The Financial Engineering & Advisory Prompts Reference hub serves as a central k
   <img src="./public/screenshot-prompt-detail.png" alt="Prompt Detail View" width="800" style="border-radius: 8px;" />
 </p>
 
-### FINPROMPT Library
+### FINPROMPT Library View
 
 The **[Prompt Library](https://kr-finance-prompt-hub.lovable.app/library)** page provides a Bloomberg-terminal style searchable, filterable grid of all 1,120+ prompts. It provides an immersive, high-speed experience to quickly search keywords via Fuse.js, filter by domains, track favorites, and copy the exact financial engineering or advisory prompt you need.
 
 <p align="center">
   <img src="./public/screenshot-library.png" alt="Prompt Library Terminal View" width="800" style="border-radius: 8px;" />
 </p>
+
+### Search and Filtering Functionality
+
+<p align="center">
+  <img src="./public/screenshot-search.png" alt="Search and Filtering Interface" width="800" style="border-radius: 8px;" />
+</p>
+
+### Key Features
+- **Extensive Collection:** Over 1,120 ready-to-use prompts divided across 6 main financial domains.
+- **Platform Specificity:** Prompts individually curated and formatted for Perplexity, Claude, and Google Gemini to maximize each model's strengths.
+- **Advanced Filtering:** Quickly find prompts by searching keywords, selecting specific AI platforms, or filtering by specialized financial domains.
+- **Interactive Analytics:** Visual breakdown of prompts across various platforms and domains.
+- **One-Click Copy:** Easily copy complex prompts to your clipboard for immediate use.
 
 ## 📊 Prompts by Domain
 

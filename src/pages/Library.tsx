@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useTerminalPrompts } from "@/hooks/useTerminalPrompts";
 import { useTerminalFavorites } from "@/hooks/useTerminalFavorites";
@@ -9,6 +9,80 @@ import { TERMINAL_CATEGORIES } from "@/types/terminal";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useFavorites } from "@/hooks/useFavorites";
+
+const TerminalCardItem = React.memo(({
+  prompt,
+  isFavorite,
+  isCopied,
+  onToggle,
+  onCopy,
+  onView
+}: {
+  prompt: TerminalPrompt;
+  isFavorite: boolean;
+  isCopied: boolean;
+  onToggle: (id: number) => void;
+  onCopy: (prompt: TerminalPrompt) => void;
+  onView: (prompt: TerminalPrompt) => void;
+}) => {
+  return (
+    <div
+      className={`t-card bg-[var(--t-bg-2)] border border-[var(--t-border)] cursor-pointer flex flex-col ${
+        isFavorite ? "border-l-[3px] border-l-[var(--t-amber)]" : ""
+      }`}
+      onClick={() => onView(prompt)}
+    >
+      {/* Card Header */}
+      <div className="px-4 pt-3.5 pb-2.5 border-b border-[var(--t-border)] flex items-start justify-between gap-2.5">
+        <span className="text-[9px] text-[var(--t-text-muted)] tracking-[0.15em] shrink-0 pt-0.5">#{prompt.id}</span>
+        <span className="text-xs text-[var(--t-text-primary)] font-semibold leading-[1.4] flex-1 font-sans-ibm tracking-[0.01em]">
+          {prompt.title}
+        </span>
+        <button
+          onClick={(e) => { e.stopPropagation(); onToggle(prompt.id); }}
+          className={`bg-transparent border-none cursor-pointer text-base p-0 shrink-0 transition-all hover:scale-110 ${
+            isFavorite ? "text-[var(--t-amber)]" : "text-[var(--t-text-muted)] hover:text-[var(--t-amber)]"
+          }`}
+          style={isFavorite ? { textShadow: "0 0 8px rgba(255,184,0,0.5)" } : {}}
+        >
+          {isFavorite ? "★" : "☆"}
+        </button>
+      </div>
+      {/* Card Meta */}
+      <div className="px-4 py-2 flex items-center gap-2 flex-wrap">
+        <span className="text-[9px] tracking-[0.15em] uppercase text-[var(--t-text-muted)] bg-[var(--t-bg-4)] px-2 py-[3px] border border-transparent transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] hover:bg-[rgba(255,184,0,0.06)] cursor-default">
+          {prompt.category}
+        </span>
+        {prompt.tags?.map((tag) => (
+          <span key={tag} className="text-[9px] tracking-[0.12em] text-[var(--t-amber-dim)] bg-[rgba(255,184,0,0.07)] border border-[rgba(255,184,0,0.15)] px-[7px] py-[2px]">
+            {tag}
+          </span>
+        ))}
+      </div>
+      {/* Card Preview */}
+      <div className="px-4 py-2 text-[11px] text-[var(--text-secondary,var(--t-text-secondary))] leading-[1.6] flex-1" style={{ color: "var(--t-text-secondary)" }}>
+        {prompt.prompt_text.slice(0, 140)}...
+      </div>
+      {/* Card Footer */}
+      <div className="px-4 py-2.5 border-t border-[var(--t-border)] flex items-center justify-between">
+        <button
+          onClick={(e) => { e.stopPropagation(); onCopy(prompt); }}
+          className={`bg-transparent border border-[var(--t-border)] text-[10px] px-3.5 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all flex items-center gap-1.5 ${
+            isCopied ? "border-[var(--t-green)] text-[var(--t-green)]" : "text-[var(--t-text-muted)] hover:border-[var(--t-green)] hover:text-[var(--t-green)]"
+          }`}
+        >
+          {isCopied ? "✓ COPIED" : "⎘ COPY"}
+        </button>
+        <button
+          onClick={(e) => { e.stopPropagation(); onView(prompt); }}
+          className="bg-transparent border-none text-[var(--t-text-muted)] text-[10px] py-[5px] cursor-pointer tracking-[0.08em] uppercase transition-colors hover:text-[var(--t-amber)]"
+        >
+          VIEW FULL →
+        </button>
+      </div>
+    </div>
+  );
+});
 
 const PER_PAGE = 24;
 
@@ -57,7 +131,7 @@ export default function Library() {
   }, [modalPrompt, query]);
 
   // Filtering
-  const filtered = useMemo(() => {
+  const searchAndCategoryFiltered = useMemo(() => {
     let result: TerminalPrompt[];
 
     if (debouncedQuery) {
@@ -70,9 +144,15 @@ export default function Library() {
       result = result.filter((p) => p.category === activeCategory);
     }
 
-    if (favFilter) {
-      result = result.filter((p) => isFav(p.id));
-    }
+    return result;
+  }, [prompts, debouncedQuery, activeCategory, fuse]);
+
+  // ⚡ Bolt: Split sorting and favorites filtering from heavy fuse.js search
+  // Expected impact: Prevents expensive re-searching when user toggles a favorite
+  // ⚡ Bolt: Split sorting and favorites filtering from heavy fuse.js search
+  // Separate sorting from favorites filtering so toggling favorite doesn't re-sort the entire list
+  const sortedPrompts = useMemo(() => {
+    const result = [...searchAndCategoryFiltered];
 
     // Sort
     if (sort === "title") result.sort((a, b) => a.title.localeCompare(b.title));
@@ -80,7 +160,14 @@ export default function Library() {
     else if (!debouncedQuery) result.sort((a, b) => a.id - b.id);
 
     return result;
-  }, [prompts, debouncedQuery, activeCategory, favFilter, sort, fuse, isFav]);
+  }, [searchAndCategoryFiltered, sort, debouncedQuery]);
+
+  const filtered = useMemo(() => {
+    if (favFilter) {
+      return sortedPrompts.filter((p) => isFav(p.id));
+    }
+    return sortedPrompts;
+  }, [sortedPrompts, favFilter, isFav]);
 
   // Category counts
   const categoryCounts = useMemo(() => {
@@ -326,62 +413,15 @@ export default function Library() {
         {/* GRID */}
         <div className="grid gap-3.5" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(min(360px, 100%), 1fr))" }}>
           {pagePrompts.map((prompt) => (
-            <div
+            <TerminalCardItem
               key={prompt.id}
-              className={`t-card bg-[var(--t-bg-2)] border border-[var(--t-border)] cursor-pointer flex flex-col ${
-                isFav(prompt.id) ? "border-l-[3px] border-l-[var(--t-amber)]" : ""
-              }`}
-              onClick={() => setModalPrompt(prompt)}
-            >
-              {/* Card Header */}
-              <div className="px-4 pt-3.5 pb-2.5 border-b border-[var(--t-border)] flex items-start justify-between gap-2.5">
-                <span className="text-[9px] text-[var(--t-text-muted)] tracking-[0.15em] shrink-0 pt-0.5">#{prompt.id}</span>
-                <span className="text-xs text-[var(--t-text-primary)] font-semibold leading-[1.4] flex-1 font-sans-ibm tracking-[0.01em]">
-                  {prompt.title}
-                </span>
-                <button
-                  onClick={(e) => { e.stopPropagation(); toggle(prompt.id); }}
-                  className={`bg-transparent border-none cursor-pointer text-base p-0 shrink-0 transition-all hover:scale-110 ${
-                    isFav(prompt.id) ? "text-[var(--t-amber)]" : "text-[var(--t-text-muted)] hover:text-[var(--t-amber)]"
-                  }`}
-                  style={isFav(prompt.id) ? { textShadow: "0 0 8px rgba(255,184,0,0.5)" } : {}}
-                >
-                  {isFav(prompt.id) ? "★" : "☆"}
-                </button>
-              </div>
-              {/* Card Meta */}
-              <div className="px-4 py-2 flex items-center gap-2 flex-wrap">
-                <span className="text-[9px] tracking-[0.15em] uppercase text-[var(--t-text-muted)] bg-[var(--t-bg-4)] px-2 py-[3px] border border-transparent transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] hover:bg-[rgba(255,184,0,0.06)] cursor-default">
-                  {prompt.category}
-                </span>
-                {prompt.tags?.map((tag) => (
-                  <span key={tag} className="text-[9px] tracking-[0.12em] text-[var(--t-amber-dim)] bg-[rgba(255,184,0,0.07)] border border-[rgba(255,184,0,0.15)] px-[7px] py-[2px]">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              {/* Card Preview */}
-              <div className="px-4 py-2 text-[11px] text-[var(--text-secondary,var(--t-text-secondary))] leading-[1.6] flex-1" style={{ color: "var(--t-text-secondary)" }}>
-                {prompt.prompt_text.slice(0, 140)}...
-              </div>
-              {/* Card Footer */}
-              <div className="px-4 py-2.5 border-t border-[var(--t-border)] flex items-center justify-between">
-                <button
-                  onClick={(e) => { e.stopPropagation(); copyPrompt(prompt); }}
-                  className={`bg-transparent border border-[var(--t-border)] text-[10px] px-3.5 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all flex items-center gap-1.5 ${
-                    copiedId === prompt.id ? "border-[var(--t-green)] text-[var(--t-green)]" : "text-[var(--t-text-muted)] hover:border-[var(--t-green)] hover:text-[var(--t-green)]"
-                  }`}
-                >
-                  {copiedId === prompt.id ? "✓ COPIED" : "⎘ COPY"}
-                </button>
-                <button
-                  onClick={(e) => { e.stopPropagation(); setModalPrompt(prompt); }}
-                  className="bg-transparent border-none text-[var(--t-text-muted)] text-[10px] py-[5px] cursor-pointer tracking-[0.08em] uppercase transition-colors hover:text-[var(--t-amber)]"
-                >
-                  VIEW FULL →
-                </button>
-              </div>
-            </div>
+              prompt={prompt}
+              isFavorite={isFav(prompt.id)}
+              isCopied={copiedId === prompt.id}
+              onToggle={toggle}
+              onCopy={copyPrompt}
+              onView={setModalPrompt}
+            />
           ))}
         </div>
 
@@ -401,6 +441,7 @@ export default function Library() {
               disabled={page === 1}
               onClick={() => setPage(page - 1)}
               className="bg-transparent border border-[var(--t-border)] text-[var(--t-text-secondary)] text-[11px] px-3 py-1.5 cursor-pointer transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] disabled:opacity-30 disabled:cursor-not-allowed"
+              aria-label="Previous page"
             >
               ← PREV
             </button>
@@ -432,6 +473,7 @@ export default function Library() {
               disabled={page === totalPages}
               onClick={() => setPage(page + 1)}
               className="bg-transparent border border-[var(--t-border)] text-[var(--t-text-secondary)] text-[11px] px-3 py-1.5 cursor-pointer transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] disabled:opacity-30 disabled:cursor-not-allowed"
+              aria-label="Next page"
             >
               NEXT →
             </button>
@@ -461,6 +503,7 @@ export default function Library() {
               <button
                 onClick={() => setModalPrompt(null)}
                 className="bg-transparent border border-[var(--t-border)] text-[var(--t-text-secondary)] text-[13px] w-8 h-8 cursor-pointer flex items-center justify-center shrink-0 transition-all hover:border-[var(--t-red)] hover:text-[var(--t-red)]"
+                aria-label="Close modal"
               >
                 ✕
               </button>

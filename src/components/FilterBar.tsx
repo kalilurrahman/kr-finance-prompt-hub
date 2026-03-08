@@ -75,6 +75,7 @@ function PlatformTab({ active, onClick, label, icon }: { active: boolean; onClic
       variant={active ? "default" : "outline"}
       size="sm"
       onClick={onClick}
+      aria-pressed={active}
       className={cn(
         "shrink-0 gap-1.5 text-xs",
         active && "bg-gold text-primary-foreground hover:bg-gold/90"
@@ -90,6 +91,7 @@ function DomainPill({ active, onClick, label }: { active: boolean; onClick: () =
   return (
     <button
       onClick={onClick}
+      aria-pressed={active}
       className={cn(
         "rounded-full px-3 py-1 text-xs font-medium transition-all",
         active

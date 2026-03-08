@@ -1,0 +1,3 @@
+## 2024-03-06 - Make Interactive Div Cards Keyboard Accessible
+**Learning:** Interactive `div` components (like `PromptCard` using `<Card onClick={...}>`) are completely inaccessible to keyboard users by default, meaning they cannot be tabbed to or activated via Enter/Space.
+**Action:** When making custom interactive card components that act as buttons, always include `role="button"`, `tabIndex={0}`, an `onKeyDown` handler to trigger the action on `Enter` or `Space`, and proper `focus-visible` styling (e.g. `focus-visible:ring-2`) to show focus state without relying purely on hover.

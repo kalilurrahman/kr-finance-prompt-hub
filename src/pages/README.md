@@ -38,6 +38,10 @@ The primary directory of prompts accessible at (`/library`). It presents the cur
   <img src="../../public/screenshot-library.png" alt="Application Library View" width="800" style="border-radius: 8px; margin-bottom: 16px;" />
 </p>
 
+<p align="center">
+  <img src="../../public/screenshot-search.png" alt="Application Library Search View" width="800" style="border-radius: 8px; margin-bottom: 16px;" />
+</p>
+
 - Emphasizes the `FilterBar` and `PromptCard` components to enable rapid exploration and discovery.
 - Filters and categorizes prompts across AI platforms and domains similarly to `Index.tsx`.
 
