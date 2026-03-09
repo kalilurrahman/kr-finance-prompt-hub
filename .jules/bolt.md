@@ -9,3 +9,7 @@
 ## 2024-03-05 - Splitting Filter and Sort in React useMemo
 **Learning:** In large React list components, combining expensive array sorting and simple predicate filtering into a single `useMemo` forces re-sorting of the entire array whenever the filter condition changes (e.g. toggling a favorite).
 **Action:** Split them. Create one `useMemo` for sorting that only depends on sorting parameters, and a second `useMemo` that takes the sorted array and applies the fast filter.
+
+## 2024-03-05 - Single-Pass Array Filtering
+**Learning:** Chaining multiple `.filter()` calls on large datasets (like `allPrompts`) creates multiple intermediate arrays and iterates over the data multiple times (e.g. O(3N) instead of O(N)), which can cause input lag and memory churn during rapid filtering (e.g., search).
+**Action:** Always combine multiple filter predicates into a single `.filter()` pass to reduce memory allocations and iterations.
