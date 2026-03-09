@@ -93,7 +93,7 @@ function DomainPill({ active, onClick, label }: { active: boolean; onClick: () =
       onClick={onClick}
       aria-pressed={active}
       className={cn(
-        "rounded-full px-3 py-1 text-xs font-medium transition-all",
+        "rounded-full px-3 py-1 text-xs font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         active
           ? "bg-gold/15 text-gold border border-gold/30"
           : "bg-secondary/50 text-muted-foreground border border-border/50 hover:border-gold/30 hover:text-foreground"

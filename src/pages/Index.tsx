@@ -159,7 +159,7 @@ const Index = () => {
           <div className="mt-8 flex justify-center">
             <button
               onClick={loadMore}
-              className="rounded-full border border-gold/30 bg-gold/5 px-8 py-2.5 text-sm font-medium text-gold transition-all hover:bg-gold/10 hover:glow-gold"
+              className="rounded-full border border-gold/30 bg-gold/5 px-8 py-2.5 text-sm font-medium text-gold transition-all hover:bg-gold/10 hover:glow-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Load More ({filter.filtered.length - visibleCount} remaining)
             </button>
