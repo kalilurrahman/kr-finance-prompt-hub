@@ -23,7 +23,8 @@ export function ThemeSwitcher({ variant = 'icon', className = '' }: Props) {
               key={t.id}
               onClick={() => setTheme(t.id as ThemeId)}
               title={t.description}
-              className={`px-3 py-1 text-[11px] font-medium tracking-wide rounded-md transition-all duration-150 ${
+              aria-pressed={isActive}
+              className={`px-3 py-1 text-[11px] font-medium tracking-wide rounded-md transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                 isActive
                   ? 'bg-[var(--accent)] text-[var(--accent-contrast)] shadow-sm font-semibold'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-secondary/50'
@@ -69,7 +70,8 @@ function ThemeDropdown({ theme, setTheme }: { theme: typeof THEMES[0]; setTheme:
         onClick={() => setOpen(o => !o)}
         title="Change theme"
         aria-label="Change display theme"
-        className={`flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] tracking-wider uppercase border rounded-md transition-all cursor-pointer ${
+        aria-expanded={open}
+        className={`flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] tracking-wider uppercase border rounded-md transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
           open
             ? 'border-[var(--border-bright,hsl(var(--border)))] text-[var(--accent,hsl(var(--primary)))]'
             : 'border-border/50 text-muted-foreground hover:text-foreground hover:border-border'
