@@ -11,3 +11,7 @@
 **Vulnerability:** Use of `document.write` and `window.open("", "_blank")` to generate dynamic printable PDF views in `downloadAsPdf`.
 **Learning:** Even when inputs are sanitized (via `escapeHtml`), static code analysis tools and modern security best practices flag `document.write` and implicitly-linked `window.open` as dangerous (potential XSS sinks and cross-window leakage vectors).
 **Prevention:** Replace `document.write` with secure Blob URLs (`URL.createObjectURL`) and explicitly use `"noopener,noreferrer"` window features when opening new tabs.
+## 2025-03-09 - [Insecure Cookie Configuration]
+**Vulnerability:** The UI state cookie (`sidebar:state`) in `src/components/ui/sidebar.tsx` was set without `SameSite` or `Secure` attributes.
+**Learning:** Even UI state cookies can be subject to Cross-Site Request Forgery (CSRF) or exposed over unencrypted connections if they are not explicitly configured properly.
+**Prevention:** Always append explicit security attributes (`SameSite=Lax` and `Secure`) to all `document.cookie` assignments.
