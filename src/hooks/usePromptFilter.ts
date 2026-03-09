@@ -10,25 +10,26 @@ export function usePromptFilter() {
   const [showFavorites, setShowFavorites] = useState(false);
   const [favorites, setFavoritesSet] = useState<Set<string>>(new Set());
 
+  // ⚡ Bolt: Combine multiple array filters into a single pass
+  // Expected impact: Eliminates multiple intermediate array allocations and reduces iterations from O(3N) to O(N)
   const baseFiltered = useMemo(() => {
-    let result = allPrompts;
+    const q = search.trim().toLowerCase();
+    const hasPlatformFilter = platform !== "all";
+    const hasDomainFilter = domain !== "all";
+    const hasSearch = Boolean(q);
 
-    if (platform !== "all") {
-      result = result.filter((p) => p.platform === platform);
+    if (!hasPlatformFilter && !hasDomainFilter && !hasSearch) {
+      return allPrompts;
     }
-    if (domain !== "all") {
-      result = result.filter((p) => p.domain === domain);
-    }
-    if (search.trim()) {
-      const q = search.toLowerCase();
+
+    return allPrompts.filter((p) => {
+      if (hasPlatformFilter && p.platform !== platform) return false;
+      if (hasDomainFilter && p.domain !== domain) return false;
       // ⚡ Bolt: Use pre-computed, normalized search string for fast filtering
       // Expected impact: Prevents main thread blocking during rapid search typing
-      result = result.filter(
-        (p) => p._searchableText?.includes(q)
-      );
-    }
-
-    return result;
+      if (hasSearch && !p._searchableText?.includes(q)) return false;
+      return true;
+    });
   }, [allPrompts, platform, domain, search]);
 
   // ⚡ Bolt: Split favorites filtering from heavy text/category filtering
