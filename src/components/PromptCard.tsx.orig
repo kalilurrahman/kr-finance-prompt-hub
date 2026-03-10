@@ -17,7 +17,7 @@ interface PromptCardProps {
 export const PromptCard = React.memo(function PromptCard({ prompt, isFavorite, onToggleFavorite, onClick }: PromptCardProps) {
   const platformInfo = PLATFORMS.find((p) => p.key === prompt.platform);
   const domainIcon = DOMAIN_ICONS[prompt.domain] || "📄";
-  const sourceMeta = getSourceMeta((prompt as any).prompt_source);
+  const sourceMeta = getSourceMeta((prompt as Prompt & { prompt_source?: string }).prompt_source);
 
   const handleCopy = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -30,10 +30,20 @@ export const PromptCard = React.memo(function PromptCard({ prompt, isFavorite, o
     onToggleFavorite(prompt.id);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onClick(prompt);
+    }
+  };
+
   return (
     <Card
-      className="group cursor-pointer border-border/50 bg-card/50 transition-all duration-200 hover:border-gold/30 hover:shadow-lg hover:shadow-gold/5"
-      onClick={() => onClick(prompt)}
+      role="button"
+      tabIndex={0}
+      className="group cursor-pointer border-border/50 bg-card/50 transition-all duration-200 hover:border-gold/30 hover:shadow-lg hover:shadow-gold/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      onClick={onClick}
+      onKeyDown={handleKeyDown}
     >
       <CardContent className="flex flex-col gap-3 p-4">
         {/* Top row: domain icon + platform badge */}
@@ -50,10 +60,10 @@ export const PromptCard = React.memo(function PromptCard({ prompt, isFavorite, o
               {sourceMeta.icon} {sourceMeta.shortLabel}
             </span>
           </div>
-          <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
+          <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100 focus-within:opacity-100 group-focus:opacity-100">
             <button
               onClick={handleCopy}
-              className="rounded-md p-1.5 text-muted-foreground hover:bg-secondary hover:text-foreground"
+              className="rounded-md p-1.5 text-muted-foreground hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
               title="Copy prompt"
               aria-label="Copy prompt"
             >
