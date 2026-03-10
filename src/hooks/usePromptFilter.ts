@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import type { Prompt, Platform, Domain } from "@/types/prompt";
 import { getAllPrompts } from "@/data/prompts";
 
@@ -10,10 +10,19 @@ export function usePromptFilter() {
   const [showFavorites, setShowFavorites] = useState(false);
   const [favorites, setFavoritesSet] = useState<Set<string>>(new Set());
 
+  // ⚡ Bolt: Debounce search input to prevent main-thread blocking
+  // Expected impact: Prevents dropped frames and lag by avoiding O(N) array filtering on every keystroke
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedSearch(search), 200);
+    return () => clearTimeout(timer);
+  }, [search]);
+
   // ⚡ Bolt: Combine multiple array filters into a single pass
   // Expected impact: Eliminates multiple intermediate array allocations and reduces iterations from O(3N) to O(N)
   const baseFiltered = useMemo(() => {
-    const q = search.trim().toLowerCase();
+    const q = debouncedSearch.trim().toLowerCase();
     const hasPlatformFilter = platform !== "all";
     const hasDomainFilter = domain !== "all";
     const hasSearch = Boolean(q);
@@ -30,7 +39,7 @@ export function usePromptFilter() {
       if (hasSearch && !p._searchableText?.includes(q)) return false;
       return true;
     });
-  }, [allPrompts, platform, domain, search]);
+  }, [allPrompts, platform, domain, debouncedSearch]);
 
   // ⚡ Bolt: Split favorites filtering from heavy text/category filtering
   // Expected impact: Prevents full dataset text matching when toggling a favorite

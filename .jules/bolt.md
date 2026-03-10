@@ -13,3 +13,7 @@
 ## 2024-03-05 - Single-Pass Array Filtering
 **Learning:** Chaining multiple `.filter()` calls on large datasets (like `allPrompts`) creates multiple intermediate arrays and iterates over the data multiple times (e.g. O(3N) instead of O(N)), which can cause input lag and memory churn during rapid filtering (e.g., search).
 **Action:** Always combine multiple filter predicates into a single `.filter()` pass to reduce memory allocations and iterations.
+
+## 2026-03-10 - Debouncing React State Filtering
+**Learning:** Filtering large datasets synchronously on the main thread on every keystroke causes dropped frames and poor typing performance.
+**Action:** Add a debounced search state for complex front-end filtering to ensure snappy UI interaction while delaying the heavy O(N) filtering logic.
