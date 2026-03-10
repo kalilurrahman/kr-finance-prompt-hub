@@ -33,7 +33,7 @@ export const PromptCard = React.memo(function PromptCard({ prompt, isFavorite, o
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      onClick();
+      onClick(prompt);
     }
   };
 
@@ -60,10 +60,10 @@ export const PromptCard = React.memo(function PromptCard({ prompt, isFavorite, o
               {sourceMeta.icon} {sourceMeta.shortLabel}
             </span>
           </div>
-          <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
+          <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100 focus-within:opacity-100 group-focus:opacity-100">
             <button
               onClick={handleCopy}
-              className="rounded-md p-1.5 text-muted-foreground hover:bg-secondary hover:text-foreground"
+              className="rounded-md p-1.5 text-muted-foreground hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
               title="Copy prompt"
               aria-label="Copy prompt"
             >
@@ -72,7 +72,7 @@ export const PromptCard = React.memo(function PromptCard({ prompt, isFavorite, o
             <button
               onClick={handleFavorite}
               className={cn(
-                "rounded-md p-1.5 transition-colors",
+                "rounded-md p-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold",
                 isFavorite ? "text-gold" : "text-muted-foreground hover:text-gold"
               )}
               title={isFavorite ? "Remove from favorites" : "Add to favorites"}
