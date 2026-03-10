@@ -6,7 +6,11 @@ export function useTerminalFavorites() {
   const [favorites, setFavorites] = useState<Set<number>>(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      return stored ? new Set(JSON.parse(stored)) : new Set();
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        return new Set(Array.isArray(parsed) ? parsed : []);
+      }
+      return new Set();
     } catch {
       return new Set();
     }
