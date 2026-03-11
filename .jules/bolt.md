@@ -17,3 +17,7 @@
 ## 2026-03-10 - Debouncing React State Filtering
 **Learning:** Filtering large datasets synchronously on the main thread on every keystroke causes dropped frames and poor typing performance.
 **Action:** Add a debounced search state for complex front-end filtering to ensure snappy UI interaction while delaying the heavy O(N) filtering logic.
+
+## 2026-03-11 - Caching Module-Level Static Data Derivations
+**Learning:** Pure functions deriving stats from large static datasets (e.g. `getPromptStats()`) invoked inside React components (like `Hero`) that re-render frequently due to parent state changes (like search input) will execute their O(N) calculations on every single render, unnecessarily blocking the main thread.
+**Action:** Cache the result of expensive derivations at the module level if the underlying data is immutable to prevent redundant recalculations during component re-renders.
