@@ -131,7 +131,13 @@ export function getAllPrompts(): Prompt[] {
   return _allPrompts;
 }
 
+// ⚡ Bolt: Cache module-level stats derivation
+// Expected impact: Prevents redundant O(N) calculations (1,100+ iterations) during frequent component re-renders (e.g. Hero when search updates)
+let _promptStats: { total: number; byPlatform: Record<string, number>; byDomain: Record<string, number> } | null = null;
+
 export function getPromptStats() {
+  if (_promptStats) return _promptStats;
+
   const all = getAllPrompts();
   const byPlatform: Record<string, number> = {};
   const byDomain: Record<string, number> = {};
@@ -141,5 +147,6 @@ export function getPromptStats() {
     byDomain[p.domain] = (byDomain[p.domain] || 0) + 1;
   });
 
-  return { total: all.length, byPlatform, byDomain };
+  _promptStats = { total: all.length, byPlatform, byDomain };
+  return _promptStats;
 }
