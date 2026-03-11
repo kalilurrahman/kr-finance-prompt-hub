@@ -27,11 +27,16 @@ const TerminalCardItem = React.memo(({
 }) => {
   return (
     <div
-      className={`t-card bg-[var(--t-bg-2)] border border-[var(--t-border)] cursor-pointer flex flex-col ${
+      className={`t-card bg-[var(--t-bg-2)] border border-[var(--t-border)] cursor-pointer flex flex-col relative group ${
         isFavorite ? "border-l-[3px] border-l-[var(--t-amber)]" : ""
       }`}
       onClick={() => onView(prompt)}
     >
+      <button
+        aria-label={`View full details for prompt: ${prompt.title}`}
+        onClick={(e) => { e.stopPropagation(); onView(prompt); }}
+        className="absolute inset-0 z-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--t-amber)] focus-visible:ring-offset-1 focus-visible:ring-offset-[var(--t-bg-2)]"
+      />
       {/* Card Header */}
       <div className="px-4 pt-3.5 pb-2.5 border-b border-[var(--t-border)] flex items-start justify-between gap-2.5">
         <span className="text-[9px] text-[var(--t-text-muted)] tracking-[0.15em] shrink-0 pt-0.5">#{prompt.id}</span>
@@ -39,8 +44,10 @@ const TerminalCardItem = React.memo(({
           {prompt.title}
         </span>
         <button
+          aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+          aria-pressed={isFavorite}
           onClick={(e) => { e.stopPropagation(); onToggle(prompt.id); }}
-          className={`bg-transparent border-none cursor-pointer text-base p-0 shrink-0 transition-all hover:scale-110 ${
+          className={`bg-transparent border-none cursor-pointer text-base p-0 shrink-0 transition-all hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--t-amber)] rounded-sm relative z-10 ${
             isFavorite ? "text-[var(--t-amber)]" : "text-[var(--t-text-muted)] hover:text-[var(--t-amber)]"
           }`}
           style={isFavorite ? { textShadow: "0 0 8px rgba(255,184,0,0.5)" } : {}}
@@ -64,18 +71,21 @@ const TerminalCardItem = React.memo(({
         {prompt.prompt_text.slice(0, 140)}...
       </div>
       {/* Card Footer */}
-      <div className="px-4 py-2.5 border-t border-[var(--t-border)] flex items-center justify-between">
+      <div className="px-4 py-2.5 border-t border-[var(--t-border)] flex items-center justify-between relative z-10">
         <button
+          aria-label={isCopied ? "Prompt copied" : "Copy prompt"}
+          aria-live="polite"
           onClick={(e) => { e.stopPropagation(); onCopy(prompt); }}
-          className={`bg-transparent border border-[var(--t-border)] text-[10px] px-3.5 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all flex items-center gap-1.5 ${
+          className={`bg-transparent border border-[var(--t-border)] text-[10px] px-3.5 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--t-green)] ${
             isCopied ? "border-[var(--t-green)] text-[var(--t-green)]" : "text-[var(--t-text-muted)] hover:border-[var(--t-green)] hover:text-[var(--t-green)]"
           }`}
         >
           {isCopied ? "✓ COPIED" : "⎘ COPY"}
         </button>
         <button
+          aria-label="View full prompt details"
           onClick={(e) => { e.stopPropagation(); onView(prompt); }}
-          className="bg-transparent border-none text-[var(--t-text-muted)] text-[10px] py-[5px] cursor-pointer tracking-[0.08em] uppercase transition-colors hover:text-[var(--t-amber)]"
+          className="bg-transparent border-none text-[var(--t-text-muted)] text-[10px] py-[5px] cursor-pointer tracking-[0.08em] uppercase transition-colors hover:text-[var(--t-amber)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--t-amber)] rounded-sm"
         >
           VIEW FULL →
         </button>
