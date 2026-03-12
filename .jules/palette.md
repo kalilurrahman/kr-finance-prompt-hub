@@ -7,3 +7,6 @@
 ## 2024-03-20 - Keyboard Accessibility for Hover Actions
 **Learning:** Inner interactive elements that are hidden until hover (e.g. `opacity-0 group-hover:opacity-100`) become inaccessible for keyboard navigation. Tabbing to them works, but they remain invisible, resulting in "ghost focus".
 **Action:** When hiding inner actions behind a hover state using group hover, always pair `group-hover:opacity-100` with `focus-within:opacity-100 group-focus:opacity-100` on the container, and ensure the inner focusable elements themselves have clear `focus-visible` styles.
+## 2024-03-12 - ARIA Labels for Action Buttons
+**Learning:** Adding descriptive `aria-label` attributes to action buttons in modal dialogues improves the screen reader experience by providing clear, actionable information about the button's purpose, especially for buttons with abbreviated or non-descriptive text (e.g., "↓ TXT").
+**Action:** Always verify that action buttons, particularly those in modals or those using icons/abbreviations, have descriptive `aria-label` attributes to ensure they are fully accessible to screen reader users.

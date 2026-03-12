@@ -538,6 +538,7 @@ export default function Library() {
             {/* Modal Footer */}
             <div className="px-5 py-3.5 border-t border-[var(--t-border)] flex items-center gap-2.5 bg-[var(--t-bg-3)] flex-wrap">
               <button
+                aria-label={modalCopied ? "Prompt copied" : "Copy prompt"}
                 onClick={() => copyPrompt(modalPrompt, true)}
                 className={`border-none text-[11px] font-bold px-6 py-2.5 cursor-pointer tracking-[0.12em] uppercase transition-all ${
                   modalCopied
@@ -548,6 +549,7 @@ export default function Library() {
                 {modalCopied ? "✓ COPIED" : "⎘ COPY PROMPT"}
               </button>
               <button
+                aria-label={isFav(modalPrompt.id) ? "Remove from saved" : "Save as favorite"}
                 onClick={() => toggle(modalPrompt.id)}
                 className={`bg-transparent border border-[var(--t-border)] text-[11px] px-5 py-2 cursor-pointer tracking-[0.1em] uppercase transition-all flex items-center gap-2 ${
                   isFav(modalPrompt.id)
@@ -559,18 +561,21 @@ export default function Library() {
               </button>
               {/* Download buttons */}
               <button
+                aria-label="Download prompt as TXT"
                 onClick={() => downloadAsTxt({ title: modalPrompt.title, content: modalPrompt.prompt_text, category: modalPrompt.category, platform: "FINPROMPT" })}
                 className="bg-transparent border border-[var(--t-border)] text-[var(--t-text-muted)] text-[10px] px-3 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)]"
               >
                 ↓ TXT
               </button>
               <button
+                aria-label="Download prompt as HTML"
                 onClick={() => downloadAsHtml({ title: modalPrompt.title, content: modalPrompt.prompt_text, category: modalPrompt.category, platform: "FINPROMPT" })}
                 className="bg-transparent border border-[var(--t-border)] text-[var(--t-text-muted)] text-[10px] px-3 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)]"
               >
                 ↓ HTML
               </button>
               <button
+                aria-label="Download prompt as PDF"
                 onClick={() => downloadAsPdf({ title: modalPrompt.title, content: modalPrompt.prompt_text, category: modalPrompt.category, platform: "FINPROMPT" })}
                 className="bg-transparent border border-[var(--t-border)] text-[var(--t-text-muted)] text-[10px] px-3 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)]"
               >
