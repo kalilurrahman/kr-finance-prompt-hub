@@ -1,7 +1,10 @@
+import React from "react";
 import { getPromptStats } from "@/data/prompts";
 import { Sparkles, Wifi } from "lucide-react";
 
-export function Hero() {
+// ⚡ Bolt: Memoize static component to prevent re-renders on every search keystroke
+// Expected impact: Skips React reconciliation for a large DOM tree during rapid text input
+export const Hero = React.memo(function Hero() {
   const stats = getPromptStats();
 
   return (
@@ -43,4 +46,4 @@ export function Hero() {
       </div>
     </section>
   );
-}
+});
