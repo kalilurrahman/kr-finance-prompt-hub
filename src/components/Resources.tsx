@@ -1,3 +1,4 @@
+import React from "react";
 import { Download, FileText, FileType2, File } from "lucide-react";
 
 const resources = [
@@ -30,7 +31,9 @@ const resources = [
   },
 ];
 
-export function Resources() {
+// ⚡ Bolt: Memoize static component to prevent re-renders on every search keystroke
+// Expected impact: Skips React reconciliation for a large DOM tree during rapid text input
+export const Resources = React.memo(function Resources() {
   return (
     <section className="mb-10">
       <h2 className="mb-1 font-display text-lg font-bold text-foreground">
@@ -80,4 +83,4 @@ export function Resources() {
       </div>
     </section>
   );
-}
+});

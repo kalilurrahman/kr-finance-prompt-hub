@@ -1,8 +1,10 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import { getPromptStats } from "@/data/prompts";
 import { PLATFORMS, DOMAINS, DOMAIN_ICONS } from "@/types/prompt";
 
-export function Analytics() {
+// ⚡ Bolt: Memoize static component to prevent re-renders on every search keystroke
+// Expected impact: Skips React reconciliation for a large DOM tree during rapid text input
+export const Analytics = React.memo(function Analytics() {
   const stats = useMemo(() => getPromptStats(), []);
 
   const maxDomainCount = Math.max(...Object.values(stats.byDomain));
@@ -62,4 +64,4 @@ export function Analytics() {
       </div>
     </div>
   );
-}
+});

@@ -21,3 +21,7 @@
 ## 2026-03-11 - Caching Module-Level Static Data Derivations
 **Learning:** Pure functions deriving stats from large static datasets (e.g. `getPromptStats()`) invoked inside React components (like `Hero`) that re-render frequently due to parent state changes (like search input) will execute their O(N) calculations on every single render, unnecessarily blocking the main thread.
 **Action:** Cache the result of expensive derivations at the module level if the underlying data is immutable to prevent redundant recalculations during component re-renders.
+
+## 2024-03-12 - [Preventing Re-renders on Controlled Inputs]
+**Learning:** In a dashboard with a global search input (`Index.tsx`), controlled input state (`search`) updates on every keystroke. Even if the heavy data filtering is debounced, the parent component re-renders immediately, causing all static siblings (`Hero`, `Analytics`, `Resources`) and independent components (`FilterBar`) to re-render.
+**Action:** Wrap large, static, or independently-updating sections of a page in `React.memo()`. This ensures that rapid state updates (like typing in a search bar) only trigger re-renders for the input itself and bypasses the rest of the component tree reconciliation until the debounced value actually changes.

@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { PLATFORMS, DOMAINS } from "@/types/prompt";
 import type { Platform, Domain } from "@/types/prompt";
@@ -12,7 +13,10 @@ interface FilterBarProps {
   filteredCount: number;
 }
 
-export function FilterBar({
+// ⚡ Bolt: Memoize filter bar to prevent re-renders on every search keystroke
+// Note: onPlatformChange/onDomainChange are stable useState setters from usePromptFilter
+// Expected impact: Skips React reconciliation until filteredCount actually changes post-debounce
+export const FilterBar = React.memo(function FilterBar({
   platform,
   onPlatformChange,
   domain,
@@ -67,7 +71,7 @@ export function FilterBar({
       </div>
     </div>
   );
-}
+});
 
 function PlatformTab({ active, onClick, label, icon }: { active: boolean; onClick: () => void; label: string; icon: string }) {
   return (
