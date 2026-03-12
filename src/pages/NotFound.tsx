@@ -5,7 +5,9 @@ const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
+    // Security Enhancement: Encode URI component to prevent Log Injection attacks
+    const sanitizedPath = encodeURIComponent(location.pathname);
+    console.error("404 Error: User attempted to access non-existent route:", sanitizedPath);
   }, [location.pathname]);
 
   return (
