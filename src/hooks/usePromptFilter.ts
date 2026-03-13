@@ -2,13 +2,14 @@ import { useState, useMemo, useEffect } from "react";
 import type { Prompt, Platform, Domain } from "@/types/prompt";
 import { getAllPrompts } from "@/data/prompts";
 
-export function usePromptFilter() {
+export function usePromptFilter(providedFavorites?: Set<string>) {
   const allPrompts = useMemo(() => getAllPrompts(), []);
   const [platform, setPlatform] = useState<Platform | "all">("all");
   const [domain, setDomain] = useState<Domain | "all">("all");
   const [search, setSearch] = useState("");
   const [showFavorites, setShowFavorites] = useState(false);
-  const [favorites, setFavoritesSet] = useState<Set<string>>(new Set());
+  const [internalFavorites, setFavoritesSet] = useState<Set<string>>(new Set());
+  const activeFavorites = providedFavorites || internalFavorites;
 
   // ⚡ Bolt: Debounce search input to prevent main-thread blocking
   // Expected impact: Prevents dropped frames and lag by avoiding O(N) array filtering on every keystroke
@@ -45,10 +46,10 @@ export function usePromptFilter() {
   // Expected impact: Prevents full dataset text matching when toggling a favorite
   const filtered = useMemo(() => {
     if (showFavorites) {
-      return baseFiltered.filter((p) => favorites.has(p.id));
+      return baseFiltered.filter((p) => activeFavorites.has(p.id));
     }
     return baseFiltered;
-  }, [baseFiltered, showFavorites, favorites]);
+  }, [baseFiltered, showFavorites, activeFavorites]);
 
   return {
     allPrompts,
