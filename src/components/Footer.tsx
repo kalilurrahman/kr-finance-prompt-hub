@@ -18,10 +18,10 @@ export function Footer() {
 
           {/* Social Links */}
           <div className="flex items-center gap-3">
-            <SocialLink href="https://github.com/kalilurrahman" icon={<Github className="h-4 w-4" />} />
-            <SocialLink href="https://linkedin.com/in/kalilurrahman" icon={<Linkedin className="h-4 w-4" />} />
-            <SocialLink href="https://twitter.com/krahman" icon={<Twitter className="h-4 w-4" />} />
-            <SocialLink href="mailto:kalilur_r@outlook.com" icon={<Mail className="h-4 w-4" />} />
+            <SocialLink href="https://github.com/kalilurrahman" icon={<Github className="h-4 w-4" />} ariaLabel="GitHub profile" />
+            <SocialLink href="https://linkedin.com/in/kalilurrahman" icon={<Linkedin className="h-4 w-4" />} ariaLabel="LinkedIn profile" />
+            <SocialLink href="https://twitter.com/krahman" icon={<Twitter className="h-4 w-4" />} ariaLabel="Twitter profile" />
+            <SocialLink href="mailto:kalilur_r@outlook.com" icon={<Mail className="h-4 w-4" />} ariaLabel="Send an email" />
           </div>
 
           {/* Copyright */}
@@ -37,12 +37,13 @@ export function Footer() {
   );
 }
 
-function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
+function SocialLink({ href, icon, ariaLabel }: { href: string; icon: React.ReactNode; ariaLabel: string }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={ariaLabel}
       className="flex h-8 w-8 items-center justify-center rounded-lg border border-border/50 text-muted-foreground transition-all hover:border-gold hover:text-gold hover:glow-gold"
     >
       {icon}
