@@ -11,3 +11,7 @@
 **Vulnerability:** The application was passing `location.pathname` directly from `useLocation` to `console.error` without sanitization. This allows an attacker to manipulate the URL path with malicious content that gets logged verbatim, potentially causing log injection or XSS depending on the log ingestion and rendering setup.
 **Learning:** Client-side URL components (like `location.pathname`, `search`, etc.) should be treated as untrusted user input, even when used in diagnostic logging within the browser.
 **Prevention:** Always encode URI components or sanitize them using appropriate methods (like `encodeURIComponent()`) before logging them to the console or sending them to a remote logging service.
+## 2025-03-15 - [Defense-in-depth HTML output XSS mitigation]
+**Vulnerability:** Even though supposedly "static" constants like `SITE_NAME`, `AUTHOR`, and `SITE_URL` were interpolated into an HTML string for downloads (`downloadAsHtml`, `downloadAsPdf`), they were not explicitly sanitized, leaving a small gap for potential XSS if those constants were later modified or fetched externally.
+**Learning:** For defense-in-depth, ALL variables interpolated into an HTML execution context (even hardcoded constants) must be sanitized. Relying on "it's static" is brittle and can lead to regressions.
+**Prevention:** Always use `escapeHtml()` for HTML content interpolation and `encodeURI()` or `encodeURIComponent()` for URL/Href interpolations.
