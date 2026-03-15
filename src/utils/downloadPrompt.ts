@@ -18,12 +18,14 @@ function getFooter() {
 }
 
 export function downloadAsTxt(prompt: DownloadData) {
+  // TXT files do not execute HTML/JS, so XSS is not a concern here.
   const text = `${prompt.title}\n${"=".repeat(prompt.title.length)}\n\nCategory: ${prompt.category || "N/A"}\nPlatform: ${prompt.platform || "N/A"}\n\n${prompt.content}${getFooter()}`;
   const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
   triggerDownload(blob, `${slugify(prompt.title)}.txt`);
 }
 
 export function downloadAsHtml(prompt: DownloadData) {
+  // 🛡️ Sentinel enhancement: Sanitize seemingly static constants to provide defense-in-depth against XSS
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +49,7 @@ export function downloadAsHtml(prompt: DownloadData) {
     <span>${escapeHtml(prompt.platform || "N/A")}</span>
   </div>
   <div class="content">${escapeHtml(prompt.content)}</div>
-  <footer>Downloaded from <a href="${SITE_URL}">${SITE_NAME}</a> by ${AUTHOR} &copy; ${new Date().getFullYear()}</footer>
+  <footer>Downloaded from <a href="${encodeURI(SITE_URL)}">${escapeHtml(SITE_NAME)}</a> by ${escapeHtml(AUTHOR)} &copy; ${new Date().getFullYear()}</footer>
 </body>
 </html>`;
   const blob = new Blob([html], { type: "text/html;charset=utf-8" });
@@ -58,6 +60,7 @@ export function downloadAsPdf(prompt: DownloadData) {
   // 🛡️ Sentinel enhancement: Use secure Blob URL instead of unsafe window.open("") + document.write()
   // This prevents the new window from retaining a reference to the parent (window.opener)
   // and avoids using document.write() which is a known security risk.
+  // We also sanitize seemingly static constants (SITE_NAME, SITE_URL, AUTHOR) for defense-in-depth against XSS.
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,7 +84,7 @@ export function downloadAsPdf(prompt: DownloadData) {
     <span>${escapeHtml(prompt.platform || "N/A")}</span>
   </div>
   <div class="content">${escapeHtml(prompt.content)}</div>
-  <footer>Downloaded from ${SITE_NAME} (${SITE_URL}) by ${AUTHOR} &copy; ${new Date().getFullYear()}</footer>
+  <footer>Downloaded from ${escapeHtml(SITE_NAME)} (${encodeURI(SITE_URL)}) by ${escapeHtml(AUTHOR)} &copy; ${new Date().getFullYear()}</footer>
   <script>window.onload = () => { window.print(); }</script>
 </body>
 </html>`;
