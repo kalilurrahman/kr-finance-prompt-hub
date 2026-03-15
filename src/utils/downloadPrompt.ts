@@ -50,6 +50,7 @@ export function downloadAsHtml(prompt: DownloadData) {
   </div>
   <div class="content">${escapeHtml(prompt.content)}</div>
   <footer>Downloaded from <a href="${encodeURI(SITE_URL)}">${escapeHtml(SITE_NAME)}</a> by ${escapeHtml(AUTHOR)} &copy; ${new Date().getFullYear()}</footer>
+  <footer>Downloaded from <a href="${encodeURI(SITE_URL)}">${escapeHtml(SITE_NAME)}</a> by ${escapeHtml(AUTHOR)} &copy; ${escapeHtml(new Date().getFullYear().toString())}</footer>
 </body>
 </html>`;
   const blob = new Blob([html], { type: "text/html;charset=utf-8" });
@@ -85,6 +86,7 @@ export function downloadAsPdf(prompt: DownloadData) {
   </div>
   <div class="content">${escapeHtml(prompt.content)}</div>
   <footer>Downloaded from ${escapeHtml(SITE_NAME)} (${encodeURI(SITE_URL)}) by ${escapeHtml(AUTHOR)} &copy; ${new Date().getFullYear()}</footer>
+  <footer>Downloaded from ${escapeHtml(SITE_NAME)} (${encodeURI(SITE_URL)}) by ${escapeHtml(AUTHOR)} &copy; ${escapeHtml(new Date().getFullYear().toString())}</footer>
   <script>window.onload = () => { window.print(); }</script>
 </body>
 </html>`;

@@ -17,14 +17,9 @@ const ITEMS_PER_PAGE = 24;
 
 const Index = () => {
   const { favorites, toggleFavorite, isFavorite, count: favCount } = useFavorites();
-  const filter = usePromptFilter();
+  const filter = usePromptFilter(favorites);
   const [selectedPrompt, setSelectedPrompt] = useState<Prompt | null>(null);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
-
-  // Sync favorites to filter
-  useEffect(() => {
-    filter.setFavoritesSet(favorites);
-  }, [favorites]);
 
   // Reset visible count when filters change
   useEffect(() => {
