@@ -30,21 +30,15 @@ export const PromptCard = React.memo(function PromptCard({ prompt, isFavorite, o
     onToggleFavorite(prompt.id);
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      onClick(prompt);
-    }
-  };
-
   return (
     <Card
-      role="button"
-      tabIndex={0}
-      className="group cursor-pointer border-border/50 bg-card/50 transition-all duration-200 hover:border-gold/30 hover:shadow-lg hover:shadow-gold/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-      onClick={onClick}
-      onKeyDown={handleKeyDown}
-    >
+      className="group relative border-border/50 bg-card/50 transition-all duration-200 hover:border-gold/30 hover:shadow-lg hover:shadow-gold/5"
+      >
+      <button
+        aria-label={`View details for ${prompt.title}`}
+        onClick={() => onClick(prompt)}
+        className="absolute inset-0 z-0 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      />
       <CardContent className="flex flex-col gap-3 p-4">
         {/* Top row: domain icon + platform badge */}
         <div className="flex items-start justify-between gap-2">
@@ -60,7 +54,7 @@ export const PromptCard = React.memo(function PromptCard({ prompt, isFavorite, o
               {sourceMeta.icon} {sourceMeta.shortLabel}
             </span>
           </div>
-          <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100 focus-within:opacity-100 group-focus:opacity-100">
+          <div className="relative z-10 flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100 focus-within:opacity-100 group-focus:opacity-100">
             <button
               onClick={handleCopy}
               className="rounded-md p-1.5 text-muted-foreground hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
