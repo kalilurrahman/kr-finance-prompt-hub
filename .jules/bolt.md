@@ -25,3 +25,7 @@
 ## 2024-03-12 - [Preventing Re-renders on Controlled Inputs]
 **Learning:** In a dashboard with a global search input (`Index.tsx`), controlled input state (`search`) updates on every keystroke. Even if the heavy data filtering is debounced, the parent component re-renders immediately, causing all static siblings (`Hero`, `Analytics`, `Resources`) and independent components (`FilterBar`) to re-render.
 **Action:** Wrap large, static, or independently-updating sections of a page in `React.memo()`. This ensures that rapid state updates (like typing in a search bar) only trigger re-renders for the input itself and bypasses the rest of the component tree reconciliation until the debounced value actually changes.
+
+## 2024-03-12 - [Preventing Double-Renders with External State Sync]
+**Learning:** Syncing external state (like `favorites` from `useFavorites`) into a custom hook's internal state (like `usePromptFilter`) via `useEffect` causes a double-render of the entire component tree on every state change. First, the component renders because the external state changed; then, the `useEffect` fires and updates the internal hook state, causing a second render.
+**Action:** Never sync external state into a hook's internal state via `useEffect`. Pass the external state directly as an argument to the hook so that the hook computes its derived values synchronously during the first render.

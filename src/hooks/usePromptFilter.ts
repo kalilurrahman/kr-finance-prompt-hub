@@ -2,13 +2,14 @@ import { useState, useMemo, useEffect } from "react";
 import type { Prompt, Platform, Domain } from "@/types/prompt";
 import { getAllPrompts } from "@/data/prompts";
 
-export function usePromptFilter() {
+const EMPTY_SET = new Set<string>();
+
+export function usePromptFilter(favorites: Set<string> = EMPTY_SET) {
   const allPrompts = useMemo(() => getAllPrompts(), []);
   const [platform, setPlatform] = useState<Platform | "all">("all");
   const [domain, setDomain] = useState<Domain | "all">("all");
   const [search, setSearch] = useState("");
   const [showFavorites, setShowFavorites] = useState(false);
-  const [favorites, setFavoritesSet] = useState<Set<string>>(new Set());
 
   // ⚡ Bolt: Debounce search input to prevent main-thread blocking
   // Expected impact: Prevents dropped frames and lag by avoiding O(N) array filtering on every keystroke
@@ -61,6 +62,5 @@ export function usePromptFilter() {
     setSearch,
     showFavorites,
     setShowFavorites,
-    setFavoritesSet,
   };
 }
