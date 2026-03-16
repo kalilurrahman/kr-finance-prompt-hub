@@ -5,3 +5,7 @@
 ## 2026-03-13 - Fixed nested ARIA controls in Card Component
 **Learning:** Adding `role="button"` and `tabIndex` to a parent container (like a Card) that also contains nested interactive elements (like Action Buttons) creates invalid HTML and a confusing experience for screen readers.
 **Action:** When making card components interactive, use the "overlay button" pattern. Place an invisible `<button className="absolute inset-0 z-0">` inside the `relative` positioned card to handle clicks/focus, and ensure nested buttons have `relative z-10` to keep them accessible and above the overlay button. Ensure not to use `opacity-0` if the overlay needs a visible focus ring.
+
+## 2026-03-20 - Adding dynamic ARIA labels to Pagination and Navigation links
+**Learning:** Found that "Load More" buttons and Icon/Logo links often lack specific context about the current state, missing critical context for screen readers. For example, a "Load More" button just announcing "Load More" does not indicate how many items will be loaded. Navigation links with no text or acronyms don't announce properly.
+**Action:** Always provide descriptive `aria-label` attributes. For buttons that change state based on context (like load more with a specific count), dynamically update the `aria-label` to provide the screen reader with the current state (e.g. `aria-label={\`Load more prompts, \${remainingCount} remaining\`}`).

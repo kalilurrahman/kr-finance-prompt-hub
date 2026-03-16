@@ -16,7 +16,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3">
         {/* Logo */}
-        <a href="https://kalilurrahman.lovable.app" className="flex items-center gap-2 shrink-0" target="_blank" rel="noopener noreferrer">
+        <a href="https://kalilurrahman.lovable.app" aria-label="Kalilur Rahman Homepage" className="flex items-center gap-2 shrink-0" target="_blank" rel="noopener noreferrer">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg gradient-gold font-display text-sm font-bold text-primary-foreground">
             KR
           </div>
@@ -32,7 +32,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
           <NavItem href="https://kalilurrahman.lovable.app" icon={<Bot className="h-3.5 w-3.5" />} label="AI Agents" />
           <NavItem href="https://kalilurrahman.lovable.app" icon={<Globe className="h-3.5 w-3.5" />} label="Digital Hub" />
           <NavItem href="https://kr-quantum-hub.lovable.app" icon={<Atom className="h-3.5 w-3.5" />} label="Q-Ref" />
-          <a href="/library" className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-gold hover:bg-secondary/50">
+          <a href="/library" aria-label="Go to FINPROMPT Library" className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-gold hover:bg-secondary/50">
             <BookOpen className="h-3.5 w-3.5" />
             FINPROMPT
           </a>
