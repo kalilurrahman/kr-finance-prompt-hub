@@ -9,3 +9,7 @@
 ## 2026-03-20 - Adding dynamic ARIA labels to Pagination and Navigation links
 **Learning:** Found that "Load More" buttons and Icon/Logo links often lack specific context about the current state, missing critical context for screen readers. For example, a "Load More" button just announcing "Load More" does not indicate how many items will be loaded. Navigation links with no text or acronyms don't announce properly.
 **Action:** Always provide descriptive `aria-label` attributes. For buttons that change state based on context (like load more with a specific count), dynamically update the `aria-label` to provide the screen reader with the current state (e.g. `aria-label={\`Load more prompts, \${remainingCount} remaining\`}`).
+
+## 2026-03-17 - Adding ARIA attributes to generated filter/sort buttons
+**Learning:** Found that many interactive filter and sort buttons generated via maps lacked `aria-pressed` and `aria-current` attributes, causing screen readers to misidentify their selection state.
+**Action:** When creating lists of buttons that act as toggles, filters, or pagination controls, always ensure that attributes like `aria-pressed={isActive}` or `aria-current={isActive ? 'page' : undefined}` are applied so their state is properly announced to assistive technologies.

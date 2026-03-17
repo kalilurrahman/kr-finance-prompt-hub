@@ -319,6 +319,7 @@ export default function Library() {
         </div>
         <button
           onClick={() => setActiveCategory("ALL")}
+          aria-pressed={activeCategory === "ALL"}
           className={`w-full flex items-center justify-between px-4 py-2 text-[11px] tracking-[0.04em] cursor-pointer transition-all border-l-2 text-left ${
             activeCategory === "ALL"
               ? "border-l-[var(--t-amber)] bg-[rgba(255,184,0,0.06)] text-[var(--t-amber)]"
@@ -334,6 +335,7 @@ export default function Library() {
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
+            aria-pressed={activeCategory === cat}
             className={`w-full flex items-center justify-between px-4 py-2 text-[11px] tracking-[0.04em] cursor-pointer transition-all border-l-2 leading-[1.4] text-left ${
               activeCategory === cat
                 ? "border-l-[var(--t-amber)] bg-[rgba(255,184,0,0.06)] text-[var(--t-amber)]"
@@ -381,6 +383,8 @@ export default function Library() {
               <button
                 key={s}
                 onClick={() => setSort(s)}
+                aria-label={`Sort by ${s}`}
+                aria-pressed={sort === s}
                 className={`bg-transparent border border-[var(--t-border)] text-[10px] px-3 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all ${
                   sort === s
                     ? "border-[var(--t-amber)] text-[var(--t-amber)] bg-[rgba(255,184,0,0.07)]"
@@ -397,6 +401,7 @@ export default function Library() {
         <div className="flex flex-wrap gap-2 mb-5 lg:hidden">
           <button
             onClick={() => setActiveCategory("ALL")}
+            aria-pressed={activeCategory === "ALL"}
             className={`text-[10px] px-3 py-1.5 border tracking-[0.1em] uppercase ${
               activeCategory === "ALL"
                 ? "bg-[var(--t-amber)] text-black border-[var(--t-amber)] font-bold"
@@ -409,6 +414,7 @@ export default function Library() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
+              aria-pressed={activeCategory === cat}
               className={`text-[10px] px-3 py-1.5 border tracking-[0.1em] uppercase ${
                 activeCategory === cat
                   ? "bg-[var(--t-amber)] text-black border-[var(--t-amber)] font-bold"
@@ -466,6 +472,8 @@ export default function Library() {
                 <button
                   key={pageNum}
                   onClick={() => setPage(pageNum)}
+                  aria-label={`Page ${pageNum}`}
+                  aria-current={page === pageNum ? "page" : undefined}
                   className={`bg-transparent border border-[var(--t-border)] text-[11px] px-3 py-1.5 cursor-pointer transition-all ${
                     page === pageNum
                       ? "bg-[var(--t-amber)] text-black border-[var(--t-amber)] font-bold"
