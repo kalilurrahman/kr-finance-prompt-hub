@@ -29,3 +29,7 @@
 ## 2024-03-13 - [Preventing Double Renders with External State in Hooks]
 **Learning:** Syncing external state (like `favorites`) into a custom hook's internal state via `useEffect` causes a second unnecessary render cycle whenever that state changes. Also, providing inline objects like `new Set()` as default function arguments in hooks creates a new instance on every render, invalidating downstream `useMemo` dependencies.
 **Action:** Pass external state directly as arguments to hooks instead of synchronizing them with `useEffect`. Extract default objects/collections to module-level constants (e.g., `const EMPTY_SET = new Set()`) to ensure referential equality.
+
+## 2024-03-14 - [Memoizing Inline Mapped JSX on Frequently Re-rendering Parents]
+**Learning:** In a parent component that re-renders frequently (e.g., on every keystroke in a controlled search input), mapping over a large array to render components with unmemoized wrapper elements (like inline `div` tags) forces React to recreate those DOM wrappers and diff every item on every keystroke, even if the children inside are memoized.
+**Action:** Extract the mapped list JSX block into a `useMemo` to skip React reconciliation entirely when only unrelated state (like the pending, un-debounced search input text) changes.
