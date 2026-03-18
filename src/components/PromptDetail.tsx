@@ -76,7 +76,7 @@ export function PromptDetail({ prompt, open, onClose, isFavorite, onToggleFavori
           <Button onClick={handleCopy} className="gap-2 bg-gold text-primary-foreground hover:bg-gold/90">
             <Copy className="h-4 w-4" /> Copy Prompt
           </Button>
-          <Button variant="outline" onClick={onToggleFavorite} className="gap-2">
+          <Button variant="outline" onClick={onToggleFavorite} aria-pressed={isFavorite} className="gap-2">
             <Heart className={cn("h-4 w-4", isFavorite && "fill-gold text-gold")} />
             {isFavorite ? "Saved" : "Save"}
           </Button>

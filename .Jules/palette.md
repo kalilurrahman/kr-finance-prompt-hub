@@ -13,3 +13,7 @@
 ## 2026-03-17 - Adding ARIA attributes to generated filter/sort buttons
 **Learning:** Found that many interactive filter and sort buttons generated via maps lacked `aria-pressed` and `aria-current` attributes, causing screen readers to misidentify their selection state.
 **Action:** When creating lists of buttons that act as toggles, filters, or pagination controls, always ensure that attributes like `aria-pressed={isActive}` or `aria-current={isActive ? 'page' : undefined}` are applied so their state is properly announced to assistive technologies.
+
+## $(date +%Y-%m-%d) - Add aria-pressed to toggle buttons
+**Learning:** Found that the "favorite" state of a prompt card is conveyed visually but lacks the correct ARIA attribute for screen readers. Using `aria-pressed` explicitly provides screen readers with a "pressed/unpressed" state context for a toggle button.
+**Action:** When creating toggle buttons (e.g. favorite, like, bookmark), apply the `aria-pressed={isActive}` attribute alongside dynamic `aria-label`s to give clear state feedback to keyboard/screen reader users.
