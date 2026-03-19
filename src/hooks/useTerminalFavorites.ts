@@ -1,6 +1,8 @@
 import { useState, useCallback, useEffect } from "react";
+import { z } from "zod";
 
 const STORAGE_KEY = "finprompt_favs";
+const favoritesSchema = z.array(z.number());
 
 export function useTerminalFavorites() {
   const [favorites, setFavorites] = useState<Set<number>>(() => {
@@ -8,7 +10,10 @@ export function useTerminalFavorites() {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
-        return new Set(Array.isArray(parsed) ? parsed : []);
+        const result = favoritesSchema.safeParse(parsed);
+        if (result.success) {
+          return new Set(result.data);
+        }
       }
       return new Set();
     } catch {

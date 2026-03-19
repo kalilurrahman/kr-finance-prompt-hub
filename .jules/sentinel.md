@@ -15,3 +15,7 @@
 **Vulnerability:** Even though supposedly "static" constants like `SITE_NAME`, `AUTHOR`, and `SITE_URL` were interpolated into an HTML string for downloads (`downloadAsHtml`, `downloadAsPdf`), they were not explicitly sanitized, leaving a small gap for potential XSS if those constants were later modified or fetched externally.
 **Learning:** For defense-in-depth, ALL variables interpolated into an HTML execution context (even hardcoded constants) must be sanitized. Relying on "it's static" is brittle and can lead to regressions.
 **Prevention:** Always use `escapeHtml()` for HTML content interpolation and `encodeURI()` or `encodeURIComponent()` for URL/Href interpolations.
+## 2024-05-18 - [Input Validation for localStorage]
+**Vulnerability:** Weak input validation for cached application state. `localStorage` values were parsed with `JSON.parse` and assumed valid merely by checking `Array.isArray()`, leaving the app vulnerable to invalid or maliciously injected local data (XSS/crash).
+**Learning:** Application state loaded from the client's machine must be treated as untrusted input. `Array.isArray()` isn't sufficient for complex objects.
+**Prevention:** Use schema validation tools (e.g., Zod) on any JSON data retrieved from `localStorage` before incorporating it into application state.

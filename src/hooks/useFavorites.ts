@@ -1,6 +1,8 @@
 import { useState, useCallback, useEffect } from "react";
+import { z } from "zod";
 
 const STORAGE_KEY = "kr-prompts-favorites";
+const favoritesSchema = z.array(z.string());
 
 export function useFavorites() {
   const [favorites, setFavorites] = useState<Set<string>>(() => {
@@ -8,7 +10,10 @@ export function useFavorites() {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
-        return new Set(Array.isArray(parsed) ? parsed : []);
+        const result = favoritesSchema.safeParse(parsed);
+        if (result.success) {
+          return new Set(result.data);
+        }
       }
       return new Set();
     } catch {
