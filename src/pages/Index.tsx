@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
+import { Button } from "@/components/ui/button";
 import { FilterBar } from "@/components/FilterBar";
 import { PromptCard } from "@/components/PromptCard";
 import { PromptDetail } from "@/components/PromptDetail";
@@ -170,6 +171,18 @@ const Index = () => {
             <p className="mt-2 text-sm text-muted-foreground">
               Try adjusting your filters or search terms
             </p>
+            <Button
+              variant="outline"
+              className="mt-6"
+              onClick={() => {
+                filter.setSearch("");
+                filter.setPlatform("all");
+                filter.setDomain("all");
+                filter.setShowFavorites(false);
+              }}
+            >
+              Clear Filters
+            </Button>
           </div>
         )}
       </main>
