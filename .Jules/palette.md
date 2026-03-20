@@ -13,3 +13,7 @@
 ## 2026-03-17 - Adding ARIA attributes to generated filter/sort buttons
 **Learning:** Found that many interactive filter and sort buttons generated via maps lacked `aria-pressed` and `aria-current` attributes, causing screen readers to misidentify their selection state.
 **Action:** When creating lists of buttons that act as toggles, filters, or pagination controls, always ensure that attributes like `aria-pressed={isActive}` or `aria-current={isActive ? 'page' : undefined}` are applied so their state is properly announced to assistive technologies.
+
+## 2025-03-18 - Clear Filters Button in Empty State
+**Learning:** Adding a "Clear Filters" button in a "No results found" empty state significantly improves UX by providing a one-click actionable escape hatch, rather than just telling users to "try adjusting filters".
+**Action:** Always provide an actionable reset/clear button in empty states caused by filtering or searching.
