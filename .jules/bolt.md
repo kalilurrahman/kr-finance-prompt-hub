@@ -29,3 +29,7 @@
 ## 2024-03-13 - [Preventing Double Renders with External State in Hooks]
 **Learning:** Syncing external state (like `favorites`) into a custom hook's internal state via `useEffect` causes a second unnecessary render cycle whenever that state changes. Also, providing inline objects like `new Set()` as default function arguments in hooks creates a new instance on every render, invalidating downstream `useMemo` dependencies.
 **Action:** Pass external state directly as arguments to hooks instead of synchronizing them with `useEffect`. Extract default objects/collections to module-level constants (e.g., `const EMPTY_SET = new Set()`) to ensure referential equality.
+
+## 2024-12-05 - Preventing Unnecessary DOM Style Updates in Lists
+**Learning:** Even if a complex component (like `PromptCard`) is memoized, wrapping it inside an unmemoized host element (like a `<div>`) with dynamic props (like `style={{ animationDelay }}`) inside a map loop causes React to recreate that wrapper element on every render (e.g., on search keystrokes). This forces unnecessary DOM mutations and layout updates, which can still block the main thread.
+**Action:** Always extract such host element wrappers into a separate component and apply `React.memo()` to it before mapping, to skip React reconciliation and DOM updates entirely when props haven't changed.

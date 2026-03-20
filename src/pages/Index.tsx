@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -15,6 +15,34 @@ import { Terminal, ArrowRight } from "lucide-react";
 import type { Prompt } from "@/types/prompt";
 
 const ITEMS_PER_PAGE = 24;
+
+// ⚡ Bolt: Extract and memoize list item wrappers to prevent unnecessary DOM mutations
+// Expected impact: Prevents main-thread blocking by avoiding style prop recalculations on every keystroke
+const MemoizedPromptCardItem = React.memo(({
+  prompt,
+  index,
+  isFavorite,
+  onToggleFavorite,
+  onClick
+}: {
+  prompt: Prompt;
+  index: number;
+  isFavorite: boolean;
+  onToggleFavorite: (id: string) => void;
+  onClick: (prompt: Prompt) => void;
+}) => (
+  <div
+    className="animate-fade-in"
+    style={{ animationDelay: `${Math.min(index * 30, 300)}ms` }}
+  >
+    <PromptCard
+      prompt={prompt}
+      isFavorite={isFavorite}
+      onToggleFavorite={onToggleFavorite}
+      onClick={onClick}
+    />
+  </div>
+));
 
 const Index = () => {
   const { favorites, toggleFavorite, isFavorite, count: favCount } = useFavorites();
@@ -135,18 +163,14 @@ const Index = () => {
         {/* Prompt Grid */}
         <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {visiblePrompts.map((prompt, i) => (
-            <div
+            <MemoizedPromptCardItem
               key={prompt.id}
-              className="animate-fade-in"
-              style={{ animationDelay: `${Math.min(i * 30, 300)}ms` }}
-            >
-              <PromptCard
-                prompt={prompt}
-                isFavorite={isFavorite(prompt.id)}
-                onToggleFavorite={toggleFavorite}
-                onClick={setSelectedPrompt}
-              />
-            </div>
+              prompt={prompt}
+              index={i}
+              isFavorite={isFavorite(prompt.id)}
+              onToggleFavorite={toggleFavorite}
+              onClick={setSelectedPrompt}
+            />
           ))}
         </section>
 
