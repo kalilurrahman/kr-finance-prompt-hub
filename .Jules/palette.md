@@ -17,3 +17,6 @@
 ## 2025-03-18 - Clear Filters Button in Empty State
 **Learning:** Adding a "Clear Filters" button in a "No results found" empty state significantly improves UX by providing a one-click actionable escape hatch, rather than just telling users to "try adjusting filters".
 **Action:** Always provide an actionable reset/clear button in empty states caused by filtering or searching.
+## 2024-05-18 - Missing ARIA Labels on Search Inputs
+**Learning:** Search inputs that rely only on a visual `placeholder` attribute or an icon for context often lack proper identification for screen reader users. This is a common accessibility gap in modern web apps.
+**Action:** When adding or auditing search bars (like the one in `Library.tsx`), always ensure an `aria-label` (e.g., `aria-label="Search prompts"`) is added to the `<input>` element if an explicit `<label>` is not present.

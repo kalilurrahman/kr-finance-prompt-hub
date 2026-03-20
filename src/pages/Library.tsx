@@ -280,6 +280,7 @@ export default function Library() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search prompts, firms, strategies..."
+              aria-label="Search prompts, firms, strategies"
               spellCheck={false}
               autoComplete="off"
               className="w-full bg-[var(--t-bg-3)] border border-[var(--t-border)] text-[var(--t-text-primary)] text-[13px] py-2 pl-9 pr-16 outline-none transition-all tracking-[0.04em] placeholder:text-[var(--t-text-muted)] focus:border-[var(--t-amber)] focus:shadow-[0_0_0_2px_var(--t-amber-glow)]"
