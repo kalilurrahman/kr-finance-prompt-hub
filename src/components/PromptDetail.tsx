@@ -1,5 +1,5 @@
 import { Copy, Heart, Share2, Download } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import type { Prompt } from "@/types/prompt";
@@ -50,6 +50,9 @@ export function PromptDetail({ prompt, open, onClose, isFavorite, onToggleFavori
               <DialogTitle className="font-display text-lg font-semibold leading-snug pr-8">
                 {prompt.title}
               </DialogTitle>
+              <DialogDescription className="sr-only">
+                Full details and prompt content for {prompt.title}
+              </DialogDescription>
               <div className="mt-2 flex flex-wrap items-center gap-2">
                 <span
                   className="rounded-full px-2.5 py-0.5 text-xs font-semibold"
