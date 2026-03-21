@@ -15,3 +15,8 @@
 **Vulnerability:** Even though supposedly "static" constants like `SITE_NAME`, `AUTHOR`, and `SITE_URL` were interpolated into an HTML string for downloads (`downloadAsHtml`, `downloadAsPdf`), they were not explicitly sanitized, leaving a small gap for potential XSS if those constants were later modified or fetched externally.
 **Learning:** For defense-in-depth, ALL variables interpolated into an HTML execution context (even hardcoded constants) must be sanitized. Relying on "it's static" is brittle and can lead to regressions.
 **Prevention:** Always use `escapeHtml()` for HTML content interpolation and `encodeURI()` or `encodeURIComponent()` for URL/Href interpolations.
+
+## 2026-03-21 - XSS via unescaped URL parameter in copy to clipboard
+**Vulnerability:** The 'Share' feature in `src/components/PromptDetail.tsx` generated a URL with an unescaped prompt ID directly appended to the query string (`?prompt=${prompt.id}`). While not immediately executed in the DOM, this allows a potentially malicious user to share a crafted URL that injects arbitrary characters or payloads into the URL, which could lead to log injection or be unsafely handled by a downstream consumer of the URL.
+**Learning:** Even if a dynamic variable isn't immediately rendered to the DOM, appending it unescaped to a URL that the application generates and encourages users to share introduces a vector for injection attacks.
+**Prevention:** Always sanitize or encode dynamic variables (using `encodeURIComponent`) before appending them to URLs, especially query parameters.

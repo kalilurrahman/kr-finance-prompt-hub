@@ -28,7 +28,8 @@ export function PromptDetail({ prompt, open, onClose, isFavorite, onToggleFavori
   };
 
   const handleShare = () => {
-    const url = `${window.location.origin}?prompt=${prompt.id}`;
+    // Security Enhancement: Encode URI component to prevent unescaped characters in the URL
+    const url = `${window.location.origin}?prompt=${encodeURIComponent(prompt.id)}`;
     navigator.clipboard.writeText(url);
     toast.success("Link copied to clipboard!");
   };
