@@ -12,9 +12,38 @@ import { Resources } from "@/components/Resources";
 import { useFavorites } from "@/hooks/useFavorites";
 import { usePromptFilter } from "@/hooks/usePromptFilter";
 import { Terminal, ArrowRight } from "lucide-react";
+import React from "react";
 import type { Prompt } from "@/types/prompt";
 
 const ITEMS_PER_PAGE = 24;
+
+// ⚡ Bolt: Extract and memoize list item wrapper to prevent unnecessary React reconciliation
+// Expected impact: Skips re-rendering the outer div wrapper for list items on every parent state change (e.g. search keystrokes)
+const MemoizedPromptCardWrapper = React.memo(({
+  prompt,
+  i,
+  isFavorite,
+  toggleFavorite,
+  setSelectedPrompt
+}: {
+  prompt: Prompt;
+  i: number;
+  isFavorite: boolean;
+  toggleFavorite: (id: string) => void;
+  setSelectedPrompt: (prompt: Prompt) => void;
+}) => (
+  <div
+    className="animate-fade-in"
+    style={{ animationDelay: `${Math.min(i * 30, 300)}ms` }}
+  >
+    <PromptCard
+      prompt={prompt}
+      isFavorite={isFavorite}
+      onToggleFavorite={toggleFavorite}
+      onClick={setSelectedPrompt}
+    />
+  </div>
+));
 
 const Index = () => {
   const { favorites, toggleFavorite, isFavorite, count: favCount } = useFavorites();
@@ -135,18 +164,14 @@ const Index = () => {
         {/* Prompt Grid */}
         <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {visiblePrompts.map((prompt, i) => (
-            <div
+            <MemoizedPromptCardWrapper
               key={prompt.id}
-              className="animate-fade-in"
-              style={{ animationDelay: `${Math.min(i * 30, 300)}ms` }}
-            >
-              <PromptCard
-                prompt={prompt}
-                isFavorite={isFavorite(prompt.id)}
-                onToggleFavorite={toggleFavorite}
-                onClick={setSelectedPrompt}
-              />
-            </div>
+              prompt={prompt}
+              i={i}
+              isFavorite={isFavorite(prompt.id)}
+              toggleFavorite={toggleFavorite}
+              setSelectedPrompt={setSelectedPrompt}
+            />
           ))}
         </section>
 
