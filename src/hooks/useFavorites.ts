@@ -2,13 +2,15 @@ import { useState, useCallback, useEffect } from "react";
 
 const STORAGE_KEY = "kr-prompts-favorites";
 
+// 🛡️ Sentinel: Validate localStorage data using vanilla JS to prevent malicious data injection
 export function useFavorites() {
   const [favorites, setFavorites] = useState<Set<string>>(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
-        return new Set(Array.isArray(parsed) ? parsed : []);
+        // 🛡️ Sentinel: explicitly validate string elements
+        return new Set(Array.isArray(parsed) && parsed.every(item => typeof item === 'string') ? parsed : []);
       }
       return new Set();
     } catch {
