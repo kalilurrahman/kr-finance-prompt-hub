@@ -62,6 +62,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
             className="h-9 w-9 shrink-0 relative"
             onClick={onToggleFavorites}
             aria-label={showFavorites ? "Hide favorites" : "Show favorites"}
+            aria-pressed={showFavorites}
           >
             <Heart className={`h-4 w-4 ${showFavorites ? "fill-current" : ""}`} />
             {favCount > 0 && (

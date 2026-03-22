@@ -297,6 +297,7 @@ export default function Library() {
             </div>
             <button
               onClick={() => setFavFilter(!favFilter)}
+              aria-pressed={favFilter}
               className={`bg-transparent border border-[var(--t-border)] text-[11px] px-3.5 py-[7px] cursor-pointer tracking-[0.1em] uppercase transition-all ${
                 favFilter ? "bg-[var(--t-amber)] text-black border-[var(--t-amber)] font-bold" : "text-[var(--t-text-secondary)] hover:border-[var(--t-amber)] hover:text-[var(--t-amber)]"
               }`}
@@ -560,6 +561,7 @@ export default function Library() {
               <button
                 aria-label={isFav(modalPrompt.id) ? "Remove from saved" : "Save as favorite"}
                 onClick={() => toggle(modalPrompt.id)}
+                aria-pressed={isFav(modalPrompt.id)}
                 className={`bg-transparent border border-[var(--t-border)] text-[11px] px-5 py-2 cursor-pointer tracking-[0.1em] uppercase transition-all flex items-center gap-2 ${
                   isFav(modalPrompt.id)
                     ? "border-[var(--t-amber)] text-[var(--t-amber)] bg-[var(--t-amber-glow)]"
