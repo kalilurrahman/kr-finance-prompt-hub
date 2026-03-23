@@ -100,7 +100,7 @@ const Index = () => {
       <main className="container mx-auto flex-1 px-4 py-8">
         {/* FINPROMPT Terminal Section */}
         <section className="mb-10">
-          <Link to="/library" className="group block no-underline">
+          <Link to="/library" className="group block no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-xl">
             <div className="relative overflow-hidden rounded-xl border border-border/50 bg-gradient-to-br from-[#0a0e14] to-[#141c2a] p-6 md:p-8 transition-all duration-300 hover:border-gold/40 hover:shadow-lg hover:shadow-gold/10">
               {/* Decorative scanlines */}
               <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.3) 2px, rgba(0,0,0,0.3) 4px)" }} />
