@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -82,7 +82,12 @@ const Index = () => {
     setVisibleCount((prev) => prev + ITEMS_PER_PAGE);
   }, []);
 
-  const visiblePrompts = filter.filtered.slice(0, visibleCount);
+  // ⚡ Bolt: Memoize array slice to prevent creating a new array reference on every render
+  // Expected impact: Prevents unnecessary re-renders of all visible PromptCard components when parent state changes
+  const visiblePrompts = useMemo(
+    () => filter.filtered.slice(0, visibleCount),
+    [filter.filtered, visibleCount]
+  );
   const hasMore = visibleCount < filter.filtered.length;
 
   return (
