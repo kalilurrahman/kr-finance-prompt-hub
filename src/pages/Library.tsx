@@ -529,7 +529,7 @@ export default function Library() {
             </div>
             {/* Modal Meta */}
             <div className="px-5 py-3 border-b border-[var(--t-border)] flex gap-2 flex-wrap bg-[var(--t-bg-2)]">
-              <span className="text-[9px] tracking-[0.15em] uppercase text-[var(--t-text-muted)] bg-[var(--t-bg-4)] px-2 py-[3px] border border-transparent transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] hover:bg-[rgba(255,184,0,0.06)] cursor-default">
+              <span className="text-[9px] tracking-[0.15em] uppercase text-[var(--t-text-muted)] bg-[var(--t-bg-4)] px-2 py-[3px] border border-transparent transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] hover:bg-[var(--t-amber-glow)] cursor-default">
                 {modalPrompt.category}
               </span>
               {modalPrompt.tags?.map((tag) => (
