@@ -503,7 +503,7 @@ export default function Library() {
       {/* MODAL */}
       {modalPrompt && (
         <div
-          className="fixed inset-0 z-[200] bg-[rgba(6,10,15,0.92)] backdrop-blur-lg flex items-center justify-center p-6 md:p-10"
+          className="fixed inset-0 z-[200] bg-[var(--t-modal-overlay)] backdrop-blur-lg flex items-center justify-center p-6 md:p-10"
           style={{ animation: "t-fade-in 0.15s ease" }}
           onClick={(e) => { if (e.target === e.currentTarget) setModalPrompt(null); }}
         >
