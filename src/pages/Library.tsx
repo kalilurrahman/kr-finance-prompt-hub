@@ -230,7 +230,7 @@ export default function Library() {
       <div className="terminal pt-0">
       {/* TICKER BAR */}
       <div className="fixed top-12 left-0 right-0 z-[100] bg-[var(--t-bg-1)] border-b border-[var(--t-amber)] h-7 flex items-center">
-        <div className="bg-[var(--t-amber)] text-black text-[10px] font-bold px-3 h-full flex items-center tracking-[0.15em] shrink-0">
+        <div className="bg-[var(--t-amber)] text-[var(--t-accent-contrast,#000)] text-[10px] font-bold px-3 h-full flex items-center tracking-[0.15em] shrink-0">
           FINPROMPT
         </div>
         <div className="overflow-hidden flex-1">
