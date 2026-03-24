@@ -9,10 +9,9 @@ interface HeaderProps {
   showFavorites: boolean;
   onToggleFavorites: () => void;
   favCount: number;
-  hideThemeSwitcher?: boolean;
 }
 
-export function Header({ search, onSearchChange, showFavorites, onToggleFavorites, favCount, hideThemeSwitcher = false }: HeaderProps) {
+export function Header({ search, onSearchChange, showFavorites, onToggleFavorites, favCount }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3">
@@ -40,11 +39,9 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
         </nav>
 
         {/* Theme Pills */}
-        {!hideThemeSwitcher && (
-          <div className="hidden xl:flex">
-            <ThemeSwitcher variant="pills" />
-          </div>
-        )}
+        <div className="hidden xl:flex">
+          <ThemeSwitcher variant="pills" />
+        </div>
 
         {/* Search + Favorites + Theme (icon for smaller screens) */}
         <div className="flex items-center gap-2 flex-1 max-w-md">
@@ -74,11 +71,9 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
               </span>
             )}
           </Button>
-          {!hideThemeSwitcher && (
-            <div className="xl:hidden">
-              <ThemeSwitcher variant="icon" />
-            </div>
-          )}
+          <div className="xl:hidden">
+            <ThemeSwitcher variant="icon" />
+          </div>
         </div>
       </div>
     </header>
