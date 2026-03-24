@@ -477,7 +477,7 @@ export default function Library() {
                   aria-current={page === pageNum ? "page" : undefined}
                   className={`bg-transparent border border-[var(--t-border)] text-[11px] px-3 py-1.5 cursor-pointer transition-all ${
                     page === pageNum
-                      ? "bg-[var(--t-amber)] text-black border-[var(--t-amber)] font-bold"
+                      ? "bg-[var(--t-amber)] text-[var(--t-accent-contrast,#000)] border-[var(--t-amber)] font-bold"
                       : "text-[var(--t-text-secondary)] hover:border-[var(--t-amber)] hover:text-[var(--t-amber)]"
                   }`}
                 >
