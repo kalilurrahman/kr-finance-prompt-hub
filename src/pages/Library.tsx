@@ -405,7 +405,7 @@ export default function Library() {
             aria-pressed={activeCategory === "ALL"}
             className={`text-[10px] px-3 py-1.5 border tracking-[0.1em] uppercase ${
               activeCategory === "ALL"
-                ? "bg-[var(--t-amber)] text-black border-[var(--t-amber)] font-bold"
+                ? "bg-[var(--t-amber)] text-[var(--t-accent-contrast,#000)] border-[var(--t-amber)] font-bold"
                 : "bg-transparent border-[var(--t-border)] text-[var(--t-text-secondary)]"
             }`}
           >
