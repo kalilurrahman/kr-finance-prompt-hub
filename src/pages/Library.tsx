@@ -339,7 +339,7 @@ export default function Library() {
             aria-pressed={activeCategory === cat}
             className={`w-full flex items-center justify-between px-4 py-2 text-[11px] tracking-[0.04em] cursor-pointer transition-all border-l-2 leading-[1.4] text-left ${
               activeCategory === cat
-                ? "border-l-[var(--t-amber)] bg-[rgba(255,184,0,0.06)] text-[var(--t-amber)]"
+                ? "border-l-[var(--t-amber)] bg-[var(--t-amber-glow)] text-[var(--t-amber)]"
                 : "border-l-transparent text-[var(--t-text-secondary)] hover:bg-[var(--t-bg-3)] hover:text-[var(--t-text-primary)]"
             }`}
           >
