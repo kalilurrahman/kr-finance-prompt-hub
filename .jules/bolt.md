@@ -33,3 +33,7 @@
 ## 2024-05-20 - Extract and memoize list item wrapper to prevent unnecessary React reconciliation
 **Learning:** When rendering a list of React components inside a frequently re-rendering parent (like a page with a search bar), mapping the items with inline `div` wrappers completely breaks the memoization of the child components (like `React.memo(PromptCard)`), forcing React to re-evaluate the wrapper tree on every state change. Wrapping the entire mapped array in `useMemo` is a fragile anti-pattern.
 **Action:** Extract the wrapper `div` and the child item into a separate component wrapped in `React.memo()`. This prevents the wrapper elements from being re-evaluated when the parent state changes, significantly improving rendering performance during rapid text input.
+
+## 2024-05-18 - [Add useMemo for array slice in list rendering]
+**Learning:** Found an inline `.slice()` in `Index.tsx`'s render path (`const visiblePrompts = filter.filtered.slice(0, visibleCount);`) that creates a new array reference on every render, invalidating downstream `React.memo` components even when the list items haven't changed.
+**Action:** Wrapped the `.slice()` operation in `useMemo` so `visiblePrompts` retains a stable reference across re-renders when `filter.filtered` and `visibleCount` haven't changed.
