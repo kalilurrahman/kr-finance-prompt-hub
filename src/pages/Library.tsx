@@ -57,11 +57,11 @@ const TerminalCardItem = React.memo(({
       </div>
       {/* Card Meta */}
       <div className="px-4 py-2 flex items-center gap-2 flex-wrap">
-        <span className="text-[9px] tracking-[0.15em] uppercase text-[var(--t-text-muted)] bg-[var(--t-bg-4)] px-2 py-[3px] border border-transparent transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] hover:bg-[rgba(255,184,0,0.06)] cursor-default">
+        <span className="text-[9px] tracking-[0.15em] uppercase text-[var(--t-text-muted)] bg-[var(--t-bg-4)] px-2 py-[3px] border border-transparent transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] hover:bg-[var(--t-active-bg)] cursor-default">
           {prompt.category}
         </span>
         {prompt.tags?.map((tag) => (
-          <span key={tag} className="text-[9px] tracking-[0.12em] text-[var(--t-amber-dim)] bg-[rgba(255,184,0,0.07)] border border-[rgba(255,184,0,0.15)] px-[7px] py-[2px]">
+          <span key={tag} className="text-[9px] tracking-[0.12em] text-[var(--t-amber-dim)] bg-[var(--t-tag-bg)] border border-[var(--t-tag-border)] px-[7px] py-[2px]">
             {tag}
           </span>
         ))}
