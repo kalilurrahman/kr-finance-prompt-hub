@@ -226,7 +226,7 @@ export default function Library() {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <Header search={siteSearch} onSearchChange={setSiteSearch} showFavorites={showSiteFavs} onToggleFavorites={() => setShowSiteFavs(!showSiteFavs)} favCount={siteFavCount} />
+      <Header search={siteSearch} onSearchChange={setSiteSearch} showFavorites={showSiteFavs} onToggleFavorites={() => setShowSiteFavs(!showSiteFavs)} favCount={siteFavCount} hideThemeSwitcher />
       <div className="terminal pt-0">
       {/* TICKER BAR */}
       <div className="fixed top-12 left-0 right-0 z-[100] bg-[var(--t-bg-1)] border-b border-[var(--t-amber)] h-7 flex items-center">
