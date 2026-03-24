@@ -2,7 +2,6 @@
 // ThemeSwitcher — horizontal pill buttons (Dark/Light/Sepia/Midnight style)
 // ============================================================
 
-import { useState, useEffect, useRef } from 'react';
 import { useTheme, THEMES, type ThemeId } from '../contexts/ThemeContext';
 
 interface Props {
@@ -48,10 +47,10 @@ export function ThemeSwitcher({ variant = 'icon', className = '' }: Props) {
 }
 
 function ThemeDropdown({ theme, setTheme }: { theme: typeof THEMES[0]; setTheme: (id: ThemeId) => void }) {
-  const [open, setOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = __import_useState(false);
+  const containerRef = __import_useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  __import_useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) setOpen(false);
     };
@@ -59,7 +58,7 @@ function ThemeDropdown({ theme, setTheme }: { theme: typeof THEMES[0]; setTheme:
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
-  useEffect(() => {
+  __import_useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
@@ -113,3 +112,8 @@ function ThemeDropdown({ theme, setTheme }: { theme: typeof THEMES[0]; setTheme:
     </div>
   );
 }
+
+// React hooks — imported at module level to avoid issues
+import { useState as __import_useState, useEffect as __import_useEffect, useRef as __import_useRef } from 'react';
+
+export default ThemeSwitcher;
