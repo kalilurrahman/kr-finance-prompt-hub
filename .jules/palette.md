@@ -10,3 +10,6 @@
 ## 2024-03-12 - ARIA Labels for Action Buttons
 **Learning:** Adding descriptive `aria-label` attributes to action buttons in modal dialogues improves the screen reader experience by providing clear, actionable information about the button's purpose, especially for buttons with abbreviated or non-descriptive text (e.g., "↓ TXT").
 **Action:** Always verify that action buttons, particularly those in modals or those using icons/abbreviations, have descriptive `aria-label` attributes to ensure they are fully accessible to screen reader users.
+## 2024-03-23 - Focus Rings on Block Links
+**Learning:** Large block elements (like cards or call-to-action sections) wrapped in a `<Link>` or `<a>` tag often lack explicit `focus-visible` styling, meaning they show no focus indicator or an unstyled browser default outline when tabbed to, making the interface inaccessible for keyboard users.
+**Action:** When wrapping a block element in a `<Link>` or `<a>`, explicitly add `focus-visible` styles (e.g., `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background`) and match the `rounded-*` utility to the child's border radius so the focus ring cleanly hugs the element.
