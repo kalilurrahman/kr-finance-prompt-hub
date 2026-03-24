@@ -25,3 +25,7 @@
 ## 2026-03-21 - Dialog Accessibility Enhancement
 **Learning:** Modal/Dialog components in UI libraries (like Radix UI / shadcn) require an accessible description (via `DialogDescription`) to fully support screen readers and pass strict accessibility checks. Relying solely on a `DialogTitle` is insufficient for complete context.
 **Action:** When implementing or modifying Dialog components (like `PromptDetail.tsx`), always ensure a `<DialogDescription>` is present within the `<DialogContent>`. If a visible description disrupts the design, use a visually hidden class (e.g., `sr-only`) to provide the necessary context to assistive technologies without altering the UI.
+
+## 2024-05-18 - Ensure Toggle Buttons Use aria-pressed
+**Learning:** While `aria-label` handles the description of an action, screen readers specifically look for `aria-pressed` on buttons that act as toggles (like "Favorite" or "Save" buttons) to announce their current active state. Relying solely on changing the visible text or `aria-label` ("Save" vs "Saved") is less robust than using semantic state attributes.
+**Action:** Always apply `aria-pressed={isActive}` to any button that toggles a boolean state across the application to ensure accurate screen reader announcements.

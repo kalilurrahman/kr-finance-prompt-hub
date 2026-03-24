@@ -70,7 +70,8 @@ export const PromptCard = React.memo(function PromptCard({ prompt, isFavorite, o
                 isFavorite ? "text-gold" : "text-muted-foreground hover:text-gold"
               )}
               title={isFavorite ? "Remove from favorites" : "Add to favorites"}
-              aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+              aria-label="Favorite"
+              aria-pressed={isFavorite}
             >
               <Heart className={cn("h-3.5 w-3.5", isFavorite && "fill-current")} />
             </button>
