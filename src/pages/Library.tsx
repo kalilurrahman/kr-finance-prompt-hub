@@ -388,7 +388,7 @@ export default function Library() {
                 aria-pressed={sort === s}
                 className={`bg-transparent border border-[var(--t-border)] text-[10px] px-3 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all ${
                   sort === s
-                    ? "border-[var(--t-amber)] text-[var(--t-amber)] bg-[rgba(255,184,0,0.07)]"
+                    ? "border-[var(--t-amber)] text-[var(--t-amber)] bg-[var(--t-amber-glow)]"
                     : "text-[var(--t-text-muted)] hover:border-[var(--t-border-bright)] hover:text-[var(--t-text-secondary)]"
                 }`}
               >
