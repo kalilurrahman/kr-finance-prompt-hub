@@ -551,8 +551,8 @@ export default function Library() {
                 onClick={() => copyPrompt(modalPrompt, true)}
                 className={`border-none text-[11px] font-bold px-6 py-2.5 cursor-pointer tracking-[0.12em] uppercase transition-all ${
                   modalCopied
-                    ? "bg-[var(--t-green)] text-black"
-                    : "bg-[var(--t-amber)] text-black hover:brightness-110"
+                    ? "bg-[var(--t-green)] text-[var(--t-accent-contrast,#000)]"
+                    : "bg-[var(--t-amber)] text-[var(--t-accent-contrast,#000)] hover:brightness-110"
                 }`}
               >
                 {modalCopied ? "✓ COPIED" : "⎘ COPY PROMPT"}
