@@ -1,6 +1,19 @@
 /* ============================================================
    FINPROMPT — themes.css   (Lovable / Tailwind compatible)
    Path:   src/styles/themes.css
+   Import: add  @import './styles/themes.css';  to src/index.css
+
+   Tailwind integration — add to tailwind.config.ts theme.extend:
+
+   colors: {
+     bg0: 'var(--bg-0)', bg1: 'var(--bg-1)', bg2: 'var(--bg-2)',
+     bg3: 'var(--bg-3)', bg4: 'var(--bg-4)',
+     accent: { DEFAULT: 'var(--accent)', dim: 'var(--accent-dim)' },
+     tp: 'var(--text-primary)',
+     ts: 'var(--text-secondary)',
+     tm: 'var(--text-muted)',
+   },
+   borderColor: { theme: 'var(--border)', bright: 'var(--border-bright)' },
    ============================================================ */
 
 :root,
@@ -16,9 +29,6 @@
   --badge-claude:#b45309; --badge-perplexity:#6d28d9; --badge-chatgpt:#065f46;
   --badge-gemini:#1e40af; --badge-general:#374151;
   --scrollbar-thumb:#cc9400; --scanlines:0.025;
-  --modal-overlay:rgba(6,10,15,0.92);
-  --glow-color:rgba(255,184,0,0.5);
-  --section-label:#7a7468;
   --radius: 0.75rem;
   color-scheme:dark;
   /* Tailwind semantic tokens */
@@ -66,9 +76,6 @@
   --badge-claude:#f59e0b; --badge-perplexity:#8b5cf6; --badge-chatgpt:#10b981;
   --badge-gemini:#3b82f6; --badge-general:#374151;
   --scrollbar-thumb:#00cc33; --scanlines:0.04;
-  --modal-overlay:rgba(0,0,0,0.92);
-  --glow-color:rgba(0,255,65,0.5);
-  --section-label:#2e8a4a;
   color-scheme:dark;
   /* Tailwind semantic tokens */
   --background: 0 0% 0%;
@@ -115,9 +122,6 @@
   --badge-claude:#b45309; --badge-perplexity:#6d28d9; --badge-chatgpt:#065f46;
   --badge-gemini:#1e40af; --badge-general:#6b7280;
   --scrollbar-thumb:#7a94aa; --scanlines:0;
-  --modal-overlay:rgba(238,242,247,0.92);
-  --glow-color:rgba(0,87,184,0.3);
-  --section-label:#5a7a94;
   color-scheme:light;
   /* Tailwind semantic tokens */
   --background: 215 33% 95%;
@@ -164,9 +168,6 @@
   --badge-claude:#f59e0b; --badge-perplexity:#a78bfa; --badge-chatgpt:#34d399;
   --badge-gemini:#60a5fa; --badge-general:#6b7280;
   --scrollbar-thumb:#c0243c; --scanlines:0.025;
-  --modal-overlay:rgba(12,6,8,0.92);
-  --glow-color:rgba(232,48,74,0.5);
-  --section-label:#8a5868;
   color-scheme:dark;
   /* Tailwind semantic tokens */
   --background: 340 33% 4%;
@@ -213,9 +214,6 @@
   --badge-claude:#f0883e; --badge-perplexity:#bc8cff; --badge-chatgpt:#56d364;
   --badge-gemini:#79c0ff; --badge-general:#6e7681;
   --scrollbar-thumb:#388bfd; --scanlines:0;
-  --modal-overlay:rgba(13,17,23,0.92);
-  --glow-color:rgba(88,166,255,0.4);
-  --section-label:#6e7681;
   color-scheme:dark;
   /* Tailwind semantic tokens */
   --background: 215 29% 7%;
@@ -267,7 +265,7 @@ body::after {
 /* Smooth theme transitions */
 body, header, nav, footer, aside, main { transition:background-color .25s ease, color .15s ease; }
 
-/* Source badge classes */
+/* Source badge classes — use with font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 */
 .badge-claude      { background-color:var(--badge-claude);     color:#fff; }
 .badge-perplexity  { background-color:var(--badge-perplexity); color:#fff; }
 .badge-chatgpt     { background-color:var(--badge-chatgpt);    color:#fff; }
