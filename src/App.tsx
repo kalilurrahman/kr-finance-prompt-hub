@@ -8,7 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
-const Library = lazy(() => import("./pages/Library"));
+const Library = lazy(() => import("./pages/Library" /* webpackChunkName: "library" */));
 
 const queryClient = new QueryClient();
 
