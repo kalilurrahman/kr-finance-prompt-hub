@@ -74,9 +74,11 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
               </span>
             )}
           </Button>
-          <div className="xl:hidden">
-            <ThemeSwitcher variant="icon" />
-          </div>
+          {!hideThemeSwitcher && (
+            <div className="xl:hidden">
+              <ThemeSwitcher variant="icon" />
+            </div>
+          )}
         </div>
       </div>
     </header>
