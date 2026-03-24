@@ -511,7 +511,7 @@ export default function Library() {
             className="bg-[var(--t-bg-2)] border border-[var(--t-border-bright)] w-full max-w-[780px] max-h-[90vh] flex flex-col"
             style={{
               animation: "t-slide-up 0.2s ease",
-              boxShadow: "0 32px 80px rgba(0,0,0,.7), 0 0 40px rgba(255,184,0,.06)",
+              boxShadow: "0 32px 80px rgba(0,0,0,.7), 0 0 40px var(--t-amber-glow)",
             }}
           >
             {/* Modal Header */}
