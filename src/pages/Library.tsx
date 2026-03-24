@@ -351,7 +351,7 @@ export default function Library() {
         ))}
 
         <div className="border-t border-[var(--t-border)] my-3" />
-        <div className="text-[9px] tracking-[0.25em] text-[rgba(255,255,255,0.6)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2">
+        <div className="text-[9px] tracking-[0.25em] text-[var(--t-text-muted)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2">
           Stats
         </div>
         <div className="flex items-center justify-between px-4 py-2 text-[11px] tracking-[0.04em] border-l-2 border-l-transparent hover:bg-[var(--t-bg-3)] transition-all">
