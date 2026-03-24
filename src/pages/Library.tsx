@@ -315,7 +315,7 @@ export default function Library() {
 
       {/* SIDEBAR */}
       <nav className="fixed top-[140px] left-0 bottom-0 z-[80] w-[230px] bg-[var(--t-bg-1)] border-r border-[var(--t-border)] overflow-y-auto py-4 hidden lg:block">
-        <div className="text-[9px] tracking-[0.25em] text-[rgba(255,255,255,0.6)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2">
+        <div className="text-[9px] tracking-[0.25em] text-[var(--t-section-label)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2">
           Categories
         </div>
         <button
@@ -323,7 +323,7 @@ export default function Library() {
           aria-pressed={activeCategory === "ALL"}
           className={`w-full flex items-center justify-between px-4 py-2 text-[11px] tracking-[0.04em] cursor-pointer transition-all border-l-2 text-left ${
             activeCategory === "ALL"
-              ? "border-l-[var(--t-amber)] bg-[rgba(255,184,0,0.06)] text-[var(--t-amber)]"
+              ? "border-l-[var(--t-amber)] bg-[var(--t-active-bg)] text-[var(--t-amber)]"
               : "border-l-transparent text-[var(--t-text-secondary)] hover:bg-[var(--t-bg-3)] hover:text-[var(--t-text-primary)]"
           }`}
         >
