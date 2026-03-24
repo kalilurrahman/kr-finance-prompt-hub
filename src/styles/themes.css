@@ -162,7 +162,7 @@
   --success:#00d68f; --danger:#ff6b6b; --info:#4da6ff;
   --border:rgba(232,48,74,0.12); --border-bright:rgba(232,48,74,0.32);
   --text-primary:#f0e0e4; --text-secondary:#9a7080; --text-muted:#8a5868;
-  --card-bg:#1a0e12; --card-hover:#221418;
+  --card-bg:#1a0e12; --card-hover:#221418; --modal-overlay:rgba(12,6,8,0.92);
   --header-bg:rgba(12,6,8,0.97); --footer-bg:#0c0608; --footer-text:#9a7080;
   --tag-bg:rgba(232,48,74,0.07); --tag-border:rgba(232,48,74,0.20); --tag-text:#c0243c;
   --badge-claude:#f59e0b; --badge-perplexity:#a78bfa; --badge-chatgpt:#34d399;
