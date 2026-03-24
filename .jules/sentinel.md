@@ -1,3 +1,7 @@
+## 2024-05-20 - Tighten Content Security Policy (CSP)
+**Vulnerability:** Permissive Content Security Policy (CSP) in `index.html` containing `'unsafe-eval'` in `script-src` and missing `object-src` and `base-uri` directives.
+**Learning:** While Vite requires `'unsafe-eval'` for some development tools, production builds of React/Vite applications typically do not. Including it in the production `index.html` weakens XSS defenses by allowing strings to be evaluated as code.
+**Prevention:** Configure CSP strictly for production by omitting `'unsafe-eval'`, and ensure defense-in-depth by setting `object-src 'none'` to block malicious plugins and `base-uri 'none'` to prevent base tag hijacking.
 ## 2024-05-15 - [Prevent UI crash on malformed local storage data]
 **Vulnerability:** In `useFavorites.ts` and `useTerminalFavorites.ts`, `new Set(JSON.parse(stored))` was used without validating if the parsed data is an array. A malformed payload (e.g., `{"hack": "true"}`) injected into `localStorage` would throw a `TypeError` (since `Set` requires an iterable) and crash the React component tree.
 **Learning:** `localStorage` is technically user input and can be modified outside the app's standard flow (e.g., via browser dev tools or extensions). Assuming its strict type signature leads to fragility.
