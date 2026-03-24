@@ -298,7 +298,7 @@ export default function Library() {
             <button
               onClick={() => setFavFilter(!favFilter)}
               className={`bg-transparent border border-[var(--t-border)] text-[11px] px-3.5 py-[7px] cursor-pointer tracking-[0.1em] uppercase transition-all ${
-                favFilter ? "bg-[var(--t-amber)] text-black border-[var(--t-amber)] font-bold" : "text-[var(--t-text-secondary)] hover:border-[var(--t-amber)] hover:text-[var(--t-amber)]"
+                favFilter ? "bg-[var(--t-amber)] text-[var(--t-accent-contrast,#000)] border-[var(--t-amber)] font-bold" : "text-[var(--t-text-secondary)] hover:border-[var(--t-amber)] hover:text-[var(--t-amber)]"
               }`}
             >
               ⭐ FAV {favCount > 0 && `(${favCount})`}
