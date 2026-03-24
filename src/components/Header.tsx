@@ -12,7 +12,7 @@ interface HeaderProps {
   hideThemeSwitcher?: boolean;
 }
 
-export function Header({ search, onSearchChange, showFavorites, onToggleFavorites, favCount }: HeaderProps) {
+export function Header({ search, onSearchChange, showFavorites, onToggleFavorites, favCount, hideThemeSwitcher = false }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3">
