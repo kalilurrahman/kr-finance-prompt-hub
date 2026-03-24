@@ -61,7 +61,7 @@ const TerminalCardItem = React.memo(({
           {prompt.category}
         </span>
         {prompt.tags?.map((tag) => (
-          <span key={tag} className="text-[9px] tracking-[0.12em] text-[var(--t-amber-dim)] bg-[rgba(255,184,0,0.07)] border border-[rgba(255,184,0,0.15)] px-[7px] py-[2px]">
+          <span key={tag} className="text-[9px] tracking-[0.12em] text-[var(--t-amber-dim)] bg-[var(--t-amber-glow)] border border-[var(--t-border)] px-[7px] py-[2px]">
             {tag}
           </span>
         ))}
