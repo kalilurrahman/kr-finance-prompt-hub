@@ -40,9 +40,11 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
         </nav>
 
         {/* Theme Pills */}
-        <div className="hidden xl:flex">
-          <ThemeSwitcher variant="pills" />
-        </div>
+        {!hideThemeSwitcher && (
+          <div className="hidden xl:flex">
+            <ThemeSwitcher variant="pills" />
+          </div>
+        )}
 
         {/* Search + Favorites + Theme (icon for smaller screens) */}
         <div className="flex items-center gap-2 flex-1 max-w-md">
