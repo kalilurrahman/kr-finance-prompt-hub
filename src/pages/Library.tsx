@@ -344,7 +344,7 @@ export default function Library() {
             }`}
           >
             <span>{cat}</span>
-            <span className={`text-[9px] px-[7px] py-px font-semibold shrink-0 ${activeCategory === cat ? "bg-[var(--t-amber)] text-black" : "bg-[var(--t-bg-4)] text-[var(--t-text-muted)]"}`}>
+            <span className={`text-[9px] px-[7px] py-px font-semibold shrink-0 ${activeCategory === cat ? "bg-[var(--t-amber)] text-[var(--t-accent-contrast,#000)]" : "bg-[var(--t-bg-4)] text-[var(--t-text-muted)]"}`}>
               {categoryCounts[cat] || 0}
             </span>
           </button>
