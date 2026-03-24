@@ -212,7 +212,7 @@ export default function Library() {
   if (loading) {
     return (
       <div className="flex min-h-screen flex-col bg-background">
-        <Header search={siteSearch} onSearchChange={setSiteSearch} showFavorites={showSiteFavs} onToggleFavorites={() => setShowSiteFavs(!showSiteFavs)} favCount={siteFavCount} hideThemeSwitcher />
+        <Header search={siteSearch} onSearchChange={setSiteSearch} showFavorites={showSiteFavs} onToggleFavorites={() => setShowSiteFavs(!showSiteFavs)} favCount={siteFavCount} />
         <div className="terminal flex items-center justify-center flex-1">
           <div className="text-center">
             <div className="w-10 h-10 border-2 border-[var(--t-border)] border-t-[var(--t-amber)] rounded-full animate-spin mx-auto" />
