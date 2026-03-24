@@ -212,7 +212,7 @@ export default function Library() {
   if (loading) {
     return (
       <div className="flex min-h-screen flex-col bg-background">
-        <Header search={siteSearch} onSearchChange={setSiteSearch} showFavorites={showSiteFavs} onToggleFavorites={() => setShowSiteFavs(!showSiteFavs)} favCount={siteFavCount} />
+        <Header search={siteSearch} onSearchChange={setSiteSearch} showFavorites={showSiteFavs} onToggleFavorites={() => setShowSiteFavs(!showSiteFavs)} favCount={siteFavCount} hideThemeSwitcher />
         <div className="terminal flex items-center justify-center flex-1">
           <div className="text-center">
             <div className="w-10 h-10 border-2 border-[var(--t-border)] border-t-[var(--t-amber)] rounded-full animate-spin mx-auto" />
@@ -226,7 +226,7 @@ export default function Library() {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <Header search={siteSearch} onSearchChange={setSiteSearch} showFavorites={showSiteFavs} onToggleFavorites={() => setShowSiteFavs(!showSiteFavs)} favCount={siteFavCount} />
+      <Header search={siteSearch} onSearchChange={setSiteSearch} showFavorites={showSiteFavs} onToggleFavorites={() => setShowSiteFavs(!showSiteFavs)} favCount={siteFavCount} hideThemeSwitcher />
       <div className="terminal pt-0">
       {/* TICKER BAR */}
       <div className="fixed top-12 left-0 right-0 z-[100] bg-[var(--t-bg-1)] border-b border-[var(--t-amber)] h-7 flex items-center">
