@@ -50,18 +50,18 @@ const TerminalCardItem = React.memo(({
           className={`bg-transparent border-none cursor-pointer text-base p-0 shrink-0 transition-all hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--t-amber)] rounded-sm relative z-10 ${
             isFavorite ? "text-[var(--t-amber)]" : "text-[var(--t-text-muted)] hover:text-[var(--t-amber)]"
           }`}
-          style={isFavorite ? { textShadow: "0 0 8px rgba(255,184,0,0.5)" } : {}}
+          style={isFavorite ? { textShadow: "0 0 8px var(--t-glow)" } : {}}
         >
           {isFavorite ? "★" : "☆"}
         </button>
       </div>
       {/* Card Meta */}
       <div className="px-4 py-2 flex items-center gap-2 flex-wrap">
-        <span className="text-[9px] tracking-[0.15em] uppercase text-[var(--t-text-muted)] bg-[var(--t-bg-4)] px-2 py-[3px] border border-transparent transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] hover:bg-[rgba(255,184,0,0.06)] cursor-default">
+        <span className="text-[9px] tracking-[0.15em] uppercase text-[var(--t-text-muted)] bg-[var(--t-bg-4)] px-2 py-[3px] border border-transparent transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] hover:bg-[var(--t-active-bg)] cursor-default">
           {prompt.category}
         </span>
         {prompt.tags?.map((tag) => (
-          <span key={tag} className="text-[9px] tracking-[0.12em] text-[var(--t-amber-dim)] bg-[rgba(255,184,0,0.07)] border border-[rgba(255,184,0,0.15)] px-[7px] py-[2px]">
+          <span key={tag} className="text-[9px] tracking-[0.12em] text-[var(--t-amber-dim)] bg-[var(--t-tag-bg)] border border-[var(--t-tag-border)] px-[7px] py-[2px]">
             {tag}
           </span>
         ))}
@@ -212,7 +212,7 @@ export default function Library() {
   if (loading) {
     return (
       <div className="flex min-h-screen flex-col bg-background">
-        <Header search={siteSearch} onSearchChange={setSiteSearch} showFavorites={showSiteFavs} onToggleFavorites={() => setShowSiteFavs(!showSiteFavs)} favCount={siteFavCount} hideThemeSwitcher />
+        <Header search={siteSearch} onSearchChange={setSiteSearch} showFavorites={showSiteFavs} onToggleFavorites={() => setShowSiteFavs(!showSiteFavs)} favCount={siteFavCount} />
         <div className="terminal flex items-center justify-center flex-1">
           <div className="text-center">
             <div className="w-10 h-10 border-2 border-[var(--t-border)] border-t-[var(--t-amber)] rounded-full animate-spin mx-auto" />
@@ -226,7 +226,7 @@ export default function Library() {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <Header search={siteSearch} onSearchChange={setSiteSearch} showFavorites={showSiteFavs} onToggleFavorites={() => setShowSiteFavs(!showSiteFavs)} favCount={siteFavCount} hideThemeSwitcher />
+      <Header search={siteSearch} onSearchChange={setSiteSearch} showFavorites={showSiteFavs} onToggleFavorites={() => setShowSiteFavs(!showSiteFavs)} favCount={siteFavCount} />
       <div className="terminal pt-0">
       {/* TICKER BAR */}
       <div className="fixed top-12 left-0 right-0 z-[100] bg-[var(--t-bg-1)] border-b border-[var(--t-amber)] h-7 flex items-center">
@@ -262,10 +262,10 @@ export default function Library() {
       </div>
 
       {/* HEADER */}
-      <header className="fixed top-[76px] left-0 right-0 z-[90] bg-[rgba(6,10,15,0.97)] border-b border-[var(--t-border-bright)] backdrop-blur-xl">
+      <header className="fixed top-[76px] left-0 right-0 z-[90] bg-[var(--t-header-bg)] border-b border-[var(--t-border-bright)] backdrop-blur-xl">
         <div className="max-w-[1600px] mx-auto px-6 flex items-center gap-5 h-16">
           <Link to="/library" className="flex items-baseline gap-2 shrink-0 no-underline">
-            <span className="font-bold text-lg text-[var(--t-amber)] tracking-[0.05em]" style={{ textShadow: "0 0 20px rgba(255,184,0,0.5)" }}>
+            <span className="font-bold text-lg text-[var(--t-amber)] tracking-[0.05em]" style={{ textShadow: "0 0 20px var(--t-glow)" }}>
               FINPROMPT
             </span>
             <span className="text-sm text-[var(--t-text-muted)]">//</span>
@@ -315,7 +315,7 @@ export default function Library() {
 
       {/* SIDEBAR */}
       <nav className="fixed top-[140px] left-0 bottom-0 z-[80] w-[230px] bg-[var(--t-bg-1)] border-r border-[var(--t-border)] overflow-y-auto py-4 hidden lg:block">
-        <div className="text-[9px] tracking-[0.25em] text-[rgba(255,255,255,0.6)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2">
+        <div className="text-[9px] tracking-[0.25em] text-[var(--t-section-label)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2">
           Categories
         </div>
         <button
@@ -323,7 +323,7 @@ export default function Library() {
           aria-pressed={activeCategory === "ALL"}
           className={`w-full flex items-center justify-between px-4 py-2 text-[11px] tracking-[0.04em] cursor-pointer transition-all border-l-2 text-left ${
             activeCategory === "ALL"
-              ? "border-l-[var(--t-amber)] bg-[rgba(255,184,0,0.06)] text-[var(--t-amber)]"
+              ? "border-l-[var(--t-amber)] bg-[var(--t-active-bg)] text-[var(--t-amber)]"
               : "border-l-transparent text-[var(--t-text-secondary)] hover:bg-[var(--t-bg-3)] hover:text-[var(--t-text-primary)]"
           }`}
         >
@@ -339,7 +339,7 @@ export default function Library() {
             aria-pressed={activeCategory === cat}
             className={`w-full flex items-center justify-between px-4 py-2 text-[11px] tracking-[0.04em] cursor-pointer transition-all border-l-2 leading-[1.4] text-left ${
               activeCategory === cat
-                ? "border-l-[var(--t-amber)] bg-[rgba(255,184,0,0.06)] text-[var(--t-amber)]"
+                ? "border-l-[var(--t-amber)] bg-[var(--t-active-bg)] text-[var(--t-amber)]"
                 : "border-l-transparent text-[var(--t-text-secondary)] hover:bg-[var(--t-bg-3)] hover:text-[var(--t-text-primary)]"
             }`}
           >
@@ -351,7 +351,7 @@ export default function Library() {
         ))}
 
         <div className="border-t border-[var(--t-border)] my-3" />
-        <div className="text-[9px] tracking-[0.25em] text-[rgba(255,255,255,0.6)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2">
+        <div className="text-[9px] tracking-[0.25em] text-[var(--t-section-label)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2">
           Stats
         </div>
         <div className="flex items-center justify-between px-4 py-2 text-[11px] tracking-[0.04em] border-l-2 border-l-transparent hover:bg-[var(--t-bg-3)] transition-all">
@@ -388,7 +388,7 @@ export default function Library() {
                 aria-pressed={sort === s}
                 className={`bg-transparent border border-[var(--t-border)] text-[10px] px-3 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all ${
                   sort === s
-                    ? "border-[var(--t-amber)] text-[var(--t-amber)] bg-[rgba(255,184,0,0.07)]"
+                    ? "border-[var(--t-amber)] text-[var(--t-amber)] bg-[var(--t-active-bg)]"
                     : "text-[var(--t-text-muted)] hover:border-[var(--t-border-bright)] hover:text-[var(--t-text-secondary)]"
                 }`}
               >
@@ -503,7 +503,7 @@ export default function Library() {
       {/* MODAL */}
       {modalPrompt && (
         <div
-          className="fixed inset-0 z-[200] bg-[rgba(6,10,15,0.92)] backdrop-blur-lg flex items-center justify-center p-6 md:p-10"
+          className="fixed inset-0 z-[200] bg-[var(--t-modal-overlay)] backdrop-blur-lg flex items-center justify-center p-6 md:p-10"
           style={{ animation: "t-fade-in 0.15s ease" }}
           onClick={(e) => { if (e.target === e.currentTarget) setModalPrompt(null); }}
         >
@@ -511,7 +511,7 @@ export default function Library() {
             className="bg-[var(--t-bg-2)] border border-[var(--t-border-bright)] w-full max-w-[780px] max-h-[90vh] flex flex-col"
             style={{
               animation: "t-slide-up 0.2s ease",
-              boxShadow: "0 32px 80px rgba(0,0,0,.7), 0 0 40px rgba(255,184,0,.06)",
+              boxShadow: "0 32px 80px rgba(0,0,0,.7), 0 0 40px var(--t-active-bg)",
             }}
           >
             {/* Modal Header */}
@@ -529,11 +529,11 @@ export default function Library() {
             </div>
             {/* Modal Meta */}
             <div className="px-5 py-3 border-b border-[var(--t-border)] flex gap-2 flex-wrap bg-[var(--t-bg-2)]">
-              <span className="text-[9px] tracking-[0.15em] uppercase text-[var(--t-text-muted)] bg-[var(--t-bg-4)] px-2 py-[3px] border border-transparent transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] hover:bg-[rgba(255,184,0,0.06)] cursor-default">
+              <span className="text-[9px] tracking-[0.15em] uppercase text-[var(--t-text-muted)] bg-[var(--t-bg-4)] px-2 py-[3px] border border-transparent transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] hover:bg-[var(--t-active-bg)] cursor-default">
                 {modalPrompt.category}
               </span>
               {modalPrompt.tags?.map((tag) => (
-                <span key={tag} className="text-[9px] tracking-[0.12em] text-[var(--t-amber-dim)] bg-[rgba(255,184,0,0.07)] border border-[rgba(255,184,0,0.15)] px-[7px] py-[2px]">
+                <span key={tag} className="text-[9px] tracking-[0.12em] text-[var(--t-amber-dim)] bg-[var(--t-tag-bg)] border border-[var(--t-tag-border)] px-[7px] py-[2px]">
                   {tag}
                 </span>
               ))}

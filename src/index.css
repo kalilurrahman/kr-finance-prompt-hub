@@ -51,31 +51,40 @@
 
 /* ═══════════════════════════════════════════════════════════
    TERMINAL THEME — FINPROMPT
+   Aliases --t-* from global [data-theme] vars so every
+   theme automatically skins the terminal view.
    ═══════════════════════════════════════════════════════════ */
 
 .terminal {
-  --t-bg-0: #060a0f;
-  --t-bg-1: #0a0e14;
-  --t-bg-2: #0e1520;
-  --t-bg-3: #141c2a;
-  --t-bg-4: #1a2333;
-  --t-amber: #ffb800;
-  --t-amber-dim: #cc9400;
-  --t-amber-glow: rgba(255, 184, 0, 0.15);
-  --t-green: #00d68f;
-  --t-green-dim: #00a86b;
-  --t-red: #ff4b4b;
-  --t-blue: #4da6ff;
-  --t-border: rgba(255, 184, 0, 0.12);
-  --t-border-bright: rgba(255, 184, 0, 0.35);
-  --t-text-primary: #e8e0cc;
-  --t-text-secondary: #8a8070;
-  --t-text-muted: #7a7468;
+  --t-bg-0: var(--bg-0);
+  --t-bg-1: var(--bg-1);
+  --t-bg-2: var(--bg-2);
+  --t-bg-3: var(--bg-3);
+  --t-bg-4: var(--bg-4);
+  --t-amber: var(--accent);
+  --t-amber-dim: var(--accent-dim);
+  --t-amber-glow: var(--accent-glow);
+  --t-green: var(--success);
+  --t-green-dim: var(--success);
+  --t-red: var(--danger);
+  --t-blue: var(--info);
+  --t-border: var(--border);
+  --t-border-bright: var(--border-bright);
+  --t-text-primary: var(--text-primary);
+  --t-text-secondary: var(--text-secondary);
+  --t-text-muted: var(--text-muted);
+  --t-active-bg: var(--tag-bg);
+  --t-tag-bg: var(--tag-bg);
+  --t-tag-border: var(--tag-border);
+  --t-header-bg: var(--header-bg);
+  --t-modal-overlay: var(--modal-overlay);
+  --t-section-label: var(--section-label);
+  --t-glow: var(--glow-color);
   font-family: 'IBM Plex Mono', 'Courier New', monospace;
   background: var(--t-bg-0);
   color: var(--t-text-primary);
   min-height: 100vh;
-  background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px);
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,var(--scanlines,0.025)) 2px, rgba(0,0,0,var(--scanlines,0.025)) 4px);
 }
 
 .terminal .font-sans-ibm {
@@ -114,7 +123,7 @@
   border-color: var(--t-border-bright);
   background: var(--t-bg-3);
   transform: translateY(-1px);
-  box-shadow: 0 8px 32px rgba(0,0,0,.4), 0 0 0 1px rgba(255,184,0,.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,.4), 0 0 0 1px var(--t-border);
 }
 .t-card:hover::before { opacity: 1; }
 
@@ -136,7 +145,7 @@
 
 /* Terminal mark/highlight */
 .terminal mark {
-  background: rgba(255, 184, 0, 0.2);
+  background: var(--t-active-bg);
   color: var(--t-amber);
   padding: 0 2px;
 }
