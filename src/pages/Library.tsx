@@ -50,7 +50,7 @@ const TerminalCardItem = React.memo(({
           className={`bg-transparent border-none cursor-pointer text-base p-0 shrink-0 transition-all hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--t-amber)] rounded-sm relative z-10 ${
             isFavorite ? "text-[var(--t-amber)]" : "text-[var(--t-text-muted)] hover:text-[var(--t-amber)]"
           }`}
-          style={isFavorite ? { textShadow: "0 0 8px rgba(255,184,0,0.5)" } : {}}
+          style={isFavorite ? { textShadow: "0 0 8px var(--t-glow)" } : {}}
         >
           {isFavorite ? "★" : "☆"}
         </button>
