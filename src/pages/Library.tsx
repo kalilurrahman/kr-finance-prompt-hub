@@ -265,7 +265,7 @@ export default function Library() {
       <header className="fixed top-[76px] left-0 right-0 z-[90] bg-[var(--header-bg)] border-b border-[var(--t-border-bright)] backdrop-blur-xl">
         <div className="max-w-[1600px] mx-auto px-6 flex items-center gap-5 h-16">
           <Link to="/library" className="flex items-baseline gap-2 shrink-0 no-underline">
-            <span className="font-bold text-lg text-[var(--t-amber)] tracking-[0.05em]" style={{ textShadow: "0 0 20px rgba(255,184,0,0.5)" }}>
+            <span className="font-bold text-lg text-[var(--t-amber)] tracking-[0.05em]" style={{ textShadow: `0 0 20px var(--t-amber-glow)` }}>
               FINPROMPT
             </span>
             <span className="text-sm text-[var(--t-text-muted)]">//</span>
