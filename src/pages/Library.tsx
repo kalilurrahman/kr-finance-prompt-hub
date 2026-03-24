@@ -328,7 +328,7 @@ export default function Library() {
           }`}
         >
           <span>All Categories</span>
-          <span className={`text-[9px] px-[7px] py-px font-semibold ${activeCategory === "ALL" ? "bg-[var(--t-amber)] text-black" : "bg-[var(--t-bg-4)] text-[var(--t-text-muted)]"}`}>
+          <span className={`text-[9px] px-[7px] py-px font-semibold ${activeCategory === "ALL" ? "bg-[var(--t-amber)] text-[var(--t-accent-contrast,#000)]" : "bg-[var(--t-bg-4)] text-[var(--t-text-muted)]"}`}>
             {prompts.length}
           </span>
         </button>
