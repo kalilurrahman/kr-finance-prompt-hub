@@ -9,6 +9,7 @@ interface HeaderProps {
   showFavorites: boolean;
   onToggleFavorites: () => void;
   favCount: number;
+  hideThemeSwitcher?: boolean;
 }
 
 export function Header({ search, onSearchChange, showFavorites, onToggleFavorites, favCount }: HeaderProps) {
