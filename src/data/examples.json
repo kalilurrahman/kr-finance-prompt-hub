@@ -5,7 +5,11 @@
     "domain": "Corporate Strategy & Growth",
     "platform": "claude",
     "model": "Claude 3.5 Sonnet",
-    "parameters": { "COMPANY NAME": "Tata Consumer Products", "TARGET COUNTRY/REGION": "Vietnam", "INDUSTRY": "FMCG / Health Foods" },
+    "parameters": {
+      "COMPANY NAME": "Tata Consumer Products",
+      "TARGET COUNTRY/REGION": "Vietnam",
+      "INDUSTRY": "FMCG / Health Foods"
+    },
     "generatedAt": "2025-04-20T09:15:00Z",
     "output": "## Market Entry Assessment — Vietnam FMCG (Tata Consumer Products)\n\n### Executive Summary\nVietnam represents a Tier-1 market entry opportunity for Tata Consumer Products, driven by a 97M population with rising health consciousness, 6.5% GDP CAGR, and urban middle-class expansion projected to reach 26M households by 2030. We recommend a phased joint-venture entry targeting Ho Chi Minh City and Hanoi metro corridors.\n\n### Total Addressable Market (TAM)\n- **Top-down**: Vietnam packaged food market = USD 14.2B (2024), health/wellness sub-segment = USD 2.1B, growing at 12% YoY\n- **Bottom-up**: 3.2M urban premium households × avg. annual spend USD 420 on health foods = USD 1.34B addressable pool\n- **SOM (Year 3 target)**: USD 85M revenue at 6.3% market share\n\n### Competitive Intensity Heat Map\n| Competitor | Est. Share | EBITDA Margin | Positioning |\n|---|---|---|---|\n| Vinamilk | 28% | 22% | Mass-premium dairy leader |\n| Nestlé Vietnam | 19% | 18% | Premium imported nutrition |\n| Masan Consumer | 17% | 16% | Local staples + premiumisation |\n| Unilever VN | 14% | 15% | Personal care + food adjacency |\n\n**Regulatory Risk Scorecard**: Customs duties on processed food imports: 7/10 risk. Local content requirements: 5/10. Labelling compliance (MOH): 6/10. Overall: Moderate-High — favour local manufacturing JV over direct import.\n\n### Entry Mode Options\n1. **Greenfield subsidiary** — Full control, 3-yr payback, CapEx USD 40-55M. NPV: USD 112M at 12% WACC.\n2. **Joint Venture with Masan** — Faster GTM, shared distribution, 49/51 split. NPV: USD 89M, lower risk.\n3. **Acquisition (Nutifood)** — Immediate 8% share, USD 320M EV, EV/EBITDA 14x — premium but de-risks execution.\n\n**Recommendation**: JV with a regional FMCG player in Year 1-2, transition to majority ownership by Year 4 pending regulatory liberalisation under CPTPP."
   },
@@ -15,7 +19,12 @@
     "domain": "Mergers & Acquisitions",
     "platform": "gemini",
     "model": "Gemini 1.5 Pro",
-    "parameters": { "TARGET COMPANY NAME": "CareDx Inc", "DEAL SIZE": "$1.8B", "ENTRY EV/EBITDA MULTIPLE": "12x", "HOLD PERIOD": "5 years" },
+    "parameters": {
+      "TARGET COMPANY NAME": "CareDx Inc",
+      "DEAL SIZE": "$1.8B",
+      "ENTRY EV/EBITDA MULTIPLE": "12x",
+      "HOLD PERIOD": "5 years"
+    },
     "generatedAt": "2025-04-21T11:30:00Z",
     "output": "## LBO Analysis — CareDx Inc | $1.8B Acquisition\n\n### Deal Overview\n- **Enterprise Value**: $1,800M at 12.0x LTM EBITDA ($150M)\n- **Equity Contribution**: $630M (35% of EV)\n- **Total Debt**: $1,170M (6.5x EBITDA leverage)\n\n### Debt Financing Structure\n| Tranche | Amount | Rate | Amortisation |\n|---|---|---|---|\n| Term Loan B | $720M | SOFR + 375bps | 1% p.a. |\n| Second Lien | $270M | SOFR + 700bps | PIK toggle |\n| Revolver ($150M) | — | SOFR + 300bps | Undrawn at close |\n| Seller Note | $180M | 8.0% fixed | Bullet Y5 |\n\n### Returns Analysis (Base Case)\n- **Revenue CAGR**: 14% (diagnostics volume + reimbursement tailwinds)\n- **Exit Multiple**: 13.5x EBITDA (slight re-rating on scale)\n- **Exit EBITDA**: $267M\n- **Equity Value at Exit**: $1,225M\n- **MoM**: 1.9x | **IRR**: 14.2%\n\n### Sensitivity — IRR Matrix\n| Exit Multiple \\ EBITDA Growth | 8% | 12% | 16% |\n|---|---|---|---|\n| 11x | 9.1% | 11.8% | 14.2% |\n| 13x | 11.4% | 14.0% | 16.7% |\n| 15x | 13.2% | 15.9% | 18.8% |\n\n### Key Value Creation Levers\n1. Transplant diagnostics volume growth (kidney + heart segments)\n2. SaaS platform attach rate improvement: 34% → 55%\n3. G&A rationalisation: $18M run-rate savings by Month 18\n4. International expansion: EU MDR approval unlocks EUR 120M TAM"
   },
@@ -25,7 +34,11 @@
     "domain": "Investment Banking & Equity Research",
     "platform": "claude",
     "model": "Claude 3.5 Sonnet",
-    "parameters": { "COMPANY": "Zomato Ltd (NSE: ZOMATO)", "CURRENT STOCK PRICE": "₹228", "TICKER SYMBOL": "ZOMATO.NS" },
+    "parameters": {
+      "COMPANY": "Zomato Ltd (NSE: ZOMATO)",
+      "CURRENT STOCK PRICE": "₹228",
+      "TICKER SYMBOL": "ZOMATO.NS"
+    },
     "generatedAt": "2025-04-19T14:00:00Z",
     "output": "## Initiating Coverage: Zomato Ltd | BUY | TP ₹285 (+25%)\n\n### Investment Thesis\nZomato is transitioning from a hyperlocal food delivery platform to India's dominant quick-commerce and dining ecosystem. We initiate at BUY driven by: (1) Blinkit reaching EBITDA breakeven in Q2FY26, (2) food delivery GOV inflecting to 22% YoY growth, and (3) Hyperpure B2B emerging as a structurally high-margin vertical.\n\n### DCF Assumptions\n| Parameter | FY26E | FY27E | FY28E | Terminal |\n|---|---|---|---|---|\n| Revenue (₹Cr) | 18,400 | 24,300 | 31,200 | — |\n| EBITDA Margin | 4.2% | 7.8% | 11.5% | 18% |\n| WACC | | | | 13.5% |\n| Terminal Growth | | | | 5.5% |\n\n### Valuation\n- **DCF Intrinsic Value**: ₹261/share\n- **EV/GOV (FY27)**: 3.2x (vs. DoorDash 4.1x, Delivery Hero 2.8x)\n- **Blended Target Price**: ₹285 (60% DCF + 40% peer multiple)\n\n### Risk Factors\n- Swiggy Instamart competitive intensity in Tier-1 cities\n- ONDC adoption reducing platform take-rate (currently 21%)\n- Regulatory risk on gig worker classification\n\n**Catalysts**: Blinkit breakeven announcement (Q2FY26E), District app GMV disclosure, international market entry (UAE pilot)."
   },
@@ -35,7 +48,12 @@
     "domain": "Private Equity & Venture Capital",
     "platform": "gemini",
     "model": "Gemini 1.5 Pro",
-    "parameters": { "COMPANY NAME": "HealthFirst Clinics", "EBITDA MARGIN": "11%", "TARGET EBITDA MARGIN": "19%", "HOLD PERIOD": "4 years" },
+    "parameters": {
+      "COMPANY NAME": "HealthFirst Clinics",
+      "EBITDA MARGIN": "11%",
+      "TARGET EBITDA MARGIN": "19%",
+      "HOLD PERIOD": "4 years"
+    },
     "generatedAt": "2025-04-22T10:00:00Z",
     "output": "## Value Creation Plan — HealthFirst Clinics (PE Portfolio Co.)\n\n### Baseline Assessment\n- LTM Revenue: $340M | EBITDA: $37.4M (11% margin)\n- 84 outpatient clinics across 6 states\n- Current DPI: 0.3x (Year 2 of hold) — requires acceleration\n\n### 100-Day Priority Actions\n1. **Revenue Cycle Management (RCM) overhaul** — deploy AI-assisted coding (Omega Healthcare partnership). Expected: +$8.2M EBITDA by Month 6\n2. **Physician contract renegotiation** — shift 40% of employed physicians to productivity-linked comp. Saves $4.1M p.a.\n3. **Payor mix optimisation** — increase commercial/Medicare Advantage from 58% → 67%. Adds $6.3M incremental margin\n\n### EBITDA Bridge to 19% Margin (Year 4)\n| Initiative | EBITDA Impact |\n|---|---|\n| RCM & billing optimisation | +$8.2M |\n| Physician productivity model | +$4.1M |\n| Payor mix shift | +$6.3M |\n| Supply chain consolidation | +$3.8M |\n| Telemedicine volume (15% of visits) | +$5.1M |\n| Clinic footprint rationalisation (8 closures) | +$2.5M |\n| **Total incremental EBITDA** | **+$30.0M** |\n| **Target EBITDA (Year 4)** | **$67.4M (19%)** |\n\n### Exit Scenarios\n- **Strategic buyer** (hospital system): 14-16x EBITDA → $944M–$1,078M EV\n- **Secondary PE**: 12x EBITDA → $809M EV\n- **IPO (if scale >$80M EBITDA)**: 18x → $1,213M EV"
   },
@@ -45,7 +63,10 @@
     "domain": "Economics & Macroeconomic Analysis",
     "platform": "perplexity",
     "model": "Perplexity Sonar Pro",
-    "parameters": { "TARGET COUNTRY/REGION": "Egypt", "INVESTMENT HORIZON": "3 years" },
+    "parameters": {
+      "TARGET COUNTRY/REGION": "Egypt",
+      "INVESTMENT HORIZON": "3 years"
+    },
     "generatedAt": "2025-04-18T16:45:00Z",
     "output": "## Egypt Macroeconomic Stress Test — Sovereign Credit Assessment\n\n### Macro Dashboard (2024 Baseline)\n| Indicator | 2024A | 2025E | 2026F |\n|---|---|---|---|\n| GDP Growth | 3.8% | 4.1% | 4.6% |\n| Inflation (CPI) | 29.8% | 18.2% | 12.5% |\n| Current Account / GDP | -3.2% | -2.8% | -2.1% |\n| Debt / GDP | 92% | 88% | 84% |\n| FX Reserves (months import cover) | 3.1 | 4.2 | 5.0 |\n\n### Stress Scenarios\n**Bear Case (30% probability)**: Commodity price shock (wheat +40%), tourism disruption (Red Sea conflict escalation), EGP depreciation to 65/USD. Debt/GDP spikes to 97%. IMF programme suspension risk elevated.\n\n**Base Case (55% probability)**: IMF $8B programme on track, Ras El-Hekma real estate proceeds ($35B) shore up reserves, gradual disinflation continues. Sovereign spread tightens 120bps by YE2025.\n\n**Bull Case (15% probability)**: Gulf FDI acceleration, LNG export revenues surprise upside, political stability premium re-rated. EGP appreciates to 38/USD, reserves reach 6.5 months cover.\n\n### Investment Implications\n- **Eurobonds (2027 maturity)**: BUY at YTM 9.8% — asymmetric risk/reward in base/bull scenarios\n- **EGP-denominated T-bills**: HOLD — real yield positive but FX risk remains elevated\n- **Equity (EGX30)**: ACCUMULATE — trading at 7.2x P/E vs. EM peers at 12x"
   },
@@ -55,7 +76,12 @@
     "domain": "FP&A & Budgeting",
     "platform": "gemini",
     "model": "Gemini 1.5 Pro",
-    "parameters": { "COMPANY NAME": "RetailCo India", "LTM REVENUE": "₹4,200Cr", "EBITDA MARGIN": "6.8%", "TARGET EBITDA MARGIN": "11%" },
+    "parameters": {
+      "COMPANY NAME": "RetailCo India",
+      "LTM REVENUE": "₹4,200Cr",
+      "EBITDA MARGIN": "6.8%",
+      "TARGET EBITDA MARGIN": "11%"
+    },
     "generatedAt": "2025-04-17T08:30:00Z",
     "output": "## Zero-Based Budget Transformation — RetailCo India\n\n### Current State Assessment\n- LTM Revenue: ₹4,200Cr | EBITDA: ₹286Cr (6.8%)\n- Cost base: ₹3,914Cr — 47% COGS, 28% store ops, 14% central overheads, 11% logistics\n- Benchmark gap to top-quartile Indian retailers: 420bps EBITDA\n\n### ZBB Methodology Applied\nEvery cost line rebuilt from zero with three questions:\n1. Does this activity directly generate revenue or protect margin?\n2. Can it be automated, outsourced, or eliminated?\n3. What is the minimum viable spend to maintain service levels?\n\n### EBITDA Bridge: 6.8% → 11%\n| Cost Lever | Savings (₹Cr) | Margin Impact |\n|---|---|---|\n| SKU rationalisation (cut tail 18% of SKUs) | ₹84Cr | +2.0% |\n| Store footprint optimisation (close 43 underperformers) | ₹62Cr | +1.5% |\n| Central overhead redesign (shared services model) | ₹38Cr | +0.9% |\n| Logistics network re-routing (hub consolidation) | ₹29Cr | +0.7% |\n| Vendor payment terms extension (45→60 days) | ₹18Cr (WC) | — |\n| **Total identified savings** | **₹213Cr** | **+5.1%** |\n\n### Implementation Roadmap\n- **Q1**: ZBB governance setup, baseline cost audit, quick wins (₹38Cr)\n- **Q2-Q3**: SKU/store actions, logistics re-routing, vendor renegotiation\n- **Q4**: Shared services go-live, full-year run-rate realisation\n- **FY+1**: Reinvest ₹85Cr savings into digital (omnichannel, loyalty)"
   },
@@ -65,7 +91,11 @@
     "domain": "Mergers & Acquisitions",
     "platform": "perplexity",
     "model": "Perplexity Sonar Pro",
-    "parameters": { "TARGET COMPANY NAME": "MedTech Dynamics", "DEAL SIZE": "$420M", "ACQUIRER NAME": "Siemens Healthineers" },
+    "parameters": {
+      "TARGET COMPANY NAME": "MedTech Dynamics",
+      "DEAL SIZE": "$420M",
+      "ACQUIRER NAME": "Siemens Healthineers"
+    },
     "generatedAt": "2025-04-16T13:00:00Z",
     "output": "## Commercial Due Diligence — MedTech Dynamics ($420M)\nAcquirer: Siemens Healthineers | Target: MedTech Dynamics (Point-of-Care diagnostics)\n\n### Red Flag Summary\n| Category | Finding | Severity |\n|---|---|---|\n| Revenue concentration | Top 3 customers = 61% of revenue | HIGH |\n| IP ownership | 3 core patents co-owned with founder (personal capacity) | HIGH |\n| Regulatory | FDA 510(k) renewal pending for flagship device | MEDIUM |\n| HR | CTO + 4 senior engineers have 12-month post-close non-competes only | MEDIUM |\n| Financial | Revenue recognition: milestone-based contracts accelerated in FY23 | HIGH |\n\n### Valuation Adjustment Recommendations\n- **Base ask**: $420M (11.7x LTM EBITDA $36M)\n- **Adjusted for risks**: $340–360M (9.4–10x) with $40M escrow holdback\n- **Earnout structure**: $60M tied to 24-month FDA renewal + customer retention\n\n### Integration Priorities (Day 1–90)\n1. Secure IP assignment from founder (legal pre-condition to close)\n2. Customer retention programme — direct C-suite engagement with top 3 accounts\n3. Technology integration roadmap with Healthineers Atellica platform\n4. Regulatory affairs team augmentation for FDA submission support"
   },
@@ -75,7 +105,11 @@
     "domain": "Private Equity & Venture Capital",
     "platform": "claude",
     "model": "Claude 3.5 Sonnet",
-    "parameters": { "GEOGRAPHIC FOCUS": "India / Southeast Asia", "DEAL SIZE": "$25M–$80M Series B/C", "INVESTMENT HORIZON": "7 years" },
+    "parameters": {
+      "GEOGRAPHIC FOCUS": "India / Southeast Asia",
+      "DEAL SIZE": "$25M–$80M Series B/C",
+      "INVESTMENT HORIZON": "7 years"
+    },
     "generatedAt": "2025-04-15T10:00:00Z",
     "output": "## VC Fund Portfolio Construction — India/SEA Growth Fund IV\nFund Size: $400M | Focus: Series B/C | Vintage: 2025\n\n### Portfolio Architecture\n- **Target companies**: 18–22 investments\n- **Initial cheque**: $15–25M (lead or co-lead)\n- **Reserves**: 45% of fund for follow-on\n- **Ownership target**: 12–18% at entry\n\n### Sector Allocation\n| Sector | Target % | Thesis |\n|---|---|---|\n| B2B SaaS / Vertical AI | 30% | India's $50B SaaS opportunity; SEA enterprise digitalisation |\n| Fintech / Embedded Finance | 25% | UPI-stack adjacencies; SEA unbanked 290M addressable |\n| Climate / Green Infrastructure | 20% | Regulatory tailwinds; carbon credit monetisation |\n| Consumer Health / Diagnostics | 15% | Post-COVID health awareness; diagnostics underpenetrated |\n| Supply Chain / Logistics Tech | 10% | D2C proliferation driving last-mile innovation |\n\n### Return Modelling (Power Law Distribution)\n- **1–2 Fund returners** (5–10x): Expected from 2–3 companies\n- **2–4x**: 6–8 companies\n- **0.5–2x**: 7–9 companies\n- **Write-offs**: 3–4 expected\n- **Fund-level projected net IRR**: 22–28% | **DPI target**: 2.8x by Year 9\n\n### Key Sourcing Channels\n1. IIT/IIM network + YC India batch co-investments\n2. Corporate spin-out pipeline (Reliance Jio, Tata Digital adjacencies)\n3. Proprietary deal sourcing via 140-node LP network"
   },
@@ -85,7 +119,10 @@
     "domain": "Economics & Macroeconomic Analysis",
     "platform": "gemini",
     "model": "Gemini 1.5 Pro",
-    "parameters": { "GEOGRAPHIC FOCUS": "ASEAN-6", "GROWTH RATE": "Baseline 4.8% GDP" },
+    "parameters": {
+      "GEOGRAPHIC FOCUS": "ASEAN-6",
+      "GROWTH RATE": "Baseline 4.8% GDP"
+    },
     "generatedAt": "2025-04-14T15:00:00Z",
     "output": "## Geoeconomic Fragmentation Risk — ASEAN-6 Assessment\n\n### Fragmentation Index Construction\nThe GFI composite uses 5 sub-indices (equal weight):\n1. **Trade Bloc Divergence** — bilateral trade concentration shifting from China/US\n2. **FDI Re-routing** — China+1 factory investment flows into Vietnam, Thailand, Indonesia\n3. **Currency Bloc Formation** — ASEAN local currency settlement progress\n4. **Technology Standards Bifurcation** — Huawei vs. Ericsson 5G split\n5. **Supply Chain Reshoring Risk** — nearshoring pressure from US IRA + EU CBAM\n\n### Country Scores (0=low risk, 10=high risk)\n| Country | Trade | FDI | Currency | Tech | Supply Chain | GFI Score |\n|---|---|---|---|---|---|---|\n| Vietnam | 4.2 | 2.1 | 5.8 | 6.1 | 3.2 | **4.3** |\n| Indonesia | 3.8 | 3.4 | 4.2 | 4.9 | 4.1 | **4.1** |\n| Thailand | 5.1 | 3.8 | 5.2 | 5.5 | 5.3 | **5.0** |\n| Philippines | 4.5 | 4.2 | 6.1 | 5.8 | 4.8 | **5.1** |\n| Malaysia | 3.9 | 2.8 | 4.8 | 4.2 | 3.7 | **3.9** |\n| Singapore | 2.1 | 1.8 | 3.1 | 2.9 | 2.4 | **2.5** |\n\n### GDP Impact Scenarios\n- **Mild fragmentation** (GFI <4): GDP growth -0.3% p.a. vs. baseline\n- **Moderate** (GFI 4–6): -0.8% p.a. — Vietnam/Malaysia best positioned\n- **Severe decoupling** (GFI >7): -2.1% p.a.; regional supply chain disruption"
   },
@@ -95,8 +132,294 @@
     "domain": "Investment Banking & Equity Research",
     "platform": "claude",
     "model": "Claude 3.5 Sonnet",
-    "parameters": { "COMPANY NAME": "AgroStar India", "LTM REVENUE": "₹1,800Cr", "EBITDA MARGIN": "8.2%", "DEAL SIZE": "₹2,200Cr IPO" },
+    "parameters": {
+      "COMPANY NAME": "AgroStar India",
+      "LTM REVENUE": "₹1,800Cr",
+      "EBITDA MARGIN": "8.2%",
+      "DEAL SIZE": "₹2,200Cr IPO"
+    },
     "generatedAt": "2025-04-13T11:00:00Z",
     "output": "## IPO Readiness Assessment — AgroStar India | ₹2,200Cr Primary Issue\n\n### IPO Readiness Score: 72/100 (Conditional Go)\n\n| Dimension | Score | Key Gap |\n|---|---|---|\n| Financial history (3yr audited) | 18/20 | Ind AS restatement needed for FY22 |\n| Corporate governance | 15/20 | Independent directors < 50% of board |\n| Management depth | 16/20 | CFO tenure < 18 months |\n| Regulatory compliance | 14/20 | 2 pending SEBI observations from DRHP draft |\n| Market positioning narrative | 9/10 | Strong agri-tech story, clear moat |\n\n### Valuation Framework\n- **Primary metric**: EV/Revenue (early-stage profitability)\n- **Peer set**: Ninjacart, DeHaat (private comps), Jain Irrigation, Kaveri Seeds (listed proxies)\n- **Implied range**: ₹8,200–9,600Cr EV (4.6–5.3x FY26E Revenue)\n- **Offer price band**: ₹310–340 per share\n\n### Pre-IPO Checklist (12-month runway)\n1. Appoint 2 independent directors (target: IIM/IIT + domain expert profile)\n2. Restate FY22 financials under Ind AS 116 (leases)\n3. File DRHP response to SEBI observations (deadline: 30 days)\n4. Anchor investor roadshow — target LIC, SBI MF, Mirae, Motilal AMC\n5. ESOP liquidity programme for 140 senior employees pre-IPO\n\n### Comparable IPO Benchmarks (2023–24)\n| Company | Issue Size | Subscription | Listing Gain |\n|---|---|---|---|\n| DOMS Industries | ₹1,200Cr | 93x | +47% |\n| Mankind Pharma | ₹4,326Cr | 41x | +22% |\n| Mamaearth | ₹1,701Cr | 7x | -7% |"
+  },
+  {
+    "id": "ex-11",
+    "promptTitle": "Competitor Intelligence & Strategic War Gaming",
+    "domain": "Corporate Strategy & Growth",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COMPANY NAME": "Reliance Jio",
+      "COMPETITOR": "Bharti Airtel",
+      "INDUSTRY": "Telecom / Digital Services"
+    },
+    "generatedAt": "2025-04-23T08:00:00Z",
+    "output": "## Competitive War Gaming — Reliance Jio vs. Bharti Airtel\n\n### Strategic Position Assessment\n| Dimension | Jio | Airtel | Gap Analysis |\n|---|---|---|---|\n| Subscriber Base | 481M | 378M | Jio +27% |\n| ARPU (Q3FY25) | ₹203 | ₹233 | Airtel +15% premium |\n| 5G Coverage (cities) | 410+ | 500+ | Airtel leads rollout |\n| B2B Enterprise Revenue | ₹4,200Cr | ₹5,800Cr | Airtel +38% |\n| Digital Platform MAU | 210M | 85M | Jio 2.5x ecosystem |\n\n### Scenario War Gaming\n**Scenario A — Jio Aggressive Tariff Reset (40% probability)**\n- Jio reduces 5G plans by 18%, triggering ARPU compression industry-wide\n- Airtel countermove: Bundle Xstream + Wynk premium, defend ARPU via content stickiness\n- Impact: Jio gains 12M subs in 6 months, but EBITDA margin contracts 180bps\n\n**Scenario B — Airtel Enterprise Blitz (35% probability)**\n- Airtel acquires a cloud/cybersecurity player (estimated $400M), deepens B2B moat\n- Jio countermove: Accelerate JioCloud + Haptik AI enterprise suite\n- Impact: Enterprise segment becomes 22% of Airtel revenue by FY27\n\n**Scenario C — Regulatory Disruption (25% probability)**\n- TRAI mandates floor pricing — benefits both, Jio more as it eliminates price war option\n\n### Strategic Recommendations for Jio\n1. **Monetise digital ecosystem**: Convert 210M JioTV/JioCinema MAU to ₹149/month tier — adds ₹3,700Cr p.a.\n2. **Enterprise pivot**: Partner with AWS/Azure for hybrid cloud targeting MSME segment\n3. **ARPU bridge**: Introduce ₹349 5G unlimited plan to close gap with Airtel premium base"
+  },
+  {
+    "id": "ex-12",
+    "promptTitle": "Cross-Border M&A Tax Structuring Framework",
+    "domain": "Mergers & Acquisitions",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "ACQUIRER": "Danaher Corporation",
+      "TARGET": "BioVision Therapeutics (Singapore)",
+      "DEAL SIZE": "$2.4B"
+    },
+    "generatedAt": "2025-04-22T14:30:00Z",
+    "output": "## Cross-Border M&A Tax Structure — Danaher → BioVision ($2.4B)\n\n### Deal Architecture Options\n| Structure | Effective Tax Rate | Repatriation Cost | Complexity |\n|---|---|---|---|\n| Direct acquisition (US HoldCo) | 26.5% | High — GILTI + Subpart F | Low |\n| Dutch BV intermediate | 19.2% | Medium — treaty network | Medium |\n| Singapore HoldCo (Section 13R) | 15.8% | Low — 0% WHT on dividends | Medium |\n| Luxembourg SCSp + Singapore OpCo | 12.4% | Minimal — hybrid structure | High |\n\n### Recommended Structure: Singapore HoldCo Route\n- **Step 1**: Danaher forms Singapore HoldCo (100% subsidiary)\n- **Step 2**: HoldCo acquires BioVision shares — leverages SG-US treaty (15% WHT cap on dividends)\n- **Step 3**: IP held in Singapore under Development & Expansion Incentive (DEI) — 5% concessionary rate\n- **Step 4**: Intercompany royalty flows structured under OECD BEPS-compliant transfer pricing\n\n### Tax Savings Quantification\n| Component | Without Structuring | With SG HoldCo | Annual Saving |\n|---|---|---|---|\n| Corporate income tax | $63.6M | $37.9M | $25.7M |\n| Withholding tax on dividends | $18.2M | $8.4M | $9.8M |\n| IP royalty taxation | $12.1M | $3.2M | $8.9M |\n| **Total annual tax savings** | | | **$44.4M** |\n\n### Risk Factors\n- **Pillar Two GloBE rules**: Minimum 15% effective rate — SG DEI structure still compliant\n- **US BEAT provisions**: Monitor base erosion payments exceeding 3% threshold\n- **Singapore substance requirements**: Minimum 3 FTEs + board meetings in SG"
+  },
+  {
+    "id": "ex-13",
+    "promptTitle": "Convertible Bond Pricing & Arbitrage Strategy",
+    "domain": "Investment Banking & Equity Research",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "ISSUER": "MicroStrategy Inc",
+      "BOND MATURITY": "2027",
+      "CONVERSION PREMIUM": "35%"
+    },
+    "generatedAt": "2025-04-21T09:45:00Z",
+    "output": "## Convertible Bond Analysis — MicroStrategy 0.625% 2027\n\n### Bond Specifications\n| Parameter | Value |\n|---|---|\n| Face Value | $1,000 |\n| Coupon | 0.625% semi-annual |\n| Maturity | March 2027 |\n| Conversion Price | $232.50 (35% premium at issuance) |\n| Conversion Ratio | 4.3011 shares per $1,000 |\n| Current Stock Price | $178.40 |\n| Bond Price | 94.2 (discount to par) |\n\n### Valuation Decomposition\n- **Straight bond value**: 82.3 (DCF of coupons + principal at 7.8% credit spread)\n- **Equity option value**: 11.9 (Black-Scholes with 85% implied vol)\n- **Theoretical fair value**: 94.2 → market pricing is **efficient**\n\n### Greek Sensitivities\n| Greek | Value | Interpretation |\n|---|---|---|\n| Delta | 0.38 | 38% equity sensitivity |\n| Gamma | 0.012 | Accelerating near conversion price |\n| Vega | 0.41 | Highly vol-sensitive (BTC correlation) |\n| Rho | -2.1 | Rate-sensitive via credit component |\n| Theta | -0.03/day | Modest time decay |\n\n### Arbitrage Strategy: Delta-Neutral CB Arb\n1. **Long** 100 bonds at 94.2 ($94,200 notional)\n2. **Short** 163 shares MSTR at $178.40 ($29,079 short proceeds)\n3. **Hedge ratio**: Delta × conversion ratio × bonds = 0.38 × 4.30 × 100 = 163 shares\n4. **Expected P&L sources**: Positive carry from coupon + short rebate, gamma scalping on BTC-driven moves\n5. **Risk**: Credit deterioration, BTC crash below $25K triggers bond floor break"
+  },
+  {
+    "id": "ex-14",
+    "promptTitle": "GP-LP Fund Economics & Waterfall Modelling",
+    "domain": "Private Equity & Venture Capital",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "FUND SIZE": "$1.2B",
+      "MANAGEMENT FEE": "1.75%",
+      "CARRY": "20%",
+      "PREFERRED RETURN": "8%"
+    },
+    "generatedAt": "2025-04-20T16:00:00Z",
+    "output": "## GP-LP Waterfall Analysis — $1.2B Buyout Fund VII\n\n### Fee Structure Summary\n| Component | Rate | Basis |\n|---|---|---|\n| Management Fee (Investment Period Y1-5) | 1.75% | Committed capital |\n| Management Fee (Harvest Period Y6-10) | 1.50% | Invested capital |\n| Carried Interest | 20% | Above 8% preferred return |\n| GP Commitment | 3% ($36M) | Alignment of interest |\n| Catch-up | 100% to GP until 20/80 split | After preferred return |\n\n### 10-Year Fee & Carry Projection (Base Case: 2.2x Gross MOIC)\n| Year | Invested Capital | Distributions | Mgmt Fee | Carry |\n|---|---|---|---|---|\n| Y1 | $240M | — | $21.0M | — |\n| Y2 | $480M | — | $21.0M | — |\n| Y3 | $720M | $85M | $21.0M | — |\n| Y4 | $960M | $180M | $21.0M | — |\n| Y5 | $1,100M | $320M | $21.0M | — |\n| Y6 | $1,100M | $480M | $16.5M | $18.2M |\n| Y7 | $900M | $350M | $13.5M | $42.8M |\n| Y8 | $600M | $280M | $9.0M | $38.4M |\n| Y9 | $300M | $180M | $4.5M | $22.1M |\n| Y10 | — | $120M | — | $12.6M |\n\n### LP Return Metrics\n- **Gross MOIC**: 2.2x | **Net MOIC**: 1.78x\n- **Gross IRR**: 18.4% | **Net IRR**: 14.2%\n- **Total management fees**: $148.5M (12.4% of committed)\n- **Total carry**: $134.1M\n- **Fee drag on returns**: 420bps IRR, 0.42x MOIC\n\n### Sensitivity Analysis — Net IRR by Gross MOIC\n| Gross MOIC | Net MOIC | Gross IRR | Net IRR | GP Economics |\n|---|---|---|---|---|\n| 1.5x | 1.28x | 8.2% | 4.8% | $148.5M fees only |\n| 2.0x | 1.65x | 15.1% | 11.4% | $148.5M + $89.4M carry |\n| 2.5x | 2.01x | 21.2% | 16.8% | $148.5M + $178.8M carry |\n| 3.0x | 2.38x | 26.0% | 21.1% | $148.5M + $268.2M carry |"
+  },
+  {
+    "id": "ex-15",
+    "promptTitle": "Central Bank Policy Rate Path Forecasting",
+    "domain": "Economics & Macroeconomic Analysis",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "CENTRAL BANK": "Reserve Bank of India (RBI)",
+      "CURRENT REPO RATE": "6.50%",
+      "FORECAST HORIZON": "12 months"
+    },
+    "generatedAt": "2025-04-19T11:00:00Z",
+    "output": "## RBI Monetary Policy Rate Path — 12-Month Forecast\n\n### Current Macro Backdrop\n| Indicator | Latest | Trend |\n|---|---|---|\n| Repo Rate | 6.50% | On hold since Feb 2023 |\n| CPI Inflation | 4.83% | Below 5% for 3 consecutive months |\n| Core Inflation | 3.42% | Structural downtrend |\n| GDP Growth (Q3FY25) | 6.2% | Resilient domestic demand |\n| INR/USD | 83.40 | Range-bound 82.5–84.0 |\n| US Fed Funds Rate | 5.25% | Pivot expected H2 2025 |\n\n### Rate Path Scenarios\n**Scenario 1 — Gradual Easing (55% probability)**\n- Jun 2025: Hold 6.50% (await monsoon CPI data)\n- Aug 2025: Cut 25bps → 6.25% (food inflation normalises)\n- Oct 2025: Cut 25bps → 6.00% (post-Fed pivot, USD weakens)\n- Feb 2026: Hold 6.00% (neutral rate equilibrium)\n- Terminal rate: **6.00%** — 50bps cumulative easing\n\n**Scenario 2 — Aggressive Easing (20% probability)**\n- Triggered by: Global recession, oil below $60, China deflation spill-over\n- 100bps cuts by Feb 2026 → terminal **5.50%**\n- Bond market implication: 10Y G-sec yield falls to 6.40% from 7.10%\n\n**Scenario 3 — Extended Hold (25% probability)**\n- Triggered by: El Niño food shock, INR breach 86/USD, commodity spike\n- Rate stays at 6.50% through Mar 2026\n\n### Market Positioning Recommendations\n| Scenario | Duration Strategy | FX View | Equity Impact |\n|---|---|---|---|\n| Gradual Ease | Overweight 5-10Y G-secs | INR stable at 82-83 | Rate-sensitive (banks, autos) outperform |\n| Aggressive Ease | Maximum duration — 30Y SDL | INR to 80-81 | Broad-based rally, Nifty 22,500+ |\n| Extended Hold | Short duration, floating rate | INR under pressure | Defensive tilt — pharma, IT |"
+  },
+  {
+    "id": "ex-16",
+    "promptTitle": "Revenue Forecasting & Driver-Based Planning Model",
+    "domain": "FP&A & Budgeting",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "COMPANY NAME": "CloudScale SaaS",
+      "LTM ARR": "$48M",
+      "NET REVENUE RETENTION": "118%",
+      "GROWTH RATE": "42% YoY"
+    },
+    "generatedAt": "2025-04-18T13:00:00Z",
+    "output": "## Driver-Based Revenue Forecast — CloudScale SaaS\n\n### Revenue Driver Decomposition\n| Driver | Current Value | Assumption | Sensitivity |\n|---|---|---|---|\n| Beginning ARR | $48M | Actual | — |\n| New Logo ACV | $1.2M/quarter | +15% QoQ ramp | ±$3.2M annual impact per 10% change |\n| Expansion ARR (NRR) | 118% | Stable at 118% | ±$2.8M per 5pp change |\n| Gross Churn | 8% annual | Improves to 6.5% | ±$1.4M per 1pp change |\n| Sales Cycle (days) | 68 | Reduces to 55 | Accelerates pipeline conversion |\n\n### Quarterly ARR Build (FY26E)\n| Quarter | Beginning ARR | New Logos | Expansion | Churn | Ending ARR |\n|---|---|---|---|---|---|\n| Q1 | $48.0M | $1.2M | $2.2M | -$1.0M | $50.4M |\n| Q2 | $50.4M | $1.4M | $2.3M | -$0.9M | $53.2M |\n| Q3 | $53.2M | $1.6M | $2.5M | -$0.9M | $56.4M |\n| Q4 | $56.4M | $1.8M | $2.7M | -$0.8M | $60.1M |\n\n### FY26 Revenue Projection: $54.8M (+38% YoY)\n- ARR exits FY26 at $60.1M (25% above beginning)\n- Revenue recognition lag: ~85% of ARR flows to recognised revenue\n- Services revenue (implementation): $3.2M incremental\n\n### Scenario Matrix — FY26 Revenue\n| Scenario | New Logo Growth | NRR | Churn | Revenue | Growth |\n|---|---|---|---|---|---|\n| Bear | +5% QoQ | 112% | 10% | $49.2M | +28% |\n| Base | +15% QoQ | 118% | 8% | $54.8M | +38% |\n| Bull | +25% QoQ | 124% | 6% | $61.3M | +48% |"
+  },
+  {
+    "id": "ex-17",
+    "promptTitle": "Digital Transformation ROI & Business Case",
+    "domain": "Corporate Strategy & Growth",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "COMPANY NAME": "HDFC Bank",
+      "INITIATIVE": "AI-Powered Credit Underwriting",
+      "INVESTMENT": "₹850Cr over 3 years"
+    },
+    "generatedAt": "2025-04-17T10:30:00Z",
+    "output": "## Digital Transformation Business Case — HDFC Bank AI Credit Underwriting\n\n### Investment Summary\n| Component | Year 1 | Year 2 | Year 3 | Total |\n|---|---|---|---|---|\n| Technology platform (ML/AI infra) | ₹180Cr | ₹120Cr | ₹80Cr | ₹380Cr |\n| Data engineering & integration | ₹95Cr | ₹45Cr | ₹25Cr | ₹165Cr |\n| Talent (100 data scientists + ML engineers) | ₹65Cr | ₹75Cr | ₹85Cr | ₹225Cr |\n| Change management & training | ₹30Cr | ₹25Cr | ₹25Cr | ₹80Cr |\n| **Total CapEx + OpEx** | **₹370Cr** | **₹265Cr** | **₹215Cr** | **₹850Cr** |\n\n### Quantified Benefits (Annual Run-Rate by Year 3)\n| Benefit Category | Impact | Annual Value |\n|---|---|---|\n| Credit loss reduction (better risk scoring) | NPA down 45bps | ₹1,820Cr |\n| Faster loan processing (45 min → 8 min) | 3x throughput | ₹420Cr incremental revenue |\n| Manual underwriter FTE reduction | 1,200 FTEs redeployed | ₹180Cr cost avoidance |\n| Cross-sell propensity modelling | +8% attach rate | ₹340Cr revenue uplift |\n| Fraud detection improvement | 62% fewer false positives | ₹95Cr savings |\n| **Total annual benefit (Year 3)** | | **₹2,855Cr** |\n\n### ROI Metrics\n- **NPV (5-year, 12% discount rate)**: ₹4,280Cr\n- **IRR**: 148%\n- **Payback period**: 7 months from Year 2 launch\n- **Benefit-to-cost ratio**: 3.4x\n\n### Risk Register\n1. **Model bias risk** — mitigate with quarterly fairness audits (gender, geography, income)\n2. **Regulatory risk** — RBI AI/ML guidelines compliance (draft circular March 2025)\n3. **Data quality** — legacy core banking migration creates 18-month data cleansing window\n4. **Adoption risk** — branch-level resistance from 8,400 relationship managers"
+  },
+  {
+    "id": "ex-18",
+    "promptTitle": "Distressed Debt Analysis & Restructuring Advisory",
+    "domain": "Mergers & Acquisitions",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COMPANY NAME": "Jet Airways (Revived)",
+      "TOTAL DEBT": "₹7,800Cr",
+      "NCLT STATUS": "Resolution plan approved"
+    },
+    "generatedAt": "2025-04-16T09:00:00Z",
+    "output": "## Distressed Debt & Restructuring Analysis — Jet Airways Revival\n\n### Debt Stack Analysis\n| Creditor Class | Claim (₹Cr) | Recovery (₹Cr) | Recovery Rate |\n|---|---|---|---|\n| Secured financial creditors | ₹4,200 | ₹1,260 | 30.0% |\n| Unsecured financial creditors | ₹1,800 | ₹180 | 10.0% |\n| Operational creditors | ₹1,400 | ₹98 | 7.0% |\n| Employee dues | ₹400 | ₹280 | 70.0% |\n| **Total** | **₹7,800** | **₹1,818** | **23.3%** |\n\n### Resolution Plan Economics\n- **Resolution applicant**: Jalan-Kalrock Consortium\n- **Upfront equity infusion**: ₹475Cr\n- **Deferred payments**: ₹350Cr over 5 years\n- **Implied EV at resolution**: ₹1,200Cr (0.3x pre-COVID EV)\n\n### Viability Assessment — Restart Scenario\n| Metric | Year 1 | Year 2 | Year 3 |\n|---|---|---|---|\n| Fleet size | 20 aircraft | 40 aircraft | 70 aircraft |\n| Load factor | 72% | 78% | 83% |\n| Revenue (₹Cr) | ₹2,400 | ₹5,800 | ₹9,200 |\n| EBITDAR margin | -8% | 6% | 14% |\n| Lease-adjusted EBITDA | -₹420Cr | ₹105Cr | ₹680Cr |\n\n### Key Restructuring Risks\n1. **Slot availability**: Delhi/Mumbai peak slots lost to IndiGo and Air India — recovery requires DGCA intervention\n2. **Aircraft delivery timeline**: 20 leased 737 MAX pending Boeing production delays\n3. **Working capital**: ₹800Cr minimum required for fuel, airport charges, advance bookings\n4. **Brand rehabilitation**: Consumer trust score at 22/100 (pre-COVID: 71/100) — requires ₹200Cr marketing spend"
+  },
+  {
+    "id": "ex-19",
+    "promptTitle": "Sector Rotation & Thematic Portfolio Construction",
+    "domain": "Investment Banking & Equity Research",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "MARKET": "Indian Equities (NSE/BSE)",
+      "PORTFOLIO SIZE": "₹50Cr AUM",
+      "INVESTMENT HORIZON": "18 months"
+    },
+    "generatedAt": "2025-04-15T14:00:00Z",
+    "output": "## Sector Rotation Strategy — India Equities | ₹50Cr AUM\n\n### Macro Regime Assessment: Late-Cycle Expansion\n- GDP growth decelerating from 8.2% → 6.2% but still above trend\n- Rate cut cycle beginning — favour duration-sensitive sectors\n- Capex cycle intact — government + private combined at 33% of GDP\n- Earnings growth moderating: Nifty EPS growth 14% FY26E (vs. 22% FY25)\n\n### Sector Allocation Matrix\n| Sector | Weight | Conviction | Key Driver | Top Picks |\n|---|---|---|---|---|\n| Banking (Private) | 22% | HIGH | NIM expansion on rate cuts, credit growth 15%+ | HDFC Bank, ICICI Bank |\n| Capital Goods | 18% | HIGH | Order book visibility 3.5x TTM revenue | L&T, Thermax |\n| Healthcare / Pharma | 15% | MEDIUM | US generics recovery, biosimilar launches | Sun Pharma, Biocon |\n| Auto (EV + 2W) | 12% | HIGH | Rural recovery + EV penetration inflection | Bajaj Auto, Tata Motors |\n| IT Services | 10% | LOW | Discretionary spend recovery lagging | TCS (defensive) |\n| Real Estate | 8% | MEDIUM | Affordable housing cycle, inventory at 18-month low | DLF, Godrej Properties |\n| Defence / Aerospace | 8% | HIGH | Indigenisation push, ₹6.2L Cr defence budget | HAL, BEL |\n| Cash / Hedges | 7% | — | Optionality for dips | Nifty puts (5% OTM) |\n\n### Risk Management Framework\n| Parameter | Threshold | Action |\n|---|---|---|\n| Max sector exposure | 25% | Trim to 20% on breach |\n| Single stock limit | 8% | Hard cap, rebalance quarterly |\n| Drawdown trigger | -12% portfolio | Raise cash to 20%, add hedges |\n| Nifty P/E above 24x | Valuation caution | Shift 10% from growth → value |"
+  },
+  {
+    "id": "ex-20",
+    "promptTitle": "Working Capital Optimisation & Cash Conversion Cycle",
+    "domain": "FP&A & Budgeting",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COMPANY NAME": "Havells India",
+      "INDUSTRY": "Consumer Electricals",
+      "CURRENT CCC": "52 days"
+    },
+    "generatedAt": "2025-04-14T07:30:00Z",
+    "output": "## Working Capital Optimisation — Havells India\n\n### Current Cash Conversion Cycle Breakdown\n| Component | Current (Days) | Industry Best | Gap | Target |\n|---|---|---|---|---|\n| Days Sales Outstanding (DSO) | 28 | 22 | 6 days | 23 |\n| Days Inventory Outstanding (DIO) | 48 | 35 | 13 days | 38 |\n| Days Payable Outstanding (DPO) | 24 | 32 | -8 days | 30 |\n| **Cash Conversion Cycle** | **52** | **25** | **27 days** | **31** |\n\n### Working Capital Release Quantification\n- Current revenue: ₹18,200Cr (FY25E)\n- Daily revenue: ₹49.9Cr\n- CCC reduction from 52 → 31 days = **21 days freed**\n- **Cash release: ₹1,048Cr** (one-time)\n\n### Initiative Roadmap\n| Initiative | CCC Impact | Cash Release | Timeline |\n|---|---|---|---|\n| Dynamic discounting platform (early pay to dealers) | DSO -5 days | ₹250Cr | Q1-Q2 |\n| SKU rationalisation (cut bottom 12% SKUs) | DIO -6 days | ₹299Cr | Q2-Q3 |\n| Demand-sensing ML for inventory positioning | DIO -4 days | ₹200Cr | Q3-Q4 |\n| Supplier payment terms renegotiation | DPO +6 days | ₹299Cr | Q1-Q2 |\n| **Total** | **-21 days CCC** | **₹1,048Cr** | **12 months** |\n\n### Impact on Financial Metrics\n| Metric | Before | After | Change |\n|---|---|---|---|\n| Free Cash Flow | ₹1,420Cr | ₹2,468Cr | +74% (one-time) |\n| ROCE | 28.4% | 34.2% | +580bps |\n| Interest cost (₹1,048Cr deployed) | ₹94Cr | ₹0 | Savings if debt repaid |\n| Dividend capacity | ₹680Cr | ₹1,100Cr | Shareholder return potential |"
+  },
+  {
+    "id": "ex-21",
+    "promptTitle": "Board-Level Strategic Risk Dashboard",
+    "domain": "Corporate Strategy & Growth",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "COMPANY NAME": "Infosys Ltd",
+      "INDUSTRY": "IT Services",
+      "RISK HORIZON": "FY26-FY28"
+    },
+    "generatedAt": "2025-04-13T09:00:00Z",
+    "output": "## Strategic Risk Dashboard — Infosys Ltd (FY26–FY28)\n\n### Enterprise Risk Heat Map\n| Risk Category | Likelihood | Impact | Velocity | Risk Score |\n|---|---|---|---|---|\n| AI disruption to traditional services | HIGH | CRITICAL | Fast | 9.2/10 |\n| Client concentration (Top 10 = 34%) | MEDIUM | HIGH | Medium | 7.1/10 |\n| Talent attrition in AI/ML roles | HIGH | HIGH | Fast | 8.0/10 |\n| INR appreciation beyond 80/USD | LOW | MEDIUM | Slow | 4.5/10 |\n| Geopolitical (US visa policy) | MEDIUM | HIGH | Medium | 6.8/10 |\n| Cybersecurity incident | LOW | CRITICAL | Fast | 7.2/10 |\n\n### Top 3 Risks — Deep Dive\n**1. AI Disruption (Score: 9.2)**\n- GenAI tools replacing 22-28% of L1/L2 support and testing work by FY28\n- Revenue at risk: $2.1B (12% of projected FY28 revenue)\n- Mitigation: Topaz AI platform — target $1B AI-native revenue by FY27\n\n**2. Talent Attrition in AI/ML (Score: 8.0)**\n- Current AI workforce: 4,200 specialists (target: 12,000 by FY27)\n- Attrition in AI roles: 28% vs. company average 14%\n- Mitigation: AI talent premium (25% comp uplift), acqui-hires, internal reskilling of 50K engineers\n\n**3. Cybersecurity Incident (Score: 7.2)**\n- Managing 840+ client environments — single breach = multi-client cascade\n- Insurance coverage: $500M cyber liability\n- Mitigation: Zero-trust architecture rollout (78% complete), SOC 3.0 with AI anomaly detection"
+  },
+  {
+    "id": "ex-22",
+    "promptTitle": "Post-Merger Integration Playbook",
+    "domain": "Mergers & Acquisitions",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "ACQUIRER": "Adobe Inc",
+      "TARGET": "Figma",
+      "DEAL SIZE": "$20B",
+      "INTEGRATION TIMELINE": "24 months"
+    },
+    "generatedAt": "2025-04-12T11:00:00Z",
+    "output": "## Post-Merger Integration Playbook — Adobe + Figma ($20B)\n\n### Integration Governance Structure\n| Role | Owner | Scope |\n|---|---|---|\n| Integration Lead (IMO) | SVP Corporate Development | End-to-end programme management |\n| Product Integration | Figma CEO (retained) | Product roadmap alignment |\n| Technology Integration | Adobe CTO | Platform convergence |\n| Commercial Synergies | CMO | Cross-sell, pricing, GTM |\n| Talent Retention | CHRO | Key person retention, culture |\n\n### 100-Day Plan (Phase 1)\n1. Retain top 50 Figma engineers — RSU acceleration + 2-year retention packages ($180M pool)\n2. Unified enterprise pricing: Creative Cloud + Figma bundle at $89.99/seat/month (vs. $72 + $45 separate)\n3. API interoperability layer: Figma ↔ Adobe XD bidirectional design sync\n4. Customer communication: Joint webinar series for Fortune 500 design teams\n\n### Synergy Quantification\n| Synergy Type | Year 1 | Year 2 | Year 3 (Run-Rate) |\n|---|---|---|---|\n| Revenue synergies (cross-sell) | $120M | $340M | $680M |\n| Cost synergies (infra, admin) | $45M | $110M | $185M |\n| Product synergies (new SKUs) | — | $80M | $240M |\n| **Total synergies** | **$165M** | **$530M** | **$1,105M** |\n\n### Key Risks\n- **Antitrust remedies**: EU DMA compliance may require Figma API openness\n- **Culture clash**: Adobe (enterprise) vs. Figma (PLG startup) — maintain separate HQ for 18 months\n- **Customer churn**: 12% of Figma users are anti-Adobe — migration risk = $85M ARR"
+  },
+  {
+    "id": "ex-23",
+    "promptTitle": "Algorithmic Trading Strategy Backtesting Report",
+    "domain": "Investment Banking & Equity Research",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "STRATEGY": "Mean-Reversion Pairs Trading",
+      "MARKET": "Nifty Bank Index constituents",
+      "BACKTEST PERIOD": "2019-2024"
+    },
+    "generatedAt": "2025-04-11T15:30:00Z",
+    "output": "## Pairs Trading Backtest — Nifty Bank Constituents (2019–2024)\n\n### Strategy Overview\n- **Universe**: 12 Nifty Bank stocks, 66 possible pairs\n- **Signal**: Z-score of log price ratio > ±2.0 (entry), mean reversion to ±0.5 (exit)\n- **Holding period**: Average 8.4 trading days\n- **Position sizing**: Equal-weight long/short, 10% of capital per pair\n\n### Performance Summary\n| Metric | Strategy | Nifty Bank (B&H) | Alpha |\n|---|---|---|---|\n| CAGR | 14.8% | 11.2% | +3.6% |\n| Sharpe Ratio | 1.42 | 0.68 | +0.74 |\n| Max Drawdown | -8.2% | -38.4% | Significantly lower |\n| Win Rate | 64.3% | — | — |\n| Profit Factor | 1.87 | — | — |\n| Total Trades | 423 | — | — |\n\n### Top 5 Performing Pairs\n| Pair | Trades | Win Rate | Avg Return | Sharpe |\n|---|---|---|---|---|\n| HDFC Bank / ICICI Bank | 48 | 71% | 1.2% | 2.1 |\n| Kotak / Axis Bank | 42 | 69% | 1.0% | 1.8 |\n| SBI / PNB | 38 | 62% | 1.4% | 1.6 |\n| IndusInd / Bandhan | 35 | 60% | 1.1% | 1.4 |\n| AU SFB / IDFC First | 31 | 58% | 0.9% | 1.3 |\n\n### Regime Analysis\n| Market Regime | Strategy Return | Benchmark | Outperformance |\n|---|---|---|---|\n| Bull (2020-21) | +18.2% | +42.1% | Underperforms (market-neutral) |\n| Bear (COVID crash) | +6.4% | -38.4% | Strong hedge |\n| Range-bound (2022-23) | +16.1% | +4.8% | Best regime for strategy |"
+  },
+  {
+    "id": "ex-24",
+    "promptTitle": "Secondaries Market Pricing & NAV Discount Analysis",
+    "domain": "Private Equity & Venture Capital",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "FUND TYPE": "Growth Equity (Vintage 2020)",
+      "NAV": "$1.8B",
+      "FUND LIFE REMAINING": "5 years"
+    },
+    "generatedAt": "2025-04-10T08:45:00Z",
+    "output": "## PE Secondaries Pricing — Growth Equity Fund (Vintage 2020)\n\n### NAV Bridge & Valuation Assessment\n| Component | GP-Reported NAV | Buyer Adjustment | Adjusted NAV |\n|---|---|---|---|\n| Portfolio companies (12) | $1,800M | -$216M (12% haircut) | $1,584M |\n| Unrealised carry accrual | $85M | -$85M (stripped out) | $0M |\n| Management fee offset | -$42M | — | -$42M |\n| **Adjusted NAV** | | | **$1,542M** |\n\n### Discount Analysis\n| Pricing Tier | Discount to NAV | Implied Price | Buyer IRR |\n|---|---|---|---|\n| Aggressive bid | 8% | $1,656M | 12.4% |\n| Fair value | 14% | $1,548M | 16.2% |\n| Value bid | 20% | $1,440M | 19.8% |\n| Distressed | 28% | $1,296M | 24.1% |\n\n### Portfolio Quality Scorecard\n| Company | Sector | Revenue Growth | Margin Trend | Valuation Risk |\n|---|---|---|---|---|\n| DataMesh AI | B2B SaaS | +62% | Improving | LOW (strong ARR) |\n| HealthBridge | HealthTech | +38% | Stable | MEDIUM |\n| GreenFleet | CleanTech | +45% | Improving | LOW |\n| FinEdge | Fintech | +28% | Declining | HIGH (regulatory) |\n| LogiCore | Supply Chain | +18% | Stable | MEDIUM |\n\n### Recommendation\n- **Bid at 14-16% discount** ($1,512M–$1,548M) — justified by vintage quality and 5-year remaining term\n- **Stapled commitment**: Offer $200M commitment to Fund III in exchange for 2% additional discount\n- **Expected returns**: 1.6–1.8x MOIC, 15–18% net IRR over 4-year remaining hold"
+  },
+  {
+    "id": "ex-25",
+    "promptTitle": "Trade War Impact & Supply Chain Reshoring Model",
+    "domain": "Economics & Macroeconomic Analysis",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "SCENARIO": "US-China Tariff Escalation to 60%",
+      "AFFECTED SECTORS": "Electronics, EV Batteries, Pharma APIs"
+    },
+    "generatedAt": "2025-04-09T12:00:00Z",
+    "output": "## Trade War Impact Assessment — 60% US-China Tariff Scenario\n\n### Sector-Level Tariff Impact\n| Sector | Current Tariff | New Tariff | US Import Value | Cost Increase |\n|---|---|---|---|---|\n| Consumer Electronics | 25% | 60% | $142B | +$49.7B |\n| EV Batteries & Components | 27.5% | 60% | $38B | +$12.4B |\n| Pharma APIs & Intermediates | 7.5% | 60% | $18B | +$9.5B |\n| Industrial Machinery | 25% | 60% | $52B | +$18.2B |\n| **Total affected trade** | | | **$250B** | **+$89.8B** |\n\n### Supply Chain Reshoring Timeline\n| Destination | Readiness | Lead Time | Cost Premium vs. China |\n|---|---|---|---|\n| Vietnam | HIGH | 12-18 months | +8-12% |\n| India | MEDIUM | 18-30 months | +10-18% |\n| Mexico (nearshoring) | HIGH | 6-12 months | +5-8% |\n| US domestic | LOW | 36-48 months | +25-40% |\n\n### GDP & Inflation Impact\n| Economy | GDP Impact (Year 1) | CPI Impact | Currency Effect |\n|---|---|---|---|\n| United States | -0.4% | +1.2pp | USD strengthens 3-5% |\n| China | -0.8% | -0.3pp (deflation) | CNY weakens to 7.8/USD |\n| Vietnam | +0.6% | +0.8pp | VND stable (FDI inflows) |\n| India | +0.3% | +0.5pp | INR neutral to positive |\n| EU | -0.2% | +0.4pp | EUR weakens vs. USD |\n\n### Investment Implications\n1. **Long**: Vietnam ETFs (VNM), Indian manufacturing (Tata Electronics, Dixon Tech)\n2. **Short**: China export-dependent (consumer electronics OEMs)\n3. **Hedge**: Gold, US T-bills (flight to safety in escalation)"
+  },
+  {
+    "id": "ex-26",
+    "promptTitle": "Variance Analysis & Management Reporting Framework",
+    "domain": "FP&A & Budgeting",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "COMPANY NAME": "Titan Company Ltd",
+      "PERIOD": "Q3 FY25",
+      "REVENUE VARIANCE": "+8.2% vs. budget"
+    },
+    "generatedAt": "2025-04-08T14:00:00Z",
+    "output": "## Q3 FY25 Variance Analysis — Titan Company Ltd\n\n### P&L Variance Summary\n| Line Item | Budget (₹Cr) | Actual (₹Cr) | Variance | % Var |\n|---|---|---|---|---|\n| Revenue | 11,200 | 12,118 | +918 | +8.2% |\n| COGS | -7,280 | -7,998 | -718 | -9.9% |\n| Gross Profit | 3,920 | 4,120 | +200 | +5.1% |\n| Operating Expenses | -2,576 | -2,698 | -122 | -4.7% |\n| EBITDA | 1,344 | 1,422 | +78 | +5.8% |\n| EBITDA Margin | 12.0% | 11.7% | -30bps | — |\n\n### Revenue Variance Waterfall\n| Driver | Impact (₹Cr) | Commentary |\n|---|---|---|\n| Volume (jewellery store count +12) | +₹420 | New store ramp ahead of plan |\n| Price/mix (gold price rally +6%) | +₹380 | Studded ratio improved to 34% |\n| Same-store growth | +₹285 | Wedding season + Dhanteras pull-forward |\n| Watches & wearables shortfall | -₹167 | Titan Smart launch delayed 6 weeks |\n| **Net revenue variance** | **+₹918** | |\n\n### EBITDA Margin Bridge (12.0% → 11.7%)\n| Factor | Margin Impact | Root Cause |\n|---|---|---|\n| Gold price pass-through lag | -45bps | 2-week pricing lag on making charges |\n| New store pre-operating costs | -25bps | 12 stores in ramp-up phase |\n| Studded mix improvement | +30bps | Higher-margin studded jewellery at 34% |\n| Ad spend overshoot (Dhanteras) | -15bps | ₹38Cr incremental campaign spend |\n| Operating leverage | +25bps | Revenue scale on fixed cost base |\n\n### Action Items for Q4\n1. Accelerate gold price pass-through to weekly refresh (close 45bps gap)\n2. Fast-track Titan Smart launch — recover ₹167Cr revenue shortfall\n3. Maintain studded mix above 33% through targeted store training"
+  },
+  {
+    "id": "ex-27",
+    "promptTitle": "ESG Integration & Sustainable Finance Framework",
+    "domain": "Corporate Strategy & Growth",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COMPANY NAME": "Mahindra & Mahindra",
+      "FRAMEWORK": "TCFD + BRSR",
+      "TARGET YEAR": "2030"
+    },
+    "generatedAt": "2025-04-07T10:00:00Z",
+    "output": "## ESG Strategy & Sustainable Finance — Mahindra & Mahindra\n\n### ESG Scorecard (Current vs. 2030 Target)\n| Pillar | Metric | FY25 Baseline | FY30 Target | Gap |\n|---|---|---|---|---|\n| E - Carbon | Scope 1+2 emissions (tCO2e) | 1.2M | 0.6M | -50% |\n| E - Energy | Renewable energy share | 42% | 80% | +38pp |\n| E - Water | Water intensity (kL/vehicle) | 4.8 | 2.5 | -48% |\n| S - Safety | LTIFR | 0.32 | 0.15 | -53% |\n| S - Diversity | Women in workforce | 8.2% | 18% | +9.8pp |\n| G - Board | Independent directors | 55% | 65% | +10pp |\n\n### Climate Transition Investment Plan\n| Initiative | CapEx (₹Cr) | CO2 Reduction | Payback |\n|---|---|---|---|\n| EV manufacturing line (Pune) | ₹4,500 | 180K tCO2e/yr | 6 years |\n| Solar + wind captive power | ₹1,200 | 95K tCO2e/yr | 4 years |\n| Green hydrogen pilot (Nashik) | ₹800 | 28K tCO2e/yr | 8 years |\n| Circular economy (battery recycling) | ₹350 | 15K tCO2e/yr | 5 years |\n| **Total green CapEx** | **₹6,850** | **318K tCO2e/yr** | — |\n\n### Sustainable Finance Instruments\n| Instrument | Size | Use of Proceeds | Status |\n|---|---|---|---|\n| Green Bond (EUR) | €500M | EV plant + renewables | Issued Mar 2025 |\n| Sustainability-Linked Loan | $750M | KPI-tied (emissions, diversity) | In negotiation |\n| Green Securitisation (EV loans) | ₹2,000Cr | EV retail finance portfolio | Pipeline FY26 |"
+  },
+  {
+    "id": "ex-28",
+    "promptTitle": "Spin-Off & Conglomerate Discount Analysis",
+    "domain": "Mergers & Acquisitions",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "COMPANY NAME": "ITC Limited",
+      "SEGMENTS": "FMCG, Hotels, Paperboards, Agri, Cigarettes"
+    },
+    "generatedAt": "2025-04-06T08:30:00Z",
+    "output": "## Conglomerate Discount & Spin-Off Analysis — ITC Limited\n\n### Sum-of-the-Parts Valuation\n| Segment | Revenue (₹Cr) | EBITDA (₹Cr) | EV/EBITDA Multiple | Implied EV (₹Cr) |\n|---|---|---|---|---|\n| Cigarettes | 32,400 | 21,060 | 14x | 2,94,840 |\n| FMCG (ex-cigarettes) | 20,800 | 1,872 | 45x | 84,240 |\n| Hotels (ITC Hotels) | 3,200 | 1,024 | 28x | 28,672 |\n| Paperboards | 8,600 | 2,408 | 10x | 24,080 |\n| Agri Business | 16,400 | 820 | 8x | 6,560 |\n| **SOTP Enterprise Value** | | | | **₹4,38,392Cr** |\n| Less: Net Debt | | | | -₹2,400Cr |\n| **SOTP Equity Value** | | | | **₹4,40,792Cr** |\n| **SOTP per share** | | | | **₹354** |\n| **Current Market Price** | | | | **₹285** |\n| **Conglomerate Discount** | | | | **19.5%** |\n\n### Spin-Off Scenario — ITC Hotels Demerger\n- ITC Hotels standalone EV: ₹28,672Cr\n- Listed peer (Indian Hotels): trading at 32x EV/EBITDA\n- Post-spin rerating potential: ₹28,672 → ₹32,768Cr (+14%)\n- ITC stub value post-spin: ₹322/share\n- **Total shareholder value**: ₹322 + ₹26 (Hotels) = **₹348** (+22% upside)\n\n### Catalyst Timeline\n1. **ITC Hotels demerger** — board approved, NCLT filing Q2 FY26\n2. **FMCG profitability inflection** — segment EBITDA margin crossing 10% by FY27\n3. **Capital allocation shift** — dividend payout from 85% to 65%, reinvest in FMCG"
+  },
+  {
+    "id": "ex-29",
+    "promptTitle": "Emerging Market Currency Crisis Playbook",
+    "domain": "Economics & Macroeconomic Analysis",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "TARGET COUNTRY/REGION": "Turkey",
+      "CURRENT ACCOUNT DEFICIT": "-4.8% of GDP",
+      "INFLATION": "58%"
+    },
+    "generatedAt": "2025-04-05T16:00:00Z",
+    "output": "## Currency Crisis Playbook — Turkey (TRY)\n\n### Vulnerability Dashboard\n| Indicator | Value | Threshold | Signal |\n|---|---|---|---|\n| CPI Inflation | 58% | >25% | CRITICAL |\n| Policy Rate | 45% | — | Tightening (positive) |\n| CA Deficit / GDP | -4.8% | >-3% | WARNING |\n| Short-term Ext. Debt / Reserves | 182% | >100% | CRITICAL |\n| Real Effective Exchange Rate | -28% undervalued | — | Adjustment ongoing |\n| Budget Deficit / GDP | -5.2% | >-3% | WARNING |\n\n### Crisis Probability Assessment\n| Scenario | Probability | TRY/USD (12m) | Trigger |\n|---|---|---|---|\n| Orderly adjustment | 40% | 38-42 | CBRT maintains 45% rate, fiscal tightening |\n| Disorderly depreciation | 35% | 48-55 | Pre-election rate cuts, reserve depletion |\n| Full crisis (IMF programme) | 15% | 60+ | Capital flight, external debt rollover failure |\n| Surprise stabilisation | 10% | 32-35 | Gulf FDI surge, tourism supercycle |\n\n### Trading Strategy\n| Position | Instrument | Entry | Target | Stop |\n|---|---|---|---|---|\n| Short TRY/USD | NDF 6-month | 36.50 | 45.00 | 33.00 |\n| Long Turkey CDS | 5Y CDS | 350bps | 550bps | 280bps |\n| Long Turkish equities (contrarian) | BIST 100 ETF | — | +25% | -15% |\n\n### Key Monitoring Indicators\n1. **CBRT net reserves** (weekly): Below $0 signals imminent crisis\n2. **Tourism receipts** (monthly): $35B annual run-rate needed for CA stability\n3. **Political signals**: Any hint of pre-election rate cuts = immediate TRY selloff"
+  },
+  {
+    "id": "ex-30",
+    "promptTitle": "Rolling Forecast & Scenario Planning Automation",
+    "domain": "FP&A & Budgeting",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COMPANY NAME": "Delhivery Ltd",
+      "INDUSTRY": "Logistics / Express Delivery",
+      "FORECAST HORIZON": "18-month rolling"
+    },
+    "generatedAt": "2025-04-04T11:00:00Z",
+    "output": "## Rolling Forecast Framework — Delhivery Ltd\n\n### Forecast Architecture\n| Element | Current (Static Budget) | Proposed (Rolling Forecast) |\n|---|---|---|\n| Horizon | 12-month fixed | 18-month rolling (quarterly refresh) |\n| Granularity | Monthly P&L | Weekly volume + monthly financials |\n| Scenarios | Single plan | 3 scenarios (bear/base/bull) |\n| Driver model | Top-down revenue | Bottom-up: shipments × realisation |\n| Cycle time | 6-week annual budget | 5-day quarterly refresh |\n\n### Key Driver Dashboard (Monthly Tracking)\n| Driver | Q3 Actual | Q4 Forecast | Q1+1 Forecast | Sensitivity |\n|---|---|---|---|---|\n| Express shipment volume (M) | 182M | 195M | 208M | ±₹12Cr revenue per 1M shipments |\n| Revenue per shipment (₹) | ₹62.40 | ₹63.10 | ₹64.20 | ±₹18Cr per ₹1 change |\n| Part-truckload tonnage (K MT) | 420 | 455 | 488 | ±₹8Cr per 10K MT |\n| Cost per shipment (₹) | ₹58.90 | ₹57.20 | ₹55.80 | Direct margin impact |\n| Network utilisation | 68% | 72% | 75% | Breakeven at 65% |\n\n### Scenario Comparison — FY26E\n| Metric | Bear | Base | Bull |\n|---|---|---|---|\n| Revenue (₹Cr) | 5,800 | 6,400 | 7,200 |\n| EBITDA Margin | 2.1% | 5.8% | 8.4% |\n| Free Cash Flow (₹Cr) | -₹180 | ₹120 | ₹380 |\n| Shipment volume (B) | 0.72B | 0.82B | 0.95B |\n| Cash runway (months) | 18 | 30+ | 30+ |\n\n### Automation Roadmap\n1. **Month 1-2**: Deploy Anaplan/Pigment connected to ERP (SAP) + WMS data feeds\n2. **Month 3**: Automate weekly volume ingestion from 24 hubs, 85 gateways\n3. **Month 4-5**: ML-based demand forecasting (ARIMA + gradient boosting ensemble)\n4. **Month 6**: Self-service scenario builder for business unit heads"
   }
 ]
