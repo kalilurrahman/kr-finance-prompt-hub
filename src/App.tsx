@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
 const Library = lazy(() => import("./pages/Library" /* webpackChunkName: "library" */));
+const MetaEngine = lazy(() => import("./pages/MetaEngine" /* webpackChunkName: "meta-engine" */));
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/library" element={<Library />} />
+                <Route path="/engine" element={<MetaEngine />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

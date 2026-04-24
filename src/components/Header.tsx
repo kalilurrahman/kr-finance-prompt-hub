@@ -1,4 +1,4 @@
-import { Search, Heart, Home, BookOpen, Bot, Globe, Atom } from "lucide-react";
+import { Search, Heart, Home, BookOpen, Bot, Globe, Atom, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
@@ -35,6 +35,10 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
           <a href="/library" aria-label="Go to FINPROMPT Library" className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-gold hover:bg-secondary/50">
             <BookOpen className="h-3.5 w-3.5" />
             FINPROMPT
+          </a>
+          <a href="/engine" aria-label="Go to Meta-Prompt Engine" className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-gold hover:bg-secondary/50">
+            <Cpu className="h-3.5 w-3.5" />
+            META-ENGINE
           </a>
         </nav>
 
