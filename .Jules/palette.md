@@ -1,31 +1,15 @@
-## 2026-03-06 - Added ARIA labels to Modal and Pagination Controls
-**Learning:** Found several icon-only or symbolic buttons (like '✕', '← PREV', 'NEXT →') in the `Library.tsx` component that lack clear accessibility labels, making them difficult to navigate via screen readers.
-**Action:** Always ensure that any button containing only an icon or abbreviated/symbolic text has a descriptive `aria-label` attribute to improve keyboard and screen reader accessibility.
-
-## 2026-03-13 - Fixed nested ARIA controls in Card Component
-**Learning:** Adding `role="button"` and `tabIndex` to a parent container (like a Card) that also contains nested interactive elements (like Action Buttons) creates invalid HTML and a confusing experience for screen readers.
-**Action:** When making card components interactive, use the "overlay button" pattern. Place an invisible `<button className="absolute inset-0 z-0">` inside the `relative` positioned card to handle clicks/focus, and ensure nested buttons have `relative z-10` to keep them accessible and above the overlay button. Ensure not to use `opacity-0` if the overlay needs a visible focus ring.
-
-## 2026-03-20 - Adding dynamic ARIA labels to Pagination and Navigation links
-**Learning:** Found that "Load More" buttons and Icon/Logo links often lack specific context about the current state, missing critical context for screen readers. For example, a "Load More" button just announcing "Load More" does not indicate how many items will be loaded. Navigation links with no text or acronyms don't announce properly.
-**Action:** Always provide descriptive `aria-label` attributes. For buttons that change state based on context (like load more with a specific count), dynamically update the `aria-label` to provide the screen reader with the current state (e.g. `aria-label={\`Load more prompts, \${remainingCount} remaining\`}`).
-
-## 2026-03-17 - Adding ARIA attributes to generated filter/sort buttons
-**Learning:** Found that many interactive filter and sort buttons generated via maps lacked `aria-pressed` and `aria-current` attributes, causing screen readers to misidentify their selection state.
-**Action:** When creating lists of buttons that act as toggles, filters, or pagination controls, always ensure that attributes like `aria-pressed={isActive}` or `aria-current={isActive ? 'page' : undefined}` are applied so their state is properly announced to assistive technologies.
-
-## 2025-03-18 - Clear Filters Button in Empty State
-**Learning:** Adding a "Clear Filters" button in a "No results found" empty state significantly improves UX by providing a one-click actionable escape hatch, rather than just telling users to "try adjusting filters".
-**Action:** Always provide an actionable reset/clear button in empty states caused by filtering or searching.
-
-## 2024-05-18 - Missing ARIA Labels on Search Inputs
-**Learning:** Search inputs that rely only on a visual `placeholder` attribute or an icon for context often lack proper identification for screen reader users. This is a common accessibility gap in modern web apps.
-**Action:** When adding or auditing search bars (like the one in `Library.tsx`), always ensure an `aria-label` (e.g., `aria-label="Search prompts"`) is added to the `<input>` element if an explicit `<label>` is not present.
-
-## 2026-03-21 - Dialog Accessibility Enhancement
-**Learning:** Modal/Dialog components in UI libraries (like Radix UI / shadcn) require an accessible description (via `DialogDescription`) to fully support screen readers and pass strict accessibility checks. Relying solely on a `DialogTitle` is insufficient for complete context.
-**Action:** When implementing or modifying Dialog components (like `PromptDetail.tsx`), always ensure a `<DialogDescription>` is present within the `<DialogContent>`. If a visible description disrupts the design, use a visually hidden class (e.g., `sr-only`) to provide the necessary context to assistive technologies without altering the UI.
-
-## 2024-05-18 - Ensure Toggle Buttons Use aria-pressed
-**Learning:** While `aria-label` handles the description of an action, screen readers specifically look for `aria-pressed` on buttons that act as toggles (like "Favorite" or "Save" buttons) to announce their current active state. Relying solely on changing the visible text or `aria-label` ("Save" vs "Saved") is less robust than using semantic state attributes.
-**Action:** Always apply `aria-pressed={isActive}` to any button that toggles a boolean state across the application to ensure accurate screen reader announcements.
+## 2024-03-06 - Make Interactive Div Cards Keyboard Accessible
+**Learning:** Interactive `div` components (like `PromptCard` using `<Card onClick={...}>`) are completely inaccessible to keyboard users by default, meaning they cannot be tabbed to or activated via Enter/Space.
+**Action:** When making custom interactive card components that act as buttons, always include `role="button"`, `tabIndex={0}`, an `onKeyDown` handler to trigger the action on `Enter` or `Space`, and proper `focus-visible` styling (e.g. `focus-visible:ring-2`) to show focus state without relying purely on hover.
+## 2024-03-09 - Focus Visible Rings on Custom Interactive Elements
+**Learning:** Custom interactive elements like pill buttons or toggle lists are missing standard focus outlines, leaving keyboard navigators confused about what element is currently selected.
+**Action:** When creating raw `<button>` elements outside of shadcn-ui components, ensure they use the `focus-visible` Tailwind classes (e.g. `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background`) to explicitly show focus state via a ring, and proper ARIA states (like `aria-pressed`).
+## 2024-03-20 - Keyboard Accessibility for Hover Actions
+**Learning:** Inner interactive elements that are hidden until hover (e.g. `opacity-0 group-hover:opacity-100`) become inaccessible for keyboard navigation. Tabbing to them works, but they remain invisible, resulting in "ghost focus".
+**Action:** When hiding inner actions behind a hover state using group hover, always pair `group-hover:opacity-100` with `focus-within:opacity-100 group-focus:opacity-100` on the container, and ensure the inner focusable elements themselves have clear `focus-visible` styles.
+## 2024-03-12 - ARIA Labels for Action Buttons
+**Learning:** Adding descriptive `aria-label` attributes to action buttons in modal dialogues improves the screen reader experience by providing clear, actionable information about the button's purpose, especially for buttons with abbreviated or non-descriptive text (e.g., "↓ TXT").
+**Action:** Always verify that action buttons, particularly those in modals or those using icons/abbreviations, have descriptive `aria-label` attributes to ensure they are fully accessible to screen reader users.
+## 2024-03-23 - Focus Rings on Block Links
+**Learning:** Large block elements (like cards or call-to-action sections) wrapped in a `<Link>` or `<a>` tag often lack explicit `focus-visible` styling, meaning they show no focus indicator or an unstyled browser default outline when tabbed to, making the interface inaccessible for keyboard users.
+**Action:** When wrapping a block element in a `<Link>` or `<a>`, explicitly add `focus-visible` styles (e.g., `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background`) and match the `rounded-*` utility to the child's border radius so the focus ring cleanly hugs the element.
