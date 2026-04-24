@@ -19,30 +19,88 @@ const DOMAIN_COLORS: Record<string, string> = {
   "FP&A & Budgeting":                     "text-yellow-400",
 };
 
-function renderOutput(text: string) {
-  return text.split("\n").map((line, i) => {
-    if (line.startsWith("## ")) return <h2 key={i} className="text-base font-bold text-foreground mt-5 mb-2 font-display">{line.slice(3)}</h2>;
-    if (line.startsWith("### ")) return <h3 key={i} className="text-sm font-semibold text-foreground mt-4 mb-1.5">{line.slice(4)}</h3>;
-    if (line.startsWith("| ")) {
-      const cells = line.split("|").filter((c) => c.trim());
-      const isHeader = false;
-      return (
-        <div key={i} className="flex gap-0 font-mono text-[11px] border-b border-border/20">
-          {cells.map((c, j) => (
-            <span key={j} className={`flex-1 px-2 py-1 ${c.trim().match(/^-+$/) ? "border-b border-border/40" : "text-muted-foreground"}`}>
-              {c.trim().match(/^-+$/) ? "" : c.trim().replace(/\*\*(.*?)\*\*/g, "$1")}
-            </span>
-          ))}
-        </div>
-      );
-    }
-    if (line.startsWith("- ") || line.startsWith("* ")) return <li key={i} className="text-xs text-muted-foreground ml-4 mt-1 list-disc">{line.slice(2).replace(/\*\*(.*?)\*\*/g, "$1")}</li>;
-    if (line.match(/^\d+\. /)) return <li key={i} className="text-xs text-muted-foreground ml-4 mt-1 list-decimal">{line.replace(/^\d+\. /, "").replace(/\*\*(.*?)\*\*/g, "$1")}</li>;
-    if (line.trim() === "") return <div key={i} className="h-2" />;
-    const formatted = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>").replace(/`(.*?)`/g, '<code class="bg-secondary/60 px-1 rounded text-[10px]">$1</code>');
-    return <p key={i} className="text-xs text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: formatted }} />;
-  });
+function inlineFormat(text: string) {
+  return text
+    .replace(/\*\*(.*?)\*\*/g, "<strong class=\"text-foreground font-semibold\">$1</strong>")
+    .replace(/`(.*?)`/g, "<code class=\"bg-secondary/60 px-1 rounded text-[10px] font-mono\">$1</code>");
 }
+
+function renderOutput(text: string) {
+  const lines = text.split("\n");
+  const nodes: React.ReactNode[] = [];
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+
+    if (line.startsWith("## ")) {
+      nodes.push(<h2 key={i} className="text-base font-bold text-foreground mt-6 mb-2 font-display border-b border-border/30 pb-1">{line.slice(3)}</h2>);
+      i++; continue;
+    }
+    if (line.startsWith("### ")) {
+      nodes.push(<h3 key={i} className="text-sm font-semibold text-foreground mt-4 mb-1.5">{line.slice(4)}</h3>);
+      i++; continue;
+    }
+
+    // Collect full table block
+    if (line.startsWith("|")) {
+      const tableLines: string[] = [];
+      while (i < lines.length && lines[i].startsWith("|")) {
+        tableLines.push(lines[i]);
+        i++;
+      }
+      const isSep = (l: string) => l.replace(/\|/g, "").trim().match(/^[-:\s]+$/);
+      const dataRows = tableLines.filter(l => !isSep(l));
+      if (dataRows.length > 0) {
+        const parseRow = (r: string) => r.split("|").map(c => c.trim()).filter((_, idx, arr) => idx > 0 && idx < arr.length - 1);
+        const [headerRow, ...bodyRows] = dataRows;
+        const headers = parseRow(headerRow);
+        nodes.push(
+          <div key={`tbl-${i}`} className="my-3 overflow-x-auto rounded-lg border border-border/40">
+            <table className="w-full text-[11px] border-collapse">
+              <thead>
+                <tr className="bg-secondary/50 border-b border-border/40">
+                  {headers.map((h, j) => (
+                    <th key={j} className="px-3 py-2 text-left font-semibold text-foreground whitespace-nowrap"
+                      dangerouslySetInnerHTML={{ __html: inlineFormat(h) }} />
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {bodyRows.map((row, ri) => (
+                  <tr key={ri} className={`border-b border-border/20 hover:bg-secondary/20 transition-colors ${ri % 2 === 1 ? "bg-secondary/10" : ""}`}>
+                    {parseRow(row).map((cell, ci) => (
+                      <td key={ci} className="px-3 py-2 text-muted-foreground"
+                        dangerouslySetInnerHTML={{ __html: inlineFormat(cell) }} />
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+      }
+      continue;
+    }
+
+    if (line.startsWith("- ") || line.startsWith("* ")) {
+      nodes.push(<li key={i} className="text-xs text-muted-foreground ml-5 mt-1 list-disc leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: inlineFormat(line.slice(2)) }} />);
+      i++; continue;
+    }
+    if (/^\d+\. /.test(line)) {
+      nodes.push(<li key={i} className="text-xs text-muted-foreground ml-5 mt-1 list-decimal leading-relaxed"
+        dangerouslySetInnerHTML={{ __html: inlineFormat(line.replace(/^\d+\. /, "")) }} />);
+      i++; continue;
+    }
+    if (line.trim() === "") { nodes.push(<div key={i} className="h-2" />); i++; continue; }
+    nodes.push(<p key={i} className="text-xs text-muted-foreground leading-relaxed"
+      dangerouslySetInnerHTML={{ __html: inlineFormat(line) }} />);
+    i++;
+  }
+  return nodes;
+}
+
 
 interface Props { isOpen: boolean; onClose: () => void; }
 
