@@ -181,6 +181,49 @@ function WorkshopBrowseModal({
 }
 
 // ─────────────────────────────────────────────
+// Placeholder hints for common variable names
+// ─────────────────────────────────────────────
+
+const VARIABLE_HINTS: Record<string, string> = {
+  "COMPANY NAME": "Tata Pharmaceuticals",
+  "COMPANY": "Reliance Industries",
+  "TARGET COMPANY NAME": "HDFC Bank",
+  "ACQUIRER NAME": "Tata Group",
+  "TARGET NAME": "Cipla Ltd",
+  "INDUSTRY": "Indian Pharma / Healthcare",
+  "SECTOR": "Financial Services",
+  "TICKER SYMBOL": "RELIANCE.NS",
+  "LTM REVENUE": "$500M",
+  "LTM EBITDA": "$120M",
+  "EBITDA MARGIN": "24%",
+  "CURRENT EBITDA MARGIN": "18%",
+  "TARGET EBITDA MARGIN": "26%",
+  "DEAL SIZE": "$2.5B",
+  "PROPOSED DEAL SIZE / ENTERPRISE VALUE": "$800M",
+  "ENTRY EV/EBITDA MULTIPLE": "10x",
+  "PROPOSED ENTRY EV/EBITDA MULTIPLE": "9.5x",
+  "TARGET HOLD PERIOD": "5 years",
+  "HOLD PERIOD": "4-6 years",
+  "EBITDA GROWTH RATE": "12% CAGR",
+  "GROWTH RATE": "15% YoY",
+  "MARKET GROWTH RATE": "8% CAGR",
+  "CURRENT STOCK PRICE": "₹2,450",
+  "CURRENT PRICE": "$145.50",
+  "NET DEBT": "$300M",
+  "SHARES OUTSTANDING": "500M",
+  "CURRENT PORTFOLIO ALLOCATION": "60% equity, 30% fixed income, 10% alternatives",
+  "GEOGRAPHIC FOCUS": "South Asia / India",
+  "TARGET COUNTRY/REGION": "India / Southeast Asia",
+  "INVESTMENT HORIZON": "10 years",
+  "DEAL RATIONALE": "Geographic expansion + margin improvement",
+  "STRATEGIC RATIONALE FOR ENTERING THIS MARKET": "Tap into India's growing middle class healthcare demand",
+};
+
+function getVariablePlaceholder(varName: string): string {
+  return VARIABLE_HINTS[varName] ?? varName.split(" ").map((w) => w[0].toUpperCase() + w.slice(1).toLowerCase()).join(" ");
+}
+
+// ─────────────────────────────────────────────
 // Workshop Panel (Library → Variables → Tweaks)
 // ─────────────────────────────────────────────
 
@@ -201,6 +244,7 @@ function WorkshopPanel({
   const [vars, setVars] = useState<Record<string, string>>({});
   const [tweaks, setTweaks] = useState("");
   const [isOpen, setIsOpen] = useState(true);
+  const varsRef = useRef<HTMLDivElement>(null);
 
   const allPrompts = useMemo(() => getAllPrompts(), []);
 
@@ -208,6 +252,15 @@ function WorkshopPanel({
     () => (selected ? detectVariables(selected.content) : []),
     [selected]
   );
+
+  // Auto-scroll to variable fields when a prompt is selected
+  useEffect(() => {
+    if (selected && detectedVars.length > 0) {
+      setTimeout(() => {
+        varsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }, 120);
+    }
+  }, [selected, detectedVars.length]);
 
   // Surprise Me: pick a random prompt that has at least 1 variable
   const handleSurpriseMe = useCallback(() => {
@@ -319,27 +372,46 @@ function WorkshopPanel({
 
             {/* Detected Variable Fields */}
             {selected && detectedVars.length > 0 && (
-              <div>
-                <div className="mb-2.5 flex items-center gap-2">
-                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+              <div ref={varsRef}>
+                <div className="mb-3 flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-gold"></span>
+                  </span>
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-gold/80">
                     Fill Input Variables
                   </p>
-                  <span className="rounded-full bg-gold/10 px-1.5 py-0.5 text-[10px] text-gold">
-                    {filledCount}/{detectedVars.length}
+                  <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-mono ${
+                    filledCount === detectedVars.length
+                      ? "bg-emerald-500/10 text-emerald-400"
+                      : "bg-gold/10 text-gold"
+                  }`}>
+                    {filledCount}/{detectedVars.length} filled
                   </span>
                 </div>
-                <div className="flex flex-col gap-2">
-                  {detectedVars.map((v) => (
+                <div className="flex flex-col gap-2.5">
+                  {detectedVars.map((v, i) => (
                     <div key={v}>
-                      <label className="mb-1 block text-[11px] font-mono text-muted-foreground/80 uppercase tracking-wider">
+                      <label className="mb-1 block text-[11px] font-semibold font-mono uppercase tracking-wider text-muted-foreground">
                         {v}
+                        {!vars[v]?.trim() && (
+                          <span className="ml-1.5 font-normal normal-case tracking-normal text-muted-foreground/40">required</span>
+                        )}
+                        {vars[v]?.trim() && (
+                          <span className="ml-1.5 font-normal normal-case tracking-normal text-emerald-500/70">✓</span>
+                        )}
                       </label>
                       <input
                         type="text"
-                        placeholder={`Enter ${v.toLowerCase()}…`}
+                        placeholder={`e.g. ${getVariablePlaceholder(v)}`}
                         value={vars[v] ?? ""}
+                        autoFocus={i === 0}
                         onChange={(e) => setVars((prev) => ({ ...prev, [v]: e.target.value }))}
-                        className="w-full rounded-md border border-border/50 bg-secondary/20 px-3 py-1.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-gold/50 transition-colors"
+                        className={`w-full rounded-md border px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:ring-1 transition-colors ${
+                          vars[v]?.trim()
+                            ? "border-emerald-500/30 bg-emerald-500/5 focus:ring-emerald-500/30"
+                            : "border-border/50 bg-secondary/20 focus:ring-gold/50"
+                        }`}
                       />
                     </div>
                   ))}

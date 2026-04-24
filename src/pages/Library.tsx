@@ -68,26 +68,29 @@ const TerminalCardItem = React.memo(({
       </div>
       {/* Card Preview */}
       <div className="px-4 py-2 text-[11px] text-[var(--text-secondary,var(--t-text-secondary))] leading-[1.6] flex-1" style={{ color: "var(--t-text-secondary)" }}>
-        {prompt.prompt_text.slice(0, 140)}...
+        {prompt.prompt_text.slice(0, 220)}…
       </div>
       {/* Card Footer */}
-      <div className="px-4 py-2.5 border-t border-[var(--t-border)] flex items-center justify-between relative z-10">
+      <div className="px-4 py-2.5 border-t border-[var(--t-border)] flex items-center justify-between relative z-10 gap-2">
         <button
           aria-label={isCopied ? "Prompt copied" : "Copy prompt"}
           aria-live="polite"
           onClick={(e) => { e.stopPropagation(); onCopy(prompt); }}
-          className={`bg-transparent border border-[var(--t-border)] text-[10px] px-3.5 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--t-green)] ${
+          className={`bg-transparent border border-[var(--t-border)] text-[10px] px-3.5 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--t-green)] shrink-0 ${
             isCopied ? "border-[var(--t-green)] text-[var(--t-green)]" : "text-[var(--t-text-muted)] hover:border-[var(--t-green)] hover:text-[var(--t-green)]"
           }`}
         >
           {isCopied ? "✓ COPIED" : "⎘ COPY"}
         </button>
+        <span className="text-[9px] text-[var(--t-text-muted)] font-mono shrink-0">
+          {prompt.prompt_text.trim().split(/\s+/).filter(Boolean).length}w
+        </span>
         <button
           aria-label="View full prompt details"
           onClick={(e) => { e.stopPropagation(); onView(prompt); }}
-          className="bg-transparent border-none text-[var(--t-text-muted)] text-[10px] py-[5px] cursor-pointer tracking-[0.08em] uppercase transition-colors hover:text-[var(--t-amber)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--t-amber)] rounded-sm"
+          className="bg-transparent border-none text-[var(--t-text-muted)] text-[10px] py-[5px] cursor-pointer tracking-[0.08em] uppercase transition-colors hover:text-[var(--t-amber)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--t-amber)] rounded-sm ml-auto"
         >
-          VIEW FULL →
+          VIEW →
         </button>
       </div>
     </div>
@@ -444,10 +447,16 @@ export default function Library() {
 
         {/* Empty state */}
         {filtered.length === 0 && (
-          <div className="py-20 text-center" style={{ gridColumn: "1/-1" }}>
-            <div className="text-[40px] mb-4 opacity-30">⌕</div>
-            <div className="text-sm text-[var(--t-text-secondary)] mb-2">No prompts match your filters</div>
-            <div className="text-[11px] text-[var(--t-text-muted)]">Try adjusting your search or category</div>
+          <div className="py-24 text-center flex flex-col items-center" style={{ gridColumn: "1/-1" }}>
+            <div className="text-5xl mb-5">🔍</div>
+            <div className="text-sm font-semibold text-[var(--t-text-secondary)] mb-2">No prompts match your search</div>
+            <div className="text-[11px] text-[var(--t-text-muted)] mb-5">Try different keywords or select another category</div>
+            <button
+              onClick={() => { setQuery(""); setActiveCategory("ALL"); }}
+              className="bg-transparent border border-[var(--t-amber)] text-[var(--t-amber)] text-[11px] px-5 py-2 cursor-pointer tracking-[0.1em] uppercase transition-all hover:bg-[var(--t-amber-glow)]"
+            >
+              Clear Search
+            </button>
           </div>
         )}
 

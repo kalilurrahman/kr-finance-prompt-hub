@@ -134,20 +134,101 @@ export function substituteVariables(
   return result;
 }
 
+const DIV = "─".repeat(64);
+
 /**
- * Build a "filled" preview of the prompt showing substituted and unsubstituted vars.
- * Returns the text with substituted values bolded in a semantic sense (plain text markers).
+ * Build a fully contextualized prompt by:
+ *  1. Prepending a CONTEXT block (filled variable values) at the very top
+ *  2. Substituting all [VAR] / [VAR1|VAR2] patterns inline throughout the prompt body
+ *  3. Reformatting the "My inputs:" section into a clean key→value list
+ *  4. Appending tweaks in a clearly separated section at the bottom
+ *
+ * This ensures the LLM reads the context first and applies it throughout.
  */
 export function buildFilledPrompt(
   promptContent: string,
   variableValues: Record<string, string>,
   tweaks: string
 ): string {
-  let filled = substituteVariables(promptContent, variableValues);
+  const filledEntries = Object.entries(variableValues).filter(([, v]) => v.trim());
+  const unfilledEntries = Object.entries(variableValues).filter(([, v]) => !v.trim());
 
-  if (tweaks.trim()) {
-    filled += `\n\n---\n\n## Additional Context & Tweaks\n${tweaks.trim()}`;
+  // ── 1. Build context preamble ────────────────────────────────────────────
+  let contextBlock = "";
+  if (filledEntries.length > 0) {
+    const maxKeyLen = Math.max(...filledEntries.map(([k]) => k.length));
+    const rows = filledEntries
+      .map(([k, v]) => `  ${k.padEnd(maxKeyLen)}  →  ${v}`)
+      .join("\n");
+    const unfilled =
+      unfilledEntries.length > 0
+        ? `\n  (${unfilledEntries.length} variable${unfilledEntries.length > 1 ? "s" : ""} left unfilled: ${unfilledEntries.map(([k]) => k).join(", ")})`
+        : "";
+
+    contextBlock = [
+      DIV,
+      "  ◆  YOUR CONTEXT  —  injected by Meta-Prompt Engine",
+      DIV,
+      rows,
+      unfilled,
+      DIV,
+      "",
+      "",
+    ].join("\n");
   }
 
-  return filled;
+  // ── 2. Substitute variables inline throughout the prompt body ────────────
+  let body = substituteVariables(promptContent, variableValues);
+
+  // ── 3. Reformat "My inputs:" line into a clean structured block ──────────
+  // The inputs line typically looks like:
+  //   My inputs: Value1 | Value2 | [UNFILLED] | …
+  // after substituteVariables(). We replace it with a nicer format.
+  body = body.replace(
+    /My inputs?:?\s*([\s\S]{1,400}?)(?:\n{2,}|$)/i,
+    (_match, inputContent) => {
+      const parts = inputContent
+        .split("|")
+        .map((s: string) => s.trim())
+        .filter((s: string) => s.length > 0);
+
+      if (parts.length === 0) return _match;
+
+      // Map each part to its key (bracket) or filled value
+      const formatted = parts.map((part: string) => {
+        const isBracket = /^\[.+\]$/.test(part);
+        const label = isBracket ? part.slice(1, -1) : part;
+        const isEmpty = isBracket;
+        return isEmpty ? `  ▷  ${label}: (to be specified)` : `  ▶  ${label}`;
+      });
+
+      return (
+        "\n" +
+        DIV +
+        "\n  ◆  PROMPT INPUTS\n" +
+        DIV +
+        "\n" +
+        formatted.join("\n") +
+        "\n" +
+        DIV +
+        "\n\n"
+      );
+    }
+  );
+
+  // ── 4. Append tweaks ─────────────────────────────────────────────────────
+  const tweaksSection = tweaks.trim()
+    ? [
+        "",
+        DIV,
+        "  ◆  ADDITIONAL CONTEXT & MODIFICATIONS",
+        DIV,
+        "",
+        tweaks.trim(),
+        "",
+        DIV,
+      ].join("\n")
+    : "";
+
+  return `${contextBlock}${body}${tweaksSection}`;
 }
