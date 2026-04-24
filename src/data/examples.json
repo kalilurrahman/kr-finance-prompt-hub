@@ -702,5 +702,708 @@
     },
     "generatedAt": "2025-03-15T08:30:00Z",
     "output": "## SaaS Metrics Dashboard — Freshworks Inc\n\n### Key SaaS Metrics (LTM)\n| Metric | Value | Benchmark (Top Quartile) | Gap |\n|---|---|---|---|\n| ARR | $620M | — | — |\n| ARR Growth | 18% | 25%+ | -7pp |\n| Net Revenue Retention | 108% | 120%+ | -12pp |\n| Gross Retention | 94% | 95%+ | -1pp |\n| Gross Margin | 82% | 80%+ | ✅ Above |\n| FCF Margin | 12% | 15%+ | -3pp |\n| Rule of 40 | 30 | 40+ | -10 |\n| Magic Number | 0.72 | 1.0+ | -0.28 |\n| CAC Payback (months) | 22 | 18 | +4 months |\n| LTV/CAC | 4.2x | 5.0x+ | -0.8x |\n\n### Cohort Revenue Retention (by $ value)\n| Cohort (Year Acquired) | Year 1 | Year 2 | Year 3 | Year 4 |\n|---|---|---|---|---|\n| 2021 | 100% | 108% | 112% | 110% |\n| 2022 | 100% | 105% | 108% | — |\n| 2023 | 100% | 103% | — | — |\n| 2024 | 100% | — | — | — |\n\n### NRR Improvement Levers\n| Initiative | NRR Impact | Timeline | Investment |\n|---|---|---|---|\n| Product-led upsell (Freddy AI copilot) | +4pp | 6 months | $12M R&D |\n| Enterprise tier packaging (>500 seats) | +3pp | 3 months | $2M GTM |\n| Reduce churn (health score alerts) | +2pp | 9 months | $5M CS team |\n| Cross-sell (ITSM → CRM bundle) | +3pp | 12 months | $8M product |\n| **Total potential NRR improvement** | **+12pp → 120%** | | **$27M** |\n\n### Path to Rule of 40\n| Metric | Current | FY26E | FY27E |\n|---|---|---|---|\n| Revenue growth | 18% | 22% | 24% |\n| FCF margin | 12% | 16% | 18% |\n| **Rule of 40 score** | **30** | **38** | **42** ✅ |"
+  },
+  {
+    "id": "ex-51",
+    "promptTitle": "Customer Lifetime Value & Churn Prediction Model",
+    "domain": "Corporate Strategy & Growth",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "COMPANY NAME": "Swiggy",
+      "MONTHLY ACTIVE USERS": "45M",
+      "AVG ORDER VALUE": "₹385"
+    },
+    "generatedAt": "2025-03-14T09:00:00Z",
+    "output": "## CLV & Churn Model — Swiggy\n\n### Cohort-Based CLV Analysis\n| Cohort Segment | % of Users | Avg Orders/Month | AOV (₹) | Gross Margin | 3-Year CLV |\n|---|---|---|---|---|---|\n| Power users (>12 orders/mo) | 8% | 16.2 | ₹420 | 22% | ₹58,400 |\n| Regular (4-12 orders/mo) | 22% | 7.4 | ₹395 | 20% | ₹21,200 |\n| Casual (1-3 orders/mo) | 35% | 1.8 | ₹370 | 18% | ₹4,300 |\n| Dormant (<1 order/mo) | 35% | 0.3 | ₹340 | 15% | ₹550 |\n| **Blended average** | **100%** | **3.8** | **₹385** | **19%** | **₹10,200** |\n\n### Churn Prediction Features (Random Forest Model)\n| Feature | Importance | Direction |\n|---|---|---|\n| Days since last order | 28.4% | ↑ days = ↑ churn |\n| Order frequency trend (30d vs 90d) | 19.2% | ↓ trend = ↑ churn |\n| Coupon dependency ratio | 14.8% | ↑ dependency = ↑ churn |\n| Customer support tickets | 11.3% | ↑ tickets = ↑ churn |\n| Subscription status (Swiggy One) | 10.1% | Active = ↓ churn |\n| Restaurant diversity (unique restaurants) | 8.6% | ↓ diversity = ↑ churn |\n| App session frequency | 7.6% | ↓ sessions = ↑ churn |\n\n### Retention Interventions\n| Intervention | Target Segment | Expected Impact | Cost per Save |\n|---|---|---|---|\n| Win-back campaign (₹150 off) | 30-60 day dormant | +18% reactivation | ₹210 |\n| Swiggy One trial (free month) | High-frequency non-subscribers | +32% retention | ₹180 |\n| Personalised restaurant recs | Declining frequency | +12% order uplift | ₹25 |\n| Loyalty points programme | Regular users | +8% frequency | ₹45 |"
+  },
+  {
+    "id": "ex-52",
+    "promptTitle": "Synergy Valuation & Integration Cost Modelling",
+    "domain": "Mergers & Acquisitions",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "ACQUIRER": "Larsen & Toubro",
+      "TARGET": "Mindtree (post-merger review)",
+      "SYNERGY HORIZON": "3 years"
+    },
+    "generatedAt": "2025-03-13T14:00:00Z",
+    "output": "## Post-Merger Synergy Realisation — L&T + Mindtree\n\n### Synergy Tracking Dashboard (Month 24)\n| Synergy Category | Identified | Realised (M24) | % Achieved | Run-Rate (FY26) |\n|---|---|---|---|---|\n| Revenue synergies (cross-sell) | ₹1,200Cr | ₹680Cr | 57% | ₹920Cr |\n| Cost synergies (shared services) | ₹480Cr | ₹410Cr | 85% | ₹465Cr |\n| Procurement savings | ₹180Cr | ₹155Cr | 86% | ₹175Cr |\n| Real estate consolidation | ₹120Cr | ₹95Cr | 79% | ₹115Cr |\n| Tax optimisation | ₹85Cr | ₹72Cr | 85% | ₹85Cr |\n| **Total synergies** | **₹2,065Cr** | **₹1,412Cr** | **68%** | **₹1,760Cr** |\n\n### Integration Costs Incurred\n| Cost Item | Budget (₹Cr) | Actual (₹Cr) | Variance |\n|---|---|---|---|\n| IT systems integration | 280 | 340 | +21% (SAP migration delay) |\n| Severance & restructuring | 120 | 95 | -21% (lower attrition) |\n| Rebranding & communication | 45 | 42 | -7% |\n| Legal & regulatory | 35 | 52 | +49% (NCLT complexity) |\n| Retention bonuses (key talent) | 180 | 195 | +8% |\n| **Total integration cost** | **₹660Cr** | **₹724Cr** | **+10%** |\n\n### Net Synergy Value Creation\n- Gross synergies (NPV, 5-year): ₹6,840Cr\n- Integration costs: -₹724Cr\n- **Net value created: ₹6,116Cr** (4.2% of combined EV)\n- **Synergy payback period**: 14 months"
+  },
+  {
+    "id": "ex-53",
+    "promptTitle": "Quantitative Earnings Surprise Model",
+    "domain": "Investment Banking & Equity Research",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "UNIVERSE": "Nifty 50",
+      "SIGNAL": "Earnings revision momentum",
+      "HOLDING PERIOD": "1 quarter"
+    },
+    "generatedAt": "2025-03-12T10:00:00Z",
+    "output": "## Earnings Surprise Alpha Model — Nifty 50\n\n### Model Design\n| Component | Specification |\n|---|---|\n| Universe | Nifty 50 constituents |\n| Signal | 3-month EPS revision ratio (upgrades / total estimates) |\n| Rebalance | Quarterly (post-results season) |\n| Long portfolio | Top 10 by revision momentum |\n| Short portfolio | Bottom 10 by revision momentum |\n\n### Backtest Results (FY20–FY25)\n| Metric | Long Only (Top 10) | Long-Short | Nifty 50 |\n|---|---|---|---|\n| CAGR | 22.4% | 12.8% (market-neutral) | 14.6% |\n| Sharpe Ratio | 0.98 | 1.34 | 0.72 |\n| Max Drawdown | -22% | -8.4% | -35% |\n| Hit Rate (quarterly) | 68% | 72% | — |\n| Information Ratio | 0.82 | 1.12 | — |\n\n### Current Quarter Signal (Q4 FY25)\n| Rank | Stock | Revision Ratio | Consensus EPS Change (3m) | Signal |\n|---|---|---|---|---|\n| 1 | Trent Ltd | 0.92 | +18.4% | STRONG BUY |\n| 2 | Bharti Airtel | 0.88 | +14.2% | STRONG BUY |\n| 3 | ICICI Bank | 0.85 | +9.8% | BUY |\n| 4 | Bajaj Finance | 0.82 | +8.1% | BUY |\n| 5 | SBI | 0.80 | +7.4% | BUY |\n| 46 | Wipro | 0.22 | -6.2% | SELL |\n| 47 | Asian Paints | 0.18 | -8.4% | SELL |\n| 48 | Nestle India | 0.15 | -5.8% | SELL |\n| 49 | BPCL | 0.12 | -12.1% | STRONG SELL |\n| 50 | IndusInd Bank | 0.08 | -15.6% | STRONG SELL |"
+  },
+  {
+    "id": "ex-54",
+    "promptTitle": "Growth Equity Due Diligence Checklist",
+    "domain": "Private Equity & Venture Capital",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "COMPANY NAME": "Razorpay",
+      "STAGE": "Late-stage ($750M valuation)",
+      "SECTOR": "Fintech / Payments"
+    },
+    "generatedAt": "2025-03-11T11:00:00Z",
+    "output": "## Growth Equity DD Framework — Razorpay ($750M)\n\n### Commercial Due Diligence Scorecard\n| Dimension | Score | Key Finding |\n|---|---|---|\n| Market size & growth | 9/10 | India digital payments: $10T by FY28 (38% CAGR) |\n| Competitive moat | 7/10 | #2 payment gateway (28% share), but PhonePe/Juspay closing gap |\n| Revenue quality | 8/10 | 92% recurring, 18% YoY growth, NRR 124% |\n| Unit economics | 7/10 | Blended take-rate 0.22% (declining from 0.28%) — volume offsets |\n| Team & governance | 8/10 | Founders retained, 12-person leadership team stable 3+ years |\n| Technology & IP | 8/10 | 400+ API integrations, <50ms latency, 99.99% uptime |\n| Regulatory risk | 6/10 | RBI PA licence obtained, but new KYC norms increase compliance cost |\n| **Overall DD score** | **7.6/10** | **Proceed with negotiation** |\n\n### Financial Snapshot\n| Metric | FY24 | FY25E | FY26E |\n|---|---|---|---|\n| TPV (₹Lakh Cr) | 12.8 | 16.2 | 21.0 |\n| Revenue (₹Cr) | 2,850 | 3,560 | 4,630 |\n| EBITDA margin | 8% | 14% | 19% |\n| Free cash flow | ₹85Cr | ₹320Cr | ₹580Cr |\n\n### Key Risks & Mitigants\n| Risk | Probability | Impact | Mitigant |\n|---|---|---|---|\n| UPI MDR remains zero | 60% | Revenue ceiling on P2M | Diversify to lending, RazorpayX (SaaS) |\n| PhonePe merchant acquisition blitz | 50% | Market share erosion | Enterprise segment lock-in (72% retention) |\n| RBI tightening on payment aggregators | 40% | Compliance cost +₹80Cr/yr | PA licence already secured |\n| Key-person risk (co-founders) | 20% | Leadership vacuum | Vest remaining ESOP over 4 years |"
+  },
+  {
+    "id": "ex-55",
+    "promptTitle": "Fiscal Multiplier & Government Spending Impact",
+    "domain": "Economics & Macroeconomic Analysis",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COUNTRY": "India",
+      "BUDGET ITEM": "Capital expenditure ₹11.1L Cr (FY25)",
+      "MULTIPLIER MODEL": "Keynesian + DSGE"
+    },
+    "generatedAt": "2025-03-10T08:00:00Z",
+    "output": "## Fiscal Multiplier Analysis — India Capex Push (FY25)\n\n### Estimated Fiscal Multipliers by Spend Category\n| Category | Allocation (₹L Cr) | Short-Run Multiplier | Long-Run Multiplier | GDP Impact (₹L Cr) |\n|---|---|---|---|---|\n| Roads & highways | 2.78 | 1.8x | 2.4x | 5.00–6.67 |\n| Railways | 2.65 | 1.6x | 2.2x | 4.24–5.83 |\n| Defence capital | 1.72 | 1.2x | 1.4x | 2.06–2.41 |\n| Urban infra (Metro, water) | 1.45 | 1.5x | 2.0x | 2.18–2.90 |\n| Digital infrastructure | 0.98 | 1.4x | 2.8x | 1.37–2.74 |\n| Green energy (solar, hydrogen) | 0.82 | 1.3x | 2.5x | 1.07–2.05 |\n| Agriculture & irrigation | 0.70 | 1.7x | 1.9x | 1.19–1.33 |\n| **Total capex** | **11.10** | **1.55x (wtd)** | **2.15x (wtd)** | **17.11–23.93** |\n\n### GDP Growth Attribution\n| Component | Contribution to GDP Growth (FY25) |\n|---|---|\n| Government capex (direct) | +1.8pp |\n| Crowding-in of private capex | +0.9pp |\n| Consumption multiplier effect | +0.6pp |\n| Net exports impact | -0.2pp |\n| **Total fiscal contribution** | **+3.1pp of 6.5% GDP growth** |\n\n### Crowding-In vs. Crowding-Out\n| Indicator | Evidence | Verdict |\n|---|---|---|\n| Private capex announcements (FY25) | ₹28L Cr (+22% YoY) | Crowding-IN |\n| Corporate bond spreads | 85bps (stable) | No crowding-out |\n| Bank credit growth | 15.8% (healthy) | Financial conditions accommodative |\n| Inflation response | +0.3pp CPI from demand | Manageable |"
+  },
+  {
+    "id": "ex-56",
+    "promptTitle": "Cost Allocation & Activity-Based Costing Redesign",
+    "domain": "FP&A & Budgeting",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "COMPANY NAME": "Apollo Hospitals",
+      "REVENUE": "₹19,200Cr",
+      "COST POOL": "₹16,800Cr",
+      "DEPARTMENTS": "42 clinical + 18 support"
+    },
+    "generatedAt": "2025-03-09T14:00:00Z",
+    "output": "## Activity-Based Costing Redesign — Apollo Hospitals\n\n### Current vs. ABC Cost Allocation\n| Department | Traditional (₹Cr) | ABC (₹Cr) | Variance | Insight |\n|---|---|---|---|---|\n| Cardiology | 2,840 | 3,120 | +280 (+10%) | Under-costed: uses 35% of ICU capacity |\n| Orthopaedics | 1,680 | 1,420 | -260 (-15%) | Over-costed: shorter stays, less nursing |\n| Oncology | 2,200 | 2,540 | +340 (+15%) | Under-costed: chemo prep, radiation time |\n| General medicine | 1,560 | 1,380 | -180 (-12%) | Over-costed: standardised protocols |\n| Emergency | 1,200 | 1,480 | +280 (+23%) | Massively under-costed: 24/7 staffing |\n\n### Activity Cost Drivers\n| Activity Pool | Cost (₹Cr) | Driver | Volume |\n|---|---|---|---|\n| Nursing care | 3,800 | Patient-days by acuity | 2.4M patient-days |\n| Operating theatre | 2,200 | Theatre-minutes | 1.8M minutes |\n| Diagnostics (lab + imaging) | 1,600 | Tests ordered | 28M tests |\n| Pharmacy | 1,400 | Line items dispensed | 42M items |\n| Facilities & maintenance | 800 | Sq. ft occupied | 8.2M sq ft |\n| Administration | 600 | Revenue allocation | ₹19,200Cr |\n\n### Profitability by Service Line (ABC)\n| Service Line | Revenue (₹Cr) | ABC Cost (₹Cr) | Margin | Action |\n|---|---|---|---|---|\n| Cardiac surgery | 3,400 | 2,680 | 21.2% | Expand — high margin |\n| Knee/hip replacement | 1,800 | 1,080 | 40.0% | Expand — highest margin |\n| Emergency medicine | 2,400 | 2,280 | 5.0% | Optimise — low margin |\n| General ward admissions | 2,800 | 2,660 | 5.0% | Review pricing |\n| Oncology (chemo + radiation) | 3,200 | 2,880 | 10.0% | Stable — volume play |"
+  },
+  {
+    "id": "ex-57",
+    "promptTitle": "Pricing Strategy & Elasticity Optimisation",
+    "domain": "Corporate Strategy & Growth",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COMPANY NAME": "Netflix India",
+      "CURRENT PLANS": "Mobile ₹149, Basic ₹199, Standard ₹499, Premium ₹649",
+      "SUBSCRIBERS": "8.2M"
+    },
+    "generatedAt": "2025-03-08T10:00:00Z",
+    "output": "## Pricing Optimisation — Netflix India\n\n### Price Elasticity by Plan\n| Plan | Current Price | Elasticity | Optimal Price | Revenue Impact |\n|---|---|---|---|---|\n| Mobile | ₹149 | -0.45 (inelastic) | ₹179 | +₹42Cr/yr (+18%) |\n| Basic | ₹199 | -0.62 | ₹219 | +₹28Cr/yr (+9%) |\n| Standard | ₹499 | -0.88 | ₹479 | +₹12Cr/yr (volume gain) |\n| Premium | ₹649 | -1.12 (elastic) | ₹599 | +₹8Cr/yr (volume gain) |\n| **Net revenue uplift** | | | | **+₹90Cr/yr** |\n\n### Competitive Pricing Landscape\n| Platform | Entry Price | Premium Price | Content Hours | Price/Hour |\n|---|---|---|---|---|\n| Netflix | ₹149 | ₹649 | 8,200 | ₹0.08 |\n| JioCinema | ₹29 | ₹299 | 3,400 | ₹0.09 |\n| Disney+ Hotstar | ₹149 | ₹299 | 5,100 | ₹0.06 |\n| Amazon Prime | ₹299/yr | ₹1,499/yr | 4,800 | ₹0.03 |\n| Sony LIV | ₹299 | ₹999 | 2,800 | ₹0.36 |\n\n### Willingness-to-Pay Distribution (Survey, n=4,200)\n| WTP Range | % of Respondents | Cumulative | Implication |\n|---|---|---|---|\n| ₹0-99 | 28% | 28% | Ad-supported tier opportunity |\n| ₹100-199 | 35% | 63% | Mobile plan sweet spot |\n| ₹200-399 | 22% | 85% | Basic/Standard overlap |\n| ₹400-599 | 10% | 95% | Standard plan ceiling |\n| ₹600+ | 5% | 100% | Premium niche |"
+  },
+  {
+    "id": "ex-58",
+    "promptTitle": "Anti-Dilution Protection & Down-Round Mechanics",
+    "domain": "Private Equity & Venture Capital",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "COMPANY NAME": "ByJU'S",
+      "LAST ROUND VALUATION": "$22B",
+      "CURRENT ESTIMATED VALUE": "$3B",
+      "DOWN-ROUND": "Series F at $3B"
+    },
+    "generatedAt": "2025-03-07T09:00:00Z",
+    "output": "## Down-Round & Anti-Dilution Analysis — BYJU'S\n\n### Valuation Waterfall\n| Round | Date | Valuation | Price/Share | Capital Raised |\n|---|---|---|---|---|\n| Series D | 2020 | $5.5B | $420 | $500M |\n| Series E | 2021 | $16.5B | $1,260 | $800M |\n| Series F (peak) | 2022 | $22.0B | $1,680 | $250M |\n| **Down-round (proposed)** | **2025** | **$3.0B** | **$229** | **$200M** |\n| **Decline from peak** | | **-86.4%** | **-86.4%** | |\n\n### Anti-Dilution Impact (Full Ratchet vs. Weighted Average)\n| Investor | Shares (Pre) | Full Ratchet Shares | Broad WA Shares | Dilution to Founders |\n|---|---|---|---|---|\n| Series F ($22B) | 148,809 | 1,091,703 | 524,017 | Severe / Moderate |\n| Series E ($16.5B) | 634,920 | 3,493,449 | 1,428,571 | Severe / Moderate |\n| Series D ($5.5B) | 1,190,476 | 2,183,406 | 1,587,301 | Moderate / Mild |\n| Founders + ESOPs | 8,200,000 | 8,200,000 | 8,200,000 | — |\n| **Founder ownership** | **52%** | **28%** | **41%** | |\n\n### Negotiation Framework\n| Term | Investor Ask | Founder Counter | Market Standard |\n|---|---|---|---|\n| Anti-dilution | Full ratchet | Broad-based weighted average | Weighted average |\n| Liquidation preference | 2x participating | 1x non-participating | 1x non-participating |\n| Board seats | 3 of 7 (majority) | 2 of 7 (minority protection) | 2 of 7 |\n| Pay-to-play | All prior investors | Only Series E+F | Common in down-rounds |"
+  },
+  {
+    "id": "ex-59",
+    "promptTitle": "Purchasing Power Parity & Real Exchange Rate Model",
+    "domain": "Economics & Macroeconomic Analysis",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "CURRENCY PAIR": "INR/USD",
+      "CURRENT RATE": "83.40",
+      "BIG MAC INDEX": "Overvalued 42%"
+    },
+    "generatedAt": "2025-03-06T12:00:00Z",
+    "output": "## PPP & Real Exchange Rate Analysis — INR/USD\n\n### PPP Valuation Models\n| Model | Implied Fair Value | Current Rate | Misalignment |\n|---|---|---|---|\n| Absolute PPP (Big Mac) | ₹48.20 | ₹83.40 | 42% undervalued (INR) |\n| Relative PPP (inflation diff) | ₹79.50 | ₹83.40 | 5% undervalued |\n| Penn Effect (income-adjusted) | ₹72.80 | ₹83.40 | 13% undervalued |\n| BEER (Behavioural Equilibrium) | ₹78.20 | ₹83.40 | 6% undervalued |\n| FEER (Fundamental Equilibrium) | ₹80.50 | ₹83.40 | 3% undervalued |\n\n### Real Effective Exchange Rate (REER)\n| Period | REER (36-currency, 2015=100) | Assessment |\n|---|---|---|\n| 2020 | 96.2 | Slightly undervalued |\n| 2022 | 104.8 | Overvalued |\n| 2024 | 101.5 | Marginally overvalued |\n| 2025 (current) | 102.8 | Mildly overvalued (+2.8%) |\n\n### Structural Determinants of INR/USD\n| Factor | Direction for INR | Weight | Horizon |\n|---|---|---|---|\n| Services trade surplus ($167B) | Appreciating | HIGH | Structural |\n| Portfolio flows (FPI) | Volatile | MEDIUM | Cyclical |\n| Oil import bill ($120B) | Depreciating | HIGH | Structural |\n| Productivity differential (Balassa-Samuelson) | Appreciating | MEDIUM | Long-term |\n| RBI intervention (reserve accum.) | Dampens appreciation | HIGH | Policy |\n\n### 12-Month Forecast\n| Scenario | INR/USD | Probability | Driver |\n|---|---|---|---|\n| Base | 82.0-83.5 | 55% | Gradual appreciation on services surplus |\n| Bull (INR) | 79.5-81.0 | 20% | Fed cuts + strong FPI flows |\n| Bear (INR) | 85.0-87.0 | 25% | Oil spike + EM risk-off |"
+  },
+  {
+    "id": "ex-60",
+    "promptTitle": "Debt Capacity Analysis & Optimal Capital Structure",
+    "domain": "FP&A & Budgeting",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COMPANY NAME": "Adani Ports (APSEZ)",
+      "CURRENT D/E": "1.2x",
+      "CREDIT RATING": "BBB- (S&P)"
+    },
+    "generatedAt": "2025-03-05T10:00:00Z",
+    "output": "## Optimal Capital Structure — Adani Ports & SEZ\n\n### Current Debt Profile\n| Metric | Value | Peer Median | Gap |\n|---|---|---|---|\n| Total Debt | ₹45,200Cr | — | — |\n| Net Debt/EBITDA | 3.1x | 2.5x | +0.6x above peers |\n| Interest Coverage (EBITDA/Interest) | 4.8x | 5.5x | Below comfortable |\n| Debt/Equity | 1.2x | 0.8x | Elevated |\n| Avg Cost of Debt | 7.8% | — | — |\n| Credit Rating | BBB- | BBB | One notch below |\n\n### WACC Optimisation Analysis\n| D/E Ratio | Cost of Debt | Cost of Equity | WACC | Enterprise Value |\n|---|---|---|---|---|\n| 0.5x | 6.8% | 13.2% | 11.1% | ₹1,42,000Cr |\n| 0.8x | 7.2% | 13.8% | 10.8% | ₹1,46,000Cr |\n| **1.0x (optimal)** | **7.5%** | **14.2%** | **10.6%** | **₹1,48,500Cr** |\n| 1.2x (current) | 7.8% | 14.8% | 10.7% | ₹1,47,200Cr |\n| 1.5x | 8.5% | 15.8% | 11.0% | ₹1,43,500Cr |\n| 2.0x | 9.5% | 17.2% | 11.6% | ₹1,36,000Cr |\n\n### Deleveraging Roadmap\n| Action | Debt Reduction (₹Cr) | Timeline | D/E Impact |\n|---|---|---|---|\n| FCF allocation (50% to debt) | ₹4,800Cr/yr | FY26-FY27 | -0.12x/yr |\n| Mundra terminal stake sale (20%) | ₹3,200Cr | FY26 | -0.08x |\n| InvIT listing (port assets) | ₹8,000Cr | FY27 | -0.21x |\n| **Total deleveraging** | **₹20,800Cr** | **2 years** | **D/E: 1.2x → 0.7x** |"
+  },
+  {
+    "id": "ex-61",
+    "promptTitle": "Franchise Model & Unit Economics Benchmarking",
+    "domain": "Corporate Strategy & Growth",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "COMPANY NAME": "Haldiram's",
+      "FRANCHISE FEE": "₹1.2Cr",
+      "UNIT COUNT": "420 outlets"
+    },
+    "generatedAt": "2025-03-04T09:00:00Z",
+    "output": "## Franchise Unit Economics — Haldiram's\n\n### Single Unit P&L Model\n| Line Item | Monthly (₹L) | Annual (₹Cr) | % of Revenue |\n|---|---|---|---|\n| Revenue | 28.5 | 3.42 | 100% |\n| COGS (food + packaging) | 10.3 | 1.24 | 36% |\n| Labour (12 FTEs) | 4.8 | 0.58 | 17% |\n| Rent & utilities | 5.2 | 0.62 | 18% |\n| Royalty (5% of revenue) | 1.4 | 0.17 | 5% |\n| Marketing fund (2%) | 0.6 | 0.07 | 2% |\n| Other operating expenses | 2.1 | 0.25 | 7% |\n| **Unit EBITDA** | **4.1** | **0.49** | **14.3%** |\n| Franchise fee amortisation | 0.3 | 0.04 | 1% |\n| Debt service (₹80L loan) | 1.2 | 0.14 | 4% |\n| **Franchisee net profit** | **2.6** | **0.31** | **9.1%** |\n\n### Benchmarking vs. Peers\n| Metric | Haldiram's | Bikanervala | McDonald's India | Chai Point |\n|---|---|---|---|---|\n| Investment required | ₹1.8Cr | ₹1.2Cr | ₹6.5Cr | ₹45L |\n| Revenue per outlet | ₹3.4Cr | ₹2.1Cr | ₹8.2Cr | ₹1.4Cr |\n| Franchisee ROI | 17% | 14% | 22% | 28% |\n| Payback period | 3.6 years | 4.2 years | 4.5 years | 2.8 years |\n| Same-store growth | 8% | 5% | 12% | 18% |\n\n### Expansion Potential\n- Current: 420 outlets (65% franchise, 35% company-owned)\n- Target FY28: 800 outlets\n- Whitespace analysis: Tier-2/3 cities have 0.4 outlets per million vs 1.8 in Tier-1\n- Recommended: Franchise-heavy Tier-2 expansion (85% franchise ratio)"
+  },
+  {
+    "id": "ex-62",
+    "promptTitle": "Management Buyout (MBO) Structuring",
+    "domain": "Mergers & Acquisitions",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "TARGET": "Family-owned pharma company",
+      "EV": "₹2,400Cr",
+      "MANAGEMENT STAKE": "15% → 51%"
+    },
+    "generatedAt": "2025-03-03T14:00:00Z",
+    "output": "## MBO Structuring — Pharma Company Buyout\n\n### Transaction Structure\n| Source | Amount (₹Cr) | % of EV | Terms |\n|---|---|---|---|\n| Management equity rollover | 360 | 15% | Existing stake at book value |\n| Management new investment | 120 | 5% | Sweet equity at 20% discount |\n| PE sponsor equity | 744 | 31% | Preferred + common mix |\n| Senior term loan | 720 | 30% | 5-year, MCLR+200bps |\n| Mezzanine debt | 360 | 15% | 12% coupon, PIK toggle |\n| Seller note | 96 | 4% | 3-year, 9% fixed |\n| **Total sources** | **2,400** | **100%** | |\n\n### Post-MBO Cap Table\n| Shareholder | Equity % | Board Seats | Key Rights |\n|---|---|---|---|\n| Management team | 51% | 3 of 7 | Operational control |\n| PE sponsor | 44% | 3 of 7 | Veto on M&A, capex >₹50Cr |\n| Seller (retained) | 5% | 1 of 7 | Tag-along rights |\n\n### Management Incentive Structure\n| Component | Mechanism | Upside |\n|---|---|---|\n| Sweet equity (ratchet) | 5% bonus shares if EBITDA CAGR >18% | Up to ₹180Cr value |\n| Co-invest at discount | 20% discount to PE entry price | ₹24Cr day-1 gain |\n| Exit bonus pool | 3% of equity value above 3x MOIC | Uncapped |\n\n### Return Scenarios (5-year hold)\n| Scenario | Exit EBITDA | Multiple | Equity Value (₹Cr) | Management Return |\n|---|---|---|---|---|\n| Bear | ₹380Cr | 8x | 1,920 | 2.1x |\n| Base | ₹520Cr | 10x | 4,120 | 4.3x |\n| Bull | ₹680Cr | 12x | 7,080 | 7.4x |"
+  },
+  {
+    "id": "ex-63",
+    "promptTitle": "Credit Risk Scoring & Loan Portfolio Analysis",
+    "domain": "Investment Banking & Equity Research",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "COMPANY": "Bajaj Finance Ltd",
+      "LOAN BOOK": "₹3,10,000Cr",
+      "GNPA": "0.91%"
+    },
+    "generatedAt": "2025-03-02T11:00:00Z",
+    "output": "## Credit Risk Analysis — Bajaj Finance Loan Portfolio\n\n### Portfolio Composition & Risk Segmentation\n| Product | Book Size (₹Cr) | % Mix | GNPA | Yield | Risk-Adj Return |\n|---|---|---|---|---|---|\n| Consumer durable loans | 52,700 | 17% | 0.42% | 14.2% | 13.4% |\n| Personal loans / cross-sell | 62,000 | 20% | 1.28% | 16.8% | 14.6% |\n| SME / business loans | 49,600 | 16% | 1.85% | 17.5% | 14.2% |\n| Mortgages & LAP | 68,200 | 22% | 0.38% | 9.8% | 9.2% |\n| Auto & two-wheeler | 40,300 | 13% | 1.12% | 15.4% | 13.5% |\n| Rural lending | 24,800 | 8% | 2.14% | 18.2% | 14.8% |\n| Securities & gold loans | 12,400 | 4% | 0.15% | 10.5% | 10.2% |\n| **Total** | **3,10,000** | **100%** | **0.91%** | **14.1%** | **12.8%** |\n\n### Stress Test Scenarios\n| Scenario | GNPA Impact | Credit Cost | ROA Impact | NIM Impact |\n|---|---|---|---|---|\n| Base (current trajectory) | 0.91% | 1.35% | 4.8% | 10.2% |\n| Mild stress (GDP -1pp) | 1.45% | 2.10% | 4.2% | 9.8% |\n| Moderate stress (rate +200bps) | 1.82% | 2.65% | 3.6% | 9.5% |\n| Severe (recession + rate hike) | 2.80% | 3.80% | 2.4% | 8.8% |\n\n### Key Risk Indicators to Monitor\n| Indicator | Current | Warning Level | Action Trigger |\n|---|---|---|---|\n| Bounce rate (EMI) | 3.2% | >4.5% | Tighten underwriting |\n| SMA-2 (61-90 DPD) | 0.68% | >1.0% | Portfolio review |\n| Concentration (top 10 groups) | 4.8% | >8% | Exposure limit |\n| Provision coverage ratio | 68% | <60% | Increase provisions |"
+  },
+  {
+    "id": "ex-64",
+    "promptTitle": "SPV Structuring & Project Finance Model",
+    "domain": "Private Equity & Venture Capital",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "PROJECT": "500MW Solar Park (Rajasthan)",
+      "TOTAL COST": "₹2,800Cr",
+      "DSCR TARGET": "1.3x"
+    },
+    "generatedAt": "2025-03-01T08:00:00Z",
+    "output": "## Project Finance Model — 500MW Solar Park\n\n### Sources & Uses\n| Sources (₹Cr) | Amount | % | Uses (₹Cr) | Amount | % |\n|---|---|---|---|---|---|\n| Senior debt (SBI consortium) | 2,100 | 75% | EPC cost (modules + BOS) | 2,240 | 80% |\n| Equity (sponsor) | 560 | 20% | Land & development | 280 | 10% |\n| Subordinated debt | 140 | 5% | Grid connectivity | 140 | 5% |\n| | | | IDC + contingency | 140 | 5% |\n| **Total sources** | **2,800** | **100%** | **Total uses** | **2,800** | **100%** |\n\n### Revenue & DSCR Projection\n| Year | Generation (MU) | Tariff (₹/kWh) | Revenue (₹Cr) | Debt Service | DSCR |\n|---|---|---|---|---|---|\n| Y1 | 1,050 | 2.54 | 267 | 198 | 1.35x |\n| Y3 | 1,030 | 2.54 | 262 | 198 | 1.32x |\n| Y5 | 1,008 | 2.54 | 256 | 198 | 1.29x |\n| Y10 | 960 | 2.54 | 244 | 198 | 1.23x |\n| Y15 | 912 | 2.54 | 232 | 0 (debt repaid) | N/A |\n| Y25 | 840 | Open market | Est. 220 | 0 | N/A |\n\n### Equity Return Analysis\n| Scenario | P90 Generation | Tariff | Equity IRR | Payback |\n|---|---|---|---|---|\n| Upside (P50) | 1,050 MU | ₹2.54 | 16.8% | 6.2 years |\n| Base (P75) | 998 MU | ₹2.54 | 14.2% | 7.1 years |\n| Downside (P90) | 945 MU | ₹2.54 | 11.8% | 8.4 years |\n| Stress (module degradation +0.5%) | 890 MU | ₹2.54 | 9.4% | 9.8 years |"
+  },
+  {
+    "id": "ex-65",
+    "promptTitle": "De-Dollarisation & BRICS Currency Bloc Analysis",
+    "domain": "Economics & Macroeconomic Analysis",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "BLOC": "BRICS+ (11 members)",
+      "ANALYSIS": "USD reserve share decline",
+      "HORIZON": "2025-2035"
+    },
+    "generatedAt": "2025-02-28T12:00:00Z",
+    "output": "## De-Dollarisation & BRICS Currency Analysis\n\n### USD Share in Global Reserves (Historical & Projected)\n| Year | USD Share | EUR | CNY | Gold | Other |\n|---|---|---|---|---|---|\n| 2000 | 71.0% | 18.3% | 0% | 2.8% | 7.9% |\n| 2015 | 65.7% | 19.1% | 1.1% | 3.2% | 10.9% |\n| 2020 | 59.0% | 21.2% | 2.3% | 4.8% | 12.7% |\n| 2024 | 57.4% | 19.8% | 2.7% | 6.2% | 13.9% |\n| **2030E** | **51-54%** | **18-20%** | **4-6%** | **8-10%** | **14-17%** |\n\n### BRICS Bilateral Trade Settlement Progress\n| Corridor | % in Local Currency (2024) | Target (2028) | Mechanism |\n|---|---|---|---|\n| China-Russia | 92% (CNY/RUB) | 95% | CIPS + SPFS |\n| India-Russia | 60% (INR/RUB) | 80% | Vostro accounts |\n| China-Saudi Arabia | 18% (CNY) | 40% | Petro-yuan pilot |\n| India-UAE | 22% (INR/AED) | 50% | UPI-IPP linkage |\n| Brazil-China | 35% (BRL/CNY) | 55% | SML system |\n\n### Impact Assessment on USD\n| Factor | De-Dollarisation Impact | Confidence |\n|---|---|---|\n| Trade invoicing shift | -3-5% USD share by 2030 | HIGH |\n| Reserve diversification | -3-4% USD share by 2030 | MEDIUM |\n| SWIFT alternatives (CIPS, SPFS) | Limited (<5% of flows) | LOW |\n| BRICS common currency | Near-zero probability by 2030 | VERY LOW |\n| **Net USD impact** | **Gradual decline, not collapse** | **Consensus** |\n\n### Investment Implications\n1. **Gold**: Structural bid from central bank diversification — target $2,800/oz by 2027\n2. **CNY bonds**: Inclusion in WGBI index increases foreign demand by $80B\n3. **USD**: Still dominant (>50%) through 2035 — obituary premature"
+  },
+  {
+    "id": "ex-66",
+    "promptTitle": "Scenario-Based P&L Modelling for Board Presentation",
+    "domain": "FP&A & Budgeting",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "COMPANY NAME": "Marico Ltd",
+      "FY25 REVENUE": "₹10,200Cr",
+      "COPRA PRICE SCENARIO": "₹12,000-18,000/quintal"
+    },
+    "generatedAt": "2025-02-27T14:00:00Z",
+    "output": "## Board-Ready Scenario P&L — Marico Ltd (FY26E)\n\n### Three-Scenario P&L Summary\n| Line Item (₹Cr) | Bear Case | Base Case | Bull Case |\n|---|---|---|---|\n| Revenue | 10,800 | 11,400 | 12,200 |\n| Revenue growth | 6% | 12% | 20% |\n| Gross profit | 5,076 | 5,814 | 6,344 |\n| Gross margin | 47.0% | 51.0% | 52.0% |\n| EBITDA | 1,836 | 2,166 | 2,562 |\n| EBITDA margin | 17.0% | 19.0% | 21.0% |\n| PAT | 1,188 | 1,482 | 1,830 |\n| EPS (₹) | 9.20 | 11.50 | 14.20 |\n\n### Key Assumptions by Scenario\n| Driver | Bear | Base | Bull |\n|---|---|---|---|\n| Copra price (₹/quintal) | 18,000 | 14,500 | 12,000 |\n| Volume growth (Parachute) | 2% | 5% | 8% |\n| International business growth | 8% | 14% | 20% |\n| Ad spend (% of revenue) | 8.5% | 9.0% | 9.5% |\n| New product contribution | 3% | 5% | 8% |\n\n### Sensitivity Heat Map — EBITDA Margin\n| Copra Price \\ Volume Growth | 2% | 5% | 8% |\n|---|---|---|---|\n| ₹18,000 (high) | 15.8% | 17.0% | 17.8% |\n| ₹14,500 (base) | 18.2% | 19.0% | 19.8% |\n| ₹12,000 (low) | 20.4% | 21.0% | 21.6% |\n\n### Board Action Items\n1. **Hedging**: Lock 60% of copra requirement at ₹14,200/quintal via forward contracts\n2. **Pricing**: If copra crosses ₹16,000, implement 5% price hike on Parachute (lag: 6 weeks)\n3. **Portfolio mix**: Accelerate value-added hair oils (48% gross margin vs. 38% coconut oil)\n4. **Contingency**: If bear case materialises, cut ad spend by ₹120Cr, defer new launches"
+  },
+  {
+    "id": "ex-67",
+    "promptTitle": "AI-First Business Model & Competitive Moat Analysis",
+    "domain": "Corporate Strategy & Growth",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "COMPANY NAME": "Anthropic",
+      "VALUATION": "$18B",
+      "SECTOR": "Foundation models / Enterprise AI"
+    },
+    "generatedAt": "2025-02-26T10:00:00Z",
+    "output": "## AI Business Model & Moat Analysis — Anthropic\n\n### Revenue Model Breakdown\n| Stream | FY24E Revenue | FY25E | Growth | Margin |\n|---|---|---|---|---|\n| API (Claude) — usage-based | $420M | $850M | 102% | 55% |\n| Enterprise contracts (committed) | $180M | $480M | 167% | 62% |\n| Claude Pro/Team subscriptions | $80M | $180M | 125% | 72% |\n| **Total revenue** | **$680M** | **$1,510M** | **122%** | **58%** |\n\n### Competitive Moat Assessment\n| Moat Type | Strength | Evidence |\n|---|---|---|\n| Compute scale (training) | MEDIUM | $4B+ capital raised, but behind OpenAI/Google |\n| Safety research brand | STRONG | Constitutional AI, RLHF pioneer — enterprise trust |\n| Model quality (benchmarks) | STRONG | Claude 3.5 Sonnet top-2 on MMLU, HumanEval |\n| Enterprise relationships | GROWING | Amazon ($4B investment), Google Cloud partnership |\n| Data flywheel | MEDIUM | API usage generates RLHF signal — but no consumer scale |\n| Switching costs | LOW-MEDIUM | Multi-model strategies reduce lock-in |\n\n### Unit Economics — API Business\n| Metric | Current | At Scale (FY27E) |\n|---|---|---|\n| Cost per 1M output tokens | $4.20 | $1.80 |\n| Revenue per 1M output tokens | $15.00 | $10.00 |\n| Gross margin per query | 72% | 82% |\n| Inference compute ($/query) | $0.0028 | $0.0012 |\n| Avg enterprise ACV | $820K | $1.4M |\n\n### Strategic Risks\n| Risk | Probability | Impact | Mitigation |\n|---|---|---|---|\n| Open-source commoditisation (Llama, Mistral) | 45% | HIGH | Focus on enterprise safety, compliance |\n| Compute cost escalation (GPU shortage) | 35% | MEDIUM | Amazon custom silicon (Trainium) |\n| Regulatory (EU AI Act compliance) | 30% | MEDIUM | Built-in safety — advantage vs peers |\n| Key researcher attrition | 25% | HIGH | Deferred equity, research autonomy |"
+  },
+  {
+    "id": "ex-68",
+    "promptTitle": "Joint Venture Structuring & Governance Framework",
+    "domain": "Mergers & Acquisitions",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "PARTNER A": "Maruti Suzuki",
+      "PARTNER B": "Toyota",
+      "JV PURPOSE": "EV battery manufacturing",
+      "INVESTMENT": "₹8,000Cr"
+    },
+    "generatedAt": "2025-02-25T09:00:00Z",
+    "output": "## JV Framework — Maruti Suzuki × Toyota EV Battery Plant\n\n### JV Structure\n| Parameter | Detail |\n|---|---|\n| Entity | NewCo (India-incorporated JV) |\n| Equity split | 51% Maruti Suzuki / 49% Toyota Motor |\n| Total investment | ₹8,000Cr over 4 years |\n| Location | Gujarat (GIFT SEZ adjacency) |\n| Capacity | 20 GWh by FY29, expandable to 40 GWh |\n| Technology | Toyota bipolar NiMH + LFP chemistry |\n\n### Governance Structure\n| Decision | Approval Required |\n|---|---|\n| Annual budget & business plan | Board majority (simple) |\n| Capex > ₹200Cr | Both partners' consent |\n| Technology licensing changes | Toyota veto right |\n| Third-party customer sales | Maruti consent |\n| CEO appointment | Maruti nominates, Toyota approves |\n| Dividend policy (>50% of PAT) | Board majority |\n| Exit / IPO / dissolution | Unanimous |\n\n### Financial Projections\n| Metric | FY27 | FY28 | FY29 | FY30 |\n|---|---|---|---|---|\n| Capacity (GWh) | 5 | 12 | 20 | 20 |\n| Revenue (₹Cr) | 2,400 | 5,760 | 9,600 | 10,200 |\n| EBITDA margin | 8% | 14% | 19% | 22% |\n| Cells supplied (M) | 0.8 | 1.9 | 3.2 | 3.4 |\n| Cost per kWh (₹) | 8,200 | 6,800 | 5,400 | 4,800 |\n\n### Risk Allocation\n| Risk | Owner | Mitigation |\n|---|---|---|\n| Technology obsolescence | Toyota bears | Commitment to refresh every 3 years |\n| Offtake volume shortfall | Maruti bears | Take-or-pay for 80% of capacity |\n| Raw material sourcing | JV entity | Long-term lithium contracts (5-year) |\n| Regulatory (PLI compliance) | JV entity | Dedicated compliance team |"
+  },
+  {
+    "id": "ex-69",
+    "promptTitle": "Cryptocurrency Valuation & On-Chain Analytics",
+    "domain": "Investment Banking & Equity Research",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "ASSET": "Ethereum (ETH)",
+      "CURRENT PRICE": "$3,200",
+      "VALUATION MODEL": "Network Value to Transactions (NVT)"
+    },
+    "generatedAt": "2025-02-24T15:00:00Z",
+    "output": "## Ethereum Valuation — On-Chain Fundamental Analysis\n\n### Multi-Model Valuation Summary\n| Model | Implied Value | vs. Current ($3,200) | Methodology |\n|---|---|---|---|\n| NVT Ratio (30-day) | $3,450 | +8% undervalued | Network value / daily tx value |\n| Metcalfe's Law | $3,800 | +19% undervalued | Proportional to active addresses² |\n| DCF (fee revenue) | $4,200 | +31% undervalued | NPV of validator fees + MEV |\n| Stock-to-Flow (staking) | $2,900 | -9% overvalued | Post-merge issuance reduction |\n| **Blended fair value** | **$3,600** | **+12.5%** | |\n\n### On-Chain Health Metrics\n| Metric | Current | 30-Day Trend | Signal |\n|---|---|---|---|\n| Daily active addresses | 485K | ↑ +8% | Bullish |\n| Transaction fees (daily) | $4.2M | ↑ +22% | Bullish (demand) |\n| ETH staked (% of supply) | 27.4% | ↑ +0.3pp | Bullish (supply lock) |\n| Exchange balance | 11.2M ETH | ↓ -180K (30d) | Bullish (accumulation) |\n| Gas price (Gwei) | 28 | ↑ from 18 | Network activity rising |\n| L2 TVL | $42B | ↑ +15% | Ecosystem growth |\n\n### Supply Dynamics (Post-Merge)\n| Component | Annual ETH | Impact |\n|---|---|---|\n| New issuance (staking rewards) | +940K ETH | Inflationary |\n| EIP-1559 burn (base fee) | -1,200K ETH | Deflationary |\n| **Net supply change** | **-260K ETH/yr** | **Deflationary (-0.2%/yr)** |\n\n### Risk Factors\n| Risk | Probability | Impact |\n|---|---|---|\n| SEC classification as security | 20% | -40-60% price shock |\n| L2 value capture exceeding L1 | 40% | Caps ETH upside to $5K |\n| Competitor chains (Solana, Sui) | 30% | Market share erosion |"
+  },
+  {
+    "id": "ex-70",
+    "promptTitle": "Workforce Planning & Talent Analytics Dashboard",
+    "domain": "FP&A & Budgeting",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "COMPANY NAME": "Tech Mahindra",
+      "HEADCOUNT": "148,000",
+      "ATTRITION": "13.2%",
+      "HIRING PLAN": "FY26"
+    },
+    "generatedAt": "2025-02-23T11:00:00Z",
+    "output": "## Workforce Planning — Tech Mahindra (FY26)\n\n### Headcount Bridge\n| Component | Count | Notes |\n|---|---|---|\n| Opening headcount (FY25 exit) | 148,000 | |\n| Attrition (13.2% annual) | -19,536 | Voluntary: 11.8%, Involuntary: 1.4% |\n| Lateral hiring | 14,200 | 65% experienced, 35% campus |\n| Campus intake (FY26 batch) | 8,800 | Training pipeline: 3 months |\n| Reskilling (internal mobility) | 6,500 | AI/cloud/cybersecurity upskilling |\n| **Closing headcount (FY26)** | **151,464** | **+2.3% net growth** |\n\n### Skills Gap Analysis\n| Skill Area | Current Supply | FY26 Demand | Gap | Action |\n|---|---|---|---|---|\n| Gen AI / LLM engineering | 1,200 | 4,500 | -3,300 | Hire 1,800 + reskill 1,500 |\n| Cloud (multi-cloud) | 18,400 | 24,000 | -5,600 | Reskill 4,000 + hire 1,600 |\n| Cybersecurity | 4,800 | 7,200 | -2,400 | Hire 1,200 + certify 1,200 |\n| 5G / Network services | 3,200 | 5,800 | -2,600 | Reskill 2,000 + hire 600 |\n| Legacy (mainframe, manual testing) | 22,000 | 14,000 | +8,000 | Reskill 6,000, natural attrition 2,000 |\n\n### Cost Modelling\n| Cost Component | FY25 (₹Cr) | FY26E (₹Cr) | Change |\n|---|---|---|---|\n| Employee cost (total) | 28,400 | 30,100 | +6% |\n| Revenue per employee (₹L/yr) | 35.2 | 37.8 | +7% |\n| Hiring cost (₹2.4L/hire avg) | 312 | 552 | +77% (ramp-up) |\n| Training & reskilling | 180 | 340 | +89% (AI upskill push) |\n| Attrition cost (₹8L/departure) | 1,563 | 1,328 | -15% (lower attrition target) |"
+  },
+  {
+    "id": "ex-71",
+    "promptTitle": "Supply Chain Resilience & Dual-Sourcing Strategy",
+    "domain": "Corporate Strategy & Growth",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COMPANY NAME": "Apple Inc",
+      "COMPONENT": "A-series chips",
+      "CURRENT SUPPLIER": "TSMC (100%)"
+    },
+    "generatedAt": "2025-02-22T09:00:00Z",
+    "output": "## Supply Chain Resilience — Apple Semiconductor Sourcing\n\n### Single-Source Risk Assessment\n| Risk Factor | Probability | Revenue at Risk | Annual Impact |\n|---|---|---|---|\n| Taiwan Strait escalation | 15% | $280B (all iPhones) | $42B expected loss |\n| TSMC fab disruption (earthquake/fire) | 8% | $180B (6-month delay) | $14.4B |\n| Geopolitical export controls | 10% | $120B (China sales) | $12B |\n| TSMC capacity allocation dispute | 20% | $40B (yield/priority) | $8B |\n\n### Dual-Sourcing Options\n| Alternative | Readiness | Node Capability | Cost Premium | Timeline |\n|---|---|---|---|---|\n| Samsung Foundry (Korea) | MEDIUM | 3nm GAA | +12-15% | 24-30 months |\n| Intel Foundry Services (US) | LOW | 18A (1.8nm target) | +18-22% | 36-48 months |\n| TSMC Arizona (US fab) | HIGH | 4nm N4P | +8-10% | 12-18 months |\n| TSMC Japan (Kumamoto) | HIGH | 12nm (non-leading) | +5% | Available now |\n\n### Recommended Strategy\n| Phase | Action | Investment | Risk Reduction |\n|---|---|---|---|\n| Phase 1 (FY26) | Shift 20% to TSMC Arizona | $0 (TSMC capex) | -15% geographic risk |\n| Phase 2 (FY27) | Qualify Samsung 3nm for iPad/Mac | $2B qualification | -25% supplier risk |\n| Phase 3 (FY28) | Intel 18A for select SKUs | $3B co-investment | -35% total risk |\n| Steady-state | TSMC 60% / Samsung 25% / Intel 15% | — | Resilient portfolio |"
+  },
+  {
+    "id": "ex-72",
+    "promptTitle": "Earnout & Contingent Consideration Modelling",
+    "domain": "Mergers & Acquisitions",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "DEAL": "SaaS acquisition",
+      "UPFRONT PRICE": "$600M",
+      "EARNOUT": "$200M tied to ARR milestones"
+    },
+    "generatedAt": "2025-02-21T14:00:00Z",
+    "output": "## Earnout Structure & Valuation — SaaS Acquisition\n\n### Earnout Milestone Schedule\n| Milestone | ARR Target | Deadline | Payout | Cumulative |\n|---|---|---|---|---|\n| Milestone 1 | $85M ARR | 12 months | $50M | $50M |\n| Milestone 2 | $110M ARR | 24 months | $60M | $110M |\n| Milestone 3 | $145M ARR | 36 months | $90M | $200M |\n| **Maximum earnout** | | | | **$200M** |\n\n### Probability-Weighted Fair Value (ASC 805)\n| Milestone | Probability | Expected Payout | PV (8% discount) |\n|---|---|---|---|\n| M1 ($85M ARR) | 75% | $37.5M | $34.7M |\n| M2 ($110M ARR) | 55% | $33.0M | $28.3M |\n| M3 ($145M ARR) | 35% | $31.5M | $25.0M |\n| **Total fair value** | | **$102.0M** | **$88.0M** |\n\n### Scenario Outcomes\n| Scenario | ARR Path | Total Paid | Effective Multiple |\n|---|---|---|---|\n| Outperform | $90M→$120M→$155M | $800M ($600+$200) | 5.2x ARR |\n| Base case | $85M→$105M→$130M | $710M ($600+$110) | 5.5x ARR |\n| Underperform | $78M→$92M→$108M | $650M ($600+$50) | 6.0x ARR |\n| Miss all | $70M→$80M→$95M | $600M (upfront only) | 6.3x ARR |\n\n### Key Negotiation Points\n| Issue | Seller Position | Buyer Position | Resolution |\n|---|---|---|---|\n| ARR definition | Include expansion + renewals | Exclude one-time setup | Recurring only, ex-setup |\n| Measurement period | Last month of period | Trailing 3-month average | 3-month average |\n| Acceleration on change of control | Full earnout paid | Pro-rata only | Pro-rata + good leaver |\n| Dispute resolution | Binding arbitration | Big 4 independent audit | Big 4 determination |"
+  },
+  {
+    "id": "ex-73",
+    "promptTitle": "Options Strategy & Volatility Surface Analysis",
+    "domain": "Investment Banking & Equity Research",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "UNDERLYING": "Nifty 50 Index",
+      "CURRENT LEVEL": "22,400",
+      "VIX": "14.2"
+    },
+    "generatedAt": "2025-02-20T11:00:00Z",
+    "output": "## Options Strategy — Nifty 50 (Low-Vol Regime)\n\n### Volatility Surface Snapshot\n| Expiry | ATM IV | 5% OTM Put IV | 5% OTM Call IV | Skew |\n|---|---|---|---|---|\n| Weekly (5 days) | 12.8% | 15.2% | 11.4% | -3.8 |\n| Monthly (25 days) | 14.2% | 17.8% | 12.6% | -5.2 |\n| Quarterly (85 days) | 15.8% | 19.4% | 14.2% | -5.2 |\n\n### Strategy Recommendations (VIX at 14.2 — Low)\n| Strategy | Setup | Max Profit | Max Loss | Breakeven |\n|---|---|---|---|---|\n| Long straddle (bet on vol expansion) | Buy 22400 CE + PE (₹380) | Unlimited | ₹380 (premium) | 22,020 / 22,780 |\n| Bull call spread | Buy 22400 CE, Sell 22800 CE (₹85) | ₹315 | ₹85 | 22,485 |\n| Iron condor (range-bound) | Sell 21800/22000 PS, 22800/23000 CS (₹120) | ₹120 | ₹80 | 21,880-22,920 |\n| Protective collar | Long Nifty + Buy 21800 PE, Sell 23000 CE (₹15) | Capped at 23,000 | Floor at 21,800 | ₹15 cost |\n\n### Historical VIX Regime Analysis\n| VIX Range | % of Time (5yr) | Avg Nifty 30-Day Return | Best Strategy |\n|---|---|---|---|\n| <12 (ultra-low) | 18% | +1.8% | Long straddle (vol mean-reversion) |\n| 12-16 (low) | 42% | +1.2% | Bull spread / Iron condor |\n| 16-22 (moderate) | 28% | +0.4% | Protective collar |\n| >22 (high) | 12% | -2.1% | Short straddle (sell vol) |\n\n### Current Regime: VIX 14.2 → Favour Long Volatility\n- VIX below 15 has historically mean-reverted to 16-18 within 30 days (72% of the time)\n- Recommendation: Long straddle with 45-DTE expiry, targeting VIX expansion to 18+"
+  },
+  {
+    "id": "ex-74",
+    "promptTitle": "Direct Lending & Private Credit Fund Design",
+    "domain": "Private Equity & Venture Capital",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "FUND SIZE": "$800M",
+      "STRATEGY": "Senior secured direct lending",
+      "TARGET YIELD": "10-12%"
+    },
+    "generatedAt": "2025-02-19T08:00:00Z",
+    "output": "## Private Credit Fund Design — $800M Direct Lending\n\n### Fund Parameters\n| Parameter | Specification |\n|---|---|\n| Fund size | $800M (hard cap $1B) |\n| Strategy | Senior secured first lien |\n| Target companies | EBITDA $20-80M, US mid-market |\n| Loan size | $30-75M per borrower |\n| Portfolio concentration | Max 4% single name, 20% sector |\n| Leverage (fund level) | 1.0x subscription facility |\n| Target net yield | 10-12% (current + PIK + OID) |\n\n### Expected Portfolio Construction\n| Sector | Allocation | Avg Loan Size | Spread | LTV |\n|---|---|---|---|---|\n| Healthcare services | 20% | $45M | SOFR+550 | 48% |\n| Business services | 18% | $40M | SOFR+500 | 52% |\n| Software / tech-enabled | 22% | $55M | SOFR+475 | 45% |\n| Industrial / manufacturing | 15% | $50M | SOFR+525 | 50% |\n| Consumer / food & bev | 12% | $35M | SOFR+575 | 55% |\n| Financial services | 8% | $40M | SOFR+450 | 42% |\n| Other | 5% | $30M | SOFR+500 | 50% |\n\n### Return Attribution\n| Component | Contribution |\n|---|---|\n| Base rate (SOFR) | 4.80% |\n| Credit spread (avg) | 5.25% |\n| OID amortisation | 0.45% |\n| PIK component | 0.75% |\n| Upfront fees (amortised) | 0.35% |\n| **Gross yield** | **11.60%** |\n| Management fee | -1.25% |\n| Credit losses (expected) | -0.50% |\n| **Net yield to LPs** | **9.85%** |\n\n### Downside Protection\n| Protection Layer | Coverage |\n|---|---|\n| First lien security interest | All assets |\n| Financial covenants | Leverage (5.5x), FCCR (1.15x) |\n| Equity cushion (avg LTV 48%) | 52% subordination |\n| Sponsor commitment | Minimum 35% equity contribution |"
+  },
+  {
+    "id": "ex-75",
+    "promptTitle": "Housing Affordability & Real Estate Cycle Analysis",
+    "domain": "Economics & Macroeconomic Analysis",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "MARKET": "Indian Tier-1 Cities",
+      "PRICE-TO-INCOME RATIO": "8.2x",
+      "MORTGAGE RATE": "8.5%"
+    },
+    "generatedAt": "2025-02-18T12:00:00Z",
+    "output": "## Housing Affordability Analysis — Indian Tier-1 Cities\n\n### Affordability Dashboard\n| City | Avg Home Price (₹Cr) | Avg HH Income (₹L/yr) | Price/Income | EMI/Income | Affordability |\n|---|---|---|---|---|---|\n| Mumbai | 2.85 | 18.4 | 15.5x | 62% | UNAFFORDABLE |\n| Delhi NCR | 1.45 | 14.8 | 9.8x | 42% | STRETCHED |\n| Bangalore | 1.20 | 16.2 | 7.4x | 35% | MODERATE |\n| Hyderabad | 0.95 | 12.8 | 7.4x | 34% | MODERATE |\n| Pune | 0.88 | 11.4 | 7.7x | 36% | MODERATE |\n| Chennai | 0.92 | 11.8 | 7.8x | 37% | MODERATE |\n| **National avg** | **1.38** | **14.2** | **9.7x** | **42%** | **STRETCHED** |\n\n### Interest Rate Sensitivity\n| Mortgage Rate | EMI (₹1Cr, 20yr) | Affordable Home Price | Change |\n|---|---|---|---|\n| 7.5% | ₹80,462 | ₹1.24Cr | Baseline |\n| 8.0% | ₹83,644 | ₹1.19Cr | -4% |\n| 8.5% (current) | ₹86,782 | ₹1.15Cr | -7% |\n| 9.0% | ₹89,884 | ₹1.11Cr | -10% |\n| 9.5% | ₹92,952 | ₹1.07Cr | -14% |\n\n### Real Estate Cycle Position (2025)\n| Phase | Indicator | Current Status |\n|---|---|---|\n| Inventory months (unsold) | 18 months (down from 42 in 2020) | HEALTHY |\n| New launches vs. absorption | 1.05x ratio | BALANCED |\n| Price growth (real, inflation-adj) | +3.2% YoY | EARLY EXPANSION |\n| Developer leverage (avg D/E) | 0.6x (down from 1.4x in 2019) | DELEVERAGED |\n| **Cycle assessment** | | **Mid-cycle expansion** |"
+  },
+  {
+    "id": "ex-76",
+    "promptTitle": "OPEX Benchmarking & Operational Efficiency Framework",
+    "domain": "FP&A & Budgeting",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COMPANY NAME": "HDFC Life Insurance",
+      "OPEX RATIO": "14.8%",
+      "PEER BENCHMARK": "12.2%"
+    },
+    "generatedAt": "2025-02-17T14:00:00Z",
+    "output": "## OPEX Benchmarking — HDFC Life Insurance\n\n### Cost Ratio Comparison\n| Metric | HDFC Life | SBI Life | ICICI Pru | Max Life | Industry Avg |\n|---|---|---|---|---|---|\n| Total OPEX ratio | 14.8% | 11.2% | 12.8% | 15.4% | 13.4% |\n| Commission ratio | 5.2% | 4.8% | 5.6% | 6.1% | 5.4% |\n| Employee cost ratio | 4.8% | 3.2% | 3.8% | 4.6% | 4.1% |\n| IT & digital spend | 1.8% | 1.4% | 1.6% | 1.2% | 1.5% |\n| Other operating | 3.0% | 1.8% | 1.8% | 3.5% | 2.4% |\n\n### Gap Analysis — HDFC Life vs. Best-in-Class (SBI Life)\n| Cost Line | HDFC Life (₹Cr) | SBI Life Equivalent | Gap (₹Cr) | Root Cause |\n|---|---|---|---|---|\n| Employee costs | 2,880 | 1,920 | 960 | Higher branch density, premium comp |\n| Commission | 3,120 | 2,880 | 240 | Agency channel mix higher |\n| Other operating | 1,800 | 1,080 | 720 | Legacy IT, manual processes |\n| **Total gap** | | | **1,920** | **260bps OPEX ratio reduction potential** |\n\n### Efficiency Improvement Roadmap\n| Initiative | Savings (₹Cr/yr) | OPEX Ratio Impact | Timeline |\n|---|---|---|---|\n| Branch rationalisation (close 80 of 420) | ₹320 | -0.5pp | 12 months |\n| Digital underwriting (reduce ops FTEs 25%) | ₹280 | -0.5pp | 18 months |\n| Agency commission restructuring | ₹180 | -0.3pp | 6 months |\n| Cloud migration (infra cost reduction) | ₹120 | -0.2pp | 24 months |\n| Process automation (RPA for claims, policy) | ₹160 | -0.3pp | 12 months |\n| **Total savings** | **₹1,060** | **-1.8pp** | **Target: 13.0%** |"
+  },
+  {
+    "id": "ex-77",
+    "promptTitle": "Circular Economy & Reverse Logistics Business Model",
+    "domain": "Corporate Strategy & Growth",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "COMPANY NAME": "H&M Group",
+      "FOCUS": "Textile recycling & resale",
+      "TARGET": "100% circular by 2030"
+    },
+    "generatedAt": "2025-02-16T10:00:00Z",
+    "output": "## Circular Economy Strategy — H&M Group\n\n### Current Linear vs. Circular Metrics\n| Metric | Current (2024) | 2027 Target | 2030 Target |\n|---|---|---|---|\n| Recycled/sustainable materials | 32% | 55% | 100% |\n| Garment collection (tonnes/yr) | 18,800 | 35,000 | 60,000 |\n| Resale revenue (% of total) | 1.2% | 5% | 12% |\n| Textile-to-textile recycling rate | 8% | 25% | 50% |\n| Water usage per garment (litres) | 2,400 | 1,600 | 800 |\n\n### Revenue Model — Circular Streams\n| Stream | FY24 Revenue | FY27E | FY30E | Margin |\n|---|---|---|---|---|\n| Core retail (linear) | SEK 224B | SEK 215B | SEK 195B | 9% |\n| H&M Pre-Owned (resale) | SEK 2.7B | SEK 12B | SEK 32B | 18% |\n| Rental / subscription | SEK 0.4B | SEK 3B | SEK 10B | 22% |\n| Recycled fibre sales (B2B) | SEK 0.8B | SEK 4B | SEK 12B | 35% |\n| Repair & alteration services | SEK 0.2B | SEK 1.5B | SEK 5B | 40% |\n| **Total** | **SEK 228B** | **SEK 236B** | **SEK 254B** | **12%** |\n\n### Investment Requirements\n| Initiative | CapEx (SEK B) | Annual OpEx | Payback |\n|---|---|---|---|\n| Fibre-to-fibre recycling plants (3) | 8.5 | 1.2 | 6 years |\n| Resale platform & logistics | 3.2 | 0.8 | 3 years |\n| Garment collection infrastructure | 1.8 | 0.4 | 4 years |\n| Sustainable material R&D | 2.4 | 0.6 | 5 years |\n| **Total** | **15.9** | **3.0** | **4.5 yr avg** |"
+  },
+  {
+    "id": "ex-78",
+    "promptTitle": "Regulatory Capital & Basel III Impact Assessment",
+    "domain": "Investment Banking & Equity Research",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "BANK": "State Bank of India",
+      "CET1 RATIO": "10.2%",
+      "REGULATION": "Basel III endgame"
+    },
+    "generatedAt": "2025-02-15T09:00:00Z",
+    "output": "## Basel III Impact — State Bank of India\n\n### Current Capital Position\n| Ratio | SBI (Actual) | RBI Minimum | Buffer | Peer Median |\n|---|---|---|---|---|\n| CET1 | 10.2% | 8.0% | +220bps | 12.8% |\n| Tier 1 | 11.8% | 9.5% | +230bps | 14.2% |\n| Total CAR | 14.1% | 11.5% | +260bps | 16.5% |\n| Leverage ratio | 5.8% | 4.0% | +180bps | 6.2% |\n| LCR | 142% | 100% | +42pp | 138% |\n\n### Basel III Endgame Impact Assessment\n| Component | Current RWA (₹L Cr) | Post-Basel III RWA | Change | CET1 Impact |\n|---|---|---|---|---|\n| Credit risk (SA approach) | 28.4 | 30.8 | +8.5% | -80bps |\n| Market risk (FRTB) | 1.2 | 1.8 | +50% | -15bps |\n| Operational risk (BIA→SMA) | 2.8 | 3.4 | +21% | -18bps |\n| CVA risk | 0.4 | 0.7 | +75% | -8bps |\n| **Total RWA** | **32.8** | **36.7** | **+11.9%** | **-121bps** |\n| **Adjusted CET1** | **10.2%** | | | **9.0%** |\n\n### Capital Remediation Options\n| Option | Capital Raised/Freed | CET1 Uplift | Feasibility |\n|---|---|---|---|\n| Retained earnings (FY26-27) | ₹48,000Cr | +130bps | HIGH (organic) |\n| AT1 bond issuance | ₹15,000Cr | +40bps (Tier 1) | HIGH |\n| RWA optimisation (securitisation) | ₹22,000Cr freed | +60bps | MEDIUM |\n| Dividend reduction (80%→50% payout) | ₹8,000Cr retained | +22bps | MEDIUM |\n| QIP (equity raise) | ₹20,000Cr | +55bps | LOW (dilutive) |"
+  },
+  {
+    "id": "ex-79",
+    "promptTitle": "Crypto Regulation & Digital Asset Policy Framework",
+    "domain": "Economics & Macroeconomic Analysis",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "JURISDICTION": "India",
+      "CURRENT TAX": "30% flat + 1% TDS",
+      "REGULATORY BODY": "RBI + SEBI"
+    },
+    "generatedAt": "2025-02-14T12:00:00Z",
+    "output": "## Digital Asset Regulation — India Policy Framework\n\n### Current Regulatory Landscape\n| Aspect | Status | Authority | Impact |\n|---|---|---|---|\n| Taxation (Section 115BBH) | 30% flat tax, no loss offset | CBDT / Income Tax | NEGATIVE (punitive) |\n| TDS on transfers | 1% on all transactions | CBDT | NEGATIVE (liquidity drain) |\n| CBDC (e-Rupee) | Pilot phase — 5M users | RBI | NEUTRAL |\n| Exchange licensing | No framework — self-regulation | None (proposed: SEBI) | UNCERTAIN |\n| Stablecoin regulation | Prohibited (rupee-backed) | RBI | RESTRICTIVE |\n| DeFi / DAO classification | Unaddressed | None | GREY AREA |\n\n### Proposed Reform Framework (Industry Recommendation)\n| Reform | Current | Proposed | Revenue Impact |\n|---|---|---|---|\n| Tax rate | 30% flat | 15% (short-term), 10% (long-term >1yr) | -₹800Cr but +3x volume |\n| TDS rate | 1% | 0.01% (or reporting-only) | Neutral (better compliance) |\n| Loss offset | Not allowed | Allowed within asset class | -₹200Cr |\n| Exchange licensing | None | SEBI-licensed (annual fee ₹5Cr) | +₹150Cr fees |\n| Stablecoin | Banned | Permitted (rupee-backed, RBI-approved) | +₹500Cr activity |\n\n### Global Comparison\n| Country | Tax Rate | Exchange Licensing | Stablecoin | Innovation Score |\n|---|---|---|---|---|\n| USA | 15-37% (capital gains) | SEC/CFTC registered | Permitted (proposed rules) | 7/10 |\n| EU (MiCA) | National rates | Licensed (MiCA) | EUR-backed permitted | 8/10 |\n| Singapore | 0% (no CGT) | MAS licensed | Permitted | 9/10 |\n| India | 30% flat | None | Banned | 3/10 |\n| UAE | 0% (Free Zone) | VARA licensed | Permitted | 9/10 |"
+  },
+  {
+    "id": "ex-80",
+    "promptTitle": "Insurance Reserving & Actuarial Analysis",
+    "domain": "FP&A & Budgeting",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "COMPANY NAME": "ICICI Lombard",
+      "LOB": "Motor + Health",
+      "COMBINED RATIO": "103.5%"
+    },
+    "generatedAt": "2025-02-13T14:00:00Z",
+    "output": "## Actuarial Reserve Analysis — ICICI Lombard\n\n### Combined Ratio Decomposition\n| Component | Motor | Health | Fire | Total |\n|---|---|---|---|---|\n| Loss ratio | 72.5% | 68.2% | 42.8% | 68.4% |\n| Commission ratio | 12.8% | 8.5% | 22.4% | 12.6% |\n| Expense ratio | 24.2% | 21.8% | 18.6% | 22.5% |\n| **Combined ratio** | **109.5%** | **98.5%** | **83.8%** | **103.5%** |\n\n### Reserve Development Triangle (Motor TP — ₹Cr)\n| Accident Year | 12m | 24m | 36m | 48m | Ultimate |\n|---|---|---|---|---|---|\n| FY21 | 2,400 | 2,680 | 2,820 | 2,890 | 2,920 |\n| FY22 | 2,600 | 2,920 | 3,080 | — | 3,140 |\n| FY23 | 2,850 | 3,210 | — | — | 3,420 |\n| FY24 | 3,100 | — | — | — | 3,680 |\n\n### Reserve Adequacy Assessment\n| LOB | Held Reserve (₹Cr) | Actuarial Best Estimate | Margin | Adequacy |\n|---|---|---|---|---|\n| Motor OD | 1,480 | 1,380 | +₹100Cr | ADEQUATE |\n| Motor TP | 8,200 | 8,650 | -₹450Cr | UNDER-RESERVED |\n| Health | 2,400 | 2,280 | +₹120Cr | ADEQUATE |\n| Fire & engineering | 1,200 | 1,050 | +₹150Cr | OVER-RESERVED |\n| **Total** | **13,280** | **13,360** | **-₹80Cr** | **MARGINALLY UNDER** |\n\n### Recommendations\n1. **Motor TP**: Increase reserves by ₹450Cr — MACT award inflation running 12% vs. 8% assumed\n2. **Fire**: Release ₹100Cr of redundant reserves to improve combined ratio by 40bps\n3. **Health**: Monitor post-COVID claims normalisation — current reserves adequate\n4. **Target combined ratio**: 101.5% (from 103.5%) via motor pricing + expense efficiency"
+  },
+  {
+    "id": "ex-81",
+    "promptTitle": "Data Moat & Proprietary Dataset Valuation",
+    "domain": "Corporate Strategy & Growth",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "COMPANY NAME": "Bloomberg LP",
+      "DATASET": "Terminal data + analytics",
+      "SUBSCRIBERS": "325,000 terminals"
+    },
+    "generatedAt": "2025-02-12T09:00:00Z",
+    "output": "## Data Moat Analysis — Bloomberg LP\n\n### Moat Strength Assessment\n| Moat Dimension | Score | Evidence |\n|---|---|---|\n| Data breadth (asset classes) | 10/10 | 50M+ instruments, 120+ exchanges, 300+ contributors |\n| Data timeliness | 9/10 | Sub-millisecond feeds, 15-year latency advantage |\n| Network effects | 8/10 | MSG system — 325K users create communication lock-in |\n| Switching costs | 9/10 | Terminal muscle memory, Bloomberg keyboard shortcuts, workflow integration |\n| Proprietary analytics | 8/10 | PORT, MARS, FLDS — custom models with 20-year datasets |\n| Brand / trust | 9/10 | Industry standard — \"put it on the Bloomberg\" |\n\n### Revenue Decomposition\n| Segment | Revenue ($B) | % Total | Growth | Margin |\n|---|---|---|---|---|\n| Terminal subscriptions | $7.8 | 62% | +4% | 68% |\n| Enterprise data feeds | $2.4 | 19% | +12% | 72% |\n| Trading solutions (EMSX, TOMS) | $1.2 | 10% | +8% | 55% |\n| Bloomberg Intelligence | $0.6 | 5% | +18% | 60% |\n| Bloomberg New Energy Finance | $0.5 | 4% | +22% | 58% |\n| **Total** | **$12.5B** | **100%** | **+7%** | **65%** |\n\n### Competitive Threat Assessment\n| Competitor | Threat Level | Vulnerability | Bloomberg Defence |\n|---|---|---|---|\n| Refinitiv (LSEG) | MEDIUM | Price competition (20% cheaper) | Workflow lock-in, MSG network |\n| FactSet | LOW-MEDIUM | Buy-side analytics depth | Broader asset class coverage |\n| AI/LLM disruption | MEDIUM | Natural language data queries | Bloomberg GPT — first-mover in financial LLM |\n| Alternative data startups | LOW | Niche datasets (satellite, web scraping) | Acquiring/partnering (Quandl model) |"
+  },
+  {
+    "id": "ex-82",
+    "promptTitle": "Succession Planning & Family Business Transition",
+    "domain": "Mergers & Acquisitions",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COMPANY NAME": "Godrej Group",
+      "GENERATION": "3rd → 4th transition",
+      "GROUP REVENUE": "₹1,20,000Cr"
+    },
+    "generatedAt": "2025-02-11T14:00:00Z",
+    "output": "## Succession & Business Transition — Godrej Group\n\n### Transition Options Assessment\n| Option | Complexity | Tax Efficiency | Family Control | Value Unlock |\n|---|---|---|---|---|\n| Demerger (split by business vertical) | HIGH | MEDIUM | Maintained | HIGH |\n| Family trust restructuring | MEDIUM | HIGH | Maintained | MEDIUM |\n| Partial IPO of unlisted cos | MEDIUM | MEDIUM | Diluted (70-80%) | HIGH |\n| Professional CEO + family board | LOW | N/A | Maintained | MEDIUM |\n| Strategic sale of non-core | LOW | LOW | N/A for sold units | HIGH |\n\n### Recommended Split Architecture\n| Entity | Revenue (₹Cr) | Assigned To | Rationale |\n|---|---|---|---|\n| Godrej Consumer Products | 15,200 | Branch A | Listed, FMCG expertise |\n| Godrej Properties | 8,400 | Branch B | Listed, real estate focus |\n| Godrej Industries + Agrovet | 18,600 | Branch A | Chemical + agri synergies |\n| Godrej & Boyce (unlisted) | 14,800 | Branch B | Manufacturing, engineering |\n| Land bank (Vikhroli 3,400 acres) | Est. ₹50,000Cr | Shared trust / JDA | Highest value asset |\n\n### Governance Framework (Post-Transition)\n| Element | Design |\n|---|---|\n| Family council | Quarterly meetings, all branches represented |\n| Brand licensing | Godrej trademark held by shared entity, royalty 0.5% |\n| Non-compete | 5-year sector restrictions between branches |\n| Dispute resolution | 3-member arbitration panel (1 per branch + 1 independent) |\n| Philanthropy | Godrej Foundation continues as shared commitment (2% of profits) |\n\n### Tax & Legal Considerations\n| Issue | Treatment |\n|---|---|\n| NCLT approval (demerger) | Required — 12-18 month timeline |\n| Capital gains (land valuation) | Section 47(vii) — exempt if scheme of arrangement |\n| Stamp duty (property transfer) | State-specific — Maharashtra: 5% on market value |\n| SEBI LODR compliance | Both listed entities maintain min 25% public float |"
+  },
+  {
+    "id": "ex-83",
+    "promptTitle": "Shareholder Activism & Proxy Advisory Analysis",
+    "domain": "Investment Banking & Equity Research",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "COMPANY": "Vedanta Ltd",
+      "ISSUE": "Delisting attempt + minority squeeze",
+      "PROXY ADVISOR": "InGovern / IiAS"
+    },
+    "generatedAt": "2025-02-10T11:00:00Z",
+    "output": "## Proxy Advisory & Shareholder Rights — Vedanta Ltd\n\n### Delisting Attempt Timeline\n| Date | Event | Outcome |\n|---|---|---|\n| Oct 2020 | First delisting bid at ₹87.5/share | Failed (90% threshold not met) |\n| Jan 2024 | Demerger into 6 entities announced | Pending NCLT/SEBI approval |\n| Mar 2025 | Second delisting speculation | Floor price: ₹385 (RBV method) |\n\n### Proxy Advisor Positions\n| Advisor | Recommendation | Key Concern |\n|---|---|---|\n| InGovern | AGAINST delisting at ₹385 | Fair value estimate: ₹520-580 (SOTP) |\n| IiAS | AGAINST | Related-party transactions with Vedanta Resources (parent) |\n| Glass Lewis | AGAINST | Governance concerns, promoter pledge (98% of holding) |\n| ISS | CONDITIONAL | Only above ₹500 with independent valuation |\n\n### Minority Shareholder Concerns\n| Issue | Severity | Evidence |\n|---|---|---|\n| Related-party transactions | HIGH | ₹18,400Cr inter-company loans to Vedanta Resources |\n| Dividend payout vs. deleveraging | HIGH | 85% payout while parent has $6.8B debt |\n| Promoter pledge | CRITICAL | 98.6% of promoter shares pledged |\n| Board independence | MEDIUM | 4 of 12 directors linked to promoter |\n\n### Fair Value Assessment (Independent)\n| Methodology | Value per Share |\n|---|---|\n| SOTP (Zinc India + Oil + Aluminium + Copper) | ₹548 |\n| DCF (consolidated) | ₹512 |\n| Replacement cost (mining assets) | ₹620 |\n| **Fair value range** | **₹512-620** |\n| **Delisting floor price** | **₹385 (-29% to -38% discount)** |"
+  },
+  {
+    "id": "ex-84",
+    "promptTitle": "Climate Risk Pricing & Carbon Credit Portfolio",
+    "domain": "Private Equity & Venture Capital",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "FUND TYPE": "Carbon Credit Investment Fund",
+      "AUM": "$300M",
+      "STRATEGY": "Compliance + voluntary credits"
+    },
+    "generatedAt": "2025-02-09T08:00:00Z",
+    "output": "## Carbon Credit Investment Fund — $300M Strategy\n\n### Market Overview\n| Market | Size (2024) | 2030E | CAGR | Price Range |\n|---|---|---|---|---|\n| EU ETS (compliance) | €40B | €85B | +13% | €55-90/tCO2 |\n| California Cap-and-Trade | $18B | $32B | +10% | $28-42/tCO2 |\n| Voluntary Carbon Market | $2.8B | $15B | +32% | $5-150/tCO2 |\n| China ETS (nascent) | $3.2B | $22B | +38% | $8-15/tCO2 |\n\n### Portfolio Allocation\n| Strategy | Allocation | Target Return | Risk |\n|---|---|---|---|\n| EU ETS allowances (EUA futures) | 35% ($105M) | 12-15% p.a. | Regulatory (cap adjustment) |\n| Nature-based removal credits (REDD+) | 20% ($60M) | 18-25% p.a. | Additionality/permanence |\n| Tech-based removal (DAC, biochar) | 15% ($45M) | 25-40% p.a. | Technology scale risk |\n| Article 6 bilateral credits | 15% ($45M) | 15-20% p.a. | Sovereign counterparty |\n| California offsets | 10% ($30M) | 8-12% p.a. | State policy changes |\n| Cash / hedges | 5% ($15M) | 4% | — |\n\n### Price Forecast — EU ETS\n| Year | Price (€/tCO2) | Driver |\n|---|---|---|\n| 2024 | €62 | REPowerEU, MSR absorption |\n| 2026E | €78 | Cap reduction (-4.3%/yr) |\n| 2028E | €95 | CBAM full implementation |\n| 2030E | €120 | 55% emission reduction target binding |\n\n### Quality Assessment Framework (Voluntary Credits)\n| Criteria | Weight | Scoring |\n|---|---|---|\n| Registry (Gold Standard, Verra) | 20% | Gold Standard = 10, Verra = 8, Other = 5 |\n| Additionality proof | 25% | Robust baseline = 10, Weak = 3 |\n| Permanence (100yr+) | 20% | Tech-based = 10, Forestry = 6 |\n| Co-benefits (SDGs) | 15% | 3+ SDGs = 10, 1 SDG = 5 |\n| Vintage (<2 years) | 10% | Current = 10, 3yr+ = 4 |\n| Third-party verification | 10% | Annual audit = 10, None = 0 |"
+  },
+  {
+    "id": "ex-85",
+    "promptTitle": "Remittance Flows & Migration Economics",
+    "domain": "Economics & Macroeconomic Analysis",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COUNTRY": "India (largest recipient)",
+      "ANNUAL INFLOWS": "$115B",
+      "TOP CORRIDORS": "UAE, US, Saudi Arabia"
+    },
+    "generatedAt": "2025-02-08T10:00:00Z",
+    "output": "## Remittance Economics — India ($115B Inflows)\n\n### Corridor Analysis\n| Corridor | Volume ($B) | % Share | Avg Cost | Avg Transfer Size |\n|---|---|---|---|---|\n| UAE → India | $28.4 | 24.7% | 2.8% | $520 |\n| USA → India | $24.8 | 21.6% | 3.2% | $1,850 |\n| Saudi Arabia → India | $16.2 | 14.1% | 3.5% | $440 |\n| UK → India | $8.6 | 7.5% | 4.1% | $1,200 |\n| Canada → India | $6.4 | 5.6% | 3.8% | $980 |\n| Others | $30.6 | 26.5% | 4.2% | $680 |\n| **Total** | **$115.0** | **100%** | **3.4%** | **$780** |\n\n### Macroeconomic Impact\n| Indicator | Without Remittances | With Remittances | Delta |\n|---|---|---|---|\n| Current account / GDP | -4.2% | -1.2% | +3.0pp |\n| FX reserves (months) | 5.8 | 10.2 | +4.4 months |\n| Rural household income (recipient HH) | ₹1,80,000 | ₹3,20,000 | +78% |\n| State GDP contribution (Kerala) | — | 18% of state GDP | Critical |\n\n### Disruption Trends\n| Trend | Impact | Timeline |\n|---|---|---|\n| UPI international linkages (India-Singapore) | Cost → 0.5% (from 3.4%) | 2025-26 |\n| CBDC cross-border (Project mBridge) | Settlement: T+0 (from T+2) | 2026-28 |\n| Stablecoin remittances (USDT/USDC) | Informal channel growth +40% | Ongoing |\n| GCC worker permit reforms | UAE golden visa → remittance stability | 2024-26 |"
+  },
+  {
+    "id": "ex-86",
+    "promptTitle": "Shared Services Centre Design & Cost Benchmarking",
+    "domain": "FP&A & Budgeting",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "COMPANY NAME": "Siemens India",
+      "FUNCTIONS": "Finance, HR, Procurement",
+      "HEADCOUNT": "2,400 SSC employees"
+    },
+    "generatedAt": "2025-02-07T14:00:00Z",
+    "output": "## Shared Services Centre Optimisation — Siemens India\n\n### Current SSC Scope & Maturity\n| Function | Processes | FTEs | Maturity Level | Cost/Transaction |\n|---|---|---|---|---|\n| Finance (AP, AR, GL) | 18 processes | 820 | Level 3 (standardised) | ₹185 |\n| HR (payroll, benefits, recruit) | 12 processes | 640 | Level 2 (centralised) | ₹420 |\n| Procurement (P2P, vendor mgmt) | 8 processes | 480 | Level 2 (centralised) | ₹580 |\n| IT service desk | 6 processes | 320 | Level 3 (standardised) | ₹290 |\n| Legal & compliance | 4 processes | 140 | Level 1 (basic) | ₹1,200 |\n| **Total** | **48 processes** | **2,400** | | |\n\n### Benchmarking vs. Best-in-Class GBS\n| Metric | Siemens SSC | Top Quartile GBS | Gap |\n|---|---|---|---|\n| Cost per FTE served | ₹2.8L | ₹1.9L | 32% higher |\n| Transactions per FTE | 4,200 | 6,800 | 38% lower productivity |\n| First-contact resolution | 68% | 85% | -17pp |\n| Process automation (% RPA) | 22% | 55% | -33pp |\n| Employee satisfaction (CSAT) | 3.4/5 | 4.2/5 | -0.8 |\n\n### Transformation Roadmap\n| Initiative | FTE Impact | Cost Saving (₹Cr/yr) | Timeline |\n|---|---|---|---|\n| RPA deployment (60 bots) | -280 FTEs | ₹42 | 12 months |\n| AI-powered HR chatbot | -80 FTEs | ₹12 | 6 months |\n| AP automation (OCR + 3-way match) | -120 FTEs | ₹18 | 9 months |\n| Procurement marketplace (Ariba) | -60 FTEs | ₹9 | 12 months |\n| Lean Six Sigma (process redesign) | -40 FTEs | ₹6 | 6 months |\n| **Total** | **-580 FTEs** | **₹87Cr/yr** | **18 months** |"
+  },
+  {
+    "id": "ex-87",
+    "promptTitle": "Geopolitical Risk Scoring & Country Allocation Model",
+    "domain": "Corporate Strategy & Growth",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "PORTFOLIO": "Emerging Market Fund",
+      "COUNTRIES": "15 EM nations",
+      "RISK FRAMEWORK": "Political + Economic + Security"
+    },
+    "generatedAt": "2025-02-06T10:00:00Z",
+    "output": "## Geopolitical Risk Scoring — EM Fund Country Allocation\n\n### Composite Risk Score (0 = Low Risk, 100 = High Risk)\n| Country | Political | Economic | Security | Regulatory | Composite | Allocation Signal |\n|---|---|---|---|---|---|---|\n| Singapore | 8 | 5 | 3 | 6 | 5.5 | MAX OVERWEIGHT |\n| India | 22 | 18 | 28 | 24 | 23.0 | OVERWEIGHT |\n| Vietnam | 25 | 15 | 12 | 30 | 20.5 | OVERWEIGHT |\n| Brazil | 35 | 32 | 42 | 28 | 34.3 | NEUTRAL |\n| Mexico | 38 | 28 | 52 | 32 | 37.5 | NEUTRAL |\n| South Africa | 45 | 42 | 55 | 35 | 44.3 | UNDERWEIGHT |\n| Turkey | 58 | 65 | 48 | 55 | 56.5 | UNDERWEIGHT |\n| Nigeria | 55 | 62 | 68 | 58 | 60.8 | MINIMAL |\n| Argentina | 62 | 72 | 35 | 68 | 59.3 | MINIMAL |\n\n### Risk-Adjusted Return Optimisation\n| Country | Expected Return | Geopolitical Risk Discount | Risk-Adj Return | Weight |\n|---|---|---|---|---|\n| India | 16.2% | -2.3% | 13.9% | 22% |\n| Vietnam | 15.8% | -2.1% | 13.7% | 15% |\n| Singapore | 9.5% | -0.6% | 8.9% | 12% |\n| Brazil | 14.2% | -3.4% | 10.8% | 10% |\n| Mexico | 13.5% | -3.8% | 9.7% | 10% |\n\n### Early Warning Indicators\n| Indicator | Data Source | Trigger Level |\n|---|---|---|\n| Sovereign CDS spread (5Y) | Bloomberg | >400bps = immediate review |\n| Press freedom index (RSF) | Annual | Drop >10 ranks = governance alert |\n| Capital outflow velocity | Central bank data | >$2B/month = portfolio hedge |\n| Military spending / GDP | SIPRI | >4% = security risk upgrade |"
+  },
+  {
+    "id": "ex-88",
+    "promptTitle": "Insurance-Linked Securities & Cat Bond Pricing",
+    "domain": "Investment Banking & Equity Research",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "PERIL": "US Hurricane (Florida)",
+      "RISK PERIOD": "2025 season",
+      "BOND SIZE": "$500M"
+    },
+    "generatedAt": "2025-02-05T09:00:00Z",
+    "output": "## Cat Bond Pricing — Florida Hurricane $500M\n\n### Bond Structure\n| Parameter | Specification |\n|---|---|\n| Issuer SPV | Atlantic Re Ltd (Cayman) |\n| Sponsor | Citizens Property Insurance |\n| Peril | Named storms — Florida landfall |\n| Trigger | Industry loss index (PCS) |\n| Attachment point | $45B industry loss |\n| Exhaustion point | $65B industry loss |\n| Risk period | Jun 2025 – May 2028 (3 years) |\n| Expected loss | 2.42% per annum |\n| Coupon | T-bills + 8.75% (spread) |\n\n### Pricing Analysis\n| Component | Value |\n|---|---|\n| Risk-free rate (3M T-bill) | 5.15% |\n| Expected loss | 2.42% |\n| Risk load (multiple of EL) | 3.6x |\n| Implied spread | 8.75% |\n| **Total coupon** | **13.90%** |\n| Price at issuance | 100.00 |\n\n### Historical Loss Exceedance\n| Return Period | Industry Loss | Bond Loss | Probability |\n|---|---|---|---|\n| 1-in-10 year | $32B | 0% | 10% |\n| 1-in-25 year | $48B | 15% | 4% |\n| 1-in-50 year | $62B | 85% | 2% |\n| 1-in-100 year | $95B | 100% | 1% |\n| 1-in-250 year | $145B | 100% | 0.4% |\n\n### Investor Return Scenarios\n| Scenario | Probability | Annual Return | 3-Year Total |\n|---|---|---|---|\n| No trigger event | 90.2% | 13.90% | 41.7% |\n| Partial loss (30%) | 5.8% | -16.10% | Loss of $150M |\n| Total loss (100%) | 4.0% | -86.10% | Loss of $500M |"
+  },
+  {
+    "id": "ex-89",
+    "promptTitle": "Sovereign Wealth Fund Asset Allocation Strategy",
+    "domain": "Private Equity & Venture Capital",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "FUND": "Abu Dhabi Investment Authority (ADIA)",
+      "AUM": "$990B",
+      "MANDATE": "Long-term real returns 6%+"
+    },
+    "generatedAt": "2025-02-04T12:00:00Z",
+    "output": "## SWF Asset Allocation — ADIA ($990B)\n\n### Strategic Asset Allocation\n| Asset Class | Target % | Range | AUM ($B) | Return Target |\n|---|---|---|---|---|\n| Public equities (DM) | 32% | 28-36% | $317 | 7-9% |\n| Public equities (EM) | 10% | 8-14% | $99 | 9-12% |\n| Fixed income & sovereign | 15% | 12-18% | $149 | 4-5% |\n| Private equity & VC | 12% | 8-15% | $119 | 14-18% |\n| Real estate (direct) | 10% | 8-12% | $99 | 8-10% |\n| Infrastructure | 8% | 5-10% | $79 | 9-12% |\n| Hedge funds / alternatives | 8% | 5-10% | $79 | 8-12% |\n| Cash & short-term | 5% | 3-8% | $50 | 4-5% |\n\n### Geographic Diversification\n| Region | Current | Target | Rationale |\n|---|---|---|---|\n| North America | 42% | 38% | Reduce US concentration |\n| Europe | 22% | 20% | Stable, lower growth |\n| Asia-Pacific | 18% | 25% | India, Japan, ASEAN growth |\n| Middle East / Africa | 12% | 10% | Home bias reduction |\n| Latin America | 6% | 7% | Brazil / Mexico nearshoring |\n\n### Portfolio Risk Metrics\n| Metric | Current | Target | Action |\n|---|---|---|---|\n| Expected real return | 5.8% | 6.0%+ | Increase PE/infra allocation |\n| Portfolio volatility | 9.2% | 8-10% | Within range |\n| Max drawdown (stress) | -22% | <-25% | Acceptable |\n| Liquidity (% accessible <30 days) | 52% | >45% | Sufficient |\n| Carbon intensity (tCO2/$M invested) | 82 | <60 by 2030 | Climate transition underway |"
+  },
+  {
+    "id": "ex-90",
+    "promptTitle": "Financial Close Acceleration & Month-End Process",
+    "domain": "FP&A & Budgeting",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COMPANY NAME": "Hindustan Unilever",
+      "CURRENT CLOSE": "12 working days",
+      "TARGET": "5 working days"
+    },
+    "generatedAt": "2025-02-03T14:00:00Z",
+    "output": "## Financial Close Acceleration — HUL (12 → 5 Days)\n\n### Current Close Timeline\n| Day | Activity | Owner | Bottleneck |\n|---|---|---|---|\n| D+1-2 | Sub-ledger close (AP, AR, inventory) | SSC team | Manual reconciliations |\n| D+3-4 | Intercompany eliminations (14 entities) | Group accounting | IC mismatches |\n| D+5-6 | Revenue recognition & accruals | Business finance | Sales cut-off disputes |\n| D+7-8 | Cost allocation & overhead absorption | FP&A | Spreadsheet-based allocation |\n| D+9-10 | Management reporting & analysis | FP&A | Report formatting |\n| D+11-12 | Review, adjustments, sign-off | CFO / Controller | Re-work and queries |\n\n### Target Close (5-Day)\n| Day | Activity | Enabler |\n|---|---|---|\n| D+1 | Automated sub-ledger close + continuous accounting | SAP S/4HANA real-time posting |\n| D+2 | IC elimination (auto-match) + revenue accruals | BlackLine IC matching |\n| D+3 | Cost allocation + P&L flash | Anaplan automated allocations |\n| D+4 | Management reporting (auto-generated) | Power BI connected to SAP |\n| D+5 | CFO review + sign-off | Digital approval workflow |\n\n### Investment vs. Savings\n| Investment | Cost (₹Cr) | Annual Savings | Payback |\n|---|---|---|---|\n| BlackLine (reconciliation + IC) | 8.5 | 12.0 | 8.5 months |\n| Anaplan (planning + allocation) | 6.2 | 8.5 | 8.7 months |\n| RPA (45 bots for journal entries) | 3.8 | 5.2 | 8.8 months |\n| Power BI dashboards | 1.2 | 2.0 | 7.2 months |\n| **Total** | **19.7** | **27.7** | **8.5 months** |\n\n### KPI Improvement\n| Metric | Before (12-day) | After (5-day) | Improvement |\n|---|---|---|---|\n| Close cycle (working days) | 12 | 5 | -58% |\n| Manual journal entries | 2,400/month | 800/month | -67% |\n| Reconciliation exceptions | 340/month | 85/month | -75% |\n| FP&A analysis time (% of close) | 15% | 45% | +3x insight time |"
+  },
+  {
+    "id": "ex-91",
+    "promptTitle": "Market Sizing & TAM/SAM/SOM Framework",
+    "domain": "Corporate Strategy & Growth",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "MARKET": "India EV Charging Infrastructure",
+      "HORIZON": "2025-2030"
+    },
+    "generatedAt": "2025-02-02T09:00:00Z",
+    "output": "## TAM/SAM/SOM — India EV Charging\n\n### Market Sizing\n| Tier | Value (2025) | Value (2030E) | CAGR | Methodology |\n|---|---|---|---|---|\n| TAM (all EV infra) | $1.8B | $14.2B | +51% | Top-down: EV fleet × charging needs |\n| SAM (public DC fast) | $620M | $5.8B | +56% | Segment: DC fast >50kW only |\n| SOM (new entrant Y3) | $18M | $290M | — | Bottom-up: 800 chargers × utilisation |\n\n### Assumptions\n| Driver | 2025 | 2030E |\n|---|---|---|\n| EV stock (cumulative) | 3.8M | 18.5M |\n| Public chargers needed | 48,000 | 4,80,000 |\n| Avg utilisation (hrs/day) | 4.2 | 7.8 |\n| Revenue per kWh | ₹18 | ₹14 (scale effect) |"
+  },
+  {
+    "id": "ex-92",
+    "promptTitle": "Reverse Merger & Backdoor Listing Analysis",
+    "domain": "Mergers & Acquisitions",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "PRIVATE CO": "PhonePe",
+      "SHELL TARGET": "Listed NBFC",
+      "VALUATION": "$12B"
+    },
+    "generatedAt": "2025-02-01T14:00:00Z",
+    "output": "## Reverse Merger Feasibility — PhonePe Listing\n\n### Structure Options\n| Route | Timeline | Cost | Regulatory | Control |\n|---|---|---|---|---|\n| Traditional IPO | 12-18 months | 3-4% of issue size | SEBI DRHP | Full |\n| Reverse merger (NBFC shell) | 6-9 months | 1-2% + shell premium | SEBI + RBI NOC | Complex |\n| SPAC (offshore) | 4-6 months | 5-7% (sponsor dilution) | SEC + FEMA | Split |\n| Direct listing (INX) | 3-6 months | 1% | IFSCA | Full |\n\n### Shell Company Selection Criteria\n| Criteria | Requirement | Rationale |\n|---|---|---|\n| Market cap | ₹500-2,000Cr | Small enough for clean takeover |\n| Promoter holding | <40% | Easier share swap negotiation |\n| Debt | Near-zero | No legacy liabilities |\n| SEBI observations | Clean record | No regulatory overhang |\n| Sector | Financial services | Sector alignment for SEBI comfort |\n\n### Valuation Bridge\n| Component | Value |\n|---|---|\n| PhonePe pre-money valuation | $12.0B |\n| Shell company EV | $0.15B |\n| Combined post-merger EV | $12.15B |\n| Share swap ratio | 80:1 (PhonePe : Shell) |\n| PhonePe shareholders ownership | 98.8% |\n| Shell shareholders ownership | 1.2% |"
+  },
+  {
+    "id": "ex-93",
+    "promptTitle": "ETF Flow Analysis & Passive Investment Impact",
+    "domain": "Investment Banking & Equity Research",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "MARKET": "India (NSE)",
+      "ETF AUM": "₹7.2L Cr",
+      "INDEX": "Nifty 50"
+    },
+    "generatedAt": "2025-01-31T11:00:00Z",
+    "output": "## ETF & Passive Flow Impact — Indian Equities\n\n### Passive vs Active AUM Trend\n| Year | Active MF AUM (₹L Cr) | Passive AUM (₹L Cr) | Passive Share | YoY Growth |\n|---|---|---|---|---|\n| 2020 | 24.8 | 2.8 | 10% | — |\n| 2022 | 31.2 | 4.6 | 13% | +28% |\n| 2024 | 42.5 | 7.2 | 14.5% | +24% |\n| 2026E | 52.0 | 12.5 | 19% | +32% |\n| 2028E | 62.0 | 20.0 | 24% | +26% |\n\n### Index Inclusion Impact (Nifty 50 Rebalance)\n| Event | Avg Price Impact | Volume Surge | Persistence |\n|---|---|---|---|\n| Addition to Nifty 50 | +4.2% (T-5 to T+5) | +180% on rebalance day | 60% retained at T+30 |\n| Deletion from Nifty 50 | -3.8% (T-5 to T+5) | +150% on rebalance day | 70% of drop retained |\n| Weight increase >0.5% | +1.8% | +80% | 50% retained |\n\n### Concentration Risk\n| Metric | Current | 5-Year Ago | Concern |\n|---|---|---|---|\n| Top 5 stocks (% of Nifty) | 38.2% | 32.4% | Rising concentration |\n| EPFO + insurance passive | ₹3.8L Cr | ₹1.2L Cr | Price-insensitive flows |\n| Free-float adjusted impact | Higher for mid-caps | — | Liquidity squeeze risk |"
+  },
+  {
+    "id": "ex-94",
+    "promptTitle": "LP Due Diligence & Fund Commitment Framework",
+    "domain": "Private Equity & Venture Capital",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "LP TYPE": "University Endowment ($2B)",
+      "ALLOCATION": "25% to alternatives",
+      "FUND UNDER REVIEW": "India Growth Fund V"
+    },
+    "generatedAt": "2025-01-30T08:00:00Z",
+    "output": "## LP Due Diligence — India Growth Fund V\n\n### Fund Scorecard\n| Criteria | Score | Finding |\n|---|---|---|\n| Track record (Funds I-IV) | 9/10 | Net IRR: 22%, 18%, 25%, 19% — consistent top-quartile |\n| Team stability | 8/10 | 3 of 4 founding partners retained, 1 planned succession |\n| Strategy consistency | 9/10 | Growth equity focus maintained, no style drift |\n| Fund terms | 7/10 | 2/20 standard, but no fee discount for re-ups |\n| Operational DD | 8/10 | Institutional-grade reporting, Big 4 auditor |\n| ESG integration | 7/10 | PRI signatory, but no dedicated ESG officer |\n| Reference checks (8 conducted) | 8/10 | Strong co-investor and portfolio company feedback |\n| **Overall score** | **8.0/10** | **Recommend: COMMIT** |\n\n### Attribution Analysis (Fund III — Realised)\n| Company | Entry | Exit | MOIC | IRR | Value Creation Driver |\n|---|---|---|---|---|---|\n| FinTechCo | $28M | $142M | 5.1x | 38% | Revenue growth (45% CAGR) |\n| HealthCo | $35M | $98M | 2.8x | 24% | Margin expansion (+1200bps) |\n| SaaSCo | $22M | $88M | 4.0x | 32% | Multiple expansion (8x→14x) |\n| RetailCo | $40M | $52M | 1.3x | 6% | Underperformer — COVID impact |\n| LogiCo | $18M | $0 | 0.0x | -100% | Write-off — regulatory issue |\n\n### Commitment Recommendation\n| Parameter | Recommendation |\n|---|---|\n| Commitment size | $30M (1.5% of endowment) |\n| Co-investment rights | Negotiate $15M co-invest allocation |\n| Advisory board seat | Request (given $30M commitment) |\n| Fee terms | Push for 1.5/20 or 2/20 with 6% hurdle |"
+  },
+  {
+    "id": "ex-95",
+    "promptTitle": "Shadow Banking & NBFC Systemic Risk Monitor",
+    "domain": "Economics & Macroeconomic Analysis",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "SYSTEM": "Indian NBFC sector",
+      "TOTAL ASSETS": "₹54L Cr",
+      "SYSTEMIC RISK INDICATOR": "RBI FSR 2024"
+    },
+    "generatedAt": "2025-01-29T12:00:00Z",
+    "output": "## NBFC Systemic Risk Dashboard — India\n\n### Sector Health Metrics\n| Indicator | Current | 1-Yr Ago | Threshold | Signal |\n|---|---|---|---|---|\n| NBFC credit growth | 16.8% | 14.2% | >20% = overheating | AMBER |\n| GNPA ratio (sector) | 4.2% | 5.8% | >6% = stress | GREEN |\n| Capital adequacy (avg) | 22.4% | 21.8% | >15% required | GREEN |\n| ALM mismatch (<1yr) | 18% | 22% | >25% = liquidity risk | GREEN |\n| Bank borrowing dependence | 42% | 38% | >50% = contagion risk | AMBER |\n| Interconnectedness (bank exposure) | ₹14.8L Cr | ₹12.2L Cr | — | RISING |\n\n### Top 10 NBFCs — Risk Ranking\n| NBFC | Assets (₹Cr) | GNPA | CAR | ALM Gap | Risk Score |\n|---|---|---|---|---|---|\n| Bajaj Finance | 3,10,000 | 0.91% | 24.2% | 8% | LOW |\n| HDFC Ltd (merged) | — | — | — | — | N/A |\n| Shriram Finance | 2,28,000 | 5.4% | 20.1% | 15% | MEDIUM |\n| Muthoot Finance | 78,000 | 2.8% | 28.5% | 5% | LOW |\n| Piramal Enterprises | 68,000 | 3.2% | 22.8% | 22% | MEDIUM |\n\n### Contagion Scenario Analysis\n| Trigger | Probability | Systemic Impact | RBI Response |\n|---|---|---|---|\n| Large NBFC default (>₹50K Cr) | 5% | Bank NPAs +80bps, credit freeze | TLTRO, liquidity window |\n| Housing finance stress | 10% | Real estate correction -15% | Forbearance, restructuring |\n| Microfinance over-leverage | 15% | Rural credit crunch | Sector-specific guidelines |\n| Wholesale NBFC funding crisis | 8% | CP/NCD market freeze | Special liquidity facility |"
+  },
+  {
+    "id": "ex-96",
+    "promptTitle": "Dividend Policy & Shareholder Return Optimisation",
+    "domain": "FP&A & Budgeting",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COMPANY NAME": "Coal India Ltd",
+      "PAYOUT RATIO": "85%",
+      "DIVIDEND YIELD": "6.8%"
+    },
+    "generatedAt": "2025-01-28T14:00:00Z",
+    "output": "## Shareholder Return Policy — Coal India Ltd\n\n### Current Return Profile\n| Metric | FY24 | FY25E | Peer Median |\n|---|---|---|---|\n| Dividend per share (₹) | ₹26.25 | ₹28.00 | ₹8.40 |\n| Payout ratio | 85% | 82% | 45% |\n| Dividend yield | 6.8% | 7.2% | 2.1% |\n| Buyback | ₹1,050Cr | — | — |\n| Total shareholder return (1yr) | 42% | — | 18% |\n\n### Optimal Payout Analysis\n| Payout Ratio | Dividend (₹/share) | Retained Earnings (₹Cr) | Growth CapEx Funded | Share Price Impact |\n|---|---|---|---|---|\n| 50% | ₹16.50 | ₹8,200 | ₹6,400 (solar + coal gasification) | -8% (yield-seekers exit) |\n| 65% | ₹21.50 | ₹5,700 | ₹4,200 | -3% |\n| 75% | ₹24.75 | ₹4,100 | ₹2,800 | Neutral |\n| 85% (current) | ₹28.00 | ₹2,500 | ₹1,200 (maintenance only) | Baseline |\n| 95% | ₹31.35 | ₹820 | ₹0 (no growth capex) | +3% short-term, risk long-term |\n\n### Buyback vs. Dividend Tax Efficiency\n| Method | Pre-Tax Return to Shareholder | Tax Incidence | Post-Tax Return |\n|---|---|---|---|\n| Dividend | ₹28.00/share | 25-30% (investor slab) | ₹19.60-21.00 |\n| Buyback (open market) | ₹28 equiv. | 10% LTCG (if held >1yr) | ₹25.20 |\n| **Buyback advantage** | | | **+₹4.20-5.60/share** |\n\n### Recommendation\n- Reduce payout to 70% (from 85%), redirect ₹3,600Cr to:\n  - Solar power JV (₹2,000Cr) — diversification hedge\n  - Coal-to-chemical pilot (₹1,000Cr) — value-added products\n  - Share buyback (₹600Cr) — tax-efficient return"
+  },
+  {
+    "id": "ex-97",
+    "promptTitle": "Customer Segmentation & Revenue Management",
+    "domain": "Corporate Strategy & Growth",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "COMPANY NAME": "IndiGo Airlines",
+      "PASSENGERS": "105M/yr",
+      "LOAD FACTOR": "87%"
+    },
+    "generatedAt": "2025-01-27T10:00:00Z",
+    "output": "## Revenue Management — IndiGo Airlines\n\n### Passenger Segmentation\n| Segment | % of PAX | Avg Fare | Ancillary/PAX | Total Rev/PAX | Margin |\n|---|---|---|---|---|---|\n| Business (time-sensitive) | 18% | ₹8,400 | ₹1,200 | ₹9,600 | 22% |\n| Premium leisure | 25% | ₹5,800 | ₹800 | ₹6,600 | 14% |\n| Price-sensitive leisure | 35% | ₹3,200 | ₹400 | ₹3,600 | 6% |\n| VFR (visiting friends/relatives) | 22% | ₹3,800 | ₹350 | ₹4,150 | 8% |\n| **Blended** | **100%** | **₹4,680** | **₹580** | **₹5,260** | **11%** |\n\n### Ancillary Revenue Optimisation\n| Product | Current Rev (₹Cr) | Benchmark (global LCC) | Opportunity |\n|---|---|---|---|\n| Seat selection | 1,800 | 2,400 | +₹600Cr (dynamic pricing) |\n| Baggage (add-on) | 2,200 | 2,800 | +₹600Cr (tiered pricing) |\n| Food & beverage | 1,400 | 2,000 | +₹600Cr (pre-order upsell) |\n| Travel insurance | 320 | 800 | +₹480Cr (default opt-in) |\n| Co-brand credit card | 180 | 600 | +₹420Cr (launch IndiGo card) |\n| **Total ancillary** | **5,900** | **8,600** | **+₹2,700Cr (+46%)** |\n\n### Dynamic Pricing Model Impact\n| Lever | Current Yield | Optimised Yield | Revenue Impact |\n|---|---|---|---|\n| Day-of-week pricing (±15%) | ₹4.62/RPK | ₹4.78/RPK | +₹1,200Cr |\n| Time-of-day buckets (5 tiers) | Flat by time | ₹4.85/RPK | +₹800Cr |\n| Route-level demand sensing | 82% optimal | 91% optimal | +₹650Cr |"
+  },
+  {
+    "id": "ex-98",
+    "promptTitle": "Debt Restructuring & Insolvency Resolution (IBC)",
+    "domain": "Mergers & Acquisitions",
+    "platform": "gemini",
+    "model": "Gemini 1.5 Pro",
+    "parameters": {
+      "COMPANY": "Future Retail Ltd",
+      "ADMITTED CLAIMS": "₹21,400Cr",
+      "STATUS": "CIRP under IBC"
+    },
+    "generatedAt": "2025-01-26T09:00:00Z",
+    "output": "## IBC Resolution Analysis — Future Retail\n\n### Claims Waterfall\n| Creditor Class | Admitted Claims (₹Cr) | % of Total |\n|---|---|---|\n| Secured financial creditors (banks) | 12,800 | 59.8% |\n| Unsecured financial creditors | 4,200 | 19.6% |\n| Operational creditors (vendors, lessors) | 3,600 | 16.8% |\n| Employee dues | 480 | 2.2% |\n| Government dues (tax) | 320 | 1.5% |\n| **Total admitted** | **21,400** | **100%** |\n\n### Resolution Plan Comparison\n| Parameter | Bidder A (Reliance) | Bidder B (PE Consortium) |\n|---|---|---|\n| Upfront cash | ₹3,200Cr | ₹2,800Cr |\n| Deferred payments (3yr) | ₹800Cr | ₹1,200Cr |\n| Total plan value | ₹4,000Cr | ₹4,000Cr |\n| Liquidation value | ₹2,100Cr | ₹2,100Cr |\n| Recovery (secured) | 25.0% | 25.0% |\n| Recovery (unsecured) | 4.8% | 5.2% |\n| Stores retained | 340 of 520 | 280 of 520 |\n| Jobs preserved | 8,200 | 6,400 |\n\n### Timeline & Key Milestones\n| Date | Event | Status |\n|---|---|---|\n| Jul 2022 | CIRP admitted by NCLT | Completed |\n| Dec 2023 | CoC approves resolution plan | Completed |\n| Jun 2024 | NCLT approval (with modifications) | Completed |\n| Mar 2025 | NCLAT appeal resolution | Pending |\n| Jun 2025 (est.) | Plan implementation begins | Projected |"
+  },
+  {
+    "id": "ex-99",
+    "promptTitle": "Green Bond Issuance & Climate Finance",
+    "domain": "Economics & Macroeconomic Analysis",
+    "platform": "claude",
+    "model": "Claude 3.5 Sonnet",
+    "parameters": {
+      "ISSUER": "Government of India",
+      "SIZE": "$2B sovereign green bond",
+      "FRAMEWORK": "ICMA Green Bond Principles"
+    },
+    "generatedAt": "2025-01-25T12:00:00Z",
+    "output": "## Sovereign Green Bond — India $2B Issuance\n\n### Use of Proceeds Allocation\n| Category | Allocation | Projects | SDG Alignment |\n|---|---|---|---|\n| Renewable energy | 40% ($800M) | Solar parks (Rajasthan, Gujarat) | SDG 7 |\n| Clean transportation | 25% ($500M) | Metro expansion (Delhi, Mumbai) | SDG 11 |\n| Energy efficiency | 15% ($300M) | Building retrofit programme | SDG 13 |\n| Sustainable water mgmt | 10% ($200M) | Jal Jeevan Mission | SDG 6 |\n| Green buildings | 10% ($200M) | GRIHA-rated govt buildings | SDG 11 |\n\n### Pricing Analysis\n| Metric | Green Bond | Conventional Bond | Greenium |\n|---|---|---|---|\n| Coupon | 7.10% | 7.26% | -16bps |\n| Bid-to-cover ratio | 4.2x | 2.8x | +1.4x demand |\n| Foreign participation | 28% | 12% | +16pp ESG demand |\n| 10-year spread to UST | +285bps | +301bps | -16bps tighter |\n\n### Impact Reporting (Annual)\n| Metric | Target (Annual) | Measurement |\n|---|---|---|\n| CO2 emissions avoided | 4.2M tCO2e | Project-level monitoring |\n| Renewable capacity added | 2.5 GW | MNRE certification |\n| Clean transport ridership | 1.8M daily | Metro operator data |\n| Green jobs created | 45,000 | Ministry of Labour survey |\n| Energy saved (GWh) | 820 GWh | BEE audit reports |"
+  },
+  {
+    "id": "ex-100",
+    "promptTitle": "M&A Integration PMO & Value Tracking Dashboard",
+    "domain": "FP&A & Budgeting",
+    "platform": "perplexity",
+    "model": "Perplexity Sonar Pro",
+    "parameters": {
+      "ACQUIRER": "Piramal Pharma",
+      "TARGET": "Hemmo Pharmaceuticals",
+      "DEAL VALUE": "₹775Cr"
+    },
+    "generatedAt": "2025-01-24T14:00:00Z",
+    "output": "## Integration PMO Dashboard — Piramal + Hemmo Pharma\n\n### Integration Scorecard (Month 6)\n| Workstream | Status | Completion | Risk Level |\n|---|---|---|---|\n| Organisational design | ✅ Complete | 100% | LOW |\n| IT systems integration | 🔄 In progress | 45% | MEDIUM |\n| Manufacturing harmonisation | 🔄 In progress | 60% | HIGH |\n| Customer migration | ✅ Complete | 95% | LOW |\n| Regulatory transfers (FDA) | 🔄 In progress | 30% | HIGH |\n| Procurement consolidation | 🔄 In progress | 55% | MEDIUM |\n\n### Synergy Tracker\n| Synergy | Identified (₹Cr) | Realised (M6) | Run-Rate (FY26) | Risk |\n|---|---|---|---|---|\n| API sourcing consolidation | 42 | 18 | 35 | LOW |\n| Cross-sell (Hemmo plasma into Piramal CDMO) | 28 | 5 | 22 | MEDIUM |\n| SG&A reduction (duplicate functions) | 18 | 14 | 18 | LOW |\n| Manufacturing yield improvement | 15 | 2 | 10 | HIGH |\n| Regulatory filing acceleration | 12 | 0 | 4 | HIGH |\n| **Total** | **115** | **39** | **89** | |\n\n### Key Risks & Mitigations\n| Risk | Impact (₹Cr) | Probability | Mitigation |\n|---|---|---|---|\n| FDA site inspection delay | -₹28 (revenue delay) | 35% | Pre-inspection readiness programme |\n| Key scientist attrition (3 leads) | -₹15 (R&D pipeline) | 25% | Retention bonuses + ESOP |\n| SAP migration data loss | -₹8 (operational) | 15% | Parallel run for 3 months |\n| Customer contract renegotiation | -₹12 (pricing pressure) | 20% | Joint customer visits by M+3 |"
   }
 ]
