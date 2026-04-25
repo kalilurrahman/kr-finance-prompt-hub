@@ -8,7 +8,9 @@ import type { TerminalPrompt } from "@/types/terminal";
 import { TERMINAL_CATEGORIES } from "@/types/terminal";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SampleOutputsModal } from "@/components/SampleOutputsModal";
 import { useFavorites } from "@/hooks/useFavorites";
+import { getMappedSampleOutputByPromptId, SAMPLE_OUTPUT_LIMIT } from "@/lib/sampleOutputLibrary";
 
 const TerminalCardItem = React.memo(({
   prompt,
@@ -16,7 +18,9 @@ const TerminalCardItem = React.memo(({
   isCopied,
   onToggle,
   onCopy,
-  onView
+  onView,
+  onOpenExample,
+  hasExample
 }: {
   prompt: TerminalPrompt;
   isFavorite: boolean;
@@ -24,6 +28,8 @@ const TerminalCardItem = React.memo(({
   onToggle: (id: number) => void;
   onCopy: (prompt: TerminalPrompt) => void;
   onView: (prompt: TerminalPrompt) => void;
+  onOpenExample: (promptId: number) => void;
+  hasExample: boolean;
 }) => {
   return (
     <div
@@ -92,6 +98,15 @@ const TerminalCardItem = React.memo(({
         >
           VIEW →
         </button>
+        {hasExample && (
+          <button
+            aria-label="Open mapped example"
+            onClick={(e) => { e.stopPropagation(); onOpenExample(prompt.id); }}
+            className="bg-transparent border border-[var(--t-border)] text-[10px] px-3 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--t-amber)]"
+          >
+            EXAMPLE
+          </button>
+        )}
       </div>
     </div>
   );
@@ -116,6 +131,8 @@ export default function Library() {
   const [modalPrompt, setModalPrompt] = useState<TerminalPrompt | null>(null);
   const [copiedId, setCopiedId] = useState<number | null>(null);
   const [modalCopied, setModalCopied] = useState(false);
+  const [showSamples, setShowSamples] = useState(false);
+  const [activeSamplePromptId, setActiveSamplePromptId] = useState<number | undefined>(undefined);
   const searchRef = useRef<HTMLInputElement>(null);
 
   // Debounce search
@@ -191,6 +208,11 @@ export default function Library() {
 
   const totalPages = Math.ceil(filtered.length / PER_PAGE);
   const pagePrompts = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
+  const openSampleForPrompt = useCallback((promptId?: number) => {
+    setActiveSamplePromptId(promptId);
+    setShowSamples(true);
+  }, []);
+  const hasExample = useCallback((promptId: number) => Boolean(getMappedSampleOutputByPromptId(promptId)), []);
 
   const copyPrompt = useCallback(async (prompt: TerminalPrompt, isModal = false) => {
     try {
@@ -383,6 +405,13 @@ export default function Library() {
             <span>prompts</span>
           </div>
           <div className="flex gap-1.5">
+            <button
+              onClick={() => openSampleForPrompt()}
+              aria-label={`Open ${SAMPLE_OUTPUT_LIMIT} mapped FINPROMPT examples`}
+              className="bg-transparent border border-[var(--t-border)] text-[var(--t-text-secondary)] text-[10px] px-3 py-[5px] cursor-pointer tracking-[0.1em] uppercase transition-all hover:border-[var(--t-amber)] hover:text-[var(--t-amber)]"
+            >
+              EXAMPLES ({SAMPLE_OUTPUT_LIMIT})
+            </button>
             {(["id", "title", "category"] as const).map((s) => (
               <button
                 key={s}
@@ -441,6 +470,8 @@ export default function Library() {
               onToggle={toggle}
               onCopy={copyPrompt}
               onView={setModalPrompt}
+              onOpenExample={openSampleForPrompt}
+              hasExample={hasExample(prompt.id)}
             />
           ))}
         </div>
@@ -577,6 +608,15 @@ export default function Library() {
               >
                 {isFav(modalPrompt.id) ? "★ SAVED" : "☆ FAVORITE"}
               </button>
+              {hasExample(modalPrompt.id) && (
+                <button
+                  aria-label="Open mapped example"
+                  onClick={() => openSampleForPrompt(modalPrompt.id)}
+                  className="bg-transparent border border-[var(--t-border)] text-[11px] px-5 py-2 cursor-pointer tracking-[0.1em] uppercase transition-all text-[var(--t-text-secondary)] hover:border-[var(--t-amber)] hover:text-[var(--t-amber)]"
+                >
+                  VIEW EXAMPLE
+                </button>
+              )}
               {/* Download buttons */}
               <button
                 aria-label="Download prompt as TXT"
@@ -606,8 +646,18 @@ export default function Library() {
           </div>
         </div>
       )}
+      <SampleOutputsModal
+        isOpen={showSamples}
+        onClose={() => setShowSamples(false)}
+        initialPromptId={activeSamplePromptId}
+      />
       </div>
       <Footer />
     </div>
   );
 }
+
+
+
+
+
