@@ -173,7 +173,7 @@ function WorkshopBrowseModal({
           )}
         </div>
         <div className="border-t border-border/30 px-5 py-2.5">
-          <p className="text-[11px] text-muted-foreground/60">{filtered.length} of {allPrompts.length} prompts shown</p>
+          <p className="text-[11px] text-muted-foreground/85">{filtered.length} of {allPrompts.length} prompts shown</p>
         </div>
       </div>
     </div>
@@ -395,7 +395,7 @@ function WorkshopPanel({
                       <label className="mb-1 block text-[11px] font-semibold font-mono uppercase tracking-wider text-muted-foreground">
                         {v}
                         {!vars[v]?.trim() && (
-                          <span className="ml-1.5 font-normal normal-case tracking-normal text-muted-foreground/40">required</span>
+                          <span className="ml-1.5 font-normal normal-case tracking-normal text-muted-foreground/70">required</span>
                         )}
                         {vars[v]?.trim() && (
                           <span className="ml-1.5 font-normal normal-case tracking-normal text-emerald-500/70">✓</span>
@@ -407,7 +407,7 @@ function WorkshopPanel({
                         value={vars[v] ?? ""}
                         autoFocus={i === 0}
                         onChange={(e) => setVars((prev) => ({ ...prev, [v]: e.target.value }))}
-                        className={`w-full rounded-md border px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:ring-1 transition-colors ${
+                        className={`w-full rounded-md border px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-1 transition-colors ${
                           vars[v]?.trim()
                             ? "border-emerald-500/30 bg-emerald-500/5 focus:ring-emerald-500/30"
                             : "border-border/50 bg-secondary/20 focus:ring-gold/50"
@@ -420,7 +420,7 @@ function WorkshopPanel({
             )}
 
             {selected && detectedVars.length === 0 && (
-              <p className="text-xs text-muted-foreground/60 italic">
+              <p className="text-xs text-muted-foreground/85 italic">
                 No input variables detected in this prompt — you can still add custom tweaks below.
               </p>
             )}
@@ -430,16 +430,16 @@ function WorkshopPanel({
               <div>
                 <label className="mb-1.5 block text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
                   Custom Tweaks & Modifications
-                  <span className="ml-1.5 normal-case tracking-normal font-normal text-muted-foreground/60">(optional)</span>
+                  <span className="ml-1.5 normal-case tracking-normal font-normal text-muted-foreground/85">(optional)</span>
                 </label>
                 <Textarea
                   placeholder="e.g. Focus on the Indian market context. Add a section on regulatory risks from SEBI. Use a 5-year horizon…"
-                  className="min-h-[80px] resize-y bg-secondary/20 border-border/50 text-sm placeholder:text-muted-foreground/50 focus:ring-gold/40"
+                  className="min-h-[80px] resize-y bg-secondary/20 border-border/50 text-sm placeholder:text-muted-foreground/80 focus:ring-gold/40"
                   value={tweaks}
                   onChange={(e) => setTweaks(e.target.value)}
                   maxLength={500}
                 />
-                <p className="mt-1 text-right text-[10px] text-muted-foreground/50">{tweaks.length}/500</p>
+                <p className="mt-1 text-right text-[10px] text-muted-foreground/80">{tweaks.length}/500</p>
               </div>
             )}
 
@@ -571,7 +571,7 @@ function DownloadRow({
 
   return (
     <div className="flex flex-wrap items-center gap-1.5">
-      <span className="text-[10px] uppercase tracking-wider text-muted-foreground/60 mr-1">Download:</span>
+      <span className="text-[10px] uppercase tracking-wider text-muted-foreground/85 mr-1">Download:</span>
       <button
         onClick={() => { downloadMarkdown(promptText, title); toast({ title: "Downloaded .md" }); }}
         className="flex items-center gap-1 rounded border border-border/50 bg-secondary/20 px-2.5 py-1 text-[11px] text-muted-foreground transition-all hover:border-gold/40 hover:text-gold focus:outline-none"
@@ -766,7 +766,7 @@ function OutputPanel({
           {/* Download buttons */}
           <DownloadRow promptText={promptText} title={title} />
 
-          <span className="ml-auto text-[11px] text-muted-foreground/50 font-mono shrink-0">
+          <span className="ml-auto text-[11px] text-muted-foreground/80 font-mono shrink-0">
             {wordCount}w · {new Date(generatedAt).toLocaleTimeString()}
           </span>
         </div>
@@ -962,7 +962,7 @@ const MetaEngine = () => {
             {/* Divider */}
             <div className="flex items-center gap-3">
               <div className="flex-1 border-t border-border/30" />
-              <span className="text-[10px] uppercase tracking-widest text-muted-foreground/50">or synthesize</span>
+              <span className="text-[10px] uppercase tracking-widest text-muted-foreground/80">or synthesize</span>
               <div className="flex-1 border-t border-border/30" />
             </div>
 
@@ -974,12 +974,12 @@ const MetaEngine = () => {
               <Textarea
                 id="engine-objective"
                 placeholder="e.g. Analyze the strategic rationale for a PE-backed carve-out in the Indian pharma sector with LBO modeling…"
-                className="min-h-[110px] resize-y bg-secondary/30 border-border/50 text-sm placeholder:text-muted-foreground/60 focus:ring-gold/40"
+                className="min-h-[110px] resize-y bg-secondary/30 border-border/50 text-sm placeholder:text-muted-foreground/85 focus:ring-gold/40"
                 value={objective}
                 onChange={(e) => setObjective(e.target.value)}
                 maxLength={1000}
               />
-              <p className="mt-1 text-right text-[11px] text-muted-foreground/60">{objective.length}/1000</p>
+              <p className="mt-1 text-right text-[11px] text-muted-foreground/85">{objective.length}/1000</p>
             </div>
 
             {/* Target Platform */}
@@ -1067,7 +1067,7 @@ const MetaEngine = () => {
             <div className="rounded-xl border border-border/50 bg-card/50 p-5">
               <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Remix from Library
-                <span className="ml-1 text-[10px] normal-case tracking-normal font-normal text-muted-foreground/60">(optional)</span>
+                <span className="ml-1 text-[10px] normal-case tracking-normal font-normal text-muted-foreground/85">(optional)</span>
               </p>
               {remixId ? (
                 <div className="flex items-center gap-2 rounded-lg border border-gold/30 bg-gold/5 px-3 py-2">

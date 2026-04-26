@@ -135,7 +135,7 @@ const Index = () => {
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
-            <div className="mt-4 pt-3.5 border-t border-emerald-500/10 flex gap-4 flex-wrap font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground/60">
+            <div className="mt-4 pt-3.5 border-t border-emerald-500/10 flex gap-4 flex-wrap font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground/85">
               <span>🏢 Corp. Strategy</span>
               <span>🤝 M&amp;A Due Diligence</span>
               <span>📊 Equity Research</span>
