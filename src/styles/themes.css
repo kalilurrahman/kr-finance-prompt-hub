@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 /* ============================================================
    FINPROMPT — themes.css   (Lovable / Tailwind compatible)
    Path:   src/styles/themes.css
@@ -277,7 +278,7 @@ body, header, nav, footer, aside, main { transition:background-color .25s ease, 
    Gold accent system with Cormorant Garamond / DM Sans / JetBrains Mono
    ================================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+/* Fonts moved to top of file (@import must precede other rules) */
 
 [data-theme="kr-gold"] {
   --bg-0:#06090f; --bg-1:#0a0f17; --bg-2:#101725; --bg-3:#1a2334; --bg-4:#202b40;
