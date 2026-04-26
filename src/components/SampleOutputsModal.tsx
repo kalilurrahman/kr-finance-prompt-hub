@@ -181,7 +181,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) 
                       <p className={`text-[11px] font-medium leading-snug line-clamp-2 ${isActive ? "text-gold" : "text-foreground/80"}`}>
                         {ex.promptTitle}
                       </p>
-                      <p className="text-[9px] text-muted-foreground/60 mt-0.5 uppercase tracking-wider">{ex.platform} · #{ex.promptId}</p>
+                      <p className="text-[9px] text-muted-foreground/85 mt-0.5 uppercase tracking-wider">{ex.platform} · #{ex.promptId}</p>
                     </div>
                     {isActive && <ChevronRight className="h-3 w-3 text-gold shrink-0 mt-0.5 ml-auto" />}
                   </div>
@@ -190,7 +190,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) 
             })}
           </div>
           <div className="p-4 border-t border-border/30">
-            <p className="text-[9px] text-muted-foreground/50 text-center">Includes mapped FINPROMPT prompt references and any available sample-output content.</p>
+            <p className="text-[9px] text-muted-foreground/80 text-center">Includes mapped FINPROMPT prompt references and any available sample-output content.</p>
           </div>
         </aside>
 
@@ -234,11 +234,11 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) 
 
           {/* Parameters used */}
           <div className="px-6 py-2.5 border-b border-border/20 bg-[#0a0e14] flex flex-wrap gap-2 shrink-0">
-            <span className="text-[9px] uppercase tracking-widest text-muted-foreground/50 self-center mr-1">Parameters:</span>
+            <span className="text-[9px] uppercase tracking-widest text-muted-foreground/80 self-center mr-1">Parameters:</span>
             {Object.entries(active.parameters).map(([k, v]) => (
               <span key={k} className="text-[10px] rounded border border-border/40 bg-secondary/20 px-2 py-0.5 text-muted-foreground">
                 <span className="text-gold/70 font-mono">{k}</span>
-                <span className="text-muted-foreground/50 mx-1">=</span>
+                <span className="text-muted-foreground/80 mx-1">=</span>
                 <span className="text-foreground/80">{v}</span>
               </span>
             ))}
@@ -253,7 +253,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) 
 
           {/* Footer */}
           <div className="px-6 py-3 border-t border-border/20 bg-[#070b10] flex items-center justify-between shrink-0">
-            <span className="text-[10px] text-muted-foreground/50 font-mono">
+            <span className="text-[10px] text-muted-foreground/80 font-mono">
               {active.output.trim().split(/\s+/).length} words · {new Date(active.generatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
             </span>
             <a

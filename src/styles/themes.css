@@ -517,3 +517,20 @@ body, header, nav, footer, aside, main { transition:background-color .25s ease, 
   --sidebar-border: 0 0% 18%;
   --sidebar-ring: 0 0% 92%;
 }
+
+/* =================================================================
+   READABILITY OVERRIDES
+   Brighten muted/secondary text on all DARK themes by 1–2 shades
+   so sub-text in cards, modals, and the FINPROMPT terminal stays
+   legible. Arctic (light) is intentionally excluded.
+   ================================================================= */
+
+[data-theme="terminal"]            { --text-secondary:#c9bfa6; --text-muted:#a89e85; --muted-foreground: 38 18% 70%; }
+[data-theme="matrix"]              { --text-secondary:#7be09a; --text-muted:#5cc079; --muted-foreground: 140 45% 70%; }
+[data-theme="crimson"]             { --text-secondary:#d4a8b4; --text-muted:#b88494; --muted-foreground: 340 25% 72%; }
+[data-theme="slate"]               { --text-secondary:#c0c8d2; --text-muted:#9ba4b0; --muted-foreground: 215 14% 75%; }
+[data-theme="kr-gold"]             { --text-secondary:#d4cab3; --text-muted:#b3a890; --muted-foreground: 38 22% 75%; }
+[data-theme="kr-financial-slate"]  { --text-secondary:#c5d1e8; --text-muted:#a3afc8; --muted-foreground: 215 28% 76%; }
+[data-theme="kr-forest"]           { --text-secondary:#bcd0c2; --text-muted:#9ab1a3; --muted-foreground: 150 16% 74%; }
+[data-theme="kr-sunset"]           { --text-secondary:#d8c3ad; --text-muted:#b59c84; --muted-foreground: 25 25% 74%; }
+[data-theme="kr-mono"]             { --text-secondary:#c8c8c8; --text-muted:#a8a8a8; --muted-foreground: 0 0% 76%; }

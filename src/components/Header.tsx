@@ -136,7 +136,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
         {mobileOpen && (
           <div className="lg:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl px-4 py-4 animate-fade-in-up">
             <div className="flex flex-col gap-1">
-              <p className="text-[9px] font-semibold tracking-widest uppercase text-muted-foreground/60 px-2 pb-1">This App</p>
+              <p className="text-[9px] font-semibold tracking-widest uppercase text-muted-foreground/85 px-2 pb-1">This App</p>
               {inAppLinks.map((link) => {
                 const isActive = location.pathname === link.href;
                 return (
@@ -157,7 +157,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
                 );
               })}
               <div className="my-2 h-px bg-border/50" />
-              <p className="text-[9px] font-semibold tracking-widest uppercase text-muted-foreground/60 px-2 pb-1">External</p>
+              <p className="text-[9px] font-semibold tracking-widest uppercase text-muted-foreground/85 px-2 pb-1">External</p>
               {externalLinks.map((link) => (
                 <a
                   key={link.label}
