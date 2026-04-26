@@ -54,7 +54,7 @@ function renderOutput(text: string) {
         tableLines.push(lines[i]);
         i++;
       }
-      const isSep = (l: string) => l.replace(/\|/g, "").trim().match(/^[-:\s]+$/);
+      const isSep = (l: string) => /^[\s\-:|]+$/.test(l.replace(/\|/g, ""));
       const dataRows = tableLines.filter(l => !isSep(l));
       if (dataRows.length > 0) {
         const parseRow = (r: string) => r.split("|").map(c => c.trim()).filter((_, idx, arr) => idx > 0 && idx < arr.length - 1);

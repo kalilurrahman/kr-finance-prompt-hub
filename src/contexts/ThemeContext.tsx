@@ -5,7 +5,9 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-export type ThemeId = 'terminal' | 'matrix' | 'arctic' | 'crimson' | 'slate';
+export type ThemeId =
+  | 'terminal' | 'matrix' | 'arctic' | 'crimson' | 'slate'
+  | 'kr-gold' | 'kr-financial-slate' | 'kr-forest' | 'kr-sunset' | 'kr-mono';
 
 export interface Theme {
   id: ThemeId;
@@ -16,11 +18,16 @@ export interface Theme {
 }
 
 export const THEMES: Theme[] = [
-  { id: 'terminal', label: 'Bloomberg Terminal', emoji: '🟡', description: 'Dark amber — the classic',    isDark: true  },
-  { id: 'matrix',   label: 'Midnight Matrix',    emoji: '🟢', description: 'Deep green on black',        isDark: true  },
-  { id: 'arctic',   label: 'Arctic',             emoji: '🔵', description: 'Clean light — blue white',   isDark: false },
-  { id: 'crimson',  label: 'Crimson',            emoji: '🔴', description: 'Dark red — executive',       isDark: true  },
-  { id: 'slate',    label: 'Slate',              emoji: '⚫', description: 'GitHub-style neutral dark',  isDark: true  },
+  { id: 'terminal',           label: 'Bloomberg Terminal', emoji: '🟡', description: 'Dark amber — the classic',    isDark: true  },
+  { id: 'matrix',             label: 'Midnight Matrix',    emoji: '🟢', description: 'Deep green on black',         isDark: true  },
+  { id: 'arctic',             label: 'Arctic',             emoji: '🔵', description: 'Clean light — blue white',    isDark: false },
+  { id: 'crimson',            label: 'Crimson',            emoji: '🔴', description: 'Dark red — executive',        isDark: true  },
+  { id: 'slate',              label: 'Slate',              emoji: '⚫', description: 'GitHub-style neutral dark',   isDark: true  },
+  { id: 'kr-gold',            label: 'KR Gold',            emoji: '🥇', description: 'KR Tools — gold on midnight', isDark: true  },
+  { id: 'kr-financial-slate', label: 'KR Financial Slate', emoji: '🟦', description: 'KR Tools — blue slate',       isDark: true  },
+  { id: 'kr-forest',          label: 'KR Forest',          emoji: '🌲', description: 'KR Tools — emerald forest',   isDark: true  },
+  { id: 'kr-sunset',          label: 'KR Sunset',          emoji: '🌅', description: 'KR Tools — orange sunset',    isDark: true  },
+  { id: 'kr-mono',            label: 'KR Mono',            emoji: '◾', description: 'KR Tools — monochrome',       isDark: true  },
 ];
 
 const STORAGE_KEY = 'finprompt_theme';
