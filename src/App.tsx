@@ -10,6 +10,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 
 const Library = lazy(() => import("./pages/Library" /* webpackChunkName: "library" */));
 const MetaEngine = lazy(() => import("./pages/MetaEngine" /* webpackChunkName: "meta-engine" */));
+const Admin = lazy(() => import("./pages/Admin" /* webpackChunkName: "admin" */));
 
 const queryClient = new QueryClient();
 
