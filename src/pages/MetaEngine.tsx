@@ -313,6 +313,13 @@ function WorkshopPanel({
         onSelect={handleSelectFromBrowse}
       />
 
+      <SampleOutputsModal
+        isOpen={showSample}
+        onClose={() => setShowSample(false)}
+        initialExampleId={sampleForSelected?.id}
+        initialPromptId={sampleForSelected?.promptId}
+      />
+
       <div className="rounded-xl border border-gold/20 bg-gradient-to-br from-[#0e1320] to-[#141c2a] overflow-hidden">
         {/* Workshop Header */}
         <button
