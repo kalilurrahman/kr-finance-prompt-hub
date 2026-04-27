@@ -377,6 +377,31 @@ function WorkshopPanel({
                 <p className="px-4 py-2.5 text-xs text-muted-foreground line-clamp-3 leading-relaxed">
                   {selected.content.slice(0, 220)}…
                 </p>
+                {/* Linked sample output */}
+                <div className="px-4 pb-3 pt-1 flex items-center justify-between gap-2 flex-wrap">
+                  {sampleForSelected ? (
+                    <button
+                      type="button"
+                      onClick={() => setShowSample(true)}
+                      className="inline-flex items-center gap-1.5 rounded-md border border-emerald-500/40 bg-emerald-500/10 px-2.5 py-1 text-[11px] font-semibold text-emerald-400 hover:bg-emerald-500/20 transition-colors"
+                      title="View linked AI sample output"
+                    >
+                      <Sparkles className="h-3 w-3" />
+                      View Sample Output
+                      <span className="font-mono opacity-80">[{sampleForSelected.platform}]</span>
+                    </button>
+                  ) : (
+                    <span className="text-[10px] text-muted-foreground/70 italic">
+                      No sample output mapped to this prompt yet.
+                    </span>
+                  )}
+                  {sampleForSelected && (
+                    <span className="text-[10px] text-muted-foreground/80 font-mono">
+                      example {sampleForSelected.id}
+                      {sampleForSelected.promptId > 0 && <> · #{sampleForSelected.promptId}</>}
+                    </span>
+                  )}
+                </div>
               </div>
             )}
 
