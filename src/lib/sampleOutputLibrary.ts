@@ -8,7 +8,8 @@ type ExamplePlatform = "claude" | "gemini" | "perplexity" | "chatgpt" | "finprom
 export interface SampleOutputEntry {
   id: string;
   promptId: number;          // 0 if no library match
-  promptTitle: string;
+  promptTitle: string;       // Always the canonical library title when mapped
+  exampleTitle: string;      // The original (often shorter) title used in the example file
   domain: Domain;
   platform: ExamplePlatform;
   model: string;
@@ -39,27 +40,39 @@ const VALID_DOMAINS: Domain[] = [
 ];
 
 const normalize = (value: string) =>
-  value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  value.toLowerCase().replace(/^the\s+/, "").replace(/[^a-z0-9]+/g, " ").trim();
 
-// Build lookup of library prompts by normalized title (for cross-linking from prompt cards)
+// Library lookup: by canonical id and by normalized title
 const terminalPrompts = (terminalPromptLibrary as TerminalPrompt[]).map((prompt) => ({
   ...prompt,
   tags: prompt.tags || [],
   type: prompt.type || "finance",
 }));
+const libraryById = new Map(terminalPrompts.map((p) => [p.id, p]));
 const libraryByTitle = new Map(terminalPrompts.map((p) => [normalize(p.title), p]));
 
-// Map every example.json entry to a SampleOutputEntry — examples.json is the source of truth.
+const coerceDomain = (raw: string): Domain =>
+  (VALID_DOMAINS.includes(raw as Domain) ? raw : "Corporate Strategy & Growth") as Domain;
+
+// Examples are conventionally keyed `ex-N` where N is the library prompt id.
+// We map by id first (highest fidelity), then fall back to normalized title.
 const allExamples: SampleOutputEntry[] = (examples as RawExample[]).map((ex) => {
-  const matchedPrompt = libraryByTitle.get(normalize(ex.promptTitle));
-  const domain = (VALID_DOMAINS.includes(ex.domain as Domain)
-    ? ex.domain
-    : "Corporate Strategy & Growth") as Domain;
+  const idMatch = ex.id.match(/^ex-(\d+)$/);
+  const numericId = idMatch ? parseInt(idMatch[1], 10) : 0;
+
+  const matchedById = numericId > 0 ? libraryById.get(numericId) : undefined;
+  const matchedByTitle = matchedById ?? libraryByTitle.get(normalize(ex.promptTitle));
+  const matched = matchedById ?? matchedByTitle;
+
+  // Prefer the library's canonical title + category whenever we have a match.
+  const promptTitle = matched?.title ?? ex.promptTitle;
+  const domain = matched?.category ? coerceDomain(matched.category) : coerceDomain(ex.domain);
 
   return {
     id: ex.id,
-    promptId: matchedPrompt?.id ?? 0,
-    promptTitle: ex.promptTitle,
+    promptId: matched?.id ?? 0,
+    promptTitle,
+    exampleTitle: ex.promptTitle,
     domain,
     platform: ex.platform,
     model: ex.model,
@@ -85,4 +98,67 @@ export function getMappedSampleOutputs() {
 
 export function getMappedSampleOutputByPromptId(promptId: number) {
   return sampleByPromptId.get(promptId);
+}
+
+/** Coverage stats for the admin dashboard. */
+export interface CategoryCoverage {
+  category: string;
+  promptCount: number;
+  exampleCount: number;
+  mappedCount: number;
+}
+
+export function getLibraryCoverage(): {
+  totals: { prompts: number; examples: number; mapped: number; unmapped: number };
+  byCategory: CategoryCoverage[];
+  promptsWithoutExamples: { id: number; title: string; category: string }[];
+} {
+  const promptsByCategory = new Map<string, TerminalPrompt[]>();
+  for (const p of terminalPrompts) {
+    const list = promptsByCategory.get(p.category) ?? [];
+    list.push(p);
+    promptsByCategory.set(p.category, list);
+  }
+
+  const examplesByCategory = new Map<string, SampleOutputEntry[]>();
+  for (const e of allExamples) {
+    const list = examplesByCategory.get(e.domain) ?? [];
+    list.push(e);
+    examplesByCategory.set(e.domain, list);
+  }
+
+  const categories = new Set<string>([
+    ...promptsByCategory.keys(),
+    ...examplesByCategory.keys(),
+  ]);
+
+  const byCategory: CategoryCoverage[] = Array.from(categories)
+    .map((category) => {
+      const prompts = promptsByCategory.get(category) ?? [];
+      const examples = examplesByCategory.get(category) ?? [];
+      const mapped = examples.filter((e) => e.promptId > 0).length;
+      return {
+        category,
+        promptCount: prompts.length,
+        exampleCount: examples.length,
+        mappedCount: mapped,
+      };
+    })
+    .sort((a, b) => b.promptCount - a.promptCount);
+
+  const mapped = allExamples.filter((e) => e.promptId > 0).length;
+  const promptsWithoutExamples = terminalPrompts
+    .filter((p) => !sampleByPromptId.has(p.id))
+    .map((p) => ({ id: p.id, title: p.title, category: p.category }));
+
+  return {
+    totals: {
+      prompts: terminalPrompts.length,
+      examples: allExamples.length,
+      mapped,
+      unmapped: allExamples.length - mapped,
+    },
+    byCategory,
+    promptsWithoutExamples,
+  };
 }
