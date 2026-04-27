@@ -12,6 +12,7 @@ import {
   type ContextLevel,
 } from "@/lib/metaPromptEngine";
 import { detectVariables, buildFilledPrompt } from "@/lib/promptVariables";
+import { getSuggestionsForVariable } from "@/lib/variableSuggestions";
 import { downloadMarkdown, downloadHTML, downloadPDF } from "@/lib/downloadHelpers";
 import { getAllPrompts } from "@/data/prompts";
 import { DOMAINS, DOMAIN_ICONS, type Domain } from "@/types/prompt";
@@ -390,31 +391,64 @@ function WorkshopPanel({
                   </span>
                 </div>
                 <div className="flex flex-col gap-2.5">
-                  {detectedVars.map((v, i) => (
-                    <div key={v}>
-                      <label className="mb-1 block text-[11px] font-semibold font-mono uppercase tracking-wider text-muted-foreground">
-                        {v}
-                        {!vars[v]?.trim() && (
-                          <span className="ml-1.5 font-normal normal-case tracking-normal text-muted-foreground/70">required</span>
+                  {detectedVars.map((v, i) => {
+                    const suggestionGroups = getSuggestionsForVariable(v);
+                    const datalistId = `suggest-${v.replace(/[^a-zA-Z0-9]/g, "_")}`;
+                    return (
+                      <div key={v}>
+                        <label className="mb-1 block text-[11px] font-semibold font-mono uppercase tracking-wider text-muted-foreground">
+                          {v}
+                          {!vars[v]?.trim() && (
+                            <span className="ml-1.5 font-normal normal-case tracking-normal text-muted-foreground/70">required</span>
+                          )}
+                          {vars[v]?.trim() && (
+                            <span className="ml-1.5 font-normal normal-case tracking-normal text-emerald-500/70">✓</span>
+                          )}
+                        </label>
+                        <input
+                          type="text"
+                          list={suggestionGroups.length > 0 ? datalistId : undefined}
+                          placeholder={`e.g. ${getVariablePlaceholder(v)}`}
+                          value={vars[v] ?? ""}
+                          autoFocus={i === 0}
+                          onChange={(e) => setVars((prev) => ({ ...prev, [v]: e.target.value }))}
+                          className={`w-full rounded-md border px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-1 transition-colors ${
+                            vars[v]?.trim()
+                              ? "border-emerald-500/30 bg-emerald-500/5 focus:ring-emerald-500/30"
+                              : "border-border/50 bg-secondary/20 focus:ring-gold/50"
+                          }`}
+                        />
+                        {suggestionGroups.length > 0 && (
+                          <>
+                            <datalist id={datalistId}>
+                              {suggestionGroups.flatMap((g) =>
+                                g.options.map((opt) => (
+                                  <option key={`${g.label}-${opt}`} value={opt} label={g.label} />
+                                ))
+                              )}
+                            </datalist>
+                            <div className="mt-1.5 flex flex-wrap gap-1">
+                              {suggestionGroups.slice(0, 1).flatMap((g) =>
+                                g.options.slice(0, 4).map((opt) => (
+                                  <button
+                                    key={`chip-${opt}`}
+                                    type="button"
+                                    onClick={() => setVars((prev) => ({ ...prev, [v]: opt }))}
+                                    className="rounded border border-gold/20 bg-gold/5 px-2 py-0.5 text-[10px] text-gold/80 hover:bg-gold/15 hover:text-gold transition-colors"
+                                  >
+                                    {opt}
+                                  </button>
+                                ))
+                              )}
+                              <span className="text-[9px] text-muted-foreground/70 italic self-center ml-1">
+                                or type your own · {suggestionGroups.reduce((n, g) => n + g.options.length, 0)} suggestions
+                              </span>
+                            </div>
+                          </>
                         )}
-                        {vars[v]?.trim() && (
-                          <span className="ml-1.5 font-normal normal-case tracking-normal text-emerald-500/70">✓</span>
-                        )}
-                      </label>
-                      <input
-                        type="text"
-                        placeholder={`e.g. ${getVariablePlaceholder(v)}`}
-                        value={vars[v] ?? ""}
-                        autoFocus={i === 0}
-                        onChange={(e) => setVars((prev) => ({ ...prev, [v]: e.target.value }))}
-                        className={`w-full rounded-md border px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-1 transition-colors ${
-                          vars[v]?.trim()
-                            ? "border-emerald-500/30 bg-emerald-500/5 focus:ring-emerald-500/30"
-                            : "border-border/50 bg-secondary/20 focus:ring-gold/50"
-                        }`}
-                      />
-                    </div>
-                  ))}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             )}
