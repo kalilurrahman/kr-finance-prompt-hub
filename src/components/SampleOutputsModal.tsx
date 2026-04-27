@@ -193,13 +193,13 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) 
 
   return (
     <div
-      className="fixed inset-0 z-[300] flex items-stretch sm:items-center sm:justify-center sm:p-6"
+      className="fixed inset-0 z-[300] flex items-stretch sm:items-center sm:justify-center sm:p-6 overscroll-contain"
       style={{ background: "hsl(var(--background) / 0.92)", backdropFilter: "blur(10px)" }}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div
-        className="relative flex w-full sm:max-w-6xl sm:rounded-2xl border-0 sm:border border-border/60 bg-card shadow-2xl overflow-hidden flex-col sm:flex-row"
-        style={{ height: "100dvh", maxHeight: "100dvh" }}
+        className="relative flex w-full sm:max-w-6xl sm:max-h-[90vh] sm:rounded-2xl border-0 sm:border border-border/60 bg-card shadow-2xl overflow-hidden flex-col sm:flex-row"
+        style={{ height: "100dvh" }}
       >
         {/* Gold top accent */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent z-10" />
@@ -238,7 +238,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) 
             </p>
           </div>
 
-          <div className="flex-1 overflow-y-auto py-1">
+          <div className="flex-1 overflow-y-auto overscroll-contain py-1" style={{ WebkitOverflowScrolling: "touch" }}>
             {examples.map((ex) => {
               const icon = DOMAIN_ICONS[ex.domain as Domain] ?? "📄";
               const isActive = ex.id === activeId;
@@ -404,7 +404,10 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) 
           )}
 
           {/* OUTPUT BODY — generous reader width */}
-          <div className="flex-1 overflow-y-auto px-4 sm:px-7 py-5 sm:py-7">
+          <div
+            className="flex-1 overflow-y-auto overscroll-contain px-4 sm:px-7 py-5 sm:py-7"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
             <div className="max-w-3xl mx-auto space-y-1">{renderOutput(active.output)}</div>
           </div>
 
