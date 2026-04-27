@@ -15,7 +15,7 @@ const BUILD_VERSION =
 function buildVersionPlugin() {
   return {
     name: "inject-build-version",
-    transformIndexHtml(html: string) {
+    transformIndexHtml(html) {
       return html.replace(/__BUILD_VERSION__/g, BUILD_VERSION);
     },
   };
