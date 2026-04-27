@@ -1,7 +1,7 @@
 import { Search, Heart, Home, BookOpen, Bot, Globe, Atom, Cpu, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+import { AppearanceMenu } from "@/components/AppearanceMenu";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -91,12 +91,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
             ))}
           </nav>
 
-          {/* Theme Pills (xl+) */}
-          <div className="hidden xl:flex">
-            <ThemeSwitcher variant="pills" />
-          </div>
-
-          {/* Search + Favorites + Theme */}
+          {/* Search + Favorites + Appearance */}
           <div className="flex items-center gap-2 flex-1 max-w-md">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -124,9 +119,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
                 </span>
               )}
             </Button>
-            <div className="xl:hidden">
-              <ThemeSwitcher variant="icon" />
-            </div>
+            <AppearanceMenu />
             {/* Mobile menu toggle */}
             <button
               className="lg:hidden flex items-center justify-center h-9 w-9 rounded-md border border-border/50 text-muted-foreground hover:text-foreground transition-colors"
@@ -143,7 +136,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
         {mobileOpen && (
           <div className="lg:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl px-4 py-4 animate-fade-in-up">
             <div className="flex flex-col gap-1">
-              <p className="text-[9px] font-semibold tracking-widest uppercase text-muted-foreground/60 px-2 pb-1">This App</p>
+              <p className="text-[9px] font-semibold tracking-widest uppercase text-muted-foreground/85 px-2 pb-1">This App</p>
               {inAppLinks.map((link) => {
                 const isActive = location.pathname === link.href;
                 return (
@@ -164,7 +157,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
                 );
               })}
               <div className="my-2 h-px bg-border/50" />
-              <p className="text-[9px] font-semibold tracking-widest uppercase text-muted-foreground/60 px-2 pb-1">External</p>
+              <p className="text-[9px] font-semibold tracking-widest uppercase text-muted-foreground/85 px-2 pb-1">External</p>
               {externalLinks.map((link) => (
                 <a
                   key={link.label}

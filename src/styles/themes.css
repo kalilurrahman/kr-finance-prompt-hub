@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 /* ============================================================
    FINPROMPT — themes.css   (Lovable / Tailwind compatible)
    Path:   src/styles/themes.css
@@ -271,3 +272,265 @@ body, header, nav, footer, aside, main { transition:background-color .25s ease, 
 .badge-chatgpt     { background-color:var(--badge-chatgpt);    color:#fff; }
 .badge-gemini      { background-color:var(--badge-gemini);     color:#fff; }
 .badge-general     { background-color:var(--badge-general);    color:#fff; }
+
+/* =================================================================
+   KR TOOLS PALETTES — ported from "Test Automator - AI - KR Tools"
+   Gold accent system with Cormorant Garamond / DM Sans / JetBrains Mono
+   ================================================================= */
+
+/* Fonts moved to top of file (@import must precede other rules) */
+
+[data-theme="kr-gold"] {
+  --bg-0:#06090f; --bg-1:#0a0f17; --bg-2:#101725; --bg-3:#1a2334; --bg-4:#202b40;
+  --accent:#c5a047; --accent-dim:#9d7f38; --accent-glow:rgba(197,160,71,0.16); --accent-contrast:#06090f;
+  --success:#34d399; --danger:#ef4444; --info:#60a5fa;
+  --border:rgba(197,160,71,0.14); --border-bright:rgba(197,160,71,0.40);
+  --text-primary:#f4f1ea; --text-secondary:#a89e88; --text-muted:#857d6c;
+  --card-bg:#101725; --card-hover:#1a2334; --modal-overlay:rgba(6,9,15,0.92);
+  --header-bg:rgba(6,9,15,0.97); --footer-bg:#06090f; --footer-text:#a89e88;
+  --tag-bg:rgba(197,160,71,0.07); --tag-border:rgba(197,160,71,0.22); --tag-text:#c5a047;
+  --badge-claude:#b45309; --badge-perplexity:#6d28d9; --badge-chatgpt:#065f46;
+  --badge-gemini:#1e40af; --badge-general:#374151;
+  --scrollbar-thumb:#9d7f38; --scanlines:0;
+  --radius:0.5rem;
+  color-scheme:dark;
+  --background: 222 47% 5%;
+  --foreground: 210 20% 98%;
+  --card: 220 33% 9%;
+  --card-foreground: 210 20% 98%;
+  --popover: 220 33% 9%;
+  --popover-foreground: 210 20% 98%;
+  --primary: 43 52% 54%;
+  --primary-foreground: 222 47% 5%;
+  --secondary: 220 20% 14%;
+  --secondary-foreground: 210 20% 98%;
+  --muted: 220 20% 14%;
+  --muted-foreground: 215 14% 55%;
+  --accent-tw: 220 20% 14%;
+  --accent-foreground: 43 52% 54%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 20% 98%;
+  --border-tw: 220 20% 18%;
+  --input: 220 20% 18%;
+  --ring: 43 52% 54%;
+  --gold: 43 52% 54%;
+  --gold-light: 43 70% 66%;
+  --gold-dark: 43 40% 42%;
+  --sidebar-background: 220 33% 9%;
+  --sidebar-foreground: 210 20% 98%;
+  --sidebar-primary: 43 52% 54%;
+  --sidebar-primary-foreground: 222 47% 5%;
+  --sidebar-accent: 220 20% 14%;
+  --sidebar-accent-foreground: 210 20% 98%;
+  --sidebar-border: 220 20% 18%;
+  --sidebar-ring: 43 52% 54%;
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+[data-theme="kr-gold"] h1,
+[data-theme="kr-gold"] h2,
+[data-theme="kr-gold"] h3,
+[data-theme="kr-gold"] .font-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+[data-theme="kr-gold"] code,
+[data-theme="kr-gold"] pre,
+[data-theme="kr-gold"] .font-mono {
+  font-family: 'JetBrains Mono', Menlo, monospace;
+}
+
+[data-theme="kr-financial-slate"] {
+  --bg-0:#0a1020; --bg-1:#0f1626; --bg-2:#161f33; --bg-3:#1d2840; --bg-4:#243250;
+  --accent:#3b82f6; --accent-dim:#2563eb; --accent-glow:rgba(59,130,246,0.18); --accent-contrast:#06090f;
+  --success:#34d399; --danger:#ef4444; --info:#60a5fa;
+  --border:rgba(59,130,246,0.14); --border-bright:rgba(59,130,246,0.42);
+  --text-primary:#e5edff; --text-secondary:#94a3b8; --text-muted:#64748b;
+  --card-bg:#161f33; --card-hover:#1d2840; --modal-overlay:rgba(10,16,32,0.92);
+  --header-bg:rgba(10,16,32,0.97); --footer-bg:#0a1020; --footer-text:#94a3b8;
+  --tag-bg:rgba(59,130,246,0.08); --tag-border:rgba(59,130,246,0.25); --tag-text:#60a5fa;
+  --badge-claude:#b45309; --badge-perplexity:#6d28d9; --badge-chatgpt:#065f46;
+  --badge-gemini:#1e40af; --badge-general:#374151;
+  --scrollbar-thumb:#2563eb; --scanlines:0;
+  color-scheme:dark;
+  --background: 222 33% 7%;
+  --foreground: 210 33% 95%;
+  --card: 220 24% 14%;
+  --card-foreground: 210 33% 95%;
+  --popover: 220 24% 14%;
+  --popover-foreground: 210 33% 95%;
+  --primary: 221 83% 60%;
+  --primary-foreground: 222 47% 5%;
+  --secondary: 220 18% 19%;
+  --secondary-foreground: 210 33% 95%;
+  --muted: 220 18% 19%;
+  --muted-foreground: 215 16% 60%;
+  --accent-tw: 220 18% 19%;
+  --accent-foreground: 221 83% 60%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 33% 95%;
+  --border-tw: 220 18% 22%;
+  --input: 220 18% 22%;
+  --ring: 221 83% 60%;
+  --gold: 221 83% 60%;
+  --gold-light: 221 90% 70%;
+  --gold-dark: 221 70% 48%;
+  --sidebar-background: 220 24% 11%;
+  --sidebar-foreground: 210 33% 95%;
+  --sidebar-primary: 221 83% 60%;
+  --sidebar-primary-foreground: 222 47% 5%;
+  --sidebar-accent: 220 18% 19%;
+  --sidebar-accent-foreground: 210 33% 95%;
+  --sidebar-border: 220 18% 22%;
+  --sidebar-ring: 221 83% 60%;
+}
+
+[data-theme="kr-forest"] {
+  --bg-0:#0a1410; --bg-1:#0f1c17; --bg-2:#152822; --bg-3:#1d362d; --bg-4:#244339;
+  --accent:#22c55e; --accent-dim:#16a34a; --accent-glow:rgba(34,197,94,0.18); --accent-contrast:#0a1410;
+  --success:#22c55e; --danger:#ef4444; --info:#60a5fa;
+  --border:rgba(34,197,94,0.14); --border-bright:rgba(34,197,94,0.42);
+  --text-primary:#e7f5ec; --text-secondary:#94a89c; --text-muted:#6b7d72;
+  --card-bg:#152822; --card-hover:#1d362d; --modal-overlay:rgba(10,20,16,0.92);
+  --header-bg:rgba(10,20,16,0.97); --footer-bg:#0a1410; --footer-text:#94a89c;
+  --tag-bg:rgba(34,197,94,0.08); --tag-border:rgba(34,197,94,0.25); --tag-text:#22c55e;
+  --badge-claude:#b45309; --badge-perplexity:#6d28d9; --badge-chatgpt:#065f46;
+  --badge-gemini:#1e40af; --badge-general:#374151;
+  --scrollbar-thumb:#16a34a; --scanlines:0;
+  color-scheme:dark;
+  --background: 160 25% 6%;
+  --foreground: 150 25% 94%;
+  --card: 160 22% 12%;
+  --card-foreground: 150 25% 94%;
+  --popover: 160 22% 12%;
+  --popover-foreground: 150 25% 94%;
+  --primary: 160 70% 45%;
+  --primary-foreground: 160 25% 6%;
+  --secondary: 160 18% 17%;
+  --secondary-foreground: 150 25% 94%;
+  --muted: 160 18% 17%;
+  --muted-foreground: 150 12% 62%;
+  --accent-tw: 160 18% 17%;
+  --accent-foreground: 160 70% 45%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 150 25% 94%;
+  --border-tw: 160 18% 20%;
+  --input: 160 18% 20%;
+  --ring: 160 70% 45%;
+  --gold: 160 70% 45%;
+  --gold-light: 160 70% 58%;
+  --gold-dark: 160 70% 35%;
+  --sidebar-background: 160 22% 10%;
+  --sidebar-foreground: 150 25% 94%;
+  --sidebar-primary: 160 70% 45%;
+  --sidebar-primary-foreground: 160 25% 6%;
+  --sidebar-accent: 160 18% 17%;
+  --sidebar-accent-foreground: 150 25% 94%;
+  --sidebar-border: 160 18% 20%;
+  --sidebar-ring: 160 70% 45%;
+}
+
+[data-theme="kr-sunset"] {
+  --bg-0:#140a07; --bg-1:#1d100a; --bg-2:#2a1810; --bg-3:#3a2317; --bg-4:#4a2e1f;
+  --accent:#f97316; --accent-dim:#ea580c; --accent-glow:rgba(249,115,22,0.18); --accent-contrast:#140a07;
+  --success:#34d399; --danger:#ef4444; --info:#60a5fa;
+  --border:rgba(249,115,22,0.14); --border-bright:rgba(249,115,22,0.42);
+  --text-primary:#fdf3ec; --text-secondary:#a89380; --text-muted:#7a6755;
+  --card-bg:#2a1810; --card-hover:#3a2317; --modal-overlay:rgba(20,10,7,0.92);
+  --header-bg:rgba(20,10,7,0.97); --footer-bg:#140a07; --footer-text:#a89380;
+  --tag-bg:rgba(249,115,22,0.08); --tag-border:rgba(249,115,22,0.25); --tag-text:#f97316;
+  --badge-claude:#b45309; --badge-perplexity:#6d28d9; --badge-chatgpt:#065f46;
+  --badge-gemini:#1e40af; --badge-general:#374151;
+  --scrollbar-thumb:#ea580c; --scanlines:0;
+  color-scheme:dark;
+  --background: 18 25% 7%;
+  --foreground: 30 30% 94%;
+  --card: 18 22% 13%;
+  --card-foreground: 30 30% 94%;
+  --popover: 18 22% 13%;
+  --popover-foreground: 30 30% 94%;
+  --primary: 14 90% 60%;
+  --primary-foreground: 18 25% 7%;
+  --secondary: 18 18% 18%;
+  --secondary-foreground: 30 30% 94%;
+  --muted: 18 18% 18%;
+  --muted-foreground: 25 14% 60%;
+  --accent-tw: 18 18% 18%;
+  --accent-foreground: 14 90% 60%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 30 30% 94%;
+  --border-tw: 18 18% 22%;
+  --input: 18 18% 22%;
+  --ring: 14 90% 60%;
+  --gold: 14 90% 60%;
+  --gold-light: 36 95% 60%;
+  --gold-dark: 14 80% 48%;
+  --sidebar-background: 18 22% 11%;
+  --sidebar-foreground: 30 30% 94%;
+  --sidebar-primary: 14 90% 60%;
+  --sidebar-primary-foreground: 18 25% 7%;
+  --sidebar-accent: 18 18% 18%;
+  --sidebar-accent-foreground: 30 30% 94%;
+  --sidebar-border: 18 18% 22%;
+  --sidebar-ring: 14 90% 60%;
+}
+
+[data-theme="kr-mono"] {
+  --bg-0:#050505; --bg-1:#0c0c0c; --bg-2:#141414; --bg-3:#1f1f1f; --bg-4:#2a2a2a;
+  --accent:#ebebeb; --accent-dim:#b3b3b3; --accent-glow:rgba(255,255,255,0.10); --accent-contrast:#050505;
+  --success:#34d399; --danger:#ef4444; --info:#60a5fa;
+  --border:rgba(255,255,255,0.08); --border-bright:rgba(255,255,255,0.30);
+  --text-primary:#f5f5f5; --text-secondary:#9a9a9a; --text-muted:#6e6e6e;
+  --card-bg:#141414; --card-hover:#1f1f1f; --modal-overlay:rgba(5,5,5,0.92);
+  --header-bg:rgba(5,5,5,0.97); --footer-bg:#050505; --footer-text:#9a9a9a;
+  --tag-bg:rgba(255,255,255,0.05); --tag-border:rgba(255,255,255,0.18); --tag-text:#ebebeb;
+  --badge-claude:#b45309; --badge-perplexity:#6d28d9; --badge-chatgpt:#065f46;
+  --badge-gemini:#1e40af; --badge-general:#374151;
+  --scrollbar-thumb:#b3b3b3; --scanlines:0;
+  color-scheme:dark;
+  --background: 0 0% 5%;
+  --foreground: 0 0% 96%;
+  --card: 0 0% 9%;
+  --card-foreground: 0 0% 96%;
+  --popover: 0 0% 9%;
+  --popover-foreground: 0 0% 96%;
+  --primary: 0 0% 92%;
+  --primary-foreground: 0 0% 5%;
+  --secondary: 0 0% 14%;
+  --secondary-foreground: 0 0% 96%;
+  --muted: 0 0% 14%;
+  --muted-foreground: 0 0% 60%;
+  --accent-tw: 0 0% 14%;
+  --accent-foreground: 0 0% 92%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 96%;
+  --border-tw: 0 0% 18%;
+  --input: 0 0% 18%;
+  --ring: 0 0% 92%;
+  --gold: 0 0% 92%;
+  --gold-light: 0 0% 100%;
+  --gold-dark: 0 0% 70%;
+  --sidebar-background: 0 0% 9%;
+  --sidebar-foreground: 0 0% 96%;
+  --sidebar-primary: 0 0% 92%;
+  --sidebar-primary-foreground: 0 0% 5%;
+  --sidebar-accent: 0 0% 14%;
+  --sidebar-accent-foreground: 0 0% 96%;
+  --sidebar-border: 0 0% 18%;
+  --sidebar-ring: 0 0% 92%;
+}
+
+/* =================================================================
+   READABILITY OVERRIDES
+   Brighten muted/secondary text on all DARK themes by 1–2 shades
+   so sub-text in cards, modals, and the FINPROMPT terminal stays
+   legible. Arctic (light) is intentionally excluded.
+   ================================================================= */
+
+[data-theme="terminal"]            { --text-secondary:#c9bfa6; --text-muted:#a89e85; --muted-foreground: 38 18% 70%; }
+[data-theme="matrix"]              { --text-secondary:#7be09a; --text-muted:#5cc079; --muted-foreground: 140 45% 70%; }
+[data-theme="crimson"]             { --text-secondary:#d4a8b4; --text-muted:#b88494; --muted-foreground: 340 25% 72%; }
+[data-theme="slate"]               { --text-secondary:#c0c8d2; --text-muted:#9ba4b0; --muted-foreground: 215 14% 75%; }
+[data-theme="kr-gold"]             { --text-secondary:#d4cab3; --text-muted:#b3a890; --muted-foreground: 38 22% 75%; }
+[data-theme="kr-financial-slate"]  { --text-secondary:#c5d1e8; --text-muted:#a3afc8; --muted-foreground: 215 28% 76%; }
+[data-theme="kr-forest"]           { --text-secondary:#bcd0c2; --text-muted:#9ab1a3; --muted-foreground: 150 16% 74%; }
+[data-theme="kr-sunset"]           { --text-secondary:#d8c3ad; --text-muted:#b59c84; --muted-foreground: 25 25% 74%; }
+[data-theme="kr-mono"]             { --text-secondary:#c8c8c8; --text-muted:#a8a8a8; --muted-foreground: 0 0% 76%; }
