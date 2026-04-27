@@ -243,11 +243,18 @@ function WorkshopPanel({
   onApply: (filledText: string, sourceTitle: string) => void;
 }) {
   const [showBrowse, setShowBrowse] = useState(false);
+  const [showSample, setShowSample] = useState(false);
   const [selected, setSelected] = useState<WorkshopSelectedPrompt | null>(null);
   const [vars, setVars] = useState<Record<string, string>>({});
   const [tweaks, setTweaks] = useState("");
   const [isOpen, setIsOpen] = useState(true);
   const varsRef = useRef<HTMLDivElement>(null);
+
+  // Resolve a mapped sample output for the currently selected prompt
+  const sampleForSelected = useMemo(
+    () => (selected ? resolveSampleForPrompt({ id: selected.id, title: selected.title }) : undefined),
+    [selected]
+  );
 
   const allPrompts = useMemo(() => getAllPrompts(), []);
 
