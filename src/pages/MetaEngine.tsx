@@ -15,6 +15,8 @@ import { detectVariables, buildFilledPrompt } from "@/lib/promptVariables";
 import { getSuggestionsForVariable } from "@/lib/variableSuggestions";
 import { downloadMarkdown, downloadHTML, downloadPDF } from "@/lib/downloadHelpers";
 import { getAllPrompts } from "@/data/prompts";
+import { resolveSampleForPrompt } from "@/lib/sampleOutputLibrary";
+import { SampleOutputsModal } from "@/components/SampleOutputsModal";
 import { DOMAINS, DOMAIN_ICONS, type Domain } from "@/types/prompt";
 import {
   Copy,
