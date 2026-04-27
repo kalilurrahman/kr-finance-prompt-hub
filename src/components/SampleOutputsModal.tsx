@@ -139,9 +139,11 @@ interface Props {
   isOpen: boolean;
   onClose: () => void;
   initialPromptId?: number;
+  /** Open a specific example by its id (e.g. "ex-42"). Takes precedence over initialPromptId. */
+  initialExampleId?: string;
 }
 
-export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) {
+export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialExampleId }: Props) {
   const examples = useMemo(() => getMappedSampleOutputs(), []);
   const [activeId, setActiveId] = useState(examples[0]?.id ?? "");
   const [copied, setCopied] = useState(false);
@@ -161,11 +163,17 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) 
 
   useEffect(() => {
     if (!isOpen) return;
-    const mappedEntry = initialPromptId ? getMappedSampleOutputByPromptId(initialPromptId) : undefined;
-    setActiveId(mappedEntry?.id ?? examples[0]?.id ?? "");
+    let next: string | undefined;
+    if (initialExampleId) {
+      next = examples.find((e) => e.id === initialExampleId)?.id;
+    }
+    if (!next && initialPromptId) {
+      next = getMappedSampleOutputByPromptId(initialPromptId)?.id;
+    }
+    setActiveId(next ?? examples[0]?.id ?? "");
     setCopied(false);
     setMobileView("reader");
-  }, [examples, initialPromptId, isOpen]);
+  }, [examples, initialPromptId, initialExampleId, isOpen]);
 
   // Lock body scroll when open
   useEffect(() => {
@@ -345,11 +353,20 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) 
               {active.promptTitle}
             </h2>
 
-            {isPlaceholder && (
+            {isPlaceholder ? (
               <p className="mt-2 text-xs text-muted-foreground/85 italic leading-relaxed">
                 This sample output is not yet linked to a specific library prompt — treat it as a
                 reference example for the <strong className="text-foreground/90">{active.domain}</strong> domain.
               </p>
+            ) : (
+              <a
+                href={`/library?prompt=${active.promptId}`}
+                className="mt-2 inline-flex items-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-1.5 text-xs font-semibold text-gold hover:bg-gold/20 hover:border-gold/60 transition-colors"
+                onClick={() => onClose()}
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+                Open original FinPrompt #{active.promptId}
+              </a>
             )}
 
             {/* Action row */}
@@ -417,10 +434,11 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) 
               {SAMPLE_OUTPUT_LIMIT} examples · {mappedCount} mapped
             </span>
             <a
-              href="/library"
+              href={isPlaceholder ? "/library" : `/library?prompt=${active.promptId}`}
               className="flex items-center gap-1.5 text-[11px] sm:text-xs text-gold/90 hover:text-gold transition-colors"
             >
-              Browse all prompts <ExternalLink className="h-3 w-3" />
+              {isPlaceholder ? "Browse all prompts" : `View FinPrompt #${active.promptId} in library`}{" "}
+              <ExternalLink className="h-3 w-3" />
             </a>
           </div>
         </div>

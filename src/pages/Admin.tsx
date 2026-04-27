@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SampleOutputsModal } from "@/components/SampleOutputsModal";
 import {
   getLibraryCoverage,
   getMappedSampleOutputs,
@@ -9,10 +10,11 @@ import {
 } from "@/lib/sampleOutputLibrary";
 import { DOMAIN_ICONS } from "@/types/prompt";
 import type { Domain } from "@/types/prompt";
-import { CheckCircle2, AlertCircle, Database, FlaskConical, Layers, ExternalLink } from "lucide-react";
+import { CheckCircle2, AlertCircle, Database, FlaskConical, Layers, ExternalLink, Eye } from "lucide-react";
 
 export default function Admin() {
   const [search, setSearch] = useState("");
+  const [openExampleId, setOpenExampleId] = useState<string | null>(null);
   const coverage = useMemo(() => getLibraryCoverage(), []);
   const examples = useMemo(() => getMappedSampleOutputs(), []);
 
@@ -209,24 +211,39 @@ export default function Admin() {
                       <span className="font-mono text-[10px] text-muted-foreground/80 shrink-0 w-12">
                         {ex.id}
                       </span>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-foreground/90 truncate">{ex.promptTitle}</p>
+                      <button
+                        onClick={() => setOpenExampleId(ex.id)}
+                        className="flex-1 min-w-0 text-left group"
+                        title="Open example output"
+                      >
+                        <p className="text-foreground/90 truncate group-hover:text-gold transition-colors">
+                          {ex.promptTitle}
+                        </p>
                         <p className="text-[10px] text-muted-foreground/80 mt-0.5">
                           <span className="uppercase tracking-wider">{ex.platform}</span>
                           <span className="mx-1.5">·</span>
                           {ex.model}
                         </p>
-                      </div>
+                      </button>
+                      <button
+                        onClick={() => setOpenExampleId(ex.id)}
+                        className="shrink-0 inline-flex items-center gap-1 rounded-md border border-gold/30 bg-gold/10 px-2 py-1 text-[10px] font-semibold text-gold hover:bg-gold/20 transition-colors"
+                        title="View AI sample output"
+                      >
+                        <Eye className="h-3 w-3" />
+                        Output
+                      </button>
                       {ex.promptId > 0 ? (
                         <Link
                           to={`/library?prompt=${ex.promptId}`}
-                          className="shrink-0 inline-flex items-center gap-1 text-[10px] text-emerald-400 hover:text-emerald-300 transition-colors"
+                          className="shrink-0 inline-flex items-center gap-1 rounded-md border border-emerald-500/30 bg-emerald-500/5 px-2 py-1 text-[10px] text-emerald-400 hover:bg-emerald-500/15 transition-colors"
+                          title={`Open original FinPrompt #${ex.promptId}`}
                         >
                           #{ex.promptId}
                           <ExternalLink className="h-2.5 w-2.5" />
                         </Link>
                       ) : (
-                        <span className="shrink-0 text-[10px] rounded-sm border border-gold/30 bg-gold/10 text-gold/90 px-1.5 py-px uppercase tracking-wider">
+                        <span className="shrink-0 text-[10px] rounded-md border border-gold/30 bg-gold/10 text-gold/90 px-2 py-1 uppercase tracking-wider">
                           Reference
                         </span>
                       )}
@@ -264,6 +281,12 @@ export default function Admin() {
       </main>
 
       <Footer />
+
+      <SampleOutputsModal
+        isOpen={openExampleId !== null}
+        onClose={() => setOpenExampleId(null)}
+        initialExampleId={openExampleId ?? undefined}
+      />
     </div>
   );
 }
