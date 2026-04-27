@@ -281,6 +281,12 @@ export default function Admin() {
       </main>
 
       <Footer />
+
+      <SampleOutputsModal
+        isOpen={openExampleId !== null}
+        onClose={() => setOpenExampleId(null)}
+        initialExampleId={openExampleId ?? undefined}
+      />
     </div>
   );
 }
