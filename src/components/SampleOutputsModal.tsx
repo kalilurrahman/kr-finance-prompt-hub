@@ -353,11 +353,20 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
               {active.promptTitle}
             </h2>
 
-            {isPlaceholder && (
+            {isPlaceholder ? (
               <p className="mt-2 text-xs text-muted-foreground/85 italic leading-relaxed">
                 This sample output is not yet linked to a specific library prompt — treat it as a
                 reference example for the <strong className="text-foreground/90">{active.domain}</strong> domain.
               </p>
+            ) : (
+              <a
+                href={`/library?prompt=${active.promptId}`}
+                className="mt-2 inline-flex items-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-1.5 text-xs font-semibold text-gold hover:bg-gold/20 hover:border-gold/60 transition-colors"
+                onClick={() => onClose()}
+              >
+                <ExternalLink className="h-3.5 w-3.5" />
+                Open original FinPrompt #{active.promptId}
+              </a>
             )}
 
             {/* Action row */}
