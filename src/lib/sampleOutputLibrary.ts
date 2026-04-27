@@ -84,9 +84,18 @@ const allExamples: SampleOutputEntry[] = (examples as RawExample[]).map((ex) => 
 });
 
 const sampleByPromptId = new Map<number, SampleOutputEntry>();
+const sampleByNormalizedTitle = new Map<string, SampleOutputEntry>();
 for (const entry of allExamples) {
   if (entry.promptId > 0 && !sampleByPromptId.has(entry.promptId)) {
     sampleByPromptId.set(entry.promptId, entry);
+  }
+  const key = normalize(entry.promptTitle);
+  if (key && !sampleByNormalizedTitle.has(key)) {
+    sampleByNormalizedTitle.set(key, entry);
+  }
+  const altKey = normalize(entry.exampleTitle);
+  if (altKey && !sampleByNormalizedTitle.has(altKey)) {
+    sampleByNormalizedTitle.set(altKey, entry);
   }
 }
 
@@ -98,6 +107,32 @@ export function getMappedSampleOutputs() {
 
 export function getMappedSampleOutputByPromptId(promptId: number) {
   return sampleByPromptId.get(promptId);
+}
+
+/**
+ * Resolve an example for a workshop/library prompt that may use a string id like
+ * `gemini-12`, `claude-7`, `perplexity-3`. Falls back to title matching.
+ */
+export function resolveSampleForPrompt(opts: {
+  id?: string | number;
+  title?: string;
+}): SampleOutputEntry | undefined {
+  if (typeof opts.id === "number" && opts.id > 0) {
+    const direct = sampleByPromptId.get(opts.id);
+    if (direct) return direct;
+  }
+  if (typeof opts.id === "string") {
+    const m = opts.id.match(/(\d+)$/);
+    if (m) {
+      const n = parseInt(m[1], 10);
+      const direct = sampleByPromptId.get(n);
+      if (direct) return direct;
+    }
+  }
+  if (opts.title) {
+    return sampleByNormalizedTitle.get(normalize(opts.title));
+  }
+  return undefined;
 }
 
 /** Coverage stats for the admin dashboard. */
