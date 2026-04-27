@@ -27,6 +27,7 @@ const App = () => {
                 <Route path="/" element={<Index />} />
                 <Route path="/library" element={<Library />} />
                 <Route path="/engine" element={<MetaEngine />} />
+                <Route path="/admin" element={<Admin />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
