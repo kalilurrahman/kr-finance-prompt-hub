@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SampleOutputsModal } from "@/components/SampleOutputsModal";
 import {
   getLibraryCoverage,
   getMappedSampleOutputs,
@@ -9,10 +10,11 @@ import {
 } from "@/lib/sampleOutputLibrary";
 import { DOMAIN_ICONS } from "@/types/prompt";
 import type { Domain } from "@/types/prompt";
-import { CheckCircle2, AlertCircle, Database, FlaskConical, Layers, ExternalLink } from "lucide-react";
+import { CheckCircle2, AlertCircle, Database, FlaskConical, Layers, ExternalLink, Eye } from "lucide-react";
 
 export default function Admin() {
   const [search, setSearch] = useState("");
+  const [openExampleId, setOpenExampleId] = useState<string | null>(null);
   const coverage = useMemo(() => getLibraryCoverage(), []);
   const examples = useMemo(() => getMappedSampleOutputs(), []);
 
