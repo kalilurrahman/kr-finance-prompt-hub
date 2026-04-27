@@ -434,10 +434,11 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
               {SAMPLE_OUTPUT_LIMIT} examples · {mappedCount} mapped
             </span>
             <a
-              href="/library"
+              href={isPlaceholder ? "/library" : `/library?prompt=${active.promptId}`}
               className="flex items-center gap-1.5 text-[11px] sm:text-xs text-gold/90 hover:text-gold transition-colors"
             >
-              Browse all prompts <ExternalLink className="h-3 w-3" />
+              {isPlaceholder ? "Browse all prompts" : `View FinPrompt #${active.promptId} in library`}{" "}
+              <ExternalLink className="h-3 w-3" />
             </a>
           </div>
         </div>
