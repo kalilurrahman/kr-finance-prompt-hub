@@ -238,7 +238,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) 
             </p>
           </div>
 
-          <div className="flex-1 overflow-y-auto py-1">
+          <div className="flex-1 overflow-y-auto overscroll-contain py-1" style={{ WebkitOverflowScrolling: "touch" }}>
             {examples.map((ex) => {
               const icon = DOMAIN_ICONS[ex.domain as Domain] ?? "📄";
               const isActive = ex.id === activeId;
