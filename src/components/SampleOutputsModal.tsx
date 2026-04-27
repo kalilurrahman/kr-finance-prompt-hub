@@ -404,7 +404,10 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) 
           )}
 
           {/* OUTPUT BODY — generous reader width */}
-          <div className="flex-1 overflow-y-auto px-4 sm:px-7 py-5 sm:py-7">
+          <div
+            className="flex-1 overflow-y-auto overscroll-contain px-4 sm:px-7 py-5 sm:py-7"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
             <div className="max-w-3xl mx-auto space-y-1">{renderOutput(active.output)}</div>
           </div>
 
