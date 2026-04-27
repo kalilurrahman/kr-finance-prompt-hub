@@ -1,4 +1,4 @@
-import { Search, Heart, Home, BookOpen, Bot, Globe, Atom, Cpu, Menu, X } from "lucide-react";
+import { Search, Heart, Home, BookOpen, Bot, Cpu, Menu, X, LayoutDashboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AppearanceMenu } from "@/components/AppearanceMenu";
@@ -21,13 +21,12 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
   const inAppLinks = [
     { href: "/library", icon: <BookOpen className="h-3.5 w-3.5" />, label: "FINPROMPT" },
     { href: "/engine", icon: <Cpu className="h-3.5 w-3.5" />, label: "META-ENGINE" },
+    { href: "/admin", icon: <LayoutDashboard className="h-3.5 w-3.5" />, label: "ADMIN" },
   ];
 
   const externalLinks = [
     { href: "https://kalilurrahman.lovable.app", icon: <Home className="h-3.5 w-3.5" />, label: "Home" },
     { href: "https://kalilurrahman.lovable.app", icon: <Bot className="h-3.5 w-3.5" />, label: "AI Agents" },
-    { href: "https://kalilurrahman.lovable.app", icon: <Globe className="h-3.5 w-3.5" />, label: "Digital Hub" },
-    { href: "https://kr-quantum-hub.lovable.app", icon: <Atom className="h-3.5 w-3.5" />, label: "Q-Ref" },
   ];
 
   return (
