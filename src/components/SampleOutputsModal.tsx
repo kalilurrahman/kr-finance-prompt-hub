@@ -139,9 +139,11 @@ interface Props {
   isOpen: boolean;
   onClose: () => void;
   initialPromptId?: number;
+  /** Open a specific example by its id (e.g. "ex-42"). Takes precedence over initialPromptId. */
+  initialExampleId?: string;
 }
 
-export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) {
+export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialExampleId }: Props) {
   const examples = useMemo(() => getMappedSampleOutputs(), []);
   const [activeId, setActiveId] = useState(examples[0]?.id ?? "");
   const [copied, setCopied] = useState(false);
@@ -161,11 +163,17 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId }: Props) 
 
   useEffect(() => {
     if (!isOpen) return;
-    const mappedEntry = initialPromptId ? getMappedSampleOutputByPromptId(initialPromptId) : undefined;
-    setActiveId(mappedEntry?.id ?? examples[0]?.id ?? "");
+    let next: string | undefined;
+    if (initialExampleId) {
+      next = examples.find((e) => e.id === initialExampleId)?.id;
+    }
+    if (!next && initialPromptId) {
+      next = getMappedSampleOutputByPromptId(initialPromptId)?.id;
+    }
+    setActiveId(next ?? examples[0]?.id ?? "");
     setCopied(false);
     setMobileView("reader");
-  }, [examples, initialPromptId, isOpen]);
+  }, [examples, initialPromptId, initialExampleId, isOpen]);
 
   // Lock body scroll when open
   useEffect(() => {
