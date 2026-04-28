@@ -317,7 +317,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
         <div
           className={`${
             mobileView === "reader" ? "flex" : "hidden"
-          } sm:flex flex-1 flex-col min-w-0 bg-card`}
+          } sm:flex flex-1 flex-col min-w-0 min-h-0 bg-card overflow-hidden`}
         >
           {/* Mobile top bar with back + close */}
           <div className="flex sm:hidden items-center justify-between px-3 py-2.5 border-b border-border/40 bg-background/40 shrink-0">
