@@ -26,6 +26,21 @@ export interface MetaEngineConfig {
   contextLevel: ContextLevel;
   domain: Domain | "all";
   remixPromptId?: string | null; // optional: id of a library prompt to remix
+  /** Optional: a real AI sample-output snippet to inject as additional grounding. */
+  exampleReference?: { title: string; platform: string; snippet: string } | null;
+}
+
+/**
+ * Derive a sensible objective sentence from a library prompt's title so we can
+ * auto-generate a remix without forcing the user to write the objective.
+ */
+export function deriveObjectiveFromPrompt(title: string, contentSnippet?: string): string {
+  const cleaned = title.replace(/^[\d.\-:\s]+/, "").trim();
+  const lead = cleaned.length > 0 ? cleaned : "the user's analytical goal";
+  const tail = contentSnippet
+    ? ` Use the linked FinPrompt as the structural baseline and adapt it with the chosen companies, geographies and parameters.`
+    : "";
+  return `Produce a board-ready, fully expanded version of: "${lead}".${tail}`;
 }
 
 export interface SourcePromptRef {
