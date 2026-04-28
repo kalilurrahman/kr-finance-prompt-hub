@@ -227,7 +227,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
         <aside
           className={`${
             mobileView === "list" ? "flex" : "hidden"
-          } sm:flex w-full sm:w-72 shrink-0 border-r border-border/40 bg-background/60 flex-col overflow-hidden`}
+          } sm:flex w-full sm:w-72 shrink-0 border-r border-border/40 bg-background/60 flex-col overflow-hidden min-h-0`}
         >
           <div className="px-4 py-4 border-b border-border/40">
             <div className="flex items-center justify-between gap-2 mb-1">
