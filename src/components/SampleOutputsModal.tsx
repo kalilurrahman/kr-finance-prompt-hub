@@ -446,13 +446,14 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
             <span className="text-[10px] text-muted-foreground/80 font-mono">
               {SAMPLE_OUTPUT_LIMIT} examples · {mappedCount} mapped
             </span>
-            <a
-              href={isPlaceholder ? "/library" : `/library?prompt=${active.promptId}`}
+            <button
+              type="button"
+              onClick={openInLibrary}
               className="flex items-center gap-1.5 text-[11px] sm:text-xs text-gold/90 hover:text-gold transition-colors"
             >
-              {isPlaceholder ? "Browse all prompts" : `View FinPrompt #${active.promptId} in library`}{" "}
+              {isPlaceholder ? "Browse all prompts" : `Open in library · #${active.promptId}`}{" "}
               <ExternalLink className="h-3 w-3" />
-            </a>
+            </button>
           </div>
         </div>
       </div>
