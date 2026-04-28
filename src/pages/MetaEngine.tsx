@@ -322,14 +322,28 @@ function WorkshopPanel({
         initialPromptId={sampleForSelected?.promptId}
       />
 
-      <div className="rounded-xl border border-gold/20 bg-gradient-to-br from-[#0e1320] to-[#141c2a] overflow-hidden">
+      {expanded && (
+        <div
+          className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm"
+          onClick={() => setExpanded(false)}
+          aria-hidden
+        />
+      )}
+
+      <div
+        className={
+          expanded
+            ? "fixed inset-0 sm:inset-4 md:inset-8 z-50 flex flex-col rounded-none sm:rounded-xl border border-gold/30 bg-gradient-to-br from-[#0e1320] to-[#141c2a] overflow-hidden shadow-2xl"
+            : "rounded-xl border border-gold/20 bg-gradient-to-br from-[#0e1320] to-[#141c2a] overflow-hidden"
+        }
+      >
         {/* Workshop Header */}
-        <button
-          className="flex w-full items-center justify-between px-5 py-3.5 text-left hover:bg-white/5 transition-colors focus:outline-none"
-          onClick={() => setIsOpen((o) => !o)}
-          aria-expanded={isOpen}
-        >
-          <div className="flex items-center gap-2.5">
+        <div className="flex w-full items-center justify-between px-5 py-3.5 hover:bg-white/5 transition-colors">
+          <button
+            className="flex items-center gap-2.5 text-left focus:outline-none"
+            onClick={() => !expanded && setIsOpen((o) => !o)}
+            aria-expanded={isOpen || expanded}
+          >
             <Wand2 className="h-4 w-4 text-gold" />
             <span className="text-sm font-semibold uppercase tracking-wider text-gold/90">
               Library Workshop
@@ -337,13 +351,32 @@ function WorkshopPanel({
             <span className="rounded-full bg-gold/10 border border-gold/20 px-2 py-0.5 text-[10px] font-mono text-gold/70 uppercase tracking-wider">
               Fill-in Mode
             </span>
+          </button>
+          <div className="flex items-center gap-1.5">
+            <button
+              onClick={() => { setExpanded((e) => !e); if (!expanded) setIsOpen(true); }}
+              className="rounded-md border border-border/50 bg-secondary/30 px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-muted-foreground hover:text-gold hover:border-gold/40 transition-colors flex items-center gap-1"
+              title={expanded ? "Collapse workshop" : "Expand workshop to full screen"}
+              aria-label={expanded ? "Collapse workshop" : "Expand workshop"}
+            >
+              {expanded ? <X className="h-3 w-3" /> : <Maximize2 className="h-3 w-3" />}
+              {expanded ? "Close" : "Expand"}
+            </button>
+            {!expanded && (
+              <button
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setIsOpen((o) => !o)}
+                aria-label={isOpen ? "Collapse" : "Expand"}
+              >
+                {isOpen ? (
+                  <ChevronUp className="h-3.5 w-3.5" />
+                ) : (
+                  <ChevronDown className="h-3.5 w-3.5" />
+                )}
+              </button>
+            )}
           </div>
-          {isOpen ? (
-            <ChevronUp className="h-3.5 w-3.5 text-muted-foreground" />
-          ) : (
-            <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
-          )}
-        </button>
+        </div>
 
         {isOpen && (
           <div className="border-t border-gold/10 px-5 pb-5 pt-4 flex flex-col gap-4">
