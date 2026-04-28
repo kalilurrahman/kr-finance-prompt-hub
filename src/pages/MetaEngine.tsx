@@ -378,8 +378,8 @@ function WorkshopPanel({
           </div>
         </div>
 
-        {isOpen && (
-          <div className="border-t border-gold/10 px-5 pb-5 pt-4 flex flex-col gap-4">
+        {(isOpen || expanded) && (
+          <div className={`border-t border-gold/10 px-5 pb-5 pt-4 flex flex-col gap-4 ${expanded ? "flex-1 overflow-y-auto" : ""}`}>
             {/* Surprise Me + Browse Row */}
             <div className="flex gap-2">
               <button
