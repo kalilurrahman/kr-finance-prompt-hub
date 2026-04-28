@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import {
   buildMetaPrompt,
+  deriveObjectiveFromPrompt,
   TARGET_PLATFORMS,
   CONTEXT_LEVELS,
   type MetaEngineConfig,
@@ -36,6 +37,7 @@ import {
   FileCode,
   Printer,
   Wand2,
+  Maximize2,
   X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -118,14 +120,13 @@ function WorkshopBrowseModal({
   if (!isOpen) return null;
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ background: "rgba(0,0,0,0.75)" }}
+      className="fixed inset-0 z-[60] flex items-stretch justify-center sm:items-center sm:p-4"
+      style={{ background: "rgba(0,0,0,0.78)" }}
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl rounded-xl border border-border/50 bg-[#0d1117] shadow-2xl"
+        className="relative flex w-full flex-col overflow-hidden border border-border/50 bg-[#0d1117] shadow-2xl sm:max-w-2xl sm:rounded-xl sm:max-h-[82vh] h-[100dvh] sm:h-auto"
         onClick={(e) => e.stopPropagation()}
-        style={{ maxHeight: "82vh", display: "flex", flexDirection: "column" }}
       >
         <div className="flex items-center justify-between border-b border-border/50 px-5 py-4">
           <div className="flex items-center gap-2">
@@ -248,6 +249,7 @@ function WorkshopPanel({
   const [vars, setVars] = useState<Record<string, string>>({});
   const [tweaks, setTweaks] = useState("");
   const [isOpen, setIsOpen] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   const varsRef = useRef<HTMLDivElement>(null);
 
   // Resolve a mapped sample output for the currently selected prompt
@@ -320,14 +322,28 @@ function WorkshopPanel({
         initialPromptId={sampleForSelected?.promptId}
       />
 
-      <div className="rounded-xl border border-gold/20 bg-gradient-to-br from-[#0e1320] to-[#141c2a] overflow-hidden">
+      {expanded && (
+        <div
+          className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm"
+          onClick={() => setExpanded(false)}
+          aria-hidden
+        />
+      )}
+
+      <div
+        className={
+          expanded
+            ? "fixed inset-0 sm:inset-4 md:inset-8 z-50 flex flex-col rounded-none sm:rounded-xl border border-gold/30 bg-gradient-to-br from-[#0e1320] to-[#141c2a] overflow-hidden shadow-2xl"
+            : "rounded-xl border border-gold/20 bg-gradient-to-br from-[#0e1320] to-[#141c2a] overflow-hidden"
+        }
+      >
         {/* Workshop Header */}
-        <button
-          className="flex w-full items-center justify-between px-5 py-3.5 text-left hover:bg-white/5 transition-colors focus:outline-none"
-          onClick={() => setIsOpen((o) => !o)}
-          aria-expanded={isOpen}
-        >
-          <div className="flex items-center gap-2.5">
+        <div className="flex w-full items-center justify-between px-5 py-3.5 hover:bg-white/5 transition-colors">
+          <button
+            className="flex items-center gap-2.5 text-left focus:outline-none"
+            onClick={() => !expanded && setIsOpen((o) => !o)}
+            aria-expanded={isOpen || expanded}
+          >
             <Wand2 className="h-4 w-4 text-gold" />
             <span className="text-sm font-semibold uppercase tracking-wider text-gold/90">
               Library Workshop
@@ -335,16 +351,35 @@ function WorkshopPanel({
             <span className="rounded-full bg-gold/10 border border-gold/20 px-2 py-0.5 text-[10px] font-mono text-gold/70 uppercase tracking-wider">
               Fill-in Mode
             </span>
+          </button>
+          <div className="flex items-center gap-1.5">
+            <button
+              onClick={() => { setExpanded((e) => !e); if (!expanded) setIsOpen(true); }}
+              className="rounded-md border border-border/50 bg-secondary/30 px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-muted-foreground hover:text-gold hover:border-gold/40 transition-colors flex items-center gap-1"
+              title={expanded ? "Collapse workshop" : "Expand workshop to full screen"}
+              aria-label={expanded ? "Collapse workshop" : "Expand workshop"}
+            >
+              {expanded ? <X className="h-3 w-3" /> : <Maximize2 className="h-3 w-3" />}
+              {expanded ? "Close" : "Expand"}
+            </button>
+            {!expanded && (
+              <button
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setIsOpen((o) => !o)}
+                aria-label={isOpen ? "Collapse" : "Expand"}
+              >
+                {isOpen ? (
+                  <ChevronUp className="h-3.5 w-3.5" />
+                ) : (
+                  <ChevronDown className="h-3.5 w-3.5" />
+                )}
+              </button>
+            )}
           </div>
-          {isOpen ? (
-            <ChevronUp className="h-3.5 w-3.5 text-muted-foreground" />
-          ) : (
-            <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
-          )}
-        </button>
+        </div>
 
-        {isOpen && (
-          <div className="border-t border-gold/10 px-5 pb-5 pt-4 flex flex-col gap-4">
+        {(isOpen || expanded) && (
+          <div className={`border-t border-gold/10 px-5 pb-5 pt-4 flex flex-col gap-4 ${expanded ? "flex-1 overflow-y-auto" : ""}`}>
             {/* Surprise Me + Browse Row */}
             <div className="flex gap-2">
               <button
@@ -573,14 +608,13 @@ function RemixPicker({
   if (!isOpen) return null;
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ background: "rgba(0,0,0,0.7)" }}
+      className="fixed inset-0 z-50 flex items-stretch justify-center sm:items-center sm:p-4"
+      style={{ background: "rgba(0,0,0,0.78)" }}
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl rounded-xl border border-border/50 bg-[#0d1117] shadow-2xl"
+        className="relative flex w-full flex-col overflow-hidden border border-border/50 bg-[#0d1117] shadow-2xl sm:max-w-2xl sm:rounded-xl sm:max-h-[80vh] h-[100dvh] sm:h-auto"
         onClick={(e) => e.stopPropagation()}
-        style={{ maxHeight: "80vh", display: "flex", flexDirection: "column" }}
       >
         <div className="flex items-center justify-between border-b border-border/50 px-5 py-4">
           <div className="flex items-center gap-2">
@@ -934,22 +968,37 @@ const MetaEngine = () => {
 
   // ── Synthesis Generate ──
   const handleGenerate = useCallback(
-    (shuffle = false) => {
-      if (!objective.trim()) {
+    (
+      _shuffle = false,
+      overrides?: { objective?: string; remixId?: string | null }
+    ) => {
+      const finalObjective = (overrides?.objective ?? objective).trim();
+      const finalRemixId = overrides?.remixId !== undefined ? overrides.remixId : remixId;
+      if (!finalObjective) {
         toast({ title: "Objective required", description: "Please describe what you want the prompt to achieve.", variant: "destructive" });
         return;
       }
       setIsGenerating(true);
       setTimeout(() => {
         try {
+          // Try to surface a real AI sample-output for the remix prompt as extra grounding
+          const allPrompts = getAllPrompts();
+          const remixPrompt = finalRemixId ? allPrompts.find((p) => p.id === finalRemixId) : null;
+          const sample = remixPrompt
+            ? resolveSampleForPrompt({ id: remixPrompt.id, title: remixPrompt.title })
+            : undefined;
+          const exampleReference = sample
+            ? { title: sample.promptTitle || sample.exampleTitle, platform: sample.platform, snippet: sample.output }
+            : null;
+
           const config: MetaEngineConfig = {
-            objective: objective.trim(),
+            objective: finalObjective,
             platform,
             contextLevel,
             domain,
-            remixPromptId: remixId || null,
+            remixPromptId: finalRemixId || null,
+            exampleReference,
           };
-          if (shuffle) { /* triggers fresh lookup via buildMetaPrompt */ }
           const res = buildMetaPrompt(config);
           setOutputEntry({ mode: "synthesis", result: res });
           setShowSources(false);
@@ -961,7 +1010,7 @@ const MetaEngine = () => {
         } finally {
           setIsGenerating(false);
         }
-      }, 600);
+      }, 400);
     },
     [objective, platform, contextLevel, domain, remixId, toast]
   );
@@ -997,7 +1046,26 @@ const MetaEngine = () => {
       <RemixPicker
         isOpen={isPickerOpen}
         onClose={() => setIsPickerOpen(false)}
-        onSelect={(id, title) => { setRemixId(id); setRemixTitle(title); }}
+        onSelect={(id, title) => {
+          setRemixId(id);
+          setRemixTitle(title);
+          // Auto-fill objective if empty, then auto-generate so the user
+          // immediately sees a remixed prompt grounded in the source + sample output.
+          const allPrompts = getAllPrompts();
+          const picked = allPrompts.find((p) => p.id === id);
+          const snippet = picked?.content?.slice(0, 200);
+          const derivedObjective = deriveObjectiveFromPrompt(title, snippet);
+          const nextObjective = objective.trim() ? objective : derivedObjective;
+          if (!objective.trim()) setObjective(derivedObjective);
+          // Match the domain to the source prompt for richer grounding
+          if (picked?.domain) setDomain(picked.domain);
+          // Trigger generation with explicit overrides (state may not have flushed yet)
+          handleGenerate(false, { objective: nextObjective, remixId: id });
+          toast({
+            title: "Remix generated",
+            description: "Auto-built a meta-prompt from the chosen FinPrompt and its sample output.",
+          });
+        }}
       />
 
       <main className="container mx-auto flex-1 px-4 py-8">
@@ -1063,6 +1131,42 @@ const MetaEngine = () => {
                 maxLength={1000}
               />
               <p className="mt-1 text-right text-[11px] text-muted-foreground/85">{objective.length}/1000</p>
+
+              {/* Quick-pick chips: append common parameters with one tap */}
+              <div className="mt-3 border-t border-border/30 pt-3">
+                <p className="mb-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground/85">
+                  Quick-add parameters
+                </p>
+                <div className="flex flex-col gap-2">
+                  {[
+                    { label: "Company", opts: ["Reliance Industries", "HDFC Bank", "Apple Inc.", "TSMC", "Saudi Aramco"] },
+                    { label: "Geography", opts: ["India", "United States", "European Union", "Southeast Asia", "GCC"] },
+                    { label: "Industry", opts: ["Pharmaceuticals", "Banking & Financial Services", "IT Services", "Energy & Utilities", "FMCG"] },
+                    { label: "Horizon", opts: ["3 years", "5 years", "10 years", "Through next economic cycle"] },
+                  ].map((row) => (
+                    <div key={row.label} className="flex flex-wrap items-center gap-1.5">
+                      <span className="w-16 shrink-0 text-[10px] font-mono uppercase tracking-wider text-muted-foreground/80">
+                        {row.label}
+                      </span>
+                      {row.opts.map((opt) => (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => {
+                            const join = objective.trim() && !/[.,;:\s]$/.test(objective) ? " · " : "";
+                            const next = `${objective}${join}${row.label}: ${opt}`.slice(0, 1000);
+                            setObjective(next);
+                          }}
+                          className="rounded border border-gold/20 bg-gold/5 px-2 py-0.5 text-[10px] text-gold/80 hover:bg-gold/15 hover:text-gold transition-colors"
+                          title={`Append "${row.label}: ${opt}" to the objective`}
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Target Platform */}

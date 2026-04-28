@@ -26,6 +26,21 @@ export interface MetaEngineConfig {
   contextLevel: ContextLevel;
   domain: Domain | "all";
   remixPromptId?: string | null; // optional: id of a library prompt to remix
+  /** Optional: a real AI sample-output snippet to inject as additional grounding. */
+  exampleReference?: { title: string; platform: string; snippet: string } | null;
+}
+
+/**
+ * Derive a sensible objective sentence from a library prompt's title so we can
+ * auto-generate a remix without forcing the user to write the objective.
+ */
+export function deriveObjectiveFromPrompt(title: string, contentSnippet?: string): string {
+  const cleaned = title.replace(/^[\d.\-:\s]+/, "").trim();
+  const lead = cleaned.length > 0 ? cleaned : "the user's analytical goal";
+  const tail = contentSnippet
+    ? ` Use the linked FinPrompt as the structural baseline and adapt it with the chosen companies, geographies and parameters.`
+    : "";
+  return `Produce a board-ready, fully expanded version of: "${lead}".${tail}`;
 }
 
 export interface SourcePromptRef {
@@ -490,6 +505,17 @@ export function buildMetaPrompt(config: MetaEngineConfig): MetaPromptResult {
         .slice(0, config.contextLevel === "enterprise" ? 300 : 150)
         .trim()}…`
   );
+
+  // 4b. If we have a real AI example output, prepend it as the strongest reference
+  if (config.exampleReference) {
+    const ex = config.exampleReference;
+    const max = config.contextLevel === "enterprise" ? 600 : 280;
+    contextSnippets.unshift(
+      `**[REAL AI SAMPLE OUTPUT — ${ex.platform.toUpperCase()}] ${ex.title}**\n${ex.snippet
+        .slice(0, max)
+        .trim()}…`
+    );
+  }
 
   // 5. Find remix base content if requested
   const remixPrompt = config.remixPromptId
