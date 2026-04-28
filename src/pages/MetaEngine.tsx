@@ -574,14 +574,13 @@ function RemixPicker({
   if (!isOpen) return null;
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ background: "rgba(0,0,0,0.7)" }}
+      className="fixed inset-0 z-50 flex items-stretch justify-center sm:items-center sm:p-4"
+      style={{ background: "rgba(0,0,0,0.78)" }}
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl rounded-xl border border-border/50 bg-[#0d1117] shadow-2xl"
+        className="relative flex w-full flex-col overflow-hidden border border-border/50 bg-[#0d1117] shadow-2xl sm:max-w-2xl sm:rounded-xl sm:max-h-[80vh] h-[100dvh] sm:h-auto"
         onClick={(e) => e.stopPropagation()}
-        style={{ maxHeight: "80vh", display: "flex", flexDirection: "column" }}
       >
         <div className="flex items-center justify-between border-b border-border/50 px-5 py-4">
           <div className="flex items-center gap-2">
