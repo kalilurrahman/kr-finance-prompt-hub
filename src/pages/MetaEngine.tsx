@@ -249,6 +249,7 @@ function WorkshopPanel({
   const [vars, setVars] = useState<Record<string, string>>({});
   const [tweaks, setTweaks] = useState("");
   const [isOpen, setIsOpen] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   const varsRef = useRef<HTMLDivElement>(null);
 
   // Resolve a mapped sample output for the currently selected prompt
