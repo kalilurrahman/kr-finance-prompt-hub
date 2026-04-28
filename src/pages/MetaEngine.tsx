@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import {
   buildMetaPrompt,
+  deriveObjectiveFromPrompt,
   TARGET_PLATFORMS,
   CONTEXT_LEVELS,
   type MetaEngineConfig,
