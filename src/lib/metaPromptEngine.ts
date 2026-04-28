@@ -506,6 +506,17 @@ export function buildMetaPrompt(config: MetaEngineConfig): MetaPromptResult {
         .trim()}…`
   );
 
+  // 4b. If we have a real AI example output, prepend it as the strongest reference
+  if (config.exampleReference) {
+    const ex = config.exampleReference;
+    const max = config.contextLevel === "enterprise" ? 600 : 280;
+    contextSnippets.unshift(
+      `**[REAL AI SAMPLE OUTPUT — ${ex.platform.toUpperCase()}] ${ex.title}**\n${ex.snippet
+        .slice(0, max)
+        .trim()}…`
+    );
+  }
+
   // 5. Find remix base content if requested
   const remixPrompt = config.remixPromptId
     ? allPrompts.find((p) => p.id === config.remixPromptId)
