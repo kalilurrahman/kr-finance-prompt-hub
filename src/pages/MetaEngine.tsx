@@ -37,6 +37,7 @@ import {
   FileCode,
   Printer,
   Wand2,
+  Maximize2,
   X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
