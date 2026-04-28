@@ -1,22 +1,55 @@
-import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SampleOutputsModal } from "@/components/SampleOutputsModal";
 import {
+  getAllLibraryPrompts,
   getLibraryCoverage,
   getMappedSampleOutputs,
+  getOverrideFor,
+  refreshSampleLibrary,
   SAMPLE_OUTPUT_LIMIT,
+  type SampleOutputEntry,
 } from "@/lib/sampleOutputLibrary";
+import {
+  clearOverride,
+  setOverride,
+  subscribeOverrides,
+} from "@/lib/sampleMappingOverrides";
 import { DOMAIN_ICONS } from "@/types/prompt";
 import type { Domain } from "@/types/prompt";
-import { CheckCircle2, AlertCircle, Database, FlaskConical, Layers, ExternalLink, Eye } from "lucide-react";
+import {
+  CheckCircle2,
+  AlertCircle,
+  Database,
+  FlaskConical,
+  Layers,
+  ExternalLink,
+  Eye,
+  Link2,
+  Link2Off,
+  Save,
+  RotateCcw,
+} from "lucide-react";
 
 export default function Admin() {
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [openExampleId, setOpenExampleId] = useState<string | null>(null);
-  const coverage = useMemo(() => getLibraryCoverage(), []);
-  const examples = useMemo(() => getMappedSampleOutputs(), []);
+  // Force re-render when overrides mutate
+  const [revision, setRevision] = useState(0);
+
+  useEffect(() => {
+    return subscribeOverrides(() => {
+      refreshSampleLibrary();
+      setRevision((r) => r + 1);
+    });
+  }, []);
+
+  const coverage = useMemo(() => getLibraryCoverage(), [revision]);
+  const examples = useMemo(() => getMappedSampleOutputs(), [revision]);
+  const libraryPrompts = useMemo(() => getAllLibraryPrompts(), []);
 
   const coveragePct = coverage.totals.prompts === 0
     ? 0
@@ -24,7 +57,7 @@ export default function Admin() {
 
   // Group examples by category for the detail table
   const examplesByCategory = useMemo(() => {
-    const map = new Map<string, typeof examples>();
+    const map = new Map<string, SampleOutputEntry[]>();
     for (const ex of examples) {
       const list = map.get(ex.domain) ?? [];
       list.push(ex);
@@ -63,9 +96,9 @@ export default function Admin() {
             Prompt &amp; Example Coverage
           </h1>
           <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-2xl leading-relaxed">
-            Real-time view of every prompt in the library and the sample outputs mapped to them.
-            Updates automatically when <code className="text-gold/90 bg-secondary/40 px-1 rounded text-[12px]">examples.json</code> or
-            <code className="text-gold/90 bg-secondary/40 px-1 rounded text-[12px] ml-1">prompts-library.json</code> changes.
+            Live view of the FinPrompt library and the AI sample outputs mapped to it. Use the
+            in-row picker to override mappings — overrides persist locally and apply instantly
+            across the app.
           </p>
         </header>
 
@@ -185,11 +218,16 @@ export default function Admin() {
           </div>
         </section>
 
-        {/* Per-category drilldown */}
+        {/* Per-category drilldown with mapping editor */}
         <section className="space-y-6">
-          <h2 className="font-display text-lg sm:text-xl font-semibold text-foreground">
-            Examples per category
-          </h2>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <h2 className="font-display text-lg sm:text-xl font-semibold text-foreground">
+              Examples per category
+            </h2>
+            <p className="text-[11px] text-muted-foreground font-mono">
+              Use the dropdown beside each example to re-link it to a different FinPrompt.
+            </p>
+          </div>
           {Array.from(examplesByCategory.entries()).map(([category, items]) => (
             <details
               key={category}
@@ -204,50 +242,16 @@ export default function Admin() {
                   {items.length} example{items.length === 1 ? "" : "s"}
                 </span>
               </summary>
-              <div className="border-t border-border/40 max-h-96 overflow-y-auto overscroll-contain">
+              <div className="border-t border-border/40 max-h-[32rem] overflow-y-auto overscroll-contain">
                 <ul className="divide-y divide-border/30">
                   {items.map((ex) => (
-                    <li key={ex.id} className="flex items-start gap-3 px-4 py-2.5 text-xs hover:bg-secondary/20 transition-colors">
-                      <span className="font-mono text-[10px] text-muted-foreground/80 shrink-0 w-12">
-                        {ex.id}
-                      </span>
-                      <button
-                        onClick={() => setOpenExampleId(ex.id)}
-                        className="flex-1 min-w-0 text-left group"
-                        title="Open example output"
-                      >
-                        <p className="text-foreground/90 truncate group-hover:text-gold transition-colors">
-                          {ex.promptTitle}
-                        </p>
-                        <p className="text-[10px] text-muted-foreground/80 mt-0.5">
-                          <span className="uppercase tracking-wider">{ex.platform}</span>
-                          <span className="mx-1.5">·</span>
-                          {ex.model}
-                        </p>
-                      </button>
-                      <button
-                        onClick={() => setOpenExampleId(ex.id)}
-                        className="shrink-0 inline-flex items-center gap-1 rounded-md border border-gold/30 bg-gold/10 px-2 py-1 text-[10px] font-semibold text-gold hover:bg-gold/20 transition-colors"
-                        title="View AI sample output"
-                      >
-                        <Eye className="h-3 w-3" />
-                        Output
-                      </button>
-                      {ex.promptId > 0 ? (
-                        <Link
-                          to={`/library?prompt=${ex.promptId}`}
-                          className="shrink-0 inline-flex items-center gap-1 rounded-md border border-emerald-500/30 bg-emerald-500/5 px-2 py-1 text-[10px] text-emerald-400 hover:bg-emerald-500/15 transition-colors"
-                          title={`Open original FinPrompt #${ex.promptId}`}
-                        >
-                          #{ex.promptId}
-                          <ExternalLink className="h-2.5 w-2.5" />
-                        </Link>
-                      ) : (
-                        <span className="shrink-0 text-[10px] rounded-md border border-gold/30 bg-gold/10 text-gold/90 px-2 py-1 uppercase tracking-wider">
-                          Reference
-                        </span>
-                      )}
-                    </li>
+                    <ExampleRow
+                      key={ex.id}
+                      example={ex}
+                      libraryPrompts={libraryPrompts}
+                      onOpen={() => setOpenExampleId(ex.id)}
+                      onGoToLibrary={(promptId) => navigate(`/library?prompt=${promptId}`)}
+                    />
                   ))}
                 </ul>
               </div>
@@ -272,6 +276,13 @@ export default function Admin() {
                       <p className="text-foreground/90 truncate">{p.title}</p>
                       <p className="text-[10px] text-muted-foreground/80 mt-0.5">{p.category}</p>
                     </div>
+                    <Link
+                      to={`/library?prompt=${p.id}`}
+                      className="shrink-0 inline-flex items-center gap-1 rounded-md border border-border/50 bg-secondary/40 px-2 py-1 text-[10px] text-muted-foreground hover:border-gold/40 hover:text-gold transition-colors"
+                    >
+                      Open
+                      <ExternalLink className="h-2.5 w-2.5" />
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -288,6 +299,145 @@ export default function Admin() {
         initialExampleId={openExampleId ?? undefined}
       />
     </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────
+// One example row with inline mapping editor
+// ─────────────────────────────────────────────────────────────────
+
+function ExampleRow({
+  example: ex,
+  libraryPrompts,
+  onOpen,
+  onGoToLibrary,
+}: {
+  example: SampleOutputEntry;
+  libraryPrompts: { id: number; title: string; category: string }[];
+  onOpen: () => void;
+  onGoToLibrary: (promptId: number) => void;
+}) {
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState<string>(String(ex.promptId || 0));
+  const hasOverride = getOverrideFor(ex.id) !== undefined;
+
+  const isLinked = ex.promptId > 0;
+
+  const save = () => {
+    const next = parseInt(draft, 10) || 0;
+    setOverride(ex.id, next);
+    setEditing(false);
+  };
+
+  const reset = () => {
+    clearOverride(ex.id);
+    setEditing(false);
+  };
+
+  return (
+    <li className="px-4 py-3 text-xs hover:bg-secondary/20 transition-colors">
+      <div className="flex items-start gap-3 flex-wrap sm:flex-nowrap">
+        <span className="font-mono text-[10px] text-muted-foreground/80 shrink-0 w-12 pt-0.5">
+          {ex.id}
+        </span>
+
+        <button
+          onClick={onOpen}
+          className="flex-1 min-w-0 text-left group"
+          title="Open example output"
+        >
+          <p className="text-foreground/90 truncate group-hover:text-gold transition-colors font-medium">
+            {ex.promptTitle}
+          </p>
+          <p className="text-[10px] text-muted-foreground/80 mt-0.5">
+            <span className="uppercase tracking-wider">{ex.platform}</span>
+            <span className="mx-1.5">·</span>
+            {ex.model}
+            <span className="mx-1.5">·</span>
+            <span className="opacity-80">match: {ex.matchSource}</span>
+            {hasOverride && (
+              <span className="ml-1.5 text-gold/90">· override</span>
+            )}
+          </p>
+        </button>
+
+        {/* Status badge */}
+        <div className="shrink-0">
+          {isLinked ? (
+            <button
+              onClick={() => onGoToLibrary(ex.promptId)}
+              className="inline-flex items-center gap-1 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-1 text-[10px] font-semibold text-emerald-400 hover:bg-emerald-500/20 transition-colors"
+              title="Open linked FinPrompt"
+            >
+              <Link2 className="h-2.5 w-2.5" />
+              Linked to FinPrompt #{ex.promptId}
+            </button>
+          ) : (
+            <span className="inline-flex items-center gap-1 rounded-md border border-amber-500/30 bg-amber-500/10 px-2 py-1 text-[10px] font-semibold text-amber-400">
+              <Link2Off className="h-2.5 w-2.5" />
+              Not linked
+            </span>
+          )}
+        </div>
+
+        <button
+          onClick={onOpen}
+          className="shrink-0 inline-flex items-center gap-1 rounded-md border border-gold/30 bg-gold/10 px-2 py-1 text-[10px] font-semibold text-gold hover:bg-gold/20 transition-colors"
+          title="View AI sample output"
+        >
+          <Eye className="h-3 w-3" />
+          Output
+        </button>
+
+        <button
+          onClick={() => {
+            setDraft(String(ex.promptId || 0));
+            setEditing((v) => !v);
+          }}
+          className="shrink-0 inline-flex items-center gap-1 rounded-md border border-border/60 bg-secondary/40 px-2 py-1 text-[10px] text-muted-foreground hover:border-gold/40 hover:text-gold transition-colors"
+          title="Edit mapping"
+        >
+          {editing ? "Cancel" : "Map…"}
+        </button>
+      </div>
+
+      {editing && (
+        <div className="mt-2 ml-12 flex flex-wrap items-center gap-2 rounded-md border border-gold/20 bg-secondary/30 px-3 py-2">
+          <label className="text-[10px] uppercase tracking-widest text-muted-foreground">
+            Link to FinPrompt
+          </label>
+          <select
+            value={draft}
+            onChange={(e) => setDraft(e.target.value)}
+            className="flex-1 min-w-[14rem] rounded-md border border-border/60 bg-background px-2 py-1 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-gold/50"
+          >
+            <option value="0">— Not linked —</option>
+            {libraryPrompts.map((p) => (
+              <option key={p.id} value={p.id}>
+                #{p.id} · {p.title} ({p.category})
+              </option>
+            ))}
+          </select>
+          <button
+            onClick={save}
+            className="inline-flex items-center gap-1 rounded-md border border-emerald-500/40 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-semibold text-emerald-400 hover:bg-emerald-500/20 transition-colors"
+          >
+            <Save className="h-3 w-3" />
+            Save
+          </button>
+          {hasOverride && (
+            <button
+              onClick={reset}
+              className="inline-flex items-center gap-1 rounded-md border border-border/60 bg-secondary/40 px-2.5 py-1 text-[10px] text-muted-foreground hover:border-amber-500/40 hover:text-amber-400 transition-colors"
+              title="Remove override and use auto-resolution"
+            >
+              <RotateCcw className="h-3 w-3" />
+              Reset
+            </button>
+          )}
+        </div>
+      )}
+    </li>
   );
 }
 
