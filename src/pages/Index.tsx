@@ -8,7 +8,6 @@ import { FilterBar } from "@/components/FilterBar";
 import { PromptCard } from "@/components/PromptCard";
 import { PromptDetail } from "@/components/PromptDetail";
 import { Analytics } from "@/components/Analytics";
-import { Resources } from "@/components/Resources";
 import { SampleOutputsModal } from "@/components/SampleOutputsModal";
 import { useFavorites } from "@/hooks/useFavorites";
 import { usePromptFilter } from "@/hooks/usePromptFilter";
@@ -225,11 +224,6 @@ const Index = () => {
               </div>
             </div>
           </Link>
-        </section>
-
-        {/* Resources Section */}
-        <section className="mb-8">
-          <Resources />
         </section>
 
         {/* Analytics Section */}
