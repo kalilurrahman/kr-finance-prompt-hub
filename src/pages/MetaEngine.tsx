@@ -1046,7 +1046,26 @@ const MetaEngine = () => {
       <RemixPicker
         isOpen={isPickerOpen}
         onClose={() => setIsPickerOpen(false)}
-        onSelect={(id, title) => { setRemixId(id); setRemixTitle(title); }}
+        onSelect={(id, title) => {
+          setRemixId(id);
+          setRemixTitle(title);
+          // Auto-fill objective if empty, then auto-generate so the user
+          // immediately sees a remixed prompt grounded in the source + sample output.
+          const allPrompts = getAllPrompts();
+          const picked = allPrompts.find((p) => p.id === id);
+          const snippet = picked?.content?.slice(0, 200);
+          const derivedObjective = deriveObjectiveFromPrompt(title, snippet);
+          const nextObjective = objective.trim() ? objective : derivedObjective;
+          if (!objective.trim()) setObjective(derivedObjective);
+          // Match the domain to the source prompt for richer grounding
+          if (picked?.domain) setDomain(picked.domain);
+          // Trigger generation with explicit overrides (state may not have flushed yet)
+          handleGenerate(false, { objective: nextObjective, remixId: id });
+          toast({
+            title: "Remix generated",
+            description: "Auto-built a meta-prompt from the chosen FinPrompt and its sample output.",
+          });
+        }}
       />
 
       <main className="container mx-auto flex-1 px-4 py-8">
