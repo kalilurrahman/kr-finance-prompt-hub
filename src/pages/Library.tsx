@@ -160,6 +160,23 @@ export default function Library() {
     return () => window.removeEventListener("keydown", handler);
   }, [modalPrompt, query]);
 
+  // Deep-link: open a prompt modal when arriving with ?prompt=N
+  const location = useLocation();
+  useEffect(() => {
+    if (!prompts.length) return;
+    const params = new URLSearchParams(location.search);
+    const raw = params.get("prompt");
+    if (!raw) return;
+    const n = parseInt(raw, 10);
+    if (!Number.isFinite(n)) return;
+    const found = prompts.find((p) => p.id === n);
+    if (found) {
+      setModalPrompt(found);
+      // Optional: scroll to top so users see the modal context
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [location.search, prompts]);
+
   // Filtering
   const searchAndCategoryFiltered = useMemo(() => {
     let result: TerminalPrompt[];
