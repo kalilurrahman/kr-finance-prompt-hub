@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTerminalPrompts } from "@/hooks/useTerminalPrompts";
 import { useTerminalFavorites } from "@/hooks/useTerminalFavorites";
 import { useTerminalSearch } from "@/hooks/useTerminalSearch";
