@@ -217,7 +217,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div
-        className="relative flex w-full sm:max-w-6xl sm:max-h-[90vh] sm:rounded-2xl border-0 sm:border border-border/60 bg-card shadow-2xl overflow-hidden flex-col sm:flex-row"
+        className="relative flex w-full sm:max-w-6xl sm:max-h-[90vh] sm:rounded-2xl border-0 sm:border border-border/60 bg-card shadow-2xl overflow-hidden flex-col sm:flex-row min-h-0"
         style={{ height: "100dvh" }}
       >
         {/* Gold top accent */}
@@ -227,7 +227,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
         <aside
           className={`${
             mobileView === "list" ? "flex" : "hidden"
-          } sm:flex w-full sm:w-72 shrink-0 border-r border-border/40 bg-background/60 flex-col overflow-hidden`}
+          } sm:flex w-full sm:w-72 shrink-0 border-r border-border/40 bg-background/60 flex-col overflow-hidden min-h-0`}
         >
           <div className="px-4 py-4 border-b border-border/40">
             <div className="flex items-center justify-between gap-2 mb-1">
@@ -317,7 +317,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
         <div
           className={`${
             mobileView === "reader" ? "flex" : "hidden"
-          } sm:flex flex-1 flex-col min-w-0 bg-card`}
+          } sm:flex flex-1 flex-col min-w-0 min-h-0 bg-card overflow-hidden`}
         >
           {/* Mobile top bar with back + close */}
           <div className="flex sm:hidden items-center justify-between px-3 py-2.5 border-b border-border/40 bg-background/40 shrink-0">
