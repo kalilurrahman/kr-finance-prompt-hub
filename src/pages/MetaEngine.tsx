@@ -968,22 +968,37 @@ const MetaEngine = () => {
 
   // ── Synthesis Generate ──
   const handleGenerate = useCallback(
-    (shuffle = false) => {
-      if (!objective.trim()) {
+    (
+      _shuffle = false,
+      overrides?: { objective?: string; remixId?: string | null }
+    ) => {
+      const finalObjective = (overrides?.objective ?? objective).trim();
+      const finalRemixId = overrides?.remixId !== undefined ? overrides.remixId : remixId;
+      if (!finalObjective) {
         toast({ title: "Objective required", description: "Please describe what you want the prompt to achieve.", variant: "destructive" });
         return;
       }
       setIsGenerating(true);
       setTimeout(() => {
         try {
+          // Try to surface a real AI sample-output for the remix prompt as extra grounding
+          const allPrompts = getAllPrompts();
+          const remixPrompt = finalRemixId ? allPrompts.find((p) => p.id === finalRemixId) : null;
+          const sample = remixPrompt
+            ? resolveSampleForPrompt({ id: remixPrompt.id, title: remixPrompt.title })
+            : undefined;
+          const exampleReference = sample
+            ? { title: sample.promptTitle || sample.exampleTitle, platform: sample.platform, snippet: sample.output }
+            : null;
+
           const config: MetaEngineConfig = {
-            objective: objective.trim(),
+            objective: finalObjective,
             platform,
             contextLevel,
             domain,
-            remixPromptId: remixId || null,
+            remixPromptId: finalRemixId || null,
+            exampleReference,
           };
-          if (shuffle) { /* triggers fresh lookup via buildMetaPrompt */ }
           const res = buildMetaPrompt(config);
           setOutputEntry({ mode: "synthesis", result: res });
           setShowSources(false);
@@ -995,7 +1010,7 @@ const MetaEngine = () => {
         } finally {
           setIsGenerating(false);
         }
-      }, 600);
+      }, 400);
     },
     [objective, platform, contextLevel, domain, remixId, toast]
   );
