@@ -1,4 +1,4 @@
-import { Search, Heart, Home, BookOpen, Bot, Cpu, Menu, X, LayoutDashboard } from "lucide-react";
+import { Search, Heart, Home, BookOpen, Bot, Cpu, Menu, X, LayoutDashboard, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AppearanceMenu } from "@/components/AppearanceMenu";
@@ -21,6 +21,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
   const inAppLinks = [
     { href: "/library", icon: <BookOpen className="h-3.5 w-3.5" />, label: "FINPROMPT" },
     { href: "/engine", icon: <Cpu className="h-3.5 w-3.5" />, label: "META-ENGINE" },
+    { href: "/resources", icon: <Download className="h-3.5 w-3.5" />, label: "DOWNLOADS" },
     { href: "/admin", icon: <LayoutDashboard className="h-3.5 w-3.5" />, label: "ADMIN" },
   ];
 
