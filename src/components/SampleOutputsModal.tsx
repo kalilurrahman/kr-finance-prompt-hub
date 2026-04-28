@@ -145,6 +145,7 @@ interface Props {
 }
 
 export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialExampleId }: Props) {
+  const navigate = useNavigate();
   const examples = useMemo(() => getMappedSampleOutputs(), []);
   const [activeId, setActiveId] = useState(examples[0]?.id ?? "");
   const [copied, setCopied] = useState(false);
