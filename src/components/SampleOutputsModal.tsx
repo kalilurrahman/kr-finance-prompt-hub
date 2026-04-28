@@ -217,7 +217,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div
-        className="relative flex w-full sm:max-w-6xl sm:max-h-[90vh] sm:rounded-2xl border-0 sm:border border-border/60 bg-card shadow-2xl overflow-hidden flex-col sm:flex-row"
+        className="relative flex w-full sm:max-w-6xl sm:max-h-[90vh] sm:rounded-2xl border-0 sm:border border-border/60 bg-card shadow-2xl overflow-hidden flex-col sm:flex-row min-h-0"
         style={{ height: "100dvh" }}
       >
         {/* Gold top accent */}
