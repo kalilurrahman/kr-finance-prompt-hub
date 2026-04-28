@@ -1131,6 +1131,42 @@ const MetaEngine = () => {
                 maxLength={1000}
               />
               <p className="mt-1 text-right text-[11px] text-muted-foreground/85">{objective.length}/1000</p>
+
+              {/* Quick-pick chips: append common parameters with one tap */}
+              <div className="mt-3 border-t border-border/30 pt-3">
+                <p className="mb-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground/85">
+                  Quick-add parameters
+                </p>
+                <div className="flex flex-col gap-2">
+                  {[
+                    { label: "Company", opts: ["Reliance Industries", "HDFC Bank", "Apple Inc.", "TSMC", "Saudi Aramco"] },
+                    { label: "Geography", opts: ["India", "United States", "European Union", "Southeast Asia", "GCC"] },
+                    { label: "Industry", opts: ["Pharmaceuticals", "Banking & Financial Services", "IT Services", "Energy & Utilities", "FMCG"] },
+                    { label: "Horizon", opts: ["3 years", "5 years", "10 years", "Through next economic cycle"] },
+                  ].map((row) => (
+                    <div key={row.label} className="flex flex-wrap items-center gap-1.5">
+                      <span className="w-16 shrink-0 text-[10px] font-mono uppercase tracking-wider text-muted-foreground/80">
+                        {row.label}
+                      </span>
+                      {row.opts.map((opt) => (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => {
+                            const join = objective.trim() && !/[.,;:\s]$/.test(objective) ? " · " : "";
+                            const next = `${objective}${join}${row.label}: ${opt}`.slice(0, 1000);
+                            setObjective(next);
+                          }}
+                          className="rounded border border-gold/20 bg-gold/5 px-2 py-0.5 text-[10px] text-gold/80 hover:bg-gold/15 hover:text-gold transition-colors"
+                          title={`Append "${row.label}: ${opt}" to the objective`}
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Target Platform */}
