@@ -120,14 +120,14 @@ function WorkshopBrowseModal({
   if (!isOpen) return null;
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ background: "rgba(0,0,0,0.75)" }}
+      className="fixed inset-0 z-50 flex items-stretch justify-center sm:items-center sm:p-4"
+      style={{ background: "rgba(0,0,0,0.78)" }}
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl rounded-xl border border-border/50 bg-[#0d1117] shadow-2xl"
+        className="relative flex w-full flex-col overflow-hidden border border-border/50 bg-[#0d1117] shadow-2xl sm:max-w-2xl sm:rounded-xl"
         onClick={(e) => e.stopPropagation()}
-        style={{ maxHeight: "82vh", display: "flex", flexDirection: "column" }}
+        style={{ height: "100dvh", maxHeight: "100dvh" }}
       >
         <div className="flex items-center justify-between border-b border-border/50 px-5 py-4">
           <div className="flex items-center gap-2">
