@@ -201,6 +201,15 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const openInLibrary = () => {
+    if (active.promptId > 0) {
+      navigate(`/library?prompt=${active.promptId}`);
+    } else {
+      navigate("/library");
+    }
+    onClose();
+  };
+
   return (
     <div
       className="fixed inset-0 z-[300] flex items-stretch sm:items-center sm:justify-center sm:p-6 overscroll-contain"
