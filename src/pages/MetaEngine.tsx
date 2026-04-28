@@ -125,9 +125,8 @@ function WorkshopBrowseModal({
       onClick={onClose}
     >
       <div
-        className="relative flex w-full flex-col overflow-hidden border border-border/50 bg-[#0d1117] shadow-2xl sm:max-w-2xl sm:rounded-xl"
+        className="relative flex w-full flex-col overflow-hidden border border-border/50 bg-[#0d1117] shadow-2xl sm:max-w-2xl sm:rounded-xl sm:max-h-[82vh] h-[100dvh] sm:h-auto"
         onClick={(e) => e.stopPropagation()}
-        style={{ height: "100dvh", maxHeight: "100dvh" }}
       >
         <div className="flex items-center justify-between border-b border-border/50 px-5 py-4">
           <div className="flex items-center gap-2">
