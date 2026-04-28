@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { X, Copy, Check, ExternalLink, Menu, ArrowLeft, FileText } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { X, Copy, Check, ExternalLink, ArrowLeft, Link2, Link2Off } from "lucide-react";
 import { DOMAIN_ICONS } from "@/types/prompt";
 import type { Domain } from "@/types/prompt";
 import {
@@ -144,6 +145,7 @@ interface Props {
 }
 
 export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialExampleId }: Props) {
+  const navigate = useNavigate();
   const examples = useMemo(() => getMappedSampleOutputs(), []);
   const [activeId, setActiveId] = useState(examples[0]?.id ?? "");
   const [copied, setCopied] = useState(false);
@@ -197,6 +199,15 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
     navigator.clipboard.writeText(active.output);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const openInLibrary = () => {
+    if (active.promptId > 0) {
+      navigate(`/library?prompt=${active.promptId}`);
+    } else {
+      navigate("/library");
+    }
+    onClose();
   };
 
   return (
@@ -335,13 +346,14 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
                 {pc.emoji} {pc.label} · {active.model}
               </span>
               {isPlaceholder ? (
-                <span className="text-[10px] sm:text-[11px] font-medium rounded-full border border-gold/30 bg-gold/10 px-2.5 py-0.5 text-gold/90 inline-flex items-center gap-1">
-                  <FileText className="h-3 w-3" />
-                  Reference Sample
+                <span className="text-[10px] sm:text-[11px] font-medium rounded-full border border-amber-500/30 bg-amber-500/10 px-2.5 py-0.5 text-amber-400 inline-flex items-center gap-1">
+                  <Link2Off className="h-3 w-3" />
+                  Not linked
                 </span>
               ) : (
-                <span className="text-[10px] sm:text-[11px] font-medium rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-emerald-400">
-                  ✓ Mapped to library #{active.promptId}
+                <span className="text-[10px] sm:text-[11px] font-medium rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-emerald-400 inline-flex items-center gap-1">
+                  <Link2 className="h-3 w-3" />
+                  Linked to FinPrompt #{active.promptId}
                 </span>
               )}
               <span className="text-[10px] sm:text-[11px] font-medium text-muted-foreground/90 inline-flex items-center gap-1">
@@ -355,18 +367,19 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
 
             {isPlaceholder ? (
               <p className="mt-2 text-xs text-muted-foreground/85 italic leading-relaxed">
-                This sample output is not yet linked to a specific library prompt — treat it as a
-                reference example for the <strong className="text-foreground/90">{active.domain}</strong> domain.
+                This sample output is not yet linked to a specific library prompt — open the
+                Admin dashboard to map it manually, or browse the
+                <strong className="text-foreground/90"> {active.domain}</strong> domain in the library.
               </p>
             ) : (
-              <a
-                href={`/library?prompt=${active.promptId}`}
+              <button
+                type="button"
+                onClick={openInLibrary}
                 className="mt-2 inline-flex items-center gap-1.5 rounded-md border border-gold/40 bg-gold/10 px-3 py-1.5 text-xs font-semibold text-gold hover:bg-gold/20 hover:border-gold/60 transition-colors"
-                onClick={() => onClose()}
               >
                 <ExternalLink className="h-3.5 w-3.5" />
-                Open original FinPrompt #{active.promptId}
-              </a>
+                Open in library · FinPrompt #{active.promptId}
+              </button>
             )}
 
             {/* Action row */}
@@ -433,13 +446,14 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
             <span className="text-[10px] text-muted-foreground/80 font-mono">
               {SAMPLE_OUTPUT_LIMIT} examples · {mappedCount} mapped
             </span>
-            <a
-              href={isPlaceholder ? "/library" : `/library?prompt=${active.promptId}`}
+            <button
+              type="button"
+              onClick={openInLibrary}
               className="flex items-center gap-1.5 text-[11px] sm:text-xs text-gold/90 hover:text-gold transition-colors"
             >
-              {isPlaceholder ? "Browse all prompts" : `View FinPrompt #${active.promptId} in library`}{" "}
+              {isPlaceholder ? "Browse all prompts" : `Open in library · #${active.promptId}`}{" "}
               <ExternalLink className="h-3 w-3" />
-            </a>
+            </button>
           </div>
         </div>
       </div>

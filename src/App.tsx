@@ -11,6 +11,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 const Library = lazy(() => import("./pages/Library" /* webpackChunkName: "library" */));
 const MetaEngine = lazy(() => import("./pages/MetaEngine" /* webpackChunkName: "meta-engine" */));
 const Admin = lazy(() => import("./pages/Admin" /* webpackChunkName: "admin" */));
+const ResourcesPage = lazy(() => import("./pages/Resources" /* webpackChunkName: "resources" */));
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,8 @@ const App = () => {
                 <Route path="/library" element={<Library />} />
                 <Route path="/engine" element={<MetaEngine />} />
                 <Route path="/admin" element={<Admin />} />
+                <Route path="/resources" element={<ResourcesPage />} />
+                <Route path="/downloads" element={<ResourcesPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTerminalPrompts } from "@/hooks/useTerminalPrompts";
 import { useTerminalFavorites } from "@/hooks/useTerminalFavorites";
 import { useTerminalSearch } from "@/hooks/useTerminalSearch";
@@ -159,6 +159,23 @@ export default function Library() {
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, [modalPrompt, query]);
+
+  // Deep-link: open a prompt modal when arriving with ?prompt=N
+  const location = useLocation();
+  useEffect(() => {
+    if (!prompts.length) return;
+    const params = new URLSearchParams(location.search);
+    const raw = params.get("prompt");
+    if (!raw) return;
+    const n = parseInt(raw, 10);
+    if (!Number.isFinite(n)) return;
+    const found = prompts.find((p) => p.id === n);
+    if (found) {
+      setModalPrompt(found);
+      // Optional: scroll to top so users see the modal context
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [location.search, prompts]);
 
   // Filtering
   const searchAndCategoryFiltered = useMemo(() => {

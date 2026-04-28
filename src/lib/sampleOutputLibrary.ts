@@ -2,6 +2,7 @@ import examples from "@/data/examples.json";
 import terminalPromptLibrary from "@/data/prompts-library.json";
 import type { Domain } from "@/types/prompt";
 import type { TerminalPrompt } from "@/types/terminal";
+import { getAllOverrides, getOverride } from "./sampleMappingOverrides";
 
 type ExamplePlatform = "claude" | "gemini" | "perplexity" | "chatgpt" | "finprompt";
 
@@ -17,6 +18,8 @@ export interface SampleOutputEntry {
   generatedAt: string;
   output: string;
   sourceType: "sample_output";
+  /** How the example was linked to its FinPrompt — useful for the admin view. */
+  matchSource: "override" | "id" | "title" | "domain+platform" | "none";
 }
 
 interface RawExample {
@@ -42,7 +45,18 @@ const VALID_DOMAINS: Domain[] = [
 const normalize = (value: string) =>
   value.toLowerCase().replace(/^the\s+/, "").replace(/[^a-z0-9]+/g, " ").trim();
 
-// Library lookup: by canonical id and by normalized title
+/** Pull the first integer out of any id-like string: "ex-42" → 42, "gemini-7" → 7. */
+const extractId = (id: string | number | undefined): number => {
+  if (typeof id === "number") return id > 0 ? id : 0;
+  if (!id) return 0;
+  const m = String(id).match(/(\d+)/);
+  return m ? parseInt(m[1], 10) : 0;
+};
+
+const coerceDomain = (raw: string): Domain =>
+  (VALID_DOMAINS.includes(raw as Domain) ? raw : "Corporate Strategy & Growth") as Domain;
+
+// ─── Library indexes ──────────────────────────────────────────────
 const terminalPrompts = (terminalPromptLibrary as TerminalPrompt[]).map((prompt) => ({
   ...prompt,
   tags: prompt.tags || [],
@@ -51,61 +65,152 @@ const terminalPrompts = (terminalPromptLibrary as TerminalPrompt[]).map((prompt)
 const libraryById = new Map(terminalPrompts.map((p) => [p.id, p]));
 const libraryByTitle = new Map(terminalPrompts.map((p) => [normalize(p.title), p]));
 
-const coerceDomain = (raw: string): Domain =>
-  (VALID_DOMAINS.includes(raw as Domain) ? raw : "Corporate Strategy & Growth") as Domain;
+// Pre-compute remaining, unmapped library prompts grouped by category for the
+// last-resort domain+platform fallback. We pop entries off these lists as we
+// assign them to examples so each library prompt gets at most one fallback link.
+const libraryByCategory = new Map<string, TerminalPrompt[]>();
+for (const p of terminalPrompts) {
+  const list = libraryByCategory.get(p.category) ?? [];
+  list.push(p);
+  libraryByCategory.set(p.category, list);
+}
 
-// Examples are conventionally keyed `ex-N` where N is the library prompt id.
-// We map by id first (highest fidelity), then fall back to normalized title.
-const allExamples: SampleOutputEntry[] = (examples as RawExample[]).map((ex) => {
-  const idMatch = ex.id.match(/^ex-(\d+)$/);
-  const numericId = idMatch ? parseInt(idMatch[1], 10) : 0;
+/** Public list of all library prompts (used by the admin mapping editor). */
+export function getAllLibraryPrompts(): { id: number; title: string; category: string }[] {
+  return terminalPrompts.map((p) => ({ id: p.id, title: p.title, category: p.category }));
+}
 
-  const matchedById = numericId > 0 ? libraryById.get(numericId) : undefined;
-  const matchedByTitle = matchedById ?? libraryByTitle.get(normalize(ex.promptTitle));
-  const matched = matchedById ?? matchedByTitle;
+// ─── Resolve every example with the new fallback chain ────────────
+//
+// Priority order:
+//   1. Admin override (localStorage)  — highest fidelity, manual
+//   2. Numeric id extracted from `ex.id`
+//   3. Normalized library-title match
+//   4. Domain match against an unclaimed library prompt
+//
+// Step 4 is one-shot per library prompt to avoid every Strategy example
+// pointing at the same prompt #1.
+function buildResolved(): SampleOutputEntry[] {
+  const overrides = getAllOverrides();
+  const claimedLibraryIds = new Set<number>();
 
-  // Prefer the library's canonical title + category whenever we have a match.
-  const promptTitle = matched?.title ?? ex.promptTitle;
-  const domain = matched?.category ? coerceDomain(matched.category) : coerceDomain(ex.domain);
+  // First pass: claim by id + title so deterministic links happen first
+  // regardless of the order of `examples`.
+  const passOne = (examples as RawExample[]).map((ex) => {
+    const overrideId = overrides[ex.id];
+    if (typeof overrideId === "number") {
+      if (overrideId === 0) {
+        return { ex, matched: undefined, matchSource: "override" as const };
+      }
+      const matched = libraryById.get(overrideId);
+      if (matched) {
+        claimedLibraryIds.add(matched.id);
+        return { ex, matched, matchSource: "override" as const };
+      }
+    }
 
-  return {
-    id: ex.id,
-    promptId: matched?.id ?? 0,
-    promptTitle,
-    exampleTitle: ex.promptTitle,
-    domain,
-    platform: ex.platform,
-    model: ex.model,
-    parameters: ex.parameters,
-    generatedAt: ex.generatedAt,
-    output: ex.output,
-    sourceType: "sample_output" as const,
-  };
-});
+    const numericId = extractId(ex.id);
+    const byId = numericId > 0 ? libraryById.get(numericId) : undefined;
+    if (byId) {
+      claimedLibraryIds.add(byId.id);
+      return { ex, matched: byId, matchSource: "id" as const };
+    }
 
-const sampleByPromptId = new Map<number, SampleOutputEntry>();
-const sampleByNormalizedTitle = new Map<string, SampleOutputEntry>();
-for (const entry of allExamples) {
-  if (entry.promptId > 0 && !sampleByPromptId.has(entry.promptId)) {
-    sampleByPromptId.set(entry.promptId, entry);
-  }
-  const key = normalize(entry.promptTitle);
-  if (key && !sampleByNormalizedTitle.has(key)) {
-    sampleByNormalizedTitle.set(key, entry);
-  }
-  const altKey = normalize(entry.exampleTitle);
-  if (altKey && !sampleByNormalizedTitle.has(altKey)) {
-    sampleByNormalizedTitle.set(altKey, entry);
+    const byTitle = libraryByTitle.get(normalize(ex.promptTitle));
+    if (byTitle) {
+      claimedLibraryIds.add(byTitle.id);
+      return { ex, matched: byTitle, matchSource: "title" as const };
+    }
+
+    return { ex, matched: undefined as TerminalPrompt | undefined, matchSource: "none" as const };
+  });
+
+  // Second pass: domain+platform fallback for still-unmatched examples.
+  // Walk category lists and assign the first unclaimed library prompt.
+  const cursor = new Map<string, number>();
+
+  return passOne.map(({ ex, matched, matchSource }) => {
+    let finalMatched = matched;
+    let finalSource: SampleOutputEntry["matchSource"] = matchSource;
+
+    if (!finalMatched && matchSource !== "override") {
+      const domain = coerceDomain(ex.domain);
+      const pool = libraryByCategory.get(domain) ?? [];
+      let idx = cursor.get(domain) ?? 0;
+      while (idx < pool.length && claimedLibraryIds.has(pool[idx].id)) {
+        idx++;
+      }
+      if (idx < pool.length) {
+        finalMatched = pool[idx];
+        claimedLibraryIds.add(pool[idx].id);
+        finalSource = "domain+platform";
+        cursor.set(domain, idx + 1);
+      }
+    }
+
+    const promptTitle = finalMatched?.title ?? ex.promptTitle;
+    const domain = finalMatched?.category
+      ? coerceDomain(finalMatched.category)
+      : coerceDomain(ex.domain);
+
+    return {
+      id: ex.id,
+      promptId: finalMatched?.id ?? 0,
+      promptTitle,
+      exampleTitle: ex.promptTitle,
+      domain,
+      platform: ex.platform,
+      model: ex.model,
+      parameters: ex.parameters,
+      generatedAt: ex.generatedAt,
+      output: ex.output,
+      sourceType: "sample_output" as const,
+      matchSource: finalMatched ? finalSource : "none",
+    };
+  });
+}
+
+let cached: SampleOutputEntry[] | null = null;
+let sampleByPromptId: Map<number, SampleOutputEntry> = new Map();
+let sampleByNormalizedTitle: Map<string, SampleOutputEntry> = new Map();
+
+function rebuild() {
+  cached = buildResolved();
+  sampleByPromptId = new Map();
+  sampleByNormalizedTitle = new Map();
+  for (const entry of cached) {
+    if (entry.promptId > 0 && !sampleByPromptId.has(entry.promptId)) {
+      sampleByPromptId.set(entry.promptId, entry);
+    }
+    const key = normalize(entry.promptTitle);
+    if (key && !sampleByNormalizedTitle.has(key)) {
+      sampleByNormalizedTitle.set(key, entry);
+    }
+    const altKey = normalize(entry.exampleTitle);
+    if (altKey && !sampleByNormalizedTitle.has(altKey)) {
+      sampleByNormalizedTitle.set(altKey, entry);
+    }
   }
 }
 
-export const SAMPLE_OUTPUT_LIMIT = allExamples.length;
+function ensure() {
+  if (!cached) rebuild();
+}
 
-export function getMappedSampleOutputs() {
-  return allExamples;
+/** Force a rebuild — call this after admin overrides change. */
+export function refreshSampleLibrary() {
+  rebuild();
+}
+
+export const SAMPLE_OUTPUT_LIMIT = (examples as RawExample[]).length;
+
+export function getMappedSampleOutputs(): SampleOutputEntry[] {
+  ensure();
+  return cached!;
 }
 
 export function getMappedSampleOutputByPromptId(promptId: number) {
+  ensure();
   return sampleByPromptId.get(promptId);
 }
 
@@ -117,22 +222,21 @@ export function resolveSampleForPrompt(opts: {
   id?: string | number;
   title?: string;
 }): SampleOutputEntry | undefined {
-  if (typeof opts.id === "number" && opts.id > 0) {
-    const direct = sampleByPromptId.get(opts.id);
+  ensure();
+  const numeric = extractId(opts.id);
+  if (numeric > 0) {
+    const direct = sampleByPromptId.get(numeric);
     if (direct) return direct;
-  }
-  if (typeof opts.id === "string") {
-    const m = opts.id.match(/(\d+)$/);
-    if (m) {
-      const n = parseInt(m[1], 10);
-      const direct = sampleByPromptId.get(n);
-      if (direct) return direct;
-    }
   }
   if (opts.title) {
     return sampleByNormalizedTitle.get(normalize(opts.title));
   }
   return undefined;
+}
+
+/** Return the override (if any) for a given example id. */
+export function getOverrideFor(exampleId: string): number | undefined {
+  return getOverride(exampleId);
 }
 
 /** Coverage stats for the admin dashboard. */
@@ -148,6 +252,9 @@ export function getLibraryCoverage(): {
   byCategory: CategoryCoverage[];
   promptsWithoutExamples: { id: number; title: string; category: string }[];
 } {
+  ensure();
+  const all = cached!;
+
   const promptsByCategory = new Map<string, TerminalPrompt[]>();
   for (const p of terminalPrompts) {
     const list = promptsByCategory.get(p.category) ?? [];
@@ -156,7 +263,7 @@ export function getLibraryCoverage(): {
   }
 
   const examplesByCategory = new Map<string, SampleOutputEntry[]>();
-  for (const e of allExamples) {
+  for (const e of all) {
     const list = examplesByCategory.get(e.domain) ?? [];
     list.push(e);
     examplesByCategory.set(e.domain, list);
@@ -181,7 +288,7 @@ export function getLibraryCoverage(): {
     })
     .sort((a, b) => b.promptCount - a.promptCount);
 
-  const mapped = allExamples.filter((e) => e.promptId > 0).length;
+  const mapped = all.filter((e) => e.promptId > 0).length;
   const promptsWithoutExamples = terminalPrompts
     .filter((p) => !sampleByPromptId.has(p.id))
     .map((p) => ({ id: p.id, title: p.title, category: p.category }));
@@ -189,9 +296,9 @@ export function getLibraryCoverage(): {
   return {
     totals: {
       prompts: terminalPrompts.length,
-      examples: allExamples.length,
+      examples: all.length,
       mapped,
-      unmapped: allExamples.length - mapped,
+      unmapped: all.length - mapped,
     },
     byCategory,
     promptsWithoutExamples,
