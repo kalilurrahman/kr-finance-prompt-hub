@@ -347,7 +347,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
         <div
           className={`${
             mobileView === "reader" ? "flex" : "hidden"
-          } sm:flex flex-1 flex-col min-w-0 min-h-0 bg-card overflow-hidden`}
+          } sm:flex relative flex-1 flex-col min-w-0 min-h-0 bg-card overflow-hidden`}
         >
           {/* Mobile top bar with back + close */}
           <div className="flex sm:hidden items-center justify-between px-3 py-2.5 border-b border-border/40 bg-background/40 shrink-0">
@@ -468,20 +468,21 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
           {/* OUTPUT BODY — generous reader width */}
           <div
             ref={readerScrollRef}
-            className="relative flex-1 min-h-0 overflow-y-auto overscroll-contain px-4 sm:px-7 py-5 sm:py-7"
+            className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-4 sm:px-7 py-5 sm:py-7"
             style={{ WebkitOverflowScrolling: "touch" }}
           >
             <div className="max-w-3xl mx-auto space-y-1 pb-16 sm:pb-4">{renderOutput(active.output)}</div>
-            <button
-              type="button"
-              onClick={scrollReaderToTop}
-              className="sticky bottom-3 ml-auto flex h-9 w-9 items-center justify-center rounded-full border border-border/60 bg-background/90 text-muted-foreground shadow-lg backdrop-blur hover:border-gold/50 hover:text-gold transition-colors"
-              aria-label="Scroll to top"
-              title="Scroll to top"
-            >
-              <ArrowUp className="h-4 w-4" />
-            </button>
           </div>
+
+          <button
+            type="button"
+            onClick={scrollReaderToTop}
+            className="absolute bottom-14 right-4 sm:bottom-16 sm:right-7 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-border/60 bg-background/90 text-muted-foreground shadow-lg backdrop-blur hover:border-gold/50 hover:text-gold transition-colors"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            <ArrowUp className="h-4 w-4" />
+          </button>
 
           {/* Footer */}
           <div className="px-4 sm:px-7 py-3 border-t border-border/40 bg-background/30 flex items-center justify-between shrink-0">
