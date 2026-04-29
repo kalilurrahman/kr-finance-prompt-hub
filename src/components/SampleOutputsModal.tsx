@@ -620,6 +620,9 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
           {/* OUTPUT BODY — generous reader width */}
           <div
             ref={readerScrollRef}
+            onScroll={(e) => {
+              if (activeId) scrollPositionsRef.current.set(activeId, (e.target as HTMLDivElement).scrollTop);
+            }}
             className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-4 sm:px-7 py-5 sm:py-7"
             style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
           >
