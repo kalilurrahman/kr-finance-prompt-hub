@@ -246,7 +246,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div
-        className="relative flex w-full sm:max-w-6xl sm:max-h-[90vh] sm:rounded-2xl border-0 sm:border border-border/60 bg-card shadow-2xl overflow-hidden flex-col sm:flex-row min-h-0"
+        className="relative flex w-full sm:max-w-6xl sm:max-h-[90vh] sm:rounded-2xl border-0 sm:border border-border/60 bg-card shadow-2xl overflow-hidden flex-col sm:flex-row min-h-0 overscroll-none touch-pan-y"
         style={{ height: "100dvh" }}
       >
         {/* Gold top accent */}
@@ -368,7 +368,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
           </div>
 
           {/* Header with title + meta */}
-          <div className="px-4 sm:px-7 py-4 sm:py-5 border-b border-border/40 bg-background/30 shrink-0">
+          <div className="px-4 sm:px-7 py-3 sm:py-5 border-b border-border/40 bg-background/30 shrink-0 max-h-[34dvh] sm:max-h-none overflow-y-auto overscroll-contain" style={{ WebkitOverflowScrolling: "touch" }}>
             <div className="flex flex-wrap items-center gap-2 mb-2">
               <span
                 className={`text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${pc.bg} ${pc.text} ${pc.border}`}
@@ -391,12 +391,12 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
                 <span className="hidden sm:inline">{active.domain}</span>
               </span>
             </div>
-            <h2 className="font-display text-lg sm:text-2xl font-bold text-foreground leading-tight">
+            <h2 className="font-display text-base sm:text-2xl font-bold text-foreground leading-tight line-clamp-2 sm:line-clamp-none">
               {active.promptTitle}
             </h2>
 
             {isPlaceholder ? (
-              <p className="mt-2 text-xs text-muted-foreground/85 italic leading-relaxed">
+              <p className="mt-2 hidden sm:block text-xs text-muted-foreground/85 italic leading-relaxed">
                 This sample output is not yet linked to a specific library prompt — open the
                 Admin dashboard to map it manually, or browse the
                 <strong className="text-foreground/90"> {active.domain}</strong> domain in the library.
@@ -413,7 +413,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
             )}
 
             {/* Action row */}
-            <div className="mt-3 flex flex-wrap items-center gap-2">
+            <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-2">
               <button
                 onClick={handleCopy}
                 className={`inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-xs font-medium transition-all ${
