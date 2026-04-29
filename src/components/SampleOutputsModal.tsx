@@ -317,6 +317,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
 
   const scrollReaderToTop = () => {
     readerScrollRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+    if (activeId) scrollPositionsRef.current.set(activeId, 0);
   };
 
   const openInLibrary = () => {
