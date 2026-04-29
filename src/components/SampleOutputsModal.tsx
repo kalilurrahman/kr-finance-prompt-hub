@@ -367,64 +367,125 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
               </button>
             </div>
             <p className="text-[11px] text-muted-foreground leading-snug">
-              <span className="text-foreground font-semibold">{SAMPLE_OUTPUT_LIMIT}</span> total examples
+              <span className="text-foreground font-semibold">{filtered.length}</span>
+              {filtered.length !== examples.length && (
+                <span className="text-muted-foreground/70"> / {examples.length}</span>
+              )}{" "}
+              examples
               {mappedCount > 0 && (
                 <> · <span className="text-emerald-400">{mappedCount}</span> mapped</>
               )}
               {placeholderCount > 0 && (
-                <> · <span className="text-gold/80">{placeholderCount}</span> reference</>
+                <> · <span className="text-gold/80">{placeholderCount}</span> ref</>
               )}
             </p>
           </div>
 
-          <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain py-1" style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}>
-            {examples.map((ex) => {
-              const icon = DOMAIN_ICONS[ex.domain as Domain] ?? "📄";
-              const isActive = ex.id === activeId;
-              const exIsPlaceholder = ex.promptId === 0;
-              return (
-                <button
-                  key={ex.id}
-                  onClick={() => {
-                    setActiveId(ex.id);
-                    setMobileView("reader");
-                    requestAnimationFrame(() => readerScrollRef.current?.scrollTo({ top: 0 }));
-                  }}
-                  className={`w-full text-left px-4 py-3 border-l-2 transition-all hover:bg-secondary/40 ${
-                    isActive
-                      ? "border-l-gold bg-gold/10"
-                      : "border-l-transparent"
-                  }`}
-                >
-                  <div className="flex items-start gap-2.5">
-                    <span className="text-base shrink-0 mt-0.5">{icon}</span>
-                    <div className="min-w-0 flex-1">
-                      <p
-                        className={`text-[13px] font-medium leading-snug line-clamp-2 ${
-                          isActive ? "text-gold" : "text-foreground/90"
-                        }`}
-                      >
-                        {ex.promptTitle}
-                      </p>
-                      <div className="flex items-center gap-1.5 mt-1">
-                        <span className="text-[10px] text-muted-foreground/85 uppercase tracking-wider">
-                          {ex.platform}
-                        </span>
-                        {exIsPlaceholder ? (
-                          <span className="text-[9px] rounded-sm bg-gold/15 text-gold/90 px-1.5 py-px border border-gold/20 uppercase tracking-wider">
-                            Reference
+          {/* Search + filters */}
+          <div className="px-3 py-2.5 border-b border-border/40 bg-background/40 space-y-2 shrink-0">
+            <div className="relative">
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground/70 pointer-events-none" />
+              <input
+                type="search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search examples…"
+                className="w-full h-8 pl-8 pr-2 rounded-md border border-border/50 bg-background/80 text-xs text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-gold/50 focus:ring-1 focus:ring-gold/30"
+              />
+            </div>
+            <div className="flex gap-1.5">
+              <select
+                value={domainFilter}
+                onChange={(e) => setDomainFilter(e.target.value)}
+                className="flex-1 h-7 rounded-md border border-border/50 bg-background/80 px-1.5 text-[11px] text-foreground focus:outline-none focus:border-gold/50"
+              >
+                <option value="all">All domains</option>
+                {allDomains.map((d) => (
+                  <option key={d} value={d}>{d}</option>
+                ))}
+              </select>
+              <select
+                value={platformFilter}
+                onChange={(e) => setPlatformFilter(e.target.value)}
+                className="h-7 rounded-md border border-border/50 bg-background/80 px-1.5 text-[11px] text-foreground focus:outline-none focus:border-gold/50"
+              >
+                <option value="all">All</option>
+                {allPlatforms.map((p) => (
+                  <option key={p} value={p}>{PLATFORM_COLORS[p]?.label ?? p}</option>
+                ))}
+              </select>
+            </div>
+            {(search || domainFilter !== "all" || platformFilter !== "all") && (
+              <button
+                type="button"
+                onClick={() => { setSearch(""); setDomainFilter("all"); setPlatformFilter("all"); }}
+                className="w-full text-[10px] uppercase tracking-wider text-muted-foreground hover:text-gold transition-colors"
+              >
+                Clear filters
+              </button>
+            )}
+          </div>
+
+          <div
+            ref={listScrollRef}
+            className="flex-1 min-h-0 overflow-y-auto overscroll-contain py-1"
+            style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
+          >
+            {visibleItems.length === 0 ? (
+              <div className="px-4 py-8 text-center text-xs text-muted-foreground/80">
+                No examples match your filters.
+              </div>
+            ) : (
+              visibleItems.map((ex) => {
+                const icon = DOMAIN_ICONS[ex.domain as Domain] ?? "📄";
+                const isActive = ex.id === activeId;
+                const exIsPlaceholder = ex.promptId === 0;
+                return (
+                  <button
+                    key={ex.id}
+                    onClick={() => selectExample(ex.id)}
+                    className={`w-full text-left px-4 py-3 border-l-2 transition-all hover:bg-secondary/40 ${
+                      isActive
+                        ? "border-l-gold bg-gold/10"
+                        : "border-l-transparent"
+                    }`}
+                  >
+                    <div className="flex items-start gap-2.5">
+                      <span className="text-base shrink-0 mt-0.5">{icon}</span>
+                      <div className="min-w-0 flex-1">
+                        <p
+                          className={`text-[13px] font-medium leading-snug line-clamp-2 ${
+                            isActive ? "text-gold" : "text-foreground/90"
+                          }`}
+                        >
+                          {ex.promptTitle}
+                        </p>
+                        <div className="flex items-center gap-1.5 mt-1">
+                          <span className="text-[10px] text-muted-foreground/85 uppercase tracking-wider">
+                            {ex.platform}
                           </span>
-                        ) : (
-                          <span className="text-[9px] rounded-sm bg-emerald-500/15 text-emerald-400 px-1.5 py-px border border-emerald-500/20 uppercase tracking-wider">
-                            #{ex.promptId}
-                          </span>
-                        )}
+                          {exIsPlaceholder ? (
+                            <span className="text-[9px] rounded-sm bg-gold/15 text-gold/90 px-1.5 py-px border border-gold/20 uppercase tracking-wider">
+                              Reference
+                            </span>
+                          ) : (
+                            <span className="text-[9px] rounded-sm bg-emerald-500/15 text-emerald-400 px-1.5 py-px border border-emerald-500/20 uppercase tracking-wider">
+                              #{ex.promptId}
+                            </span>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </button>
-              );
-            })}
+                  </button>
+                );
+              })
+            )}
+            {/* Sentinel for infinite scroll */}
+            {visibleCount < filtered.length && (
+              <div ref={sentinelRef} className="py-3 text-center text-[10px] text-muted-foreground/70">
+                Loading more… ({visibleCount} / {filtered.length})
+              </div>
+            )}
           </div>
 
           <div className="p-3 border-t border-border/40">
