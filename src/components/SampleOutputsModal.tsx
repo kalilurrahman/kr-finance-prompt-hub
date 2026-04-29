@@ -446,29 +446,41 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
 
           {/* Parameters chips */}
           {Object.keys(active.parameters).length > 0 && (
-            <div className="px-4 sm:px-7 py-2.5 border-b border-border/30 bg-background/20 flex flex-wrap gap-1.5 shrink-0">
-              <span className="text-[10px] uppercase tracking-widest text-muted-foreground/85 self-center mr-1">
-                Parameters:
-              </span>
-              {Object.entries(active.parameters).map(([k, v]) => (
-                <span
-                  key={k}
-                  className="text-[11px] rounded border border-border/50 bg-secondary/40 px-2 py-0.5 text-muted-foreground"
-                >
-                  <span className="text-gold/80 font-mono">{k}</span>
-                  <span className="text-muted-foreground/70 mx-1">=</span>
-                  <span className="text-foreground/90">{v}</span>
+            <div className="px-4 sm:px-7 py-2 border-b border-border/30 bg-background/20 shrink-0 min-h-0">
+              <div className="flex items-center gap-1.5 overflow-x-auto overscroll-contain pb-0.5" style={{ WebkitOverflowScrolling: "touch" }}>
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground/85 shrink-0 mr-1">
+                  Parameters:
                 </span>
-              ))}
+                {Object.entries(active.parameters).map(([k, v]) => (
+                  <span
+                    key={k}
+                    className="text-[11px] rounded border border-border/50 bg-secondary/40 px-2 py-0.5 text-muted-foreground shrink-0 whitespace-nowrap"
+                  >
+                    <span className="text-gold/80 font-mono">{k}</span>
+                    <span className="text-muted-foreground/70 mx-1">=</span>
+                    <span className="text-foreground/90">{v}</span>
+                  </span>
+                ))}
+              </div>
             </div>
           )}
 
           {/* OUTPUT BODY — generous reader width */}
           <div
-            className="flex-1 overflow-y-auto overscroll-contain px-4 sm:px-7 py-5 sm:py-7"
+            ref={readerScrollRef}
+            className="relative flex-1 min-h-0 overflow-y-auto overscroll-contain px-4 sm:px-7 py-5 sm:py-7"
             style={{ WebkitOverflowScrolling: "touch" }}
           >
-            <div className="max-w-3xl mx-auto space-y-1">{renderOutput(active.output)}</div>
+            <div className="max-w-3xl mx-auto space-y-1 pb-16 sm:pb-4">{renderOutput(active.output)}</div>
+            <button
+              type="button"
+              onClick={scrollReaderToTop}
+              className="sticky bottom-3 ml-auto flex h-9 w-9 items-center justify-center rounded-full border border-border/60 bg-background/90 text-muted-foreground shadow-lg backdrop-blur hover:border-gold/50 hover:text-gold transition-colors"
+              aria-label="Scroll to top"
+              title="Scroll to top"
+            >
+              <ArrowUp className="h-4 w-4" />
+            </button>
           </div>
 
           {/* Footer */}
