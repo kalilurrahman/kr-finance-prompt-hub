@@ -154,6 +154,7 @@ interface Props {
 export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialExampleId }: Props) {
   const navigate = useNavigate();
   const examples = useMemo(() => getMappedSampleOutputs(), []);
+  const readerScrollRef = useRef<HTMLDivElement | null>(null);
   const [activeId, setActiveId] = useState(examples[0]?.id ?? "");
   const [copied, setCopied] = useState(false);
   // Mobile: which view to show — "list" (sidebar) or "reader" (output)
@@ -182,14 +183,31 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
     setActiveId(next ?? examples[0]?.id ?? "");
     setCopied(false);
     setMobileView("reader");
+    requestAnimationFrame(() => readerScrollRef.current?.scrollTo({ top: 0 }));
   }, [examples, initialPromptId, initialExampleId, isOpen]);
 
-  // Lock body scroll when open
+  // Lock background page scroll while the modal owns touch scrolling.
   useEffect(() => {
     if (!isOpen) return;
-    const original = document.body.style.overflow;
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalBodyPosition = document.body.style.position;
+    const originalBodyWidth = document.body.style.width;
+    const originalBodyTop = document.body.style.top;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+    const scrollY = window.scrollY;
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = original; };
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.top = `-${scrollY}px`;
+    document.documentElement.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = originalBodyOverflow;
+      document.body.style.position = originalBodyPosition;
+      document.body.style.width = originalBodyWidth;
+      document.body.style.top = originalBodyTop;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+      window.scrollTo(0, scrollY);
+    };
   }, [isOpen]);
 
   if (!isOpen) return null;
