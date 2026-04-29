@@ -226,6 +226,10 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const scrollReaderToTop = () => {
+    readerScrollRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const openInLibrary = () => {
     if (active.promptId > 0) {
       navigate(`/library?prompt=${active.promptId}`);
@@ -293,6 +297,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
                   onClick={() => {
                     setActiveId(ex.id);
                     setMobileView("reader");
+                    requestAnimationFrame(() => readerScrollRef.current?.scrollTo({ top: 0 }));
                   }}
                   className={`w-full text-left px-4 py-3 border-l-2 transition-all hover:bg-secondary/40 ${
                     isActive
