@@ -470,7 +470,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
           <div
             ref={readerScrollRef}
             className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-4 sm:px-7 py-5 sm:py-7"
-            style={{ WebkitOverflowScrolling: "touch" }}
+            style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
           >
             <div className="max-w-3xl mx-auto space-y-1 pb-16 sm:pb-4">{renderOutput(active.output)}</div>
           </div>
