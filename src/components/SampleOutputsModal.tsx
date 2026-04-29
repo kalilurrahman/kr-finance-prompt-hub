@@ -497,6 +497,20 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
               <ExternalLink className="h-3 w-3" />
             </button>
           </div>
+
+          <details className="sm:hidden border-t border-border/40 bg-background/40 px-4 py-2 shrink-0">
+            <summary className="cursor-pointer text-[10px] font-semibold uppercase tracking-widest text-muted-foreground/90">
+              Mobile scroll test checklist
+            </summary>
+            <ul className="mt-2 space-y-1.5 text-[11px] leading-snug text-muted-foreground/85">
+              {MOBILE_SCROLL_CHECKLIST.map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="text-gold" aria-hidden="true">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </details>
         </div>
       </div>
     </div>
