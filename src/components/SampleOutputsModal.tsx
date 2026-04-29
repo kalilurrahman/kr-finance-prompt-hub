@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { X, Copy, Check, ExternalLink, ArrowLeft, Link2, Link2Off } from "lucide-react";
+import { X, Copy, Check, ExternalLink, ArrowLeft, Link2, Link2Off, ArrowUp } from "lucide-react";
 import { DOMAIN_ICONS } from "@/types/prompt";
 import type { Domain } from "@/types/prompt";
 import {
@@ -16,6 +16,13 @@ const PLATFORM_COLORS: Record<string, { bg: string; text: string; border: string
   chatgpt:    { bg: "bg-emerald-500/10",text: "text-emerald-400",border: "border-emerald-500/30",label: "ChatGPT", emoji: "✦" },
   finprompt:  { bg: "bg-gold/10",       text: "text-gold",       border: "border-gold/30",       label: "FINPROMPT", emoji: "⌘" },
 };
+
+const MOBILE_SCROLL_CHECKLIST = [
+  "iPhone SE 375×667: examples list scrolls; reader body scrolls; header stays compact.",
+  "iPhone 14/15 390×844: parameter chips stay in one horizontal row; output remains scrollable.",
+  "Android 360×740: background page stays locked; only modal list or reader moves.",
+  "Large Android 412×915: Scroll to top returns long examples to the beginning.",
+];
 
 function inlineFormat(text: string) {
   return text
@@ -147,6 +154,7 @@ interface Props {
 export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialExampleId }: Props) {
   const navigate = useNavigate();
   const examples = useMemo(() => getMappedSampleOutputs(), []);
+  const readerScrollRef = useRef<HTMLDivElement | null>(null);
   const [activeId, setActiveId] = useState(examples[0]?.id ?? "");
   const [copied, setCopied] = useState(false);
   // Mobile: which view to show — "list" (sidebar) or "reader" (output)
@@ -175,14 +183,31 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
     setActiveId(next ?? examples[0]?.id ?? "");
     setCopied(false);
     setMobileView("reader");
+    requestAnimationFrame(() => readerScrollRef.current?.scrollTo({ top: 0 }));
   }, [examples, initialPromptId, initialExampleId, isOpen]);
 
-  // Lock body scroll when open
+  // Lock background page scroll while the modal owns touch scrolling.
   useEffect(() => {
     if (!isOpen) return;
-    const original = document.body.style.overflow;
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalBodyPosition = document.body.style.position;
+    const originalBodyWidth = document.body.style.width;
+    const originalBodyTop = document.body.style.top;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+    const scrollY = window.scrollY;
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = original; };
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.top = `-${scrollY}px`;
+    document.documentElement.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = originalBodyOverflow;
+      document.body.style.position = originalBodyPosition;
+      document.body.style.width = originalBodyWidth;
+      document.body.style.top = originalBodyTop;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+      window.scrollTo(0, scrollY);
+    };
   }, [isOpen]);
 
   if (!isOpen) return null;
@@ -201,6 +226,10 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const scrollReaderToTop = () => {
+    readerScrollRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const openInLibrary = () => {
     if (active.promptId > 0) {
       navigate(`/library?prompt=${active.promptId}`);
@@ -217,7 +246,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div
-        className="relative flex w-full sm:max-w-6xl sm:max-h-[90vh] sm:rounded-2xl border-0 sm:border border-border/60 bg-card shadow-2xl overflow-hidden flex-col sm:flex-row min-h-0"
+        className="relative flex w-full sm:max-w-6xl sm:max-h-[90vh] sm:rounded-2xl border-0 sm:border border-border/60 bg-card shadow-2xl overflow-hidden flex-col sm:flex-row min-h-0 overscroll-none touch-pan-y"
         style={{ height: "100dvh" }}
       >
         {/* Gold top accent */}
@@ -268,6 +297,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
                   onClick={() => {
                     setActiveId(ex.id);
                     setMobileView("reader");
+                    requestAnimationFrame(() => readerScrollRef.current?.scrollTo({ top: 0 }));
                   }}
                   className={`w-full text-left px-4 py-3 border-l-2 transition-all hover:bg-secondary/40 ${
                     isActive
@@ -317,7 +347,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
         <div
           className={`${
             mobileView === "reader" ? "flex" : "hidden"
-          } sm:flex flex-1 flex-col min-w-0 min-h-0 bg-card overflow-hidden`}
+          } sm:flex relative flex-1 flex-col min-w-0 min-h-0 bg-card overflow-hidden`}
         >
           {/* Mobile top bar with back + close */}
           <div className="flex sm:hidden items-center justify-between px-3 py-2.5 border-b border-border/40 bg-background/40 shrink-0">
@@ -338,7 +368,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
           </div>
 
           {/* Header with title + meta */}
-          <div className="px-4 sm:px-7 py-4 sm:py-5 border-b border-border/40 bg-background/30 shrink-0">
+          <div className="px-4 sm:px-7 py-3 sm:py-5 border-b border-border/40 bg-background/30 shrink-0 max-h-[34dvh] sm:max-h-none overflow-y-auto overscroll-contain" style={{ WebkitOverflowScrolling: "touch" }}>
             <div className="flex flex-wrap items-center gap-2 mb-2">
               <span
                 className={`text-[10px] sm:text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${pc.bg} ${pc.text} ${pc.border}`}
@@ -361,12 +391,12 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
                 <span className="hidden sm:inline">{active.domain}</span>
               </span>
             </div>
-            <h2 className="font-display text-lg sm:text-2xl font-bold text-foreground leading-tight">
+            <h2 className="font-display text-base sm:text-2xl font-bold text-foreground leading-tight line-clamp-2 sm:line-clamp-none">
               {active.promptTitle}
             </h2>
 
             {isPlaceholder ? (
-              <p className="mt-2 text-xs text-muted-foreground/85 italic leading-relaxed">
+              <p className="mt-2 hidden sm:block text-xs text-muted-foreground/85 italic leading-relaxed">
                 This sample output is not yet linked to a specific library prompt — open the
                 Admin dashboard to map it manually, or browse the
                 <strong className="text-foreground/90"> {active.domain}</strong> domain in the library.
@@ -383,7 +413,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
             )}
 
             {/* Action row */}
-            <div className="mt-3 flex flex-wrap items-center gap-2">
+            <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-2">
               <button
                 onClick={handleCopy}
                 className={`inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-xs font-medium transition-all ${
@@ -416,30 +446,43 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
 
           {/* Parameters chips */}
           {Object.keys(active.parameters).length > 0 && (
-            <div className="px-4 sm:px-7 py-2.5 border-b border-border/30 bg-background/20 flex flex-wrap gap-1.5 shrink-0">
-              <span className="text-[10px] uppercase tracking-widest text-muted-foreground/85 self-center mr-1">
-                Parameters:
-              </span>
-              {Object.entries(active.parameters).map(([k, v]) => (
-                <span
-                  key={k}
-                  className="text-[11px] rounded border border-border/50 bg-secondary/40 px-2 py-0.5 text-muted-foreground"
-                >
-                  <span className="text-gold/80 font-mono">{k}</span>
-                  <span className="text-muted-foreground/70 mx-1">=</span>
-                  <span className="text-foreground/90">{v}</span>
+            <div className="px-4 sm:px-7 py-2 border-b border-border/30 bg-background/20 shrink-0 min-h-0">
+              <div className="flex items-center gap-1.5 overflow-x-auto overscroll-contain pb-0.5" style={{ WebkitOverflowScrolling: "touch" }}>
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground/85 shrink-0 mr-1">
+                  Parameters:
                 </span>
-              ))}
+                {Object.entries(active.parameters).map(([k, v]) => (
+                  <span
+                    key={k}
+                    className="text-[11px] rounded border border-border/50 bg-secondary/40 px-2 py-0.5 text-muted-foreground shrink-0 whitespace-nowrap"
+                  >
+                    <span className="text-gold/80 font-mono">{k}</span>
+                    <span className="text-muted-foreground/70 mx-1">=</span>
+                    <span className="text-foreground/90">{v}</span>
+                  </span>
+                ))}
+              </div>
             </div>
           )}
 
           {/* OUTPUT BODY — generous reader width */}
           <div
-            className="flex-1 overflow-y-auto overscroll-contain px-4 sm:px-7 py-5 sm:py-7"
+            ref={readerScrollRef}
+            className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-4 sm:px-7 py-5 sm:py-7"
             style={{ WebkitOverflowScrolling: "touch" }}
           >
-            <div className="max-w-3xl mx-auto space-y-1">{renderOutput(active.output)}</div>
+            <div className="max-w-3xl mx-auto space-y-1 pb-16 sm:pb-4">{renderOutput(active.output)}</div>
           </div>
+
+          <button
+            type="button"
+            onClick={scrollReaderToTop}
+            className="absolute bottom-14 right-4 sm:bottom-16 sm:right-7 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-border/60 bg-background/90 text-muted-foreground shadow-lg backdrop-blur hover:border-gold/50 hover:text-gold transition-colors"
+            aria-label="Scroll to top"
+            title="Scroll to top"
+          >
+            <ArrowUp className="h-4 w-4" />
+          </button>
 
           {/* Footer */}
           <div className="px-4 sm:px-7 py-3 border-t border-border/40 bg-background/30 flex items-center justify-between shrink-0">
@@ -455,6 +498,20 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
               <ExternalLink className="h-3 w-3" />
             </button>
           </div>
+
+          <details className="sm:hidden border-t border-border/40 bg-background/40 px-4 py-2 shrink-0">
+            <summary className="cursor-pointer text-[10px] font-semibold uppercase tracking-widest text-muted-foreground/90">
+              Mobile scroll test checklist
+            </summary>
+            <ul className="mt-2 space-y-1.5 text-[11px] leading-snug text-muted-foreground/85">
+              {MOBILE_SCROLL_CHECKLIST.map((item) => (
+                <li key={item} className="flex gap-2">
+                  <span className="text-gold" aria-hidden="true">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </details>
         </div>
       </div>
     </div>
