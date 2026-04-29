@@ -151,14 +151,78 @@ interface Props {
   initialExampleId?: string;
 }
 
+const PAGE_SIZE = 30;
+
 export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialExampleId }: Props) {
   const navigate = useNavigate();
   const examples = useMemo(() => getMappedSampleOutputs(), []);
   const readerScrollRef = useRef<HTMLDivElement | null>(null);
+  const listScrollRef = useRef<HTMLDivElement | null>(null);
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  const scrollPositionsRef = useRef<Map<string, number>>(new Map());
   const [activeId, setActiveId] = useState(examples[0]?.id ?? "");
   const [copied, setCopied] = useState(false);
   // Mobile: which view to show — "list" (sidebar) or "reader" (output)
   const [mobileView, setMobileView] = useState<"list" | "reader">("reader");
+
+  // Search & filter state
+  const [search, setSearch] = useState("");
+  const [domainFilter, setDomainFilter] = useState<string>("all");
+  const [platformFilter, setPlatformFilter] = useState<string>("all");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+
+  const allDomains = useMemo(() => {
+    const set = new Set<string>();
+    examples.forEach((e) => set.add(e.domain));
+    return Array.from(set);
+  }, [examples]);
+
+  const allPlatforms = useMemo(() => {
+    const set = new Set<string>();
+    examples.forEach((e) => set.add(e.platform));
+    return Array.from(set);
+  }, [examples]);
+
+  const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    return examples.filter((e) => {
+      if (domainFilter !== "all" && e.domain !== domainFilter) return false;
+      if (platformFilter !== "all" && e.platform !== platformFilter) return false;
+      if (!q) return true;
+      return (
+        e.promptTitle.toLowerCase().includes(q) ||
+        e.exampleTitle.toLowerCase().includes(q) ||
+        e.platform.toLowerCase().includes(q) ||
+        e.domain.toLowerCase().includes(q)
+      );
+    });
+  }, [examples, search, domainFilter, platformFilter]);
+
+  const visibleItems = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount]);
+
+  // Reset windowing whenever the filter result-set changes
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+    listScrollRef.current?.scrollTo({ top: 0 });
+  }, [search, domainFilter, platformFilter]);
+
+  // Infinite scroll observer
+  useEffect(() => {
+    if (!isOpen) return;
+    const sentinel = sentinelRef.current;
+    const root = listScrollRef.current;
+    if (!sentinel || !root) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setVisibleCount((c) => (c < filtered.length ? Math.min(c + PAGE_SIZE, filtered.length) : c));
+        }
+      },
+      { root, rootMargin: "200px 0px", threshold: 0 }
+    );
+    io.observe(sentinel);
+    return () => io.disconnect();
+  }, [isOpen, filtered.length, mobileView, visibleCount]);
 
   // Counts: mapped vs placeholder
   const { mappedCount, placeholderCount } = useMemo(() => {
@@ -170,6 +234,31 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
     }
     return { mappedCount: mapped, placeholderCount: placeholder };
   }, [examples]);
+
+  // Save reader scroll position before switching items / closing
+  const saveReaderScroll = useCallback(() => {
+    if (readerScrollRef.current && activeId) {
+      scrollPositionsRef.current.set(activeId, readerScrollRef.current.scrollTop);
+    }
+  }, [activeId]);
+
+  const selectExample = useCallback(
+    (id: string) => {
+      saveReaderScroll();
+      setActiveId(id);
+      setMobileView("reader");
+    },
+    [saveReaderScroll]
+  );
+
+  // Restore reader scroll when active example changes
+  useEffect(() => {
+    if (!isOpen || !activeId) return;
+    const saved = scrollPositionsRef.current.get(activeId) ?? 0;
+    requestAnimationFrame(() => {
+      readerScrollRef.current?.scrollTo({ top: saved });
+    });
+  }, [activeId, isOpen, mobileView]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -183,8 +272,8 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
     setActiveId(next ?? examples[0]?.id ?? "");
     setCopied(false);
     setMobileView("reader");
-    requestAnimationFrame(() => readerScrollRef.current?.scrollTo({ top: 0 }));
   }, [examples, initialPromptId, initialExampleId, isOpen]);
+
 
   // Lock background page scroll while the modal owns touch scrolling.
   useEffect(() => {
