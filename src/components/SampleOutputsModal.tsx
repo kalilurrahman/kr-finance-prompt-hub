@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { X, Copy, Check, ExternalLink, ArrowLeft, Link2, Link2Off } from "lucide-react";
+import { X, Copy, Check, ExternalLink, ArrowLeft, Link2, Link2Off, ArrowUp } from "lucide-react";
 import { DOMAIN_ICONS } from "@/types/prompt";
 import type { Domain } from "@/types/prompt";
 import {
@@ -16,6 +16,13 @@ const PLATFORM_COLORS: Record<string, { bg: string; text: string; border: string
   chatgpt:    { bg: "bg-emerald-500/10",text: "text-emerald-400",border: "border-emerald-500/30",label: "ChatGPT", emoji: "✦" },
   finprompt:  { bg: "bg-gold/10",       text: "text-gold",       border: "border-gold/30",       label: "FINPROMPT", emoji: "⌘" },
 };
+
+const MOBILE_SCROLL_CHECKLIST = [
+  "iPhone SE 375×667: examples list scrolls; reader body scrolls; header stays compact.",
+  "iPhone 14/15 390×844: parameter chips stay in one horizontal row; output remains scrollable.",
+  "Android 360×740: background page stays locked; only modal list or reader moves.",
+  "Large Android 412×915: Scroll to top returns long examples to the beginning.",
+];
 
 function inlineFormat(text: string) {
   return text
