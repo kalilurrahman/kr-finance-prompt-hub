@@ -246,8 +246,9 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div
-        className="relative flex w-full sm:max-w-6xl sm:max-h-[90vh] sm:rounded-2xl border-0 sm:border border-border/60 bg-card shadow-2xl overflow-hidden flex-col sm:flex-row min-h-0 overscroll-none touch-pan-y"
-        style={{ height: "100dvh" }}
+        className="relative flex w-full sm:max-w-6xl sm:max-h-[90vh] sm:rounded-2xl border-0 sm:border border-border/60 bg-card shadow-2xl overflow-hidden flex-col sm:flex-row min-h-0"
+        style={{ height: "100dvh", touchAction: "manipulation" }}
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Gold top accent */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent z-10" />
