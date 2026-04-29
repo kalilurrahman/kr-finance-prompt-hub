@@ -28,32 +28,43 @@ async function fetchLatestBuildVersion(): Promise<string | null> {
 let timer: number | null = null;
 let installed = false;
 
-export function installBuildVersionWatcher(intervalMs = 60 * 1000) {
+export function installBuildVersionWatcher(intervalMs = 20 * 1000) {
   if (installed) return;
   installed = true;
 
   const current = getCurrentBuildVersion();
-  // If the current page has no build-version tag we cannot compare — skip.
-  // Also skip if the placeholder was never substituted (e.g. dev/raw HTML).
   if (!current || current === "__BUILD_VERSION__") return;
+
+  const reloadHard = async () => {
+    try {
+      if ("caches" in window) {
+        const keys = await caches.keys();
+        await Promise.allSettled(keys.map((k) => caches.delete(k)));
+      }
+      if ("serviceWorker" in navigator) {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.allSettled(regs.map((r) => r.unregister()));
+      }
+    } catch {
+      // ignore
+    }
+    window.location.reload();
+  };
 
   const check = async () => {
     const latest = await fetchLatestBuildVersion();
     if (!latest) return;
     if (latest === "__BUILD_VERSION__") return;
     if (latest !== current) {
-      window.location.reload();
+      void reloadHard();
     }
   };
 
-  // Check on focus, on tab becoming visible, and on a short interval so
-  // returning to the tab quickly picks up any newly deployed build.
   window.addEventListener("focus", check);
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") void check();
   });
-  // Initial check shortly after load so a fresh deploy is detected fast.
-  window.setTimeout(check, 5 * 1000);
+  window.setTimeout(check, 2 * 1000);
   timer = window.setInterval(check, intervalMs);
 }
 
