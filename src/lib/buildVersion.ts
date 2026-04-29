@@ -28,7 +28,7 @@ async function fetchLatestBuildVersion(): Promise<string | null> {
 let timer: number | null = null;
 let installed = false;
 
-export function installBuildVersionWatcher(intervalMs = 5 * 60 * 1000) {
+export function installBuildVersionWatcher(intervalMs = 60 * 1000) {
   if (installed) return;
   installed = true;
 
