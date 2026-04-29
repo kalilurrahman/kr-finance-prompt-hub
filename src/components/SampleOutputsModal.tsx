@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { X, Copy, Check, ExternalLink, ArrowLeft, Link2, Link2Off, ArrowUp } from "lucide-react";
+import { X, Copy, Check, ExternalLink, ArrowLeft, Link2, Link2Off, ArrowUp, Search } from "lucide-react";
 import { DOMAIN_ICONS } from "@/types/prompt";
 import type { Domain } from "@/types/prompt";
 import {
