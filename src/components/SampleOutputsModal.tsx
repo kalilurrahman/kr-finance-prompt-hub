@@ -246,8 +246,9 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div
-        className="relative flex w-full sm:max-w-6xl sm:max-h-[90vh] sm:rounded-2xl border-0 sm:border border-border/60 bg-card shadow-2xl overflow-hidden flex-col sm:flex-row min-h-0 overscroll-none touch-pan-y"
-        style={{ height: "100dvh" }}
+        className="relative flex w-full sm:max-w-6xl sm:max-h-[90vh] sm:rounded-2xl border-0 sm:border border-border/60 bg-card shadow-2xl overflow-hidden flex-col sm:flex-row min-h-0"
+        style={{ height: "100dvh", touchAction: "manipulation" }}
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Gold top accent */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent z-10" />
@@ -286,7 +287,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
             </p>
           </div>
 
-          <div className="flex-1 overflow-y-auto overscroll-contain py-1" style={{ WebkitOverflowScrolling: "touch" }}>
+          <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain py-1" style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}>
             {examples.map((ex) => {
               const icon = DOMAIN_ICONS[ex.domain as Domain] ?? "📄";
               const isActive = ex.id === activeId;
@@ -469,7 +470,7 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
           <div
             ref={readerScrollRef}
             className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-4 sm:px-7 py-5 sm:py-7"
-            style={{ WebkitOverflowScrolling: "touch" }}
+            style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
           >
             <div className="max-w-3xl mx-auto space-y-1 pb-16 sm:pb-4">{renderOutput(active.output)}</div>
           </div>
