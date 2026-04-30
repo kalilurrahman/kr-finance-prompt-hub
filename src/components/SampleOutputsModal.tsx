@@ -403,9 +403,12 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
               </button>
             </div>
             <p className="text-[11px] text-muted-foreground leading-snug">
-              <span className="text-foreground font-semibold">{filtered.length}</span>
-              <span className="text-muted-foreground/70"> / {examples.length}</span>
-              {" "}examples (total <span className="text-foreground/90 font-semibold">{SAMPLE_OUTPUT_LIMIT}</span>)
+              Showing <span className="text-foreground font-semibold">{filtered.length.toLocaleString()}</span>
+              {" "}of <span className="text-foreground font-semibold">{examples.length.toLocaleString()}</span>
+              {" "}· dataset total <span className="text-gold font-semibold">{SAMPLE_OUTPUT_LIMIT.toLocaleString()}</span>
+              {examples.length !== SAMPLE_OUTPUT_LIMIT && (
+                <span className="text-muted-foreground/70"> ({examples.length}/{SAMPLE_OUTPUT_LIMIT})</span>
+              )}
               {mappedCount > 0 && (
                 <> · <span className="text-emerald-400">{mappedCount}</span> mapped</>
               )}
