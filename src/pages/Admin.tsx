@@ -135,14 +135,26 @@ export default function Admin() {
               FINPROMPT · Library Coverage Dashboard
             </span>
           </div>
-          <h1 className="font-display text-2xl sm:text-4xl font-bold leading-tight text-foreground">
-            Prompt &amp; Example Coverage
-          </h1>
-          <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-2xl leading-relaxed">
-            Live view of the FinPrompt library and the AI sample outputs mapped to it. Use the
-            in-row picker to override mappings — overrides persist locally and apply instantly
-            across the app.
-          </p>
+          <div className="flex items-start justify-between gap-4 flex-wrap">
+            <div>
+              <h1 className="font-display text-2xl sm:text-4xl font-bold leading-tight text-foreground">
+                Prompt &amp; Example Coverage
+              </h1>
+              <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-2xl leading-relaxed">
+                Live view of the FinPrompt library and the AI sample outputs mapped to it. Use the
+                in-row picker to override mappings — overrides persist locally and apply instantly
+                across the app.
+              </p>
+            </div>
+            <button
+              onClick={() => downloadMappingCsv(examples)}
+              className="shrink-0 inline-flex items-center gap-2 rounded-md border border-gold/40 bg-gold/10 px-3 py-2 text-xs font-semibold text-gold hover:bg-gold/20 transition-colors"
+              title="Download admin mapping report (CSV)"
+            >
+              <Download className="h-3.5 w-3.5" />
+              Export mapping CSV
+            </button>
+          </div>
         </header>
 
         {/* Top stat tiles */}
