@@ -31,7 +31,50 @@ import {
   Link2Off,
   Save,
   RotateCcw,
+  Download,
 } from "lucide-react";
+
+const MATCH_REASON: Record<string, string> = {
+  override: "Manual admin override",
+  id: "Matched by prompt ID",
+  title: "Matched by prompt title",
+  "domain+platform": "Fallback: domain + platform pool",
+  none: "Unmapped — no library match",
+};
+
+function csvEscape(v: string | number): string {
+  const s = String(v ?? "");
+  return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+}
+
+function downloadMappingCsv(rows: SampleOutputEntry[]) {
+  const header = ["domain", "source_id", "target_prompt_id", "target_prompt_title", "platform", "model", "mapping_reason", "has_override"];
+  const lines = [header.join(",")];
+  for (const r of rows) {
+    const overridden = getOverrideFor(r.id) !== undefined;
+    const reason = overridden ? MATCH_REASON.override : (MATCH_REASON[r.matchSource] ?? r.matchSource);
+    lines.push([
+      r.domain,
+      r.id,
+      r.promptId || "",
+      r.promptTitle || "",
+      r.platform,
+      r.model,
+      reason,
+      overridden ? "yes" : "no",
+    ].map(csvEscape).join(","));
+  }
+  const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  const ts = new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-");
+  a.href = url;
+  a.download = `finprompt-mapping-report-${ts}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
 
 export default function Admin() {
   const navigate = useNavigate();
