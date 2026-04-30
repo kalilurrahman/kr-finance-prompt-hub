@@ -171,6 +171,42 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
   const [platformFilter, setPlatformFilter] = useState<string>("all");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
+  // Import/merge progress indicator — runs once when the modal opens so users
+  // can see the 550-example library being indexed across domains.
+  const [indexProgress, setIndexProgress] = useState(0); // 0..100
+  const [indexLabel, setIndexLabel] = useState<string>("");
+  const [indexComplete, setIndexComplete] = useState(false);
+  const indexStartedRef = useRef(false);
+
+  useEffect(() => {
+    if (!isOpen || indexStartedRef.current || examples.length === 0) return;
+    indexStartedRef.current = true;
+    const domainCounts = new Map<string, number>();
+    for (const e of examples) {
+      domainCounts.set(e.domain, (domainCounts.get(e.domain) ?? 0) + 1);
+    }
+    const steps = Array.from(domainCounts.entries()); // [domain, count]
+    const total = examples.length;
+    let cumulative = 0;
+    let i = 0;
+    const tick = () => {
+      if (i >= steps.length) {
+        setIndexProgress(100);
+        setIndexLabel(`Indexed ${total} examples`);
+        // Auto-hide after a short pause
+        window.setTimeout(() => setIndexComplete(true), 900);
+        return;
+      }
+      const [domain, count] = steps[i];
+      cumulative += count;
+      setIndexProgress(Math.round((cumulative / total) * 100));
+      setIndexLabel(`Indexing ${domain} · ${count}`);
+      i += 1;
+      window.setTimeout(tick, 110);
+    };
+    tick();
+  }, [isOpen, examples]);
+
   const allDomains = useMemo(() => {
     const set = new Set<string>();
     examples.forEach((e) => set.add(e.domain));
@@ -368,10 +404,8 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
             </div>
             <p className="text-[11px] text-muted-foreground leading-snug">
               <span className="text-foreground font-semibold">{filtered.length}</span>
-              {filtered.length !== examples.length && (
-                <span className="text-muted-foreground/70"> / {examples.length}</span>
-              )}{" "}
-              examples
+              <span className="text-muted-foreground/70"> / {examples.length}</span>
+              {" "}examples (total <span className="text-foreground/90 font-semibold">{SAMPLE_OUTPUT_LIMIT}</span>)
               {mappedCount > 0 && (
                 <> · <span className="text-emerald-400">{mappedCount}</span> mapped</>
               )}
@@ -379,6 +413,19 @@ export function SampleOutputsModal({ isOpen, onClose, initialPromptId, initialEx
                 <> · <span className="text-gold/80">{placeholderCount}</span> ref</>
               )}
             </p>
+            {!indexComplete && (
+              <div className="mt-2" role="status" aria-live="polite">
+                <div className="h-1 w-full overflow-hidden rounded-full bg-secondary/60">
+                  <div
+                    className="h-full bg-gradient-to-r from-gold/70 to-gold transition-[width] duration-150"
+                    style={{ width: `${indexProgress}%` }}
+                  />
+                </div>
+                <p className="mt-1 text-[10px] text-muted-foreground/80 truncate">
+                  {indexLabel || "Preparing example library…"} · {indexProgress}%
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Search + filters */}
