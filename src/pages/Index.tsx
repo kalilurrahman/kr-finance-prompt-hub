@@ -155,6 +155,43 @@ const Index = () => {
           </Link>
         </section>
 
+        {/* Sample Outputs CTA Banner — placed under FINPROMPT */}
+        <section className="mb-10">
+          <button
+            id="sample-outputs-btn"
+            onClick={() => setShowSamples(true)}
+            className="group w-full relative overflow-hidden rounded-xl border border-emerald-500/25 bg-gradient-to-br from-emerald-950/40 via-[#0a0e14] to-[#0d1117] p-6 md:p-8 transition-all duration-300 hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/10 text-left"
+          >
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/60 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
+            <div className="relative flex items-center gap-5">
+              <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-emerald-500/10 border border-emerald-500/20 shrink-0">
+                <FlaskConical className="h-7 w-7 text-emerald-400" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-3 mb-1">
+                  <h2 className="font-display text-xl font-bold text-[#e8e0cc] md:text-2xl">Sample AI Outputs</h2>
+                  <span className="text-[9px] tracking-[0.2em] uppercase text-emerald-400/70 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded font-mono">{REAL_EXAMPLE_COUNT} Examples</span>
+                </div>
+                <p className="text-sm text-[#8a8070] font-mono">
+                  Explore {REAL_EXAMPLE_COUNT} FINPROMPT-mapped examples and prompt references across all 6 finance domains
+                </p>
+              </div>
+              <div className="hidden sm:flex items-center gap-2 text-emerald-400/70 group-hover:text-emerald-400 transition-colors shrink-0">
+                <span className="text-xs font-mono tracking-wider uppercase">Explore</span>
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+            <div className="relative mt-5 pt-4 border-t border-emerald-500/10 flex gap-6 flex-wrap font-mono text-[10px] tracking-[0.15em] uppercase text-[#8a8070]">
+              <span>🏢 Corp. Strategy</span>
+              <span>🤝 M&amp;A Due Diligence</span>
+              <span>📊 Equity Research</span>
+              <span>💼 PE Value Creation</span>
+              <span>🌍 Macroeconomics</span>
+              <span>📈 FP&amp;A / ZBB</span>
+            </div>
+          </button>
+        </section>
+
         {/* META-PROMPT ENGINE Section */}
         <section className="mb-10">
           <Link to="/engine" className="group block no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-xl">
