@@ -21,8 +21,8 @@ describe("Sample examples integration (ex-221..280 move + ex-501..550 additions)
     }
   });
 
-  it("ex-221..280 contain full outputs (no placeholders) with canonical domains", () => {
-    for (let n = 221; n <= 280; n++) {
+  it("ex-221..310 contain full outputs (no placeholders) with canonical domains", () => {
+    for (let n = 221; n <= 310; n++) {
       const e = byId.get(`ex-${n}`);
       expect(e, `ex-${n} missing`).toBeDefined();
       expect(e!.output.length).toBeGreaterThan(400);
