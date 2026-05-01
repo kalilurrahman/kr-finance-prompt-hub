@@ -114,45 +114,8 @@ const Index = () => {
       <Hero onSelectDomain={handleDomainShortcut} />
 
       <main className="container mx-auto flex-1 px-4 py-8">
-        {/* Sample Outputs CTA Banner */}
-        <section className="mb-8">
-          <button
-            id="sample-outputs-btn"
-            onClick={() => setShowSamples(true)}
-            className="group w-full relative overflow-hidden rounded-xl border border-emerald-500/25 bg-gradient-to-br from-emerald-950/40 via-[#0a0e14] to-[#0d1117] p-5 md:p-6 transition-all duration-300 hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/10 text-left"
-          >
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/60 to-transparent opacity-60 group-hover:opacity-100 transition-opacity" />
-            <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-500/10 border border-emerald-500/20 shrink-0">
-                <FlaskConical className="h-6 w-6 text-emerald-400" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-0.5">
-                  <h2 className="font-display text-base font-bold text-foreground">Sample AI Outputs</h2>
-                  <span className="text-[9px] tracking-[0.2em] uppercase text-emerald-400/70 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded font-mono">250 Examples</span>
-                </div>
-                <p className="text-sm text-muted-foreground font-mono">
-                  Explore 250 FINPROMPT-mapped examples and prompt references across all 6 finance domains
-                </p>
-              </div>
-              <div className="hidden sm:flex items-center gap-2 text-emerald-400/70 group-hover:text-emerald-400 transition-colors shrink-0">
-                <span className="text-xs font-mono tracking-wider uppercase">Explore</span>
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </div>
-            <div className="mt-4 pt-3.5 border-t border-emerald-500/10 flex gap-4 flex-wrap font-mono text-[10px] tracking-[0.12em] uppercase text-muted-foreground/85">
-              <span>🏢 Corp. Strategy</span>
-              <span>🤝 M&amp;A Due Diligence</span>
-              <span>📊 Equity Research</span>
-              <span>💼 PE Value Creation</span>
-              <span>🌍 Macroeconomics</span>
-              <span>📈 FP&amp;A / ZBB</span>
-            </div>
-          </button>
-        </section>
-
         {/* FINPROMPT Terminal Section */}
-        <section className="mb-10">
+        <section className="mb-8">
           <Link to="/library" className="group block no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-xl">
             <div className="relative overflow-hidden rounded-xl border border-border/50 bg-gradient-to-br from-[#0a0e14] to-[#141c2a] p-6 md:p-8 transition-all duration-300 hover:border-gold/40 hover:shadow-lg hover:shadow-gold/10">
               {/* Decorative scanlines */}
