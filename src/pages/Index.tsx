@@ -14,6 +14,12 @@ import { usePromptFilter } from "@/hooks/usePromptFilter";
 import { Terminal, ArrowRight, Cpu, FlaskConical } from "lucide-react";
 import React from "react";
 import type { Prompt } from "@/types/prompt";
+import examplesData from "@/data/examples.json";
+
+// Count of examples that have real, non-placeholder outputs (matches validation threshold)
+const REAL_EXAMPLE_COUNT = (examplesData as Array<{ output?: string }>).filter(
+  (e) => (e.output?.length ?? 0) > 400,
+).length;
 
 const ITEMS_PER_PAGE = 24;
 
