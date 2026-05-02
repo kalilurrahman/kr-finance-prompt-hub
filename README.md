@@ -9,6 +9,15 @@
 [![Vite](https://img.shields.io/badge/Vite-5-646CFF.svg)](https://vitejs.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6.svg)](https://www.typescriptlang.org/)
 
+<br />
+
+<p align="center">
+  <img src="./public/preview.gif" alt="Application Preview Video" width="800" style="border-radius: 8px;" />
+</p>
+<p align="center">
+  <a href="./public/preview.mp4">Download/View High Quality MP4 Preview</a>
+</p>
+
 </div>
 
 ---
@@ -82,6 +91,21 @@ The prompts are optimized and tested across three major AI platforms for distinc
 - 🟣 **Perplexity** (120 Prompts) - *11% of total database*
 - 🟠 **Claude** (500 Prompts) - *45% of total database*
 - 🔵 **Google Gemini** (500 Prompts) - *45% of total database*
+
+## 🎨 Dynamic Themes
+
+The application features 10 distinct, meticulously crafted themes ranging from classic financial interfaces to modern analytical layouts. Users can toggle between these modes at any time for the best viewing experience:
+
+1. **🟡 Bloomberg Terminal**: Dark amber — the classic.
+2. **🟢 Midnight Matrix**: Deep green on black.
+3. **🔵 Arctic**: Clean light — blue white.
+4. **🔴 Crimson**: Dark red — executive.
+5. **⚫ Slate**: GitHub-style neutral dark.
+6. **🥇 KR Gold**: KR Tools — gold on midnight.
+7. **🟦 KR Financial Slate**: KR Tools — blue slate.
+8. **🌲 KR Forest**: KR Tools — emerald forest.
+9. **🌅 KR Sunset**: KR Tools — orange sunset.
+10. **◾ KR Mono**: KR Tools — monochrome.
 
 ## 💻 Tech Stack
 
