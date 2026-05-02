@@ -204,6 +204,27 @@ export function refreshSampleLibrary() {
 
 export const SAMPLE_OUTPUT_LIMIT = (examples as RawExample[]).length;
 
+/**
+ * Threshold (in characters) above which a sample output is considered a
+ * "real" output rather than a placeholder. Kept in one place so the landing
+ * page count, the search/filter resolver, and the validation tests can never
+ * drift apart.
+ */
+export const REAL_OUTPUT_MIN_LENGTH = 400;
+
+const isRealOutput = (output: string | undefined): boolean =>
+  (output?.length ?? 0) > REAL_OUTPUT_MIN_LENGTH;
+
+/**
+ * Live count of examples with real (non-placeholder) outputs, computed from
+ * the same resolver used by the All Examples search and category filters so
+ * the displayed total cannot drift from what users can actually browse.
+ */
+export function getRealExampleCount(): number {
+  ensure();
+  return cached!.filter((e) => isRealOutput(e.output)).length;
+}
+
 export function getMappedSampleOutputs(): SampleOutputEntry[] {
   ensure();
   return cached!;
