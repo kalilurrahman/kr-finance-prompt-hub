@@ -14,12 +14,12 @@ import { usePromptFilter } from "@/hooks/usePromptFilter";
 import { Terminal, ArrowRight, Cpu, FlaskConical } from "lucide-react";
 import React from "react";
 import type { Prompt } from "@/types/prompt";
-import examplesData from "@/data/examples.json";
+import { getRealExampleCount } from "@/lib/sampleOutputLibrary";
 
-// Count of examples that have real, non-placeholder outputs (matches validation threshold)
-const REAL_EXAMPLE_COUNT = (examplesData as Array<{ output?: string }>).filter(
-  (e) => (e.output?.length ?? 0) > 400,
-).length;
+// Live count from the same resolver that powers search + category filters,
+// so the badge and description on the landing page can never drift from
+// what's actually browsable in the All Examples modal.
+const REAL_EXAMPLE_COUNT = getRealExampleCount();
 
 const ITEMS_PER_PAGE = 24;
 

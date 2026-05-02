@@ -1,6 +1,11 @@
 import { describe, it, expect } from "vitest";
 import examples from "@/data/examples.json";
-import { getMappedSampleOutputs, SAMPLE_OUTPUT_LIMIT } from "@/lib/sampleOutputLibrary";
+import {
+  getMappedSampleOutputs,
+  getRealExampleCount,
+  REAL_OUTPUT_MIN_LENGTH,
+  SAMPLE_OUTPUT_LIMIT,
+} from "@/lib/sampleOutputLibrary";
 
 const VALID_DOMAINS = new Set([
   "Corporate Strategy & Growth",
