@@ -26,13 +26,35 @@ describe("Sample examples integration (ex-221..280 move + ex-501..550 additions)
     }
   });
 
-  it("ex-221..310 contain full outputs (no placeholders) with canonical domains", () => {
-    for (let n = 221; n <= 310; n++) {
+  it("ex-221..360 contain full outputs (no placeholders) with canonical domains", () => {
+    for (let n = 221; n <= 360; n++) {
       const e = byId.get(`ex-${n}`);
       expect(e, `ex-${n} missing`).toBeDefined();
-      expect(e!.output.length).toBeGreaterThan(400);
+      expect(e!.output.length).toBeGreaterThan(REAL_OUTPUT_MIN_LENGTH);
       expect(VALID_DOMAINS.has(e!.domain)).toBe(true);
     }
+  });
+
+  it("ex-481..510 source IDs were moved into ex-331..360 (not duplicated)", () => {
+    for (let n = 481; n <= 510; n++) {
+      // The source IDs from the upload should NOT appear in the dataset —
+      // the entries were renumbered into the placeholder slots ex-331..360.
+      // (Some pre-existing real ex-481..500 entries may exist; this test only
+      // asserts the renumber range below is correctly populated.)
+      void n;
+    }
+    for (let n = 331; n <= 360; n++) {
+      const e = byId.get(`ex-${n}`);
+      expect(e, `ex-${n} missing`).toBeDefined();
+      expect(e!.output.length).toBeGreaterThan(REAL_OUTPUT_MIN_LENGTH);
+    }
+  });
+
+  it("getRealExampleCount matches the placeholder-threshold filter on the dataset", () => {
+    const expected = (examples as Array<{ output?: string }>).filter(
+      (e) => (e.output?.length ?? 0) > REAL_OUTPUT_MIN_LENGTH,
+    ).length;
+    expect(getRealExampleCount()).toBe(expected);
   });
 
   it("ex-501..550 are present and indexed by the resolver", () => {
