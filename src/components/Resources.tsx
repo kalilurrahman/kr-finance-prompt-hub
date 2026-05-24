@@ -64,7 +64,7 @@ export const Resources = React.memo(function Resources() {
       const md = allPrompts
         .map(
           (p, i) =>
-            `## ${i + 1}. ${p.title}\n\n**Platform:** ${p.platform}  \n**Domain:** ${p.domain}\n\n\`\`\`\n${p.body}\n\`\`\`\n`,
+            `## ${i + 1}. ${p.title}\n\n**Platform:** ${p.platform}  \n**Domain:** ${p.domain}\n\n\`\`\`\n${p.content}\n\`\`\`\n`,
         )
         .join("\n---\n\n");
       triggerDownload(
