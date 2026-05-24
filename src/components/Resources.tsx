@@ -89,7 +89,7 @@ export const Resources = React.memo(function Resources() {
       const md = sampleOutputs
         .map(
           (s, i) =>
-            `## ${i + 1}. ${s.title}\n\n**Domain:** ${s.domain}  \n**Prompt ID:** ${s.promptId ?? "—"}\n\n### Prompt\n\n${s.prompt ?? "—"}\n\n### Sample Output\n\n${s.output}\n`,
+            `## ${i + 1}. ${s.promptTitle || s.exampleTitle}\n\n**Domain:** ${s.domain}  \n**Platform:** ${s.platform}  \n**Prompt ID:** ${s.promptId || "—"}\n\n### Sample Output\n\n${s.output}\n`,
         )
         .join("\n---\n\n");
       triggerDownload(
