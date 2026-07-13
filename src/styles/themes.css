@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 /* ============================================================
    FINPROMPT — themes.css   (Lovable / Tailwind compatible)
    Path:   src/styles/themes.css
@@ -534,3 +534,284 @@ body, header, nav, footer, aside, main { transition:background-color .25s ease, 
 [data-theme="kr-forest"]           { --text-secondary:#bcd0c2; --text-muted:#9ab1a3; --muted-foreground: 150 16% 74%; }
 [data-theme="kr-sunset"]           { --text-secondary:#d8c3ad; --text-muted:#b59c84; --muted-foreground: 25 25% 74%; }
 [data-theme="kr-mono"]             { --text-secondary:#c8c8c8; --text-muted:#a8a8a8; --muted-foreground: 0 0% 76%; }
+
+/* =================================================================
+   EXPANSION PACK — more light + dark palettes (2026-07)
+   Each block is self-contained (custom vars + Tailwind HSL tokens).
+   ================================================================= */
+
+/* ---- Parchment (LIGHT — warm sepia editorial) ---- */
+[data-theme="parchment"] {
+  --bg-0:#efe6d0; --bg-1:#f6efdd; --bg-2:#fdf9ee; --bg-3:#e7dcc0; --bg-4:#d8caa8;
+  --accent:#9a6a34; --accent-dim:#7c5228; --accent-glow:rgba(154,106,52,0.12); --accent-contrast:#fff;
+  --success:#2f7d4f; --danger:#b3402e; --info:#2f6a9a;
+  --border:rgba(120,80,40,0.15); --border-bright:rgba(120,80,40,0.34);
+  --text-primary:#3a2f1e; --text-secondary:#6b5c44; --text-muted:#8a7a5e;
+  --card-bg:#fdf9ee; --card-hover:#f6efdd; --modal-overlay:rgba(58,47,30,0.82);
+  --header-bg:rgba(246,239,221,0.97); --footer-bg:#3a2f1e; --footer-text:#c9bea3;
+  --tag-bg:rgba(154,106,52,0.08); --tag-border:rgba(154,106,52,0.20); --tag-text:#7c5228;
+  --badge-claude:#b45309; --badge-perplexity:#6d28d9; --badge-chatgpt:#065f46;
+  --badge-gemini:#1e40af; --badge-general:#6b7280;
+  --scrollbar-thumb:#b39668; --scanlines:0;
+  color-scheme:light;
+  --background: 44 50% 88%;
+  --foreground: 36 32% 17%;
+  --card: 44 71% 96%;
+  --card-foreground: 36 32% 17%;
+  --popover: 44 71% 96%;
+  --popover-foreground: 36 32% 17%;
+  --primary: 30 51% 40%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 44 40% 83%;
+  --secondary-foreground: 36 30% 25%;
+  --muted: 44 44% 85%;
+  --muted-foreground: 38 22% 42%;
+  --accent-tw: 44 40% 83%;
+  --accent-foreground: 30 51% 40%;
+  --destructive: 8 62% 44%;
+  --destructive-foreground: 0 0% 100%;
+  --border-tw: 42 33% 78%;
+  --input: 42 33% 78%;
+  --ring: 30 51% 40%;
+  --gold: 30 51% 40%;
+  --gold-light: 30 60% 55%;
+  --gold-dark: 30 55% 30%;
+  --sidebar-background: 44 46% 91%;
+  --sidebar-foreground: 36 32% 17%;
+  --sidebar-primary: 30 51% 40%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 44 40% 83%;
+  --sidebar-accent-foreground: 36 32% 17%;
+  --sidebar-border: 42 33% 78%;
+  --sidebar-ring: 30 51% 40%;
+}
+
+/* ---- KR Ivory (LIGHT — KR brand: ivory + navy ink + gold) ---- */
+[data-theme="kr-ivory"] {
+  --bg-0:#f2ecdd; --bg-1:#faf6ec; --bg-2:#fffdf7; --bg-3:#e9e0cb; --bg-4:#dccfb2;
+  --accent:#9a7b0a; --accent-dim:#7c6208; --accent-glow:rgba(154,123,10,0.14); --accent-contrast:#fff;
+  --success:#0a7c4e; --danger:#c0392b; --info:#1e3a5f;
+  --border:rgba(30,58,95,0.13); --border-bright:rgba(154,123,10,0.38);
+  --text-primary:#16233a; --text-secondary:#46536a; --text-muted:#6a7488;
+  --card-bg:#fffdf7; --card-hover:#faf6ec; --modal-overlay:rgba(22,35,58,0.84);
+  --header-bg:rgba(250,246,236,0.97); --footer-bg:#16233a; --footer-text:#c2cbd8;
+  --tag-bg:rgba(154,123,10,0.09); --tag-border:rgba(154,123,10,0.22); --tag-text:#7c6208;
+  --badge-claude:#b45309; --badge-perplexity:#6d28d9; --badge-chatgpt:#065f46;
+  --badge-gemini:#1e40af; --badge-general:#6b7280;
+  --scrollbar-thumb:#c2ab5e; --scanlines:0;
+  color-scheme:light;
+  --background: 44 55% 92%;
+  --foreground: 217 45% 16%;
+  --card: 45 80% 98%;
+  --card-foreground: 217 45% 16%;
+  --popover: 45 80% 98%;
+  --popover-foreground: 217 45% 16%;
+  --primary: 46 88% 33%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 44 42% 86%;
+  --secondary-foreground: 217 40% 24%;
+  --muted: 44 44% 88%;
+  --muted-foreground: 218 16% 46%;
+  --accent-tw: 44 42% 86%;
+  --accent-foreground: 46 88% 30%;
+  --destructive: 6 65% 46%;
+  --destructive-foreground: 0 0% 100%;
+  --border-tw: 43 34% 80%;
+  --input: 43 34% 80%;
+  --ring: 46 88% 33%;
+  --gold: 46 88% 33%;
+  --gold-light: 46 90% 48%;
+  --gold-dark: 46 90% 24%;
+  --sidebar-background: 44 50% 94%;
+  --sidebar-foreground: 217 45% 16%;
+  --sidebar-primary: 46 88% 33%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 44 42% 86%;
+  --sidebar-accent-foreground: 217 45% 16%;
+  --sidebar-border: 43 34% 80%;
+  --sidebar-ring: 46 88% 33%;
+}
+
+/* ---- Daybreak (LIGHT — soft neutral, indigo accent) ---- */
+[data-theme="daybreak"] {
+  --bg-0:#eef1f6; --bg-1:#f7f9fc; --bg-2:#ffffff; --bg-3:#e4e9f2; --bg-4:#d3dae7;
+  --accent:#4f46e5; --accent-dim:#4338ca; --accent-glow:rgba(79,70,229,0.12); --accent-contrast:#fff;
+  --success:#0f9d58; --danger:#d93025; --info:#4f46e5;
+  --border:rgba(30,36,51,0.10); --border-bright:rgba(79,70,229,0.32);
+  --text-primary:#1e2433; --text-secondary:#4a5266; --text-muted:#6b7488;
+  --card-bg:#ffffff; --card-hover:#f7f9fc; --modal-overlay:rgba(30,36,51,0.80);
+  --header-bg:rgba(247,249,252,0.97); --footer-bg:#1e2433; --footer-text:#aab2c4;
+  --tag-bg:rgba(79,70,229,0.07); --tag-border:rgba(79,70,229,0.20); --tag-text:#4338ca;
+  --badge-claude:#b45309; --badge-perplexity:#6d28d9; --badge-chatgpt:#065f46;
+  --badge-gemini:#1e40af; --badge-general:#6b7280;
+  --scrollbar-thumb:#9aa4bd; --scanlines:0;
+  color-scheme:light;
+  --background: 222 33% 95%;
+  --foreground: 225 26% 16%;
+  --card: 0 0% 100%;
+  --card-foreground: 225 26% 16%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 225 26% 16%;
+  --primary: 243 75% 59%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 30% 90%;
+  --secondary-foreground: 225 30% 28%;
+  --muted: 220 28% 92%;
+  --muted-foreground: 222 16% 46%;
+  --accent-tw: 220 30% 90%;
+  --accent-foreground: 243 75% 59%;
+  --destructive: 4 70% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --border-tw: 220 24% 84%;
+  --input: 220 24% 84%;
+  --ring: 243 75% 59%;
+  --gold: 243 75% 59%;
+  --gold-light: 243 80% 70%;
+  --gold-dark: 243 70% 48%;
+  --sidebar-background: 222 34% 97%;
+  --sidebar-foreground: 225 26% 16%;
+  --sidebar-primary: 243 75% 59%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 220 30% 90%;
+  --sidebar-accent-foreground: 225 26% 16%;
+  --sidebar-border: 220 24% 84%;
+  --sidebar-ring: 243 75% 59%;
+}
+
+/* ---- Solarized Light (LIGHT — classic warm) ---- */
+[data-theme="solarized-light"] {
+  --bg-0:#eee8d5; --bg-1:#fdf6e3; --bg-2:#fefbf0; --bg-3:#e4ddc8; --bg-4:#d6cdb0;
+  --accent:#268bd2; --accent-dim:#1e6fa8; --accent-glow:rgba(38,139,210,0.12); --accent-contrast:#fff;
+  --success:#859900; --danger:#dc322f; --info:#2aa198;
+  --border:rgba(101,123,131,0.20); --border-bright:rgba(38,139,210,0.34);
+  --text-primary:#073642; --text-secondary:#586e75; --text-muted:#657b83;
+  --card-bg:#fefbf0; --card-hover:#fdf6e3; --modal-overlay:rgba(7,54,66,0.80);
+  --header-bg:rgba(253,246,227,0.97); --footer-bg:#073642; --footer-text:#93a1a1;
+  --tag-bg:rgba(38,139,210,0.08); --tag-border:rgba(38,139,210,0.20); --tag-text:#1e6fa8;
+  --badge-claude:#b45309; --badge-perplexity:#6d28d9; --badge-chatgpt:#065f46;
+  --badge-gemini:#1e40af; --badge-general:#657b83;
+  --scrollbar-thumb:#93a1a1; --scanlines:0;
+  color-scheme:light;
+  --background: 44 87% 94%;
+  --foreground: 192 81% 14%;
+  --card: 44 60% 97%;
+  --card-foreground: 192 81% 14%;
+  --popover: 44 60% 97%;
+  --popover-foreground: 192 81% 14%;
+  --primary: 205 69% 49%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 44 40% 85%;
+  --secondary-foreground: 194 14% 40%;
+  --muted: 44 44% 87%;
+  --muted-foreground: 196 13% 45%;
+  --accent-tw: 44 40% 85%;
+  --accent-foreground: 205 69% 49%;
+  --destructive: 1 71% 52%;
+  --destructive-foreground: 0 0% 100%;
+  --border-tw: 46 30% 80%;
+  --input: 46 30% 80%;
+  --ring: 205 69% 49%;
+  --gold: 205 69% 49%;
+  --gold-light: 205 75% 62%;
+  --gold-dark: 205 70% 38%;
+  --sidebar-background: 44 70% 95%;
+  --sidebar-foreground: 192 81% 14%;
+  --sidebar-primary: 205 69% 49%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 44 40% 85%;
+  --sidebar-accent-foreground: 192 81% 14%;
+  --sidebar-border: 46 30% 80%;
+  --sidebar-ring: 205 69% 49%;
+}
+
+/* ---- Nord (DARK — arctic blue-grey) ---- */
+[data-theme="nord"] {
+  --bg-0:#242933; --bg-1:#2e3440; --bg-2:#363c4a; --bg-3:#3b4252; --bg-4:#434c5e;
+  --accent:#88c0d0; --accent-dim:#6fa8b8; --accent-glow:rgba(136,192,208,0.14); --accent-contrast:#2e3440;
+  --success:#a3be8c; --danger:#bf616a; --info:#81a1c1;
+  --border:rgba(136,192,208,0.12); --border-bright:rgba(136,192,208,0.34);
+  --text-primary:#eceff4; --text-secondary:#c2cad6; --text-muted:#9aa4b6;
+  --card-bg:#363c4a; --card-hover:#3b4252; --modal-overlay:rgba(36,41,51,0.92);
+  --header-bg:rgba(36,41,51,0.97); --footer-bg:#242933; --footer-text:#9aa4b6;
+  --tag-bg:rgba(136,192,208,0.08); --tag-border:rgba(136,192,208,0.22); --tag-text:#88c0d0;
+  --badge-claude:#d08770; --badge-perplexity:#b48ead; --badge-chatgpt:#a3be8c;
+  --badge-gemini:#81a1c1; --badge-general:#4c566a;
+  --scrollbar-thumb:#6fa8b8; --scanlines:0;
+  color-scheme:dark;
+  --background: 220 17% 17%;
+  --foreground: 218 27% 94%;
+  --card: 222 16% 25%;
+  --card-foreground: 218 27% 94%;
+  --popover: 222 16% 25%;
+  --popover-foreground: 218 27% 94%;
+  --primary: 193 43% 67%;
+  --primary-foreground: 220 17% 17%;
+  --secondary: 220 16% 28%;
+  --secondary-foreground: 219 22% 82%;
+  --muted: 220 16% 28%;
+  --muted-foreground: 220 16% 68%;
+  --accent-tw: 220 16% 28%;
+  --accent-foreground: 193 43% 67%;
+  --destructive: 354 42% 56%;
+  --destructive-foreground: 0 0% 100%;
+  --border-tw: 220 16% 32%;
+  --input: 220 16% 32%;
+  --ring: 193 43% 67%;
+  --gold: 193 43% 67%;
+  --gold-light: 193 45% 76%;
+  --gold-dark: 200 25% 52%;
+  --sidebar-background: 220 17% 15%;
+  --sidebar-foreground: 218 27% 94%;
+  --sidebar-primary: 193 43% 67%;
+  --sidebar-primary-foreground: 220 17% 17%;
+  --sidebar-accent: 220 16% 28%;
+  --sidebar-accent-foreground: 218 27% 94%;
+  --sidebar-border: 220 16% 32%;
+  --sidebar-ring: 193 43% 67%;
+}
+
+/* ---- Dracula (DARK — purple night) ---- */
+[data-theme="dracula"] {
+  --bg-0:#21222c; --bg-1:#282a36; --bg-2:#2f313f; --bg-3:#383a4a; --bg-4:#44475a;
+  --accent:#bd93f9; --accent-dim:#9a70e0; --accent-glow:rgba(189,147,249,0.16); --accent-contrast:#21222c;
+  --success:#50fa7b; --danger:#ff5555; --info:#8be9fd;
+  --border:rgba(189,147,249,0.14); --border-bright:rgba(189,147,249,0.38);
+  --text-primary:#f8f8f2; --text-secondary:#cfd0dc; --text-muted:#9a9cad;
+  --card-bg:#2f313f; --card-hover:#383a4a; --modal-overlay:rgba(33,34,44,0.92);
+  --header-bg:rgba(33,34,44,0.97); --footer-bg:#21222c; --footer-text:#9a9cad;
+  --tag-bg:rgba(189,147,249,0.10); --tag-border:rgba(189,147,249,0.24); --tag-text:#bd93f9;
+  --badge-claude:#ffb86c; --badge-perplexity:#bd93f9; --badge-chatgpt:#50fa7b;
+  --badge-gemini:#8be9fd; --badge-general:#6272a4;
+  --scrollbar-thumb:#9a70e0; --scanlines:0;
+  color-scheme:dark;
+  --background: 231 15% 18%;
+  --foreground: 60 30% 96%;
+  --card: 233 15% 22%;
+  --card-foreground: 60 30% 96%;
+  --popover: 233 15% 22%;
+  --popover-foreground: 60 30% 96%;
+  --primary: 265 89% 78%;
+  --primary-foreground: 231 15% 18%;
+  --secondary: 232 14% 31%;
+  --secondary-foreground: 226 20% 88%;
+  --muted: 232 14% 31%;
+  --muted-foreground: 231 12% 70%;
+  --accent-tw: 232 14% 31%;
+  --accent-foreground: 265 89% 78%;
+  --destructive: 0 100% 67%;
+  --destructive-foreground: 0 0% 100%;
+  --border-tw: 232 14% 34%;
+  --input: 232 14% 34%;
+  --ring: 265 89% 78%;
+  --gold: 265 89% 78%;
+  --gold-light: 265 90% 85%;
+  --gold-dark: 265 60% 62%;
+  --sidebar-background: 231 15% 15%;
+  --sidebar-foreground: 60 30% 96%;
+  --sidebar-primary: 265 89% 78%;
+  --sidebar-primary-foreground: 231 15% 18%;
+  --sidebar-accent: 232 14% 31%;
+  --sidebar-accent-foreground: 60 30% 96%;
+  --sidebar-border: 232 14% 34%;
+  --sidebar-ring: 265 89% 78%;
+}
