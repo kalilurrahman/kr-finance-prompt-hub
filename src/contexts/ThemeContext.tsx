@@ -7,11 +7,9 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 
 export type ThemeId =
   | 'terminal' | 'matrix' | 'arctic' | 'crimson' | 'slate'
-  | 'kr-gold' | 'kr-financial-slate' | 'kr-forest' | 'kr-sunset' | 'kr-mono'
-  | 'parchment' | 'kr-ivory' | 'daybreak' | 'solarized-light'
-  | 'nord' | 'dracula';
+  | 'kr-gold' | 'kr-financial-slate' | 'kr-forest' | 'kr-sunset' | 'kr-mono';
 
-export type FontId = 'system' | 'serif' | 'mono' | 'kr' | 'grotesk' | 'plex' | 'reading';
+export type FontId = 'system' | 'serif' | 'mono' | 'kr';
 export type Mode = 'dark' | 'light';
 
 export interface Theme {
@@ -33,6 +31,7 @@ export interface FontOption {
 export const THEMES: Theme[] = [
   { id: 'terminal',           label: 'Bloomberg Terminal', emoji: '🟡', description: 'Dark amber — the classic',    isDark: true  },
   { id: 'matrix',             label: 'Midnight Matrix',    emoji: '🟢', description: 'Deep green on black',         isDark: true  },
+  { id: 'arctic',             label: 'Arctic',             emoji: '🔵', description: 'Clean light — blue white',    isDark: false },
   { id: 'crimson',            label: 'Crimson',            emoji: '🔴', description: 'Dark red — executive',        isDark: true  },
   { id: 'slate',              label: 'Slate',              emoji: '⚫', description: 'GitHub-style neutral dark',   isDark: true  },
   { id: 'kr-gold',            label: 'KR Gold',            emoji: '🥇', description: 'KR Tools — gold on midnight', isDark: true  },
@@ -40,25 +39,13 @@ export const THEMES: Theme[] = [
   { id: 'kr-forest',          label: 'KR Forest',          emoji: '🌲', description: 'KR Tools — emerald forest',   isDark: true  },
   { id: 'kr-sunset',          label: 'KR Sunset',          emoji: '🌅', description: 'KR Tools — orange sunset',    isDark: true  },
   { id: 'kr-mono',            label: 'KR Mono',            emoji: '◾', description: 'KR Tools — monochrome',       isDark: true  },
-  // Light palettes
-  { id: 'arctic',             label: 'Arctic',             emoji: '🔵', description: 'Clean light — blue white',    isDark: false },
-  { id: 'kr-ivory',           label: 'KR Ivory',           emoji: '🤍', description: 'KR light — ivory & gold',     isDark: false },
-  { id: 'parchment',          label: 'Parchment',          emoji: '📜', description: 'Warm sepia — editorial',      isDark: false },
-  { id: 'daybreak',           label: 'Daybreak',           emoji: '🌤️', description: 'Soft neutral — indigo',       isDark: false },
-  { id: 'solarized-light',    label: 'Solarized Light',    emoji: '☀️', description: 'Classic warm light',          isDark: false },
-  // More dark palettes
-  { id: 'nord',               label: 'Nord',               emoji: '❄️', description: 'Arctic blue-grey dark',       isDark: true  },
-  { id: 'dracula',            label: 'Dracula',            emoji: '🧛', description: 'Purple night',                isDark: true  },
 ];
 
 export const FONTS: FontOption[] = [
-  { id: 'system',  label: 'System Sans',   description: 'Inter / system UI',             stack: "'Inter', system-ui, -apple-system, sans-serif" },
-  { id: 'grotesk', label: 'Geometric',     description: 'Space Grotesk — modern display', stack: "'Space Grotesk', 'Inter', system-ui, sans-serif" },
-  { id: 'plex',    label: 'Technical',     description: 'IBM Plex Sans — humanist',       stack: "'IBM Plex Sans', system-ui, sans-serif" },
-  { id: 'kr',      label: 'KR Tools',      description: 'DM Sans — clean & warm',         stack: "'DM Sans', system-ui, sans-serif" },
-  { id: 'serif',   label: 'Editorial',     description: 'Cormorant Garamond serif',       stack: "'Cormorant Garamond', Georgia, serif" },
-  { id: 'reading', label: 'Reading Serif', description: 'Lora — comfortable long-form',   stack: "'Lora', Georgia, serif" },
-  { id: 'mono',    label: 'Terminal Mono', description: 'JetBrains Mono — code-style',     stack: "'JetBrains Mono', Menlo, Consolas, monospace" },
+  { id: 'system', label: 'System Sans',  description: 'Inter / system UI',                stack: "'Inter', system-ui, -apple-system, sans-serif" },
+  { id: 'serif',  label: 'Editorial',    description: 'Cormorant Garamond serif',         stack: "'Cormorant Garamond', Georgia, serif" },
+  { id: 'mono',   label: 'Terminal Mono',description: 'JetBrains Mono — code-style',      stack: "'JetBrains Mono', Menlo, Consolas, monospace" },
+  { id: 'kr',     label: 'KR Tools',     description: 'DM Sans body + Cormorant heads',   stack: "'DM Sans', system-ui, sans-serif" },
 ];
 
 const STORAGE_KEY = 'finprompt_theme';
