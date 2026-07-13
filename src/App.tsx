@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { AuthProvider } from "./contexts/AuthContext";
+import { PreferenceSync } from "./components/PreferenceSync";
 
 const Library = lazy(() => import("./pages/Library" /* webpackChunkName: "library" */));
 const MetaEngine = lazy(() => import("./pages/MetaEngine" /* webpackChunkName: "meta-engine" */));
@@ -18,8 +20,10 @@ const queryClient = new QueryClient();
 const App = () => {
   return (
     <ThemeProvider>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
+      <AuthProvider>
+        <PreferenceSync />
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
           <Toaster />
           <Sonner />
           <BrowserRouter>
@@ -35,8 +39,9 @@ const App = () => {
               </Routes>
             </Suspense>
           </BrowserRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
+          </TooltipProvider>
+        </QueryClientProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 };

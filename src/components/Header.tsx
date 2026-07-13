@@ -2,6 +2,7 @@ import { Search, Heart, Home, BookOpen, Bot, Cpu, Menu, X, LayoutDashboard, Down
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AppearanceMenu } from "@/components/AppearanceMenu";
+import { AccountMenu } from "@/components/AccountMenu";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -120,6 +121,7 @@ export function Header({ search, onSearchChange, showFavorites, onToggleFavorite
               )}
             </Button>
             <AppearanceMenu />
+            <AccountMenu />
             {/* Mobile menu toggle */}
             <button
               className="lg:hidden flex items-center justify-center h-9 w-9 rounded-md border border-border/50 text-muted-foreground hover:text-foreground transition-colors"
