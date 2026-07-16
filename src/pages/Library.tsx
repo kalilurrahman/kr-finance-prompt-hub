@@ -226,11 +226,28 @@ export default function Library() {
 
   const totalPages = Math.ceil(filtered.length / PER_PAGE);
   const pagePrompts = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
+  const { record: recordClick, getTop } = usePromptClicks();
   const openSampleForPrompt = useCallback((promptId?: number) => {
+    if (typeof promptId === "number") recordClick(promptId);
     setActiveSamplePromptId(promptId);
     setShowSamples(true);
-  }, []);
+  }, [recordClick]);
   const hasExample = useCallback((promptId: number) => Boolean(getMappedSampleOutputByPromptId(promptId)), []);
+
+  // Most-clicked prompts: user-personalised, with a fallback to the first
+  // 5 prompts that have a mapped worked-out example so first-time visitors
+  // still see something meaningful.
+  const mostClicked = useMemo(() => {
+    const top = getTop(5)
+      .map((row) => prompts.find((p) => p.id === row.id))
+      .filter((p): p is TerminalPrompt => Boolean(p));
+    if (top.length >= 3) return top;
+    const seeded = prompts.filter((p) => hasExample(p.id)).slice(0, 5);
+    // Merge user clicks first, then seed fills the rest, dedup by id
+    const seen = new Set(top.map((p) => p.id));
+    for (const p of seeded) { if (!seen.has(p.id)) { top.push(p); seen.add(p.id); } if (top.length >= 5) break; }
+    return top;
+  }, [getTop, prompts, hasExample]);
 
   const copyPrompt = useCallback(async (prompt: TerminalPrompt, isModal = false) => {
     try {
