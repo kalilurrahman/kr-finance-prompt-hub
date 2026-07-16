@@ -11,6 +11,7 @@ import { Footer } from "@/components/Footer";
 import { SampleOutputsModal } from "@/components/SampleOutputsModal";
 import { useFavorites } from "@/hooks/useFavorites";
 import { getMappedSampleOutputByPromptId, SAMPLE_OUTPUT_LIMIT } from "@/lib/sampleOutputLibrary";
+import { usePromptClicks } from "@/hooks/usePromptClicks";
 
 const TerminalCardItem = React.memo(({
   prompt,
@@ -225,11 +226,28 @@ export default function Library() {
 
   const totalPages = Math.ceil(filtered.length / PER_PAGE);
   const pagePrompts = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
+  const { record: recordClick, getTop } = usePromptClicks();
   const openSampleForPrompt = useCallback((promptId?: number) => {
+    if (typeof promptId === "number") recordClick(promptId);
     setActiveSamplePromptId(promptId);
     setShowSamples(true);
-  }, []);
+  }, [recordClick]);
   const hasExample = useCallback((promptId: number) => Boolean(getMappedSampleOutputByPromptId(promptId)), []);
+
+  // Most-clicked prompts: user-personalised, with a fallback to the first
+  // 5 prompts that have a mapped worked-out example so first-time visitors
+  // still see something meaningful.
+  const mostClicked = useMemo(() => {
+    const top = getTop(5)
+      .map((row) => prompts.find((p) => p.id === row.id))
+      .filter((p): p is TerminalPrompt => Boolean(p));
+    if (top.length >= 3) return top;
+    const seeded = prompts.filter((p) => hasExample(p.id)).slice(0, 5);
+    // Merge user clicks first, then seed fills the rest, dedup by id
+    const seen = new Set(top.map((p) => p.id));
+    for (const p of seeded) { if (!seen.has(p.id)) { top.push(p); seen.add(p.id); } if (top.length >= 5) break; }
+    return top;
+  }, [getTop, prompts, hasExample]);
 
   const copyPrompt = useCallback(async (prompt: TerminalPrompt, isModal = false) => {
     try {
@@ -410,6 +428,31 @@ export default function Library() {
         </div>
 
         <div className="border-t border-[var(--t-border)] my-3" />
+
+        {mostClicked.length > 0 && (
+          <>
+            <div className="text-[9px] tracking-[0.25em] text-[var(--t-text-muted)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2 flex items-center gap-1.5">
+              <span>🔥 Most Clicked</span>
+            </div>
+            {mostClicked.map((p) => {
+              const mapped = hasExample(p.id);
+              return (
+                <button
+                  key={p.id}
+                  onClick={() => mapped ? openSampleForPrompt(p.id) : (recordClick(p.id), setModalPrompt(p))}
+                  title={p.title}
+                  className="w-full flex items-center justify-between gap-2 px-4 py-2 text-[11px] tracking-[0.04em] cursor-pointer transition-all border-l-2 border-l-transparent hover:bg-[var(--t-bg-3)] hover:border-l-[var(--t-amber)] text-left"
+                >
+                  <span className="text-[var(--t-text-secondary)] truncate flex-1">#{p.id} {p.title}</span>
+                  <span className={`text-[8px] px-[6px] py-px font-semibold shrink-0 ${mapped ? "bg-[var(--t-amber)] text-[var(--t-accent-contrast,#000)]" : "bg-[var(--t-bg-4)] text-[var(--t-text-muted)]"}`}>
+                    {mapped ? "AI ✓" : "VIEW"}
+                  </span>
+                </button>
+              );
+            })}
+            <div className="border-t border-[var(--t-border)] my-3" />
+          </>
+        )}
       </nav>
 
       {/* MAIN CONTENT */}
@@ -486,7 +529,7 @@ export default function Library() {
               isCopied={copiedId === prompt.id}
               onToggle={toggle}
               onCopy={copyPrompt}
-              onView={setModalPrompt}
+              onView={(p) => { recordClick(p.id); setModalPrompt(p); }}
               onOpenExample={openSampleForPrompt}
               hasExample={hasExample(prompt.id)}
             />
