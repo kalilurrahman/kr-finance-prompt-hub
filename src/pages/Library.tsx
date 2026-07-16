@@ -504,7 +504,7 @@ export default function Library() {
               isCopied={copiedId === prompt.id}
               onToggle={toggle}
               onCopy={copyPrompt}
-              onView={setModalPrompt}
+              onView={(p) => { recordClick(p.id); setModalPrompt(p); }}
               onOpenExample={openSampleForPrompt}
               hasExample={hasExample(prompt.id)}
             />
