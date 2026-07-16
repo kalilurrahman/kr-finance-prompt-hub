@@ -11,6 +11,7 @@ import { Footer } from "@/components/Footer";
 import { SampleOutputsModal } from "@/components/SampleOutputsModal";
 import { useFavorites } from "@/hooks/useFavorites";
 import { getMappedSampleOutputByPromptId, SAMPLE_OUTPUT_LIMIT } from "@/lib/sampleOutputLibrary";
+import { usePromptClicks } from "@/hooks/usePromptClicks";
 
 const TerminalCardItem = React.memo(({
   prompt,
