@@ -428,6 +428,31 @@ export default function Library() {
         </div>
 
         <div className="border-t border-[var(--t-border)] my-3" />
+
+        {mostClicked.length > 0 && (
+          <>
+            <div className="text-[9px] tracking-[0.25em] text-[var(--t-text-muted)] uppercase px-4 pb-2 border-b border-[var(--t-border)] mb-2 flex items-center gap-1.5">
+              <span>🔥 Most Clicked</span>
+            </div>
+            {mostClicked.map((p) => {
+              const mapped = hasExample(p.id);
+              return (
+                <button
+                  key={p.id}
+                  onClick={() => mapped ? openSampleForPrompt(p.id) : (recordClick(p.id), setModalPrompt(p))}
+                  title={p.title}
+                  className="w-full flex items-center justify-between gap-2 px-4 py-2 text-[11px] tracking-[0.04em] cursor-pointer transition-all border-l-2 border-l-transparent hover:bg-[var(--t-bg-3)] hover:border-l-[var(--t-amber)] text-left"
+                >
+                  <span className="text-[var(--t-text-secondary)] truncate flex-1">#{p.id} {p.title}</span>
+                  <span className={`text-[8px] px-[6px] py-px font-semibold shrink-0 ${mapped ? "bg-[var(--t-amber)] text-[var(--t-accent-contrast,#000)]" : "bg-[var(--t-bg-4)] text-[var(--t-text-muted)]"}`}>
+                    {mapped ? "AI ✓" : "VIEW"}
+                  </span>
+                </button>
+              );
+            })}
+            <div className="border-t border-[var(--t-border)] my-3" />
+          </>
+        )}
       </nav>
 
       {/* MAIN CONTENT */}
