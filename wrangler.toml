@@ -1,0 +1,17 @@
+# Cloudflare Pages configuration for FinPrompt premium (see docs/PREMIUM_SETUP.md).
+# The static site builds to dist/; functions/ is picked up automatically.
+name = "finprompt"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-07-01"
+
+# Create with: npx wrangler kv namespace create FINPROMPT_KV
+# then paste the returned id below.
+[[kv_namespaces]]
+binding = "FINPROMPT_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# Non-secret vars. Secrets (JWT_SECRET) are set with:
+#   npx wrangler pages secret put JWT_SECRET
+[vars]
+GUMROAD_PRODUCT_ID = "REPLACE_WITH_GUMROAD_PRODUCT_ID"
+ACTIVATION_LIMIT = "5"

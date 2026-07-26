@@ -1,0 +1,23 @@
+{
+    "version": "2026.07-sample",
+    "prompts": [
+        {
+            "id": "pro-ma-001",
+            "title": "Sell-Side Carve-Out CIM Architect (Pro)",
+            "content": "SCENARIO\nYou are six weeks from launching a sell-side process for a corporate carve-out with no standalone audited financials. The sponsor buyer universe will scrutinize stranded costs and TSA scope.\n\nPROMPT\nAct as a senior M&A advisor with deep carve-out experience.\n\nUsing my inputs below, produce a CIM skeleton with:\n- Standalone EBITDA bridge: reported segment EBITDA to pro-forma standalone (label every adjustment INPUT, DERIVED, or ESTIMATE)\n- Stranded cost analysis and TSA scope matrix (service, duration, monthly fee basis)\n- Buyer-specific positioning: 3 strategic angles, 3 sponsor angles\n- The 5 diligence questions buyers WILL ask, with drafting guidance for each\n- Do not fabricate market data — request it or flag it as [NEEDS SOURCE]\n\nMy inputs: [SEGMENT | LTM REVENUE | REPORTED EBITDA | ALLOCATED COSTS | TSA APPETITE]\n\nOUTPUT RUBRIC (grade the response before using it)\n- Is the EBITDA bridge arithmetic internally consistent?\n- Is every estimate flagged?\n- Are TSA durations realistic (6-24 months)?\n\nFOLLOW-UP CHAIN\n1. Stress-test the standalone cost assumptions\n2. Convert to management-presentation outline\n3. Red-team from the lead sponsor's IC perspective",
+            "category": "Mergers & Acquisitions",
+            "platform": "claude",
+            "domain": "Mergers & Acquisitions",
+            "prompt_source": "finprompt-pro"
+        },
+        {
+            "id": "pro-fpa-001",
+            "title": "13-Week Cash Flow Builder (Pro)",
+            "content": "SCENARIO\nLiquidity is tightening and the board wants a lender-grade 13-week cash flow with weekly variance discipline, starting from a messy AP/AR export.\n\nPROMPT\nAct as an interim treasurer building a 13-week direct-method cash flow forecast.\n\nDeliver:\n- Receipts build-up from AR aging with collection-curve assumptions (state them)\n- Disbursements by vendor criticality tier with payment-deferral levers\n- Weekly liquidity headroom vs. revolver availability and covenant triggers\n- Variance protocol: prior-week forecast vs. actual, with root-cause categories\n- Label every figure INPUT, DERIVED, or ESTIMATE; do not invent balances\n\nMy inputs: [CASH TODAY | REVOLVER AVAILABILITY | AR AGING SUMMARY | AP AGING SUMMARY | PAYROLL CALENDAR]\n\nOUTPUT RUBRIC\n- Does week 1 tie to actual cash?\n- Are collection curves stated as assumptions, not facts?\n- Is headroom shown net of minimum operating cash?\n\nFOLLOW-UP CHAIN\n1. Build the downside case (20% receipts haircut)\n2. Draft the lender update email\n3. Convert to a board liquidity dashboard outline",
+            "category": "Financial Planning & Analysis (FP&A)",
+            "platform": "claude",
+            "domain": "FP&A & Budgeting",
+            "prompt_source": "finprompt-pro"
+        }
+    ]
+}

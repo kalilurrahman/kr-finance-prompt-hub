@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Premium content — never commit the real corpus (see premium-content/README.md)
+premium-content/premium.json
+
+# Wrangler local state
+.wrangler
