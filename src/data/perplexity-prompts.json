@@ -1,33 +1,33 @@
 [
   {
     "id": 1,
-    "title": "Act as a Senior Partner in the Corporate Strategy practice of McKinsey & Company...",
+    "title": "Act as a Senior Partner in the Corporate Strategy practice of a top-tier global strategy consultancy...",
     "category": "Strategy",
-    "content": "Act as a Senior Partner in the Corporate Strategy practice of McKinsey & Company advising the CEO of a global industrials conglomerate evaluating entry into a fast-growing Southeast Asian market. Design a hypothesis-driven market entry strategy that is MECE across demand, supply, and capability dimensions. Structure the output as a slide deck outline with page-by-page titles and key bullets, covering: TAM/SAM/SOM sizing with 5-year CAGR, competitive landscape and strategic group mapping, regulatory and geopolitical risk assessment, required operating model changes, projected EBITDA impact by entry option, high-level capital expenditure and WACC considerations, and a quantified recommendation (go/no-go and preferred entry route: greenfield, JV, or acquisition)."
+    "content": "Act as a Senior Partner in the Corporate Strategy practice of a top-tier global strategy consultancy advising the CEO of a global industrials conglomerate evaluating entry into a fast-growing Southeast Asian market. Design a hypothesis-driven market entry strategy that is MECE across demand, supply, and capability dimensions. Structure the output as a slide deck outline with page-by-page titles and key bullets, covering: TAM/SAM/SOM sizing with 5-year CAGR, competitive landscape and strategic group mapping, regulatory and geopolitical risk assessment, required operating model changes, projected EBITDA impact by entry option, high-level capital expenditure and WACC considerations, and a quantified recommendation (go/no-go and preferred entry route: greenfield, JV, or acquisition)."
   },
   {
     "id": 2,
     "title": "Act as a Senior Managing Director in the Corporate Finance & Restructuring team ...",
     "category": "Strategy",
-    "content": "Act as a Senior Managing Director in the Corporate Finance & Restructuring team at Alvarez & Marsal advising the Board of a distressed multi-business conglomerate facing covenant pressure and declining ROIC. Develop a MECE portfolio restructuring and divestment blueprint. Structure the output as a consulting-style issue tree plus an executive memo, covering: business unit segmentation by ROIC vs WACC and strategic fit, identification of non-core assets and carve-out candidates, EBITDA bridge from current to target state, working capital release opportunities, covenant headroom analysis, creditor negotiation levers, and a 24‑month implementation roadmap with value, timing, and risk for each restructuring lever."
+    "content": "Act as a Senior Managing Director in the Corporate Finance & Restructuring team at a leading turnaround and restructuring advisory firm advising the Board of a distressed multi-business conglomerate facing covenant pressure and declining ROIC. Develop a MECE portfolio restructuring and divestment blueprint. Structure the output as a consulting-style issue tree plus an executive memo, covering: business unit segmentation by ROIC vs WACC and strategic fit, identification of non-core assets and carve-out candidates, EBITDA bridge from current to target state, working capital release opportunities, covenant headroom analysis, creditor negotiation levers, and a 24‑month implementation roadmap with value, timing, and risk for each restructuring lever."
   },
   {
     "id": 3,
-    "title": "Act as a Senior Strategy Partner at Bain & Company advising the leadership team ...",
+    "title": "Act as a Senior Strategy Partner at a top-tier global strategy consultancy advising the leadership team ...",
     "category": "Strategy",
-    "content": "Act as a Senior Strategy Partner at Bain & Company advising the leadership team of a global consumer electronics firm under attack from digital-native challengers. Build a comprehensive competitive strategy and differentiation blueprint. Structure the output as a Bain-style slide deck outline with clear hypotheses and supporting analyses, including: competitive positioning map by price vs perceived quality, relative cost position and gross margin profile, customer NPS and churn analysis, category-level CAGR and profit pools, innovation pipeline and R&D productivity benchmarks, platform and ecosystem strategy options, and a quantified EBITDA and valuation uplift estimate from the recommended strategic moves."
+    "content": "Act as a Senior Strategy Partner at a top-tier global strategy consultancy advising the leadership team of a global consumer electronics firm under attack from digital-native challengers. Build a comprehensive competitive strategy and differentiation blueprint. Structure the output as a Bain-style slide deck outline with clear hypotheses and supporting analyses, including: competitive positioning map by price vs perceived quality, relative cost position and gross margin profile, customer NPS and churn analysis, category-level CAGR and profit pools, innovation pipeline and R&D productivity benchmarks, platform and ecosystem strategy options, and a quantified EBITDA and valuation uplift estimate from the recommended strategic moves."
   },
   {
     "id": 4,
-    "title": "Act as a Managing Director in the M&A group at Goldman Sachs advising a founder-...",
+    "title": "Act as a Managing Director in the M&A group at a leading global investment bank advising a founder-...",
     "category": "M&A",
-    "content": "Act as a Managing Director in the M&A group at Goldman Sachs advising a founder-led SaaS company on a full sell-side process. Draft the detailed content blueprint for a best-in-class Confidential Information Memorandum (CIM). Structure the output as a section-by-section outline with key datapoints and analyses required, covering: investment highlights, historical and projected revenue with ARR, NRR, and logo churn, cohort analysis, unit economics (CAC, LTV, payback), detailed EBITDA and free cash flow profile, customer segmentation and use cases, product roadmap, competitive positioning, synergy potential for strategic buyers, and risk factors. Clearly indicate which exhibits should be tables, charts, or qualitative narratives."
+    "content": "Act as a Managing Director in the M&A group at a leading global investment bank advising a founder-led SaaS company on a full sell-side process. Draft the detailed content blueprint for a best-in-class Confidential Information Memorandum (CIM). Structure the output as a section-by-section outline with key datapoints and analyses required, covering: investment highlights, historical and projected revenue with ARR, NRR, and logo churn, cohort analysis, unit economics (CAC, LTV, payback), detailed EBITDA and free cash flow profile, customer segmentation and use cases, product roadmap, competitive positioning, synergy potential for strategic buyers, and risk factors. Clearly indicate which exhibits should be tables, charts, or qualitative narratives."
   },
   {
     "id": 5,
-    "title": "Act as a Senior Partner in the M&A Strategy practice at BCG advising a large Eur...",
+    "title": "Act as a Senior Partner in the M&A Strategy practice at a top-tier global strategy consultancy advising a large Eur...",
     "category": "M&A",
-    "content": "Act as a Senior Partner in the M&A Strategy practice at BCG advising a large European industrial buyer on cross-border acquisition due diligence in North America. Create a hypothesis-driven commercial, operational, and financial due diligence framework. Structure the output as a due diligence workplan table plus key-questions list, covering: revenue quality and customer concentration analysis, market structure and 5-year demand outlook, synergy sizing (revenue and cost) with timing and probability buckets, capex and working capital implications, standalone vs combined EBITDA and free cash flow, WACC and country risk adjustments, integration complexity assessment, red-flag items for legal and tax, and a concise recommendation on valuation range and deal feasibility."
+    "content": "Act as a Senior Partner in the M&A Strategy practice at a top-tier global strategy consultancy advising a large European industrial buyer on cross-border acquisition due diligence in North America. Create a hypothesis-driven commercial, operational, and financial due diligence framework. Structure the output as a due diligence workplan table plus key-questions list, covering: revenue quality and customer concentration analysis, market structure and 5-year demand outlook, synergy sizing (revenue and cost) with timing and probability buckets, capex and working capital implications, standalone vs combined EBITDA and free cash flow, WACC and country risk adjustments, integration complexity assessment, red-flag items for legal and tax, and a concise recommendation on valuation range and deal feasibility."
   },
   {
     "id": 6,
@@ -37,27 +37,27 @@
   },
   {
     "id": 7,
-    "title": "Act as a Vice Chairman in the Investment Banking Division of JPMorgan advising a...",
+    "title": "Act as a Vice Chairman in the Investment Banking Division of a leading global investment bank advising a...",
     "category": "Strategy",
-    "content": "Act as a Vice Chairman in the Investment Banking Division of JPMorgan advising a fast-growing technology company preparing for an IPO on NASDAQ. Build a comprehensive IPO readiness and equity story framework. Structure the output as: (1) a slide-level outline for the investor presentation, and (2) a checklist for the registration statement (F‑1/S‑1). Include: historical and projected revenue CAGR, gross margin trajectory, path to sustainable EBITDA and free cash flow, unit economics (LTV/CAC, payback), competitive positioning vs listed peers with EV/Revenue and EV/EBITDA multiples, ownership and dilution analysis pre- and post-IPO, use of proceeds, key investment risks, and guidance on positioning valuation versus peer group and DCF-implied fair value using WACC-based discounting."
+    "content": "Act as a Vice Chairman in the Investment Banking Division of a leading global investment bank advising a fast-growing technology company preparing for an IPO on NASDAQ. Build a comprehensive IPO readiness and equity story framework. Structure the output as: (1) a slide-level outline for the investor presentation, and (2) a checklist for the registration statement (F‑1/S‑1). Include: historical and projected revenue CAGR, gross margin trajectory, path to sustainable EBITDA and free cash flow, unit economics (LTV/CAC, payback), competitive positioning vs listed peers with EV/Revenue and EV/EBITDA multiples, ownership and dilution analysis pre- and post-IPO, use of proceeds, key investment risks, and guidance on positioning valuation versus peer group and DCF-implied fair value using WACC-based discounting."
   },
   {
     "id": 8,
-    "title": "Act as a Senior Equity Research Analyst at Morgan Stanley covering global intern...",
+    "title": "Act as a Senior Equity Research Analyst at a leading global investment bank covering global intern...",
     "category": "Equity Research",
-    "content": "Act as a Senior Equity Research Analyst at Morgan Stanley covering global internet stocks, coaching a junior analyst on how to write an institutional-quality stock pitch. Develop a detailed stock pitch template and example structure. Structure the output as a standardized memo format with headings and bullet points, covering: investment thesis and variant perception, key value drivers and KPIs, 5‑year revenue and EBITDA bridge, DCF valuation with explicit WACC and terminal value assumptions, cross-check using trading comps (P/E, EV/EBITDA, EV/Revenue) and precedent transactions, bull/base/bear cases with probability-weighted valuation, catalysts and milestones, risk assessment, and position sizing and risk/reward summary suitable for a long-only or long/short mandate."
+    "content": "Act as a Senior Equity Research Analyst at a leading global investment bank covering global internet stocks, coaching a junior analyst on how to write an institutional-quality stock pitch. Develop a detailed stock pitch template and example structure. Structure the output as a standardized memo format with headings and bullet points, covering: investment thesis and variant perception, key value drivers and KPIs, 5‑year revenue and EBITDA bridge, DCF valuation with explicit WACC and terminal value assumptions, cross-check using trading comps (P/E, EV/EBITDA, EV/Revenue) and precedent transactions, bull/base/bear cases with probability-weighted valuation, catalysts and milestones, risk assessment, and position sizing and risk/reward summary suitable for a long-only or long/short mandate."
   },
   {
     "id": 9,
     "title": "Act as a Senior Managing Director in the Financial Sponsors Group at Bank of Ame...",
     "category": "Private Equity",
-    "content": "Act as a Senior Managing Director in the Financial Sponsors Group at Bank of America advising a large-cap private equity client on a potential leveraged buyout of a stable cash-generative business. Outline the structure for a fully built LBO model and investment committee memo. Structure the output as: (1) a step-by-step modeling blueprint, and (2) a memo outline. Include: purchase price and entry EV/EBITDA, sources and uses, capital structure and leverage ratios, interest coverage metrics, EBITDA and free cash flow projections, debt amortization schedule, IRR and MOIC sensitivities by entry/exit multiple and leverage, covenant headroom analysis, synergy and cost-out opportunities, and exit strategy assumptions including potential multiple contraction or expansion."
+    "content": "Act as a Senior Managing Director in the Financial Sponsors Group at a leading global investment bank advising a large-cap private equity client on a potential leveraged buyout of a stable cash-generative business. Outline the structure for a fully built LBO model and investment committee memo. Structure the output as: (1) a step-by-step modeling blueprint, and (2) a memo outline. Include: purchase price and entry EV/EBITDA, sources and uses, capital structure and leverage ratios, interest coverage metrics, EBITDA and free cash flow projections, debt amortization schedule, IRR and MOIC sensitivities by entry/exit multiple and leverage, covenant headroom analysis, synergy and cost-out opportunities, and exit strategy assumptions including potential multiple contraction or expansion."
   },
   {
     "id": 10,
-    "title": "Act as a Senior Partner at a top-tier Private Equity firm (e.g., KKR/TPG) leadin...",
+    "title": "Act as a Senior Partner at a top-tier Private Equity firm leadin...",
     "category": "Private Equity",
-    "content": "Act as a Senior Partner at a top-tier Private Equity firm (e.g., KKR/TPG) leading commercial due diligence for a B2B SaaS target with usage-based pricing. Design a MECE diligence framework focused on sustainable growth and unit economics. Structure the output as a workstream-by-workstream plan plus key analyses list, covering: market sizing and 5‑year CAGR, segmentation by customer cohort and use case, churn and expansion dynamics (GRR/NRR), cohort analysis, unit economics (ARPU, CAC, LTV, payback), product stickiness metrics, competitive positioning and win/loss analysis, sales efficiency and go-to-market scalability, margin structure and path to EBITDA expansion, and implications for valuation and leverage capacity in an LBO context."
+    "content": "Act as a Senior Partner at a top-tier Private Equity firm leading commercial due diligence for a B2B SaaS target with usage-based pricing. Design a MECE diligence framework focused on sustainable growth and unit economics. Structure the output as a workstream-by-workstream plan plus key analyses list, covering: market sizing and 5‑year CAGR, segmentation by customer cohort and use case, churn and expansion dynamics (GRR/NRR), cohort analysis, unit economics (ARPU, CAC, LTV, payback), product stickiness metrics, competitive positioning and win/loss analysis, sales efficiency and go-to-market scalability, margin structure and path to EBITDA expansion, and implications for valuation and leverage capacity in an LBO context."
   },
   {
     "id": 11,
@@ -67,9 +67,9 @@
   },
   {
     "id": 12,
-    "title": "Act as a General Partner at a global Venture Capital firm (e.g., Sequoia/Accel) ...",
+    "title": "Act as a General Partner at a global Venture Capital firm ...",
     "category": "Strategy",
-    "content": "Act as a General Partner at a global Venture Capital firm (e.g., Sequoia/Accel) preparing an investment committee memo for a Series B investment in a fintech startup. Create a rigorous, data-driven IC memo structure. Structure the output as a narrative memo with clear sections and bullet points, covering: problem statement and product-market fit evidence, market size (TAM/SAM/SOM) and CAGR, competitive landscape and moats, unit economics (take rate, GMV, CAC, LTV, payback), growth playbook and scalability, team assessment and governance, cap table and ownership evolution, valuation analysis versus public and private comps, scenario analysis (upside/base/downside) with IRR and return potential, and key risks with mitigants and decision recommendation (invest/decline/monitor)."
+    "content": "Act as a General Partner at a global Venture Capital firm preparing an investment committee memo for a Series B investment in a fintech startup. Create a rigorous, data-driven IC memo structure. Structure the output as a narrative memo with clear sections and bullet points, covering: problem statement and product-market fit evidence, market size (TAM/SAM/SOM) and CAGR, competitive landscape and moats, unit economics (take rate, GMV, CAC, LTV, payback), growth playbook and scalability, team assessment and governance, cap table and ownership evolution, valuation analysis versus public and private comps, scenario analysis (upside/base/downside) with IRR and return potential, and key risks with mitigants and decision recommendation (invest/decline/monitor)."
   },
   {
     "id": 13,
@@ -121,33 +121,33 @@
   },
   {
     "id": 21,
-    "title": "Act as a Senior Partner in the Corporate Strategy practice at BCG advising the C...",
+    "title": "Act as a Senior Partner in the Corporate Strategy practice at a top-tier global strategy consultancy advising the C...",
     "category": "M&A",
-    "content": "Act as a Senior Partner in the Corporate Strategy practice at BCG advising the CEO of a global chemicals company on a portfolio growth and capital allocation reset. Develop a MECE portfolio strategy and capital deployment framework. Structure the output as a slide deck outline with supporting tables, covering: segmentation of business units by growth and ROIC vs WACC, identification of core vs non-core assets, 5‑year revenue and EBITDA CAGR by segment, capex and R&D allocation priorities, M&A and divestiture options, scenario analysis on portfolio mix and valuation impact, and a clear capital allocation roadmap linking free cash flow, dividends, buybacks, and growth investments to TSR targets."
+    "content": "Act as a Senior Partner in the Corporate Strategy practice at a top-tier global strategy consultancy advising the CEO of a global chemicals company on a portfolio growth and capital allocation reset. Develop a MECE portfolio strategy and capital deployment framework. Structure the output as a slide deck outline with supporting tables, covering: segmentation of business units by growth and ROIC vs WACC, identification of core vs non-core assets, 5‑year revenue and EBITDA CAGR by segment, capex and R&D allocation priorities, M&A and divestiture options, scenario analysis on portfolio mix and valuation impact, and a clear capital allocation roadmap linking free cash flow, dividends, buybacks, and growth investments to TSR targets."
   },
   {
     "id": 22,
-    "title": "Act as a Senior Strategy Advisor at a global management consultancy (McKinsey-st...",
+    "title": "Act as a Senior Strategy Advisor at a global management consultancy (a top-tier global strategy consultancy-st...",
     "category": "Strategy",
-    "content": "Act as a Senior Strategy Advisor at a global management consultancy (McKinsey-style) supporting the Board of a universal bank seeking to accelerate fee-based growth. Design a corporate strategy and growth blueprint focused on wealth management, payments, and transaction banking. Structure the output as a hypothesis-driven slide outline, including: market sizing and profit pool analysis by segment, competitive benchmarking on cost-to-income and ROE, cross-sell and wallet-share opportunities, unit economics of key products, required operating model and technology investments, regulatory and capital implications (RWA, CET1), and a quantified EBITDA and ROE uplift case with clear implementation milestones."
+    "content": "Act as a Senior Strategy Advisor at a global management consultancy (a top-tier global strategy consultancy-style) supporting the Board of a universal bank seeking to accelerate fee-based growth. Design a corporate strategy and growth blueprint focused on wealth management, payments, and transaction banking. Structure the output as a hypothesis-driven slide outline, including: market sizing and profit pool analysis by segment, competitive benchmarking on cost-to-income and ROE, cross-sell and wallet-share opportunities, unit economics of key products, required operating model and technology investments, regulatory and capital implications (RWA, CET1), and a quantified EBITDA and ROE uplift case with clear implementation milestones."
   },
   {
     "id": 23,
-    "title": "Act as a Senior Partner in the Corporate Turnaround practice at Alvarez & Marsal...",
+    "title": "Act as a Senior Partner in the Corporate Turnaround practice at a leading turnaround and restructuring advisory firm...",
     "category": "Strategy",
-    "content": "Act as a Senior Partner in the Corporate Turnaround practice at Alvarez & Marsal advising a mid-cap retailer facing negative like-for-like growth and margin compression. Build a turnaround and restructuring playbook. Structure the output as an issue tree and a 12‑ to 24‑month roadmap, covering: revenue stabilization levers (pricing, assortment, store footprint, e-commerce shift), gross margin and SG&A optimization, working capital release, store-level EBITDA and cash breakeven analysis, lease and debt renegotiation tactics, covenant and liquidity runway analysis, and a set of KPIs and dashboards to track recovery, including clear targets for EBITDA margin and cash conversion cycle improvement."
+    "content": "Act as a Senior Partner in the Corporate Turnaround practice at a leading turnaround and restructuring advisory firm advising a mid-cap retailer facing negative like-for-like growth and margin compression. Build a turnaround and restructuring playbook. Structure the output as an issue tree and a 12‑ to 24‑month roadmap, covering: revenue stabilization levers (pricing, assortment, store footprint, e-commerce shift), gross margin and SG&A optimization, working capital release, store-level EBITDA and cash breakeven analysis, lease and debt renegotiation tactics, covenant and liquidity runway analysis, and a set of KPIs and dashboards to track recovery, including clear targets for EBITDA margin and cash conversion cycle improvement."
   },
   {
     "id": 24,
-    "title": "Act as a Senior Managing Director in the M&A group at Lazard advising a large-ca...",
+    "title": "Act as a Senior Managing Director in the M&A group at a leading independent advisory firm advising a large-ca...",
     "category": "M&A",
-    "content": "Act as a Senior Managing Director in the M&A group at Lazard advising a large-cap healthcare company on a hostile takeover defense. Develop a comprehensive defense strategy and valuation narrative. Structure the output as a Board briefing memo with appendices, covering: standalone intrinsic value assessment using DCF (with WACC, terminal value, and sensitivity tables), trading and transaction comps, synergy estimates from the bidder’s perspective, analysis of offer premium vs fundamental value, stakeholder and activist landscape, white knight and alternative transaction options, capital structure and dividend/buyback flexibility, and recommended communication strategy with investors and regulators."
+    "content": "Act as a Senior Managing Director in the M&A group at a leading independent advisory firm advising a large-cap healthcare company on a hostile takeover defense. Develop a comprehensive defense strategy and valuation narrative. Structure the output as a Board briefing memo with appendices, covering: standalone intrinsic value assessment using DCF (with WACC, terminal value, and sensitivity tables), trading and transaction comps, synergy estimates from the bidder’s perspective, analysis of offer premium vs fundamental value, stakeholder and activist landscape, white knight and alternative transaction options, capital structure and dividend/buyback flexibility, and recommended communication strategy with investors and regulators."
   },
   {
     "id": 25,
-    "title": "Act as a Senior M&A Advisor at Rothschild & Co supporting a cross-border, cross-...",
+    "title": "Act as a Senior M&A Advisor at a leading independent advisory firm supporting a cross-border, cross-...",
     "category": "M&A",
-    "content": "Act as a Senior M&A Advisor at Rothschild & Co supporting a cross-border, cross-currency carve-out acquisition from a global conglomerate. Create a detailed carve-out and transaction structuring playbook. Structure the output as a slide deck outline plus a closing checklist, including: perimeter definition and standalone EBITDA analysis, stranded cost assessment and mitigation, TSA requirements and pricing, pro forma P&L and cash flow, synergy and dis-synergy estimates, funding structure and FX risk management, working capital and net debt adjustments, tax and legal structuring options, closing conditions, and Day‑1 readiness requirements for the carved-out entity."
+    "content": "Act as a Senior M&A Advisor at a leading independent advisory firm supporting a cross-border, cross-currency carve-out acquisition from a global conglomerate. Create a detailed carve-out and transaction structuring playbook. Structure the output as a slide deck outline plus a closing checklist, including: perimeter definition and standalone EBITDA analysis, stranded cost assessment and mitigation, TSA requirements and pricing, pro forma P&L and cash flow, synergy and dis-synergy estimates, funding structure and FX risk management, working capital and net debt adjustments, tax and legal structuring options, closing conditions, and Day‑1 readiness requirements for the carved-out entity."
   },
   {
     "id": 26,
@@ -157,27 +157,27 @@
   },
   {
     "id": 27,
-    "title": "Act as a Vice Chairman in the Investment Banking Division at Goldman Sachs leadi...",
+    "title": "Act as a Vice Chairman in the Investment Banking Division at a leading global investment bank leadi...",
     "category": "Strategy",
-    "content": "Act as a Vice Chairman in the Investment Banking Division at Goldman Sachs leading a dual-track IPO and trade sale process for a high-growth infrastructure services company. Develop a process strategy and valuation framework. Structure the output as an internal banker memo and client-facing summary, covering: dual-track timeline and key decision points, valuation analysis by DCF (with WACC and terminal multiple cross-checks), trading comps and precedent transactions, equity story and key KPIs for IPO investors, strategic buyer synergy and EPS accretion analysis, capital structure and leverage post-transaction, pros and cons (including control, cost of capital, and liquidity), and a recommendation on optimal path with sensitivity to market conditions and bid levels."
+    "content": "Act as a Vice Chairman in the Investment Banking Division at a leading global investment bank leading a dual-track IPO and trade sale process for a high-growth infrastructure services company. Develop a process strategy and valuation framework. Structure the output as an internal banker memo and client-facing summary, covering: dual-track timeline and key decision points, valuation analysis by DCF (with WACC and terminal multiple cross-checks), trading comps and precedent transactions, equity story and key KPIs for IPO investors, strategic buyer synergy and EPS accretion analysis, capital structure and leverage post-transaction, pros and cons (including control, cost of capital, and liquidity), and a recommendation on optimal path with sensitivity to market conditions and bid levels."
   },
   {
     "id": 28,
-    "title": "Act as a Senior Equity Research Analyst at JPMorgan initiating coverage on a glo...",
+    "title": "Act as a Senior Equity Research Analyst at a leading global investment bank initiating coverage on a glo...",
     "category": "Equity Research",
-    "content": "Act as a Senior Equity Research Analyst at JPMorgan initiating coverage on a global payments network. Prepare a full initiation-of-coverage research report outline. Structure the output as a detailed section-by-section template, including: investment thesis and key drivers, market structure and growth (TPV, transaction volume, take rate), 5‑year revenue and EPS forecasts, segment-level margin analysis, unit economics and network effects, regulatory and competitive risks, DCF valuation with explicit WACC and terminal growth, trading comps (P/E, EV/EBITDA, EV/TPV), bull/base/bear cases with price targets, and clear rating and risk-reward summary suitable for institutional clients."
+    "content": "Act as a Senior Equity Research Analyst at a leading global investment bank initiating coverage on a global payments network. Prepare a full initiation-of-coverage research report outline. Structure the output as a detailed section-by-section template, including: investment thesis and key drivers, market structure and growth (TPV, transaction volume, take rate), 5‑year revenue and EPS forecasts, segment-level margin analysis, unit economics and network effects, regulatory and competitive risks, DCF valuation with explicit WACC and terminal growth, trading comps (P/E, EV/EBITDA, EV/TPV), bull/base/bear cases with price targets, and clear rating and risk-reward summary suitable for institutional clients."
   },
   {
     "id": 29,
-    "title": "Act as a Senior Equity Strategist at Morgan Stanley preparing a sector rotation ...",
+    "title": "Act as a Senior Equity Strategist at a leading global investment bank preparing a sector rotation ...",
     "category": "Strategy",
-    "content": "Act as a Senior Equity Strategist at Morgan Stanley preparing a sector rotation and style factor outlook for global equities. Build a structured analytical framework. Structure the output as an executive summary plus analytical appendix descriptions, including: assessment of macro backdrop (growth, inflation, policy), implications for value vs growth, cyclicals vs defensives, small vs large caps, sector-level EPS and EBITDA growth expectations, valuation dispersion (P/E, EV/EBITDA) across sectors, factor performance analysis, and a recommended portfolio tilt with expected alpha, tracking error, and downside risk under different macro scenarios."
+    "content": "Act as a Senior Equity Strategist at a leading global investment bank preparing a sector rotation and style factor outlook for global equities. Build a structured analytical framework. Structure the output as an executive summary plus analytical appendix descriptions, including: assessment of macro backdrop (growth, inflation, policy), implications for value vs growth, cyclicals vs defensives, small vs large caps, sector-level EPS and EBITDA growth expectations, valuation dispersion (P/E, EV/EBITDA) across sectors, factor performance analysis, and a recommended portfolio tilt with expected alpha, tracking error, and downside risk under different macro scenarios."
   },
   {
     "id": 30,
-    "title": "Act as a Senior Associate in Equity Research at Credit Suisse responsible for bu...",
+    "title": "Act as a Senior Associate in Equity Research at a leading global investment bank responsible for bu...",
     "category": "Equity Research",
-    "content": "Act as a Senior Associate in Equity Research at Credit Suisse responsible for building a fully integrated three-statement model for a cyclical industrial company. Design a modeling blueprint and output requirements. Structure the output as: (1) a step-by-step model build plan, and (2) a checklist of supporting schedules and sensitivities. Include: revenue and volume/price/mix drivers, cost structure and operating leverage, depreciation and capex schedules, working capital assumptions, interest and tax calculations, free cash flow and net debt evolution, DCF valuation with WACC and terminal value, sensitivity tables for key drivers (volume, price, FX, WACC), and standard charts for the research report (EPS bridge, EBITDA bridge, leverage metrics)."
+    "content": "Act as a Senior Associate in Equity Research at a leading global investment bank responsible for building a fully integrated three-statement model for a cyclical industrial company. Design a modeling blueprint and output requirements. Structure the output as: (1) a step-by-step model build plan, and (2) a checklist of supporting schedules and sensitivities. Include: revenue and volume/price/mix drivers, cost structure and operating leverage, depreciation and capex schedules, working capital assumptions, interest and tax calculations, free cash flow and net debt evolution, DCF valuation with WACC and terminal value, sensitivity tables for key drivers (volume, price, FX, WACC), and standard charts for the research report (EPS bridge, EBITDA bridge, leverage metrics)."
   },
   {
     "id": 31,
@@ -189,7 +189,7 @@
     "id": 32,
     "title": "Act as a Senior Investment Professional at a mega-fund Private Equity firm (e.g....",
     "category": "Private Equity",
-    "content": "Act as a Senior Investment Professional at a mega-fund Private Equity firm (e.g., Blackstone/Carlyle) reviewing an investment in an asset-heavy infrastructure platform. Create an investment committee memo structure tailored to long-duration, stable-cash-flow assets. Structure the output as a memo outline and key analyses checklist, including: regulatory and concession framework, contracted vs merchant revenue mix, inflation linkage, EBITDA margin and FCF conversion, capex and maintenance requirements, leverage and debt structure sustainability, DSCR and LLCR metrics, equity IRR and MOIC sensitivities, valuation approach (DCF with appropriate WACC and terminal assumptions, EV/EBITDA and EV/Capacity), and ESG and political risk assessment."
+    "content": "Act as a Senior Investment Professional at a mega-fund Private Equity firm reviewing an investment in an asset-heavy infrastructure platform. Create an investment committee memo structure tailored to long-duration, stable-cash-flow assets. Structure the output as a memo outline and key analyses checklist, including: regulatory and concession framework, contracted vs merchant revenue mix, inflation linkage, EBITDA margin and FCF conversion, capex and maintenance requirements, leverage and debt structure sustainability, DSCR and LLCR metrics, equity IRR and MOIC sensitivities, valuation approach (DCF with appropriate WACC and terminal assumptions, EV/EBITDA and EV/Capacity), and ESG and political risk assessment."
   },
   {
     "id": 33,
@@ -199,9 +199,9 @@
   },
   {
     "id": 34,
-    "title": "Act as a Senior Partner at a top-tier VC firm (e.g., Andreessen Horowitz) traini...",
+    "title": "Act as a Senior Partner at a top-tier VC firm traini...",
     "category": "Strategy",
-    "content": "Act as a Senior Partner at a top-tier VC firm (e.g., Andreessen Horowitz) training new associates on evaluating early-stage SaaS startups. Create a structured evaluation and IC memo template. Structure the output as: (1) a scorecard with weighted criteria, and (2) a narrative memo outline. Include: founding team assessment, market size (TAM/SAM) and growth, product and moat, early traction metrics (MRR, NRR, logo growth), unit economics (gross margin, CAC, LTV), burn multiple and runway, competitive landscape, funding round structure and dilution, expected return profile and ownership targets, and key risks and milestones to next round."
+    "content": "Act as a Senior Partner at a top-tier VC firm training new associates on evaluating early-stage SaaS startups. Create a structured evaluation and IC memo template. Structure the output as: (1) a scorecard with weighted criteria, and (2) a narrative memo outline. Include: founding team assessment, market size (TAM/SAM) and growth, product and moat, early traction metrics (MRR, NRR, logo growth), unit economics (gross margin, CAC, LTV), burn multiple and runway, competitive landscape, funding round structure and dilution, expected return profile and ownership targets, and key risks and milestones to next round."
   },
   {
     "id": 35,
@@ -241,51 +241,51 @@
   },
   {
     "id": 41,
-    "title": "Act as a Senior Partner in the Corporate Strategy practice at McKinsey & Company...",
+    "title": "Act as a Senior Partner in the Corporate Strategy practice at a top-tier global strategy consultancy...",
     "category": "Strategy",
-    "content": "Act as a Senior Partner in the Corporate Strategy practice at McKinsey & Company advising the CEO of a global logistics and supply chain company on building a differentiated e‑commerce fulfillment strategy. Develop a hypothesis‑driven growth and operating model blueprint. Structure the output as a slide deck outline with supporting tables, covering: market sizing and 5‑year CAGR for e‑commerce volumes, competitive positioning vs integrators and digital platforms, network design options (hubs, last‑mile, cross‑border), unit economics by segment (yield, cost per shipment, EBITDA per parcel), required capex and impact on ROIC vs WACC, technology and automation priorities, and a quantified EBITDA and free cash flow uplift case under base and aggressive scenarios."
+    "content": "Act as a Senior Partner in the Corporate Strategy practice at a top-tier global strategy consultancy advising the CEO of a global logistics and supply chain company on building a differentiated e‑commerce fulfillment strategy. Develop a hypothesis‑driven growth and operating model blueprint. Structure the output as a slide deck outline with supporting tables, covering: market sizing and 5‑year CAGR for e‑commerce volumes, competitive positioning vs integrators and digital platforms, network design options (hubs, last‑mile, cross‑border), unit economics by segment (yield, cost per shipment, EBITDA per parcel), required capex and impact on ROIC vs WACC, technology and automation priorities, and a quantified EBITDA and free cash flow uplift case under base and aggressive scenarios."
   },
   {
     "id": 42,
-    "title": "Act as a Senior Strategy Partner at Bain & Company advising the executive commit...",
+    "title": "Act as a Senior Strategy Partner at a top-tier global strategy consultancy advising the executive commit...",
     "category": "M&A",
-    "content": "Act as a Senior Strategy Partner at Bain & Company advising the executive committee of a global pharmaceutical company on reshaping its R&D and product portfolio for higher risk‑adjusted returns. Build a MECE portfolio and capital allocation framework. Structure the output as a consulting‑style deck outline including: segmentation of pipeline by therapeutic area, risk stage, and NPV/IRR, portfolio value and risk concentration analysis, trade‑offs between in‑house R&D, in‑licensing, and bolt‑on M&A, impact on long‑term revenue CAGR and EBITDA margin, option value of platform technologies, and recommended capital deployment between R&D, BD/M&A, and shareholder returns, linked to TSR decomposition (multiple, earnings, and dividend yield)."
+    "content": "Act as a Senior Strategy Partner at a top-tier global strategy consultancy advising the executive committee of a global pharmaceutical company on reshaping its R&D and product portfolio for higher risk‑adjusted returns. Build a MECE portfolio and capital allocation framework. Structure the output as a consulting‑style deck outline including: segmentation of pipeline by therapeutic area, risk stage, and NPV/IRR, portfolio value and risk concentration analysis, trade‑offs between in‑house R&D, in‑licensing, and bolt‑on M&A, impact on long‑term revenue CAGR and EBITDA margin, option value of platform technologies, and recommended capital deployment between R&D, BD/M&A, and shareholder returns, linked to TSR decomposition (multiple, earnings, and dividend yield)."
   },
   {
     "id": 43,
-    "title": "Act as a Managing Director in the Corporate Finance practice at BCG advising a d...",
+    "title": "Act as a Managing Director in the Corporate Finance practice at a top-tier global strategy consultancy advising a d...",
     "category": "Strategy",
-    "content": "Act as a Managing Director in the Corporate Finance practice at BCG advising a diversified energy company on transitioning its portfolio toward low‑carbon businesses while preserving dividend capacity. Develop a decarbonization and growth strategy. Structure the output as a slide deck outline and financial impact summary, including: current portfolio mapping (EBITDA, capex, WACC, and carbon intensity), target portfolio mix in 5–10 years, investment cases for key low‑carbon growth platforms, divestment and run‑off strategy for legacy assets, impact on group EBITDA, free cash flow, and dividend cover, funding strategy and leverage trajectory, and key valuation implications (EV/EBITDA, P/E, cost of equity)."
+    "content": "Act as a Managing Director in the Corporate Finance practice at a top-tier global strategy consultancy advising a diversified energy company on transitioning its portfolio toward low‑carbon businesses while preserving dividend capacity. Develop a decarbonization and growth strategy. Structure the output as a slide deck outline and financial impact summary, including: current portfolio mapping (EBITDA, capex, WACC, and carbon intensity), target portfolio mix in 5–10 years, investment cases for key low‑carbon growth platforms, divestment and run‑off strategy for legacy assets, impact on group EBITDA, free cash flow, and dividend cover, funding strategy and leverage trajectory, and key valuation implications (EV/EBITDA, P/E, cost of equity)."
   },
   {
     "id": 44,
     "title": "Act as a Senior Managing Director in the Mergers & Acquisitions group at JPMorga...",
     "category": "M&A",
-    "content": "Act as a Senior Managing Director in the Mergers & Acquisitions group at JPMorgan advising a global consumer goods company on a bilateral acquisition of a high‑growth D2C brand. Create a commercial and financial assessment framework. Structure the output as a Board‑level memo outline, covering: strategic rationale and fit, historical and projected revenue CAGR and gross margin trends, brand health and customer cohort analysis, unit economics (CAC, LTV, payback), standalone EBITDA and free cash flow profile, synergy sizing (revenue cross‑sell, channel expansion, procurement, SG&A), pro forma leverage and interest coverage, EPS accretion/dilution analysis, and recommended valuation range using EV/Revenue, EV/EBITDA, and DCF with explicit WACC assumptions."
+    "content": "Act as a Senior Managing Director in the Mergers & Acquisitions group at a leading global investment bank advising a global consumer goods company on a bilateral acquisition of a high‑growth D2C brand. Create a commercial and financial assessment framework. Structure the output as a Board‑level memo outline, covering: strategic rationale and fit, historical and projected revenue CAGR and gross margin trends, brand health and customer cohort analysis, unit economics (CAC, LTV, payback), standalone EBITDA and free cash flow profile, synergy sizing (revenue cross‑sell, channel expansion, procurement, SG&A), pro forma leverage and interest coverage, EPS accretion/dilution analysis, and recommended valuation range using EV/Revenue, EV/EBITDA, and DCF with explicit WACC assumptions."
   },
   {
     "id": 45,
-    "title": "Act as a Senior M&A Banker at Goldman Sachs running a competitive sell‑side auct...",
+    "title": "Act as a Senior M&A Banker at a leading global investment bank running a competitive sell‑side auct...",
     "category": "M&A",
-    "content": "Act as a Senior M&A Banker at Goldman Sachs running a competitive sell‑side auction for a mission‑critical B2B software asset. Design a full process plan and buyer universe. Structure the output as: (1) a process timeline and key milestones, and (2) a buyer list and rationale. Include: segmentation of strategic and financial buyers, expected synergy levers and ability to pay, key value drivers (ARR growth, NRR, EBITDA margin, FCF conversion), likely valuation ranges by buyer type (EV/Revenue and EV/EBITDA), process dynamics and tactics (staple financing, management presentations, data room strategy), and a framework for comparing bids on headline price, equity roll, structure, and conditionality."
+    "content": "Act as a Senior M&A Banker at a leading global investment bank running a competitive sell‑side auction for a mission‑critical B2B software asset. Design a full process plan and buyer universe. Structure the output as: (1) a process timeline and key milestones, and (2) a buyer list and rationale. Include: segmentation of strategic and financial buyers, expected synergy levers and ability to pay, key value drivers (ARR growth, NRR, EBITDA margin, FCF conversion), likely valuation ranges by buyer type (EV/Revenue and EV/EBITDA), process dynamics and tactics (staple financing, management presentations, data room strategy), and a framework for comparing bids on headline price, equity roll, structure, and conditionality."
   },
   {
     "id": 46,
-    "title": "Act as a Senior Partner in a dedicated M&A Strategy practice at BCG advising a l...",
+    "title": "Act as a Senior Partner in a dedicated M&A Strategy practice at a top-tier global strategy consultancy advising a l...",
     "category": "M&A",
-    "content": "Act as a Senior Partner in a dedicated M&A Strategy practice at BCG advising a large telecom operator on an in‑country merger of equals. Create a full synergy and integration valuation framework. Structure the output as a synergy model outline plus a slide‑based valuation summary, including: network and IT cost savings, SG&A synergies, revenue synergies (ARPU uplift, churn reduction), timing and phasing of synergy realization, one‑off costs to achieve, impact on combined EBITDA, capex intensity and free cash flow, DCF valuation of synergies using appropriate WACC, EPS accretion/dilution profile, and key regulatory and execution risks that could erode value."
+    "content": "Act as a Senior Partner in a dedicated M&A Strategy practice at a top-tier global strategy consultancy advising a large telecom operator on an in‑country merger of equals. Create a full synergy and integration valuation framework. Structure the output as a synergy model outline plus a slide‑based valuation summary, including: network and IT cost savings, SG&A synergies, revenue synergies (ARPU uplift, churn reduction), timing and phasing of synergy realization, one‑off costs to achieve, impact on combined EBITDA, capex intensity and free cash flow, DCF valuation of synergies using appropriate WACC, EPS accretion/dilution profile, and key regulatory and execution risks that could erode value."
   },
   {
     "id": 47,
-    "title": "Act as a Senior Equity Research Analyst at UBS covering global autos and mobilit...",
+    "title": "Act as a Senior Equity Research Analyst at a leading global investment bank covering global autos and mobilit...",
     "category": "Equity Research",
-    "content": "Act as a Senior Equity Research Analyst at UBS covering global autos and mobility, preparing a deep‑dive thematic report on the shift to electric vehicles (EVs). Build a structured research outline. Structure the output as a report table of contents and key chart/table descriptions, including: global market size and 10‑year volume CAGR, profit pool migration across OEMs, suppliers, and software, margin and EBITDA implications of EV mix, capex and R&D requirements, balance sheet stress and leverage, valuation frameworks (EV/EBITDA, EV/Sales, P/E) for legacy vs pure‑play EV companies, and stock‑level implications with upside/downside scenarios and target prices based on DCF and relative valuation cross‑checks."
+    "content": "Act as a Senior Equity Research Analyst at a leading global investment bank covering global autos and mobility, preparing a deep‑dive thematic report on the shift to electric vehicles (EVs). Build a structured research outline. Structure the output as a report table of contents and key chart/table descriptions, including: global market size and 10‑year volume CAGR, profit pool migration across OEMs, suppliers, and software, margin and EBITDA implications of EV mix, capex and R&D requirements, balance sheet stress and leverage, valuation frameworks (EV/EBITDA, EV/Sales, P/E) for legacy vs pure‑play EV companies, and stock‑level implications with upside/downside scenarios and target prices based on DCF and relative valuation cross‑checks."
   },
   {
     "id": 48,
-    "title": "Act as a Senior Equity Research Analyst at Barclays initiating coverage on a lar...",
+    "title": "Act as a Senior Equity Research Analyst at a leading global investment bank initiating coverage on a lar...",
     "category": "Equity Research",
-    "content": "Act as a Senior Equity Research Analyst at Barclays initiating coverage on a large‑cap bank in an emerging market. Design a bank‑specific research framework and model blueprint. Structure the output as: (1) a research report outline, and (2) a modeling checklist. Include: macro and regulatory backdrop, loan and deposit growth assumptions, net interest margin drivers, fee income and trading income dynamics, cost‑to‑income ratio targets, credit quality and cost of risk, capital adequacy and dividend capacity, ROE vs cost of equity comparison, valuation via P/BV, P/E, and residual income model, and bull/base/bear valuation scenarios with explicit cost of equity assumptions."
+    "content": "Act as a Senior Equity Research Analyst at a leading global investment bank initiating coverage on a large‑cap bank in an emerging market. Design a bank‑specific research framework and model blueprint. Structure the output as: (1) a research report outline, and (2) a modeling checklist. Include: macro and regulatory backdrop, loan and deposit growth assumptions, net interest margin drivers, fee income and trading income dynamics, cost‑to‑income ratio targets, credit quality and cost of risk, capital adequacy and dividend capacity, ROE vs cost of equity comparison, valuation via P/BV, P/E, and residual income model, and bull/base/bear valuation scenarios with explicit cost of equity assumptions."
   },
   {
     "id": 49,
@@ -295,9 +295,9 @@
   },
   {
     "id": 50,
-    "title": "Act as a Senior Associate in Equity Research at Deutsche Bank tasked with buildi...",
+    "title": "Act as a Senior Associate in Equity Research at a leading global investment bank tasked with buildi...",
     "category": "Equity Research",
-    "content": "Act as a Senior Associate in Equity Research at Deutsche Bank tasked with building a detailed KPI and unit economics model for a global food delivery platform. Create a modeling and analysis framework. Structure the output as: (1) a driver‑based model blueprint, and (2) a set of standard exhibits. Include: order volume, AOV, and take‑rate drivers, rider and courier economics, customer acquisition and retention (CAC, churn, cohort LTV), contribution margin per order, fixed vs variable cost structure, path to EBITDA and free cash flow breakeven, sensitivity analysis for batch size, pricing, and incentives, and valuation implications (EV/GMV, EV/Revenue, DCF) under different unit economics scenarios."
+    "content": "Act as a Senior Associate in Equity Research at a leading global investment bank tasked with building a detailed KPI and unit economics model for a global food delivery platform. Create a modeling and analysis framework. Structure the output as: (1) a driver‑based model blueprint, and (2) a set of standard exhibits. Include: order volume, AOV, and take‑rate drivers, rider and courier economics, customer acquisition and retention (CAC, churn, cohort LTV), contribution margin per order, fixed vs variable cost structure, path to EBITDA and free cash flow breakeven, sensitivity analysis for batch size, pricing, and incentives, and valuation implications (EV/GMV, EV/Revenue, DCF) under different unit economics scenarios."
   },
   {
     "id": 51,
@@ -361,27 +361,27 @@
   },
   {
     "id": 61,
-    "title": "Act as a Senior Partner at McKinsey & Company advising the CEO of a top-3 global...",
+    "title": "Act as a Senior Partner at a top-tier global strategy consultancy advising the CEO of a top-3 global...",
     "category": "M&A",
-    "content": "Act as a Senior Partner at McKinsey & Company advising the CEO of a top-3 global asset manager on accelerating inorganic growth in private markets. Build a hypothesis-driven M&A strategy and target-screening framework. Structure the output as a slide deck outline with a MECE issue tree, covering: market sizing and 5-year CAGR for private credit, infrastructure, and secondaries; competitive benchmarking vs peers on fee margin, EBITDA margin, and AUM mix; target archetypes and screening criteria (strategic fit, margin profile, capital intensity, regulatory constraints); synergy model (cost and revenue) with timing and probability; valuation methodology (EV/EBITDA, EV/AUM, DCF with WACC); and a prioritized target pipeline with a clear recommendation and key diligence questions."
+    "content": "Act as a Senior Partner at a top-tier global strategy consultancy advising the CEO of a top-3 global asset manager on accelerating inorganic growth in private markets. Build a hypothesis-driven M&A strategy and target-screening framework. Structure the output as a slide deck outline with a MECE issue tree, covering: market sizing and 5-year CAGR for private credit, infrastructure, and secondaries; competitive benchmarking vs peers on fee margin, EBITDA margin, and AUM mix; target archetypes and screening criteria (strategic fit, margin profile, capital intensity, regulatory constraints); synergy model (cost and revenue) with timing and probability; valuation methodology (EV/EBITDA, EV/AUM, DCF with WACC); and a prioritized target pipeline with a clear recommendation and key diligence questions."
   },
   {
     "id": 62,
-    "title": "Act as a Senior Partner in BCG’s Corporate Finance practice advising a listed in...",
+    "title": "Act as a Senior Partner in a top-tier global strategy consultancy’s Corporate Finance practice advising a listed in...",
     "category": "Strategy",
-    "content": "Act as a Senior Partner in BCG’s Corporate Finance practice advising a listed industrial company facing a conglomerate discount. Develop a value-unlocking blueprint. Structure the output as an executive memo plus slide deck outline, covering: decomposition of TSR and valuation drivers, sum-of-the-parts (SOTP) valuation vs current market cap, ROIC vs WACC by business unit, separation options (spin, split, carve-out IPO, asset sale), stranded cost and TSA considerations, capital structure implications (target leverage, ratings impact), and a quantified equity value upside with key execution risks and milestones."
+    "content": "Act as a Senior Partner in a top-tier global strategy consultancy’s Corporate Finance practice advising a listed industrial company facing a conglomerate discount. Develop a value-unlocking blueprint. Structure the output as an executive memo plus slide deck outline, covering: decomposition of TSR and valuation drivers, sum-of-the-parts (SOTP) valuation vs current market cap, ROIC vs WACC by business unit, separation options (spin, split, carve-out IPO, asset sale), stranded cost and TSA considerations, capital structure implications (target leverage, ratings impact), and a quantified equity value upside with key execution risks and milestones."
   },
   {
     "id": 63,
-    "title": "Act as a Senior Strategy Partner at Bain & Company advising a global airline gro...",
+    "title": "Act as a Senior Strategy Partner at a top-tier global strategy consultancy advising a global airline gro...",
     "category": "Strategy",
-    "content": "Act as a Senior Strategy Partner at Bain & Company advising a global airline group on a network and fleet optimization strategy under volatile fuel prices and FX. Build a MECE strategy and financial impact assessment. Structure the output as a deck outline with key exhibits, covering: route profitability and contribution margin by region, capacity and load-factor scenario planning, fleet mix optimization and capex implications, hedging policy for fuel and FX, EBITDA sensitivity to yield and fuel, working capital seasonality, and a recommended plan to improve EBITDA margin and free cash flow while maintaining covenant headroom."
+    "content": "Act as a Senior Strategy Partner at a top-tier global strategy consultancy advising a global airline group on a network and fleet optimization strategy under volatile fuel prices and FX. Build a MECE strategy and financial impact assessment. Structure the output as a deck outline with key exhibits, covering: route profitability and contribution margin by region, capacity and load-factor scenario planning, fleet mix optimization and capex implications, hedging policy for fuel and FX, EBITDA sensitivity to yield and fuel, working capital seasonality, and a recommended plan to improve EBITDA margin and free cash flow while maintaining covenant headroom."
   },
   {
     "id": 64,
-    "title": "Act as a Managing Director at Evercore leading a sell-side mandate for a special...",
+    "title": "Act as a Managing Director at a leading independent advisory firm leading a sell-side mandate for a special...",
     "category": "Strategy",
-    "content": "Act as a Managing Director at Evercore leading a sell-side mandate for a specialty chemicals business with multiple strategic buyers. Create a full sell-side diligence and positioning plan. Structure the output as a banker’s workplan plus CIM “data requests,” including: quality of earnings (QoE) adjustments to EBITDA, customer concentration and pricing pass-through analysis, capacity/utilization and capex requirements, margin normalization, working capital and seasonality, synergy “ability-to-pay” analysis for strategics, valuation range using EV/EBITDA and DCF (WACC, terminal value), and key messaging to defend the multiple."
+    "content": "Act as a Managing Director at a leading independent advisory firm leading a sell-side mandate for a specialty chemicals business with multiple strategic buyers. Create a full sell-side diligence and positioning plan. Structure the output as a banker’s workplan plus CIM “data requests,” including: quality of earnings (QoE) adjustments to EBITDA, customer concentration and pricing pass-through analysis, capacity/utilization and capex requirements, margin normalization, working capital and seasonality, synergy “ability-to-pay” analysis for strategics, valuation range using EV/EBITDA and DCF (WACC, terminal value), and key messaging to defend the multiple."
   },
   {
     "id": 65,
@@ -391,21 +391,21 @@
   },
   {
     "id": 66,
-    "title": "Act as a Senior MD in the Financial Sponsors Group at JPMorgan advising a PE cli...",
+    "title": "Act as a Senior MD in the Financial Sponsors Group at a leading global investment bank advising a PE cli...",
     "category": "Private Equity",
-    "content": "Act as a Senior MD in the Financial Sponsors Group at JPMorgan advising a PE client on a public-to-private (P2P) transaction. Develop a full transaction and valuation framework. Structure the output as an IC-style memo outline, covering: take-private premium analysis, financing plan and leverage capacity, debt pricing assumptions and interest coverage, downside stress test on EBITDA and exit multiple, covenant headroom, equity rollover and management incentive design, IRR/MOIC sensitivities, and key regulatory/antitrust risks. Require explicit references to WACC vs cost of equity and explain why DCF may diverge from LBO valuation in this context."
+    "content": "Act as a Senior MD in the Financial Sponsors Group at a leading global investment bank advising a PE client on a public-to-private (P2P) transaction. Develop a full transaction and valuation framework. Structure the output as an IC-style memo outline, covering: take-private premium analysis, financing plan and leverage capacity, debt pricing assumptions and interest coverage, downside stress test on EBITDA and exit multiple, covenant headroom, equity rollover and management incentive design, IRR/MOIC sensitivities, and key regulatory/antitrust risks. Require explicit references to WACC vs cost of equity and explain why DCF may diverge from LBO valuation in this context."
   },
   {
     "id": 67,
-    "title": "Act as a Senior Equity Research Analyst at Goldman Sachs preparing a “deep dive”...",
+    "title": "Act as a Senior Equity Research Analyst at a leading global investment bank preparing a “deep dive”...",
     "category": "Equity Research",
-    "content": "Act as a Senior Equity Research Analyst at Goldman Sachs preparing a “deep dive” on a consumer staples company’s pricing power during disinflation. Create a structured research note outline. Structure the output as: (1) a 2-page executive summary template, and (2) an analytical appendix outline. Include: price/volume/mix decomposition, elasticity hypotheses and evidence, gross margin and EBITDA bridge, competitor pricing actions, private label share risk, working capital effects, DCF valuation with WACC sensitivity, and bull/base/bear price targets with catalysts and risks."
+    "content": "Act as a Senior Equity Research Analyst at a leading global investment bank preparing a “deep dive” on a consumer staples company’s pricing power during disinflation. Create a structured research note outline. Structure the output as: (1) a 2-page executive summary template, and (2) an analytical appendix outline. Include: price/volume/mix decomposition, elasticity hypotheses and evidence, gross margin and EBITDA bridge, competitor pricing actions, private label share risk, working capital effects, DCF valuation with WACC sensitivity, and bull/base/bear price targets with catalysts and risks."
   },
   {
     "id": 68,
-    "title": "Act as a Senior Equity Research Analyst at Morgan Stanley covering semiconductor...",
+    "title": "Act as a Senior Equity Research Analyst at a leading global investment bank covering semiconductor...",
     "category": "Equity Research",
-    "content": "Act as a Senior Equity Research Analyst at Morgan Stanley covering semiconductors, tasked with building a wafer capacity and utilization-driven forecasting model. Design the modeling blueprint and outputs. Structure the output as a step-by-step model build plan plus required charts, including: capacity additions, utilization, ASP trends, product mix, gross margin sensitivity, opex leverage, EBITDA and FCF forecast, capex and depreciation schedule, net debt trajectory, DCF valuation with WACC and terminal growth, and a sensitivity table for utilization, ASP, and discount rate."
+    "content": "Act as a Senior Equity Research Analyst at a leading global investment bank covering semiconductors, tasked with building a wafer capacity and utilization-driven forecasting model. Design the modeling blueprint and outputs. Structure the output as a step-by-step model build plan plus required charts, including: capacity additions, utilization, ASP trends, product mix, gross margin sensitivity, opex leverage, EBITDA and FCF forecast, capex and depreciation schedule, net debt trajectory, DCF valuation with WACC and terminal growth, and a sensitivity table for utilization, ASP, and discount rate."
   },
   {
     "id": 69,
@@ -415,9 +415,9 @@
   },
   {
     "id": 70,
-    "title": "Act as a Senior PE deal team lead at KKR reviewing a complex LBO with multiple t...",
+    "title": "Act as a Senior PE deal team lead at a leading global private equity firm reviewing a complex LBO with multiple t...",
     "category": "Private Equity",
-    "content": "Act as a Senior PE deal team lead at KKR reviewing a complex LBO with multiple tranches of debt. Create a capital structure optimization and downside protection framework. Structure the output as a memo plus a model requirements checklist, including: leverage sizing, tranche selection (term loan, bonds, mezzanine, PIK), interest rate hedging strategy, covenant package and headroom, EBITDA bridge and FCF sweep assumptions, recession stress test, exit multiple sensitivity, IRR/MOIC waterfall, and specific “deal protections” (MAC, representations, escrow) to reduce loss severity."
+    "content": "Act as a Senior PE deal team lead at a leading global private equity firm reviewing a complex LBO with multiple tranches of debt. Create a capital structure optimization and downside protection framework. Structure the output as a memo plus a model requirements checklist, including: leverage sizing, tranche selection (term loan, bonds, mezzanine, PIK), interest rate hedging strategy, covenant package and headroom, EBITDA bridge and FCF sweep assumptions, recession stress test, exit multiple sensitivity, IRR/MOIC waterfall, and specific “deal protections” (MAC, representations, escrow) to reduce loss severity."
   },
   {
     "id": 71,
@@ -457,9 +457,9 @@
   },
   {
     "id": 77,
-    "title": "Act as a Senior Investment Banker at Citi advising on a cross-border acquisition...",
+    "title": "Act as a Senior Investment Banker at a leading global investment bank advising on a cross-border acquisition...",
     "category": "Strategy",
-    "content": "Act as a Senior Investment Banker at Citi advising on a cross-border acquisition with significant FX exposure and political risk. Create a transaction risk management framework. Structure the output as a workplan plus risk register, covering: FX exposure mapping and hedging options (forwards, options, swaps), country risk premium and WACC adjustment methodology, financing structure and currency matching, political risk insurance considerations, contingency planning for capital controls, and valuation sensitivities for FX moves, discount rates, and terminal multiples."
+    "content": "Act as a Senior Investment Banker at a leading global investment bank advising on a cross-border acquisition with significant FX exposure and political risk. Create a transaction risk management framework. Structure the output as a workplan plus risk register, covering: FX exposure mapping and hedging options (forwards, options, swaps), country risk premium and WACC adjustment methodology, financing structure and currency matching, political risk insurance considerations, contingency planning for capital controls, and valuation sensitivities for FX moves, discount rates, and terminal multiples."
   },
   {
     "id": 78,
@@ -481,57 +481,57 @@
   },
   {
     "id": 81,
-    "title": "Act as a Senior Partner in McKinsey’s Corporate Strategy practice advising the C...",
+    "title": "Act as a Senior Partner in a top-tier global strategy consultancy’s Corporate Strategy practice advising the C...",
     "category": "Strategy",
-    "content": "Act as a Senior Partner in McKinsey’s Corporate Strategy practice advising the CEO of a large global mining company on portfolio strategy and capital allocation across commodities. Build a MECE strategy and value-creation framework. Structure the output as a slide deck outline, covering: profit pool and ROIC vs WACC by commodity, long-term demand and price outlook scenarios, capital intensity and FCF conversion by asset cluster, options for divestiture, JV, or growth capex, balance sheet and rating implications, impact on group EBITDA, FCF, and TSR, and a recommended capital allocation roadmap with quantified upside and execution risks."
+    "content": "Act as a Senior Partner in a top-tier global strategy consultancy’s Corporate Strategy practice advising the CEO of a large global mining company on portfolio strategy and capital allocation across commodities. Build a MECE strategy and value-creation framework. Structure the output as a slide deck outline, covering: profit pool and ROIC vs WACC by commodity, long-term demand and price outlook scenarios, capital intensity and FCF conversion by asset cluster, options for divestiture, JV, or growth capex, balance sheet and rating implications, impact on group EBITDA, FCF, and TSR, and a recommended capital allocation roadmap with quantified upside and execution risks."
   },
   {
     "id": 82,
-    "title": "Act as a Senior Strategy Partner at Bain & Company advising a global payments pr...",
+    "title": "Act as a Senior Strategy Partner at a top-tier global strategy consultancy advising a global payments pr...",
     "category": "Strategy",
-    "content": "Act as a Senior Strategy Partner at Bain & Company advising a global payments processor on entering high-growth emerging markets. Design a market entry and operating model blueprint. Structure the output as a consulting-style deck outline, including: market sizing and 5-year CAGR by use case, competitive landscape (local schemes, banks, fintechs), regulatory and FX considerations, unit economics (TPV, take rate, contribution margin), partnership vs organic entry options, capex/opex and payback analysis, EBITDA and FCF impact, and a clear go/no-go and sequencing recommendation with KPIs for the first 24 months."
+    "content": "Act as a Senior Strategy Partner at a top-tier global strategy consultancy advising a global payments processor on entering high-growth emerging markets. Design a market entry and operating model blueprint. Structure the output as a consulting-style deck outline, including: market sizing and 5-year CAGR by use case, competitive landscape (local schemes, banks, fintechs), regulatory and FX considerations, unit economics (TPV, take rate, contribution margin), partnership vs organic entry options, capex/opex and payback analysis, EBITDA and FCF impact, and a clear go/no-go and sequencing recommendation with KPIs for the first 24 months."
   },
   {
     "id": 83,
-    "title": "Act as a Senior Partner at BCG advising the executive committee of a global indu...",
+    "title": "Act as a Senior Partner at a top-tier global strategy consultancy advising the executive committee of a global indu...",
     "category": "Strategy",
-    "content": "Act as a Senior Partner at BCG advising the executive committee of a global industrial conglomerate on building a corporate venture and innovation arm. Create a strategy and governance framework. Structure the output as a slide deck outline, covering: strategic objectives and investment themes, mandate (minority VC, CVC, venture building), capital allocation and hurdle rates (IRR vs strategic NPV), governance and decision rights, portfolio construction and risk limits, link to core business (pilots, commercialization), and KPI framework that balances financial returns (MOIC, IRR) and strategic value creation (new revenue, EBITDA, ROIC uplift)."
+    "content": "Act as a Senior Partner at a top-tier global strategy consultancy advising the executive committee of a global industrial conglomerate on building a corporate venture and innovation arm. Create a strategy and governance framework. Structure the output as a slide deck outline, covering: strategic objectives and investment themes, mandate (minority VC, CVC, venture building), capital allocation and hurdle rates (IRR vs strategic NPV), governance and decision rights, portfolio construction and risk limits, link to core business (pilots, commercialization), and KPI framework that balances financial returns (MOIC, IRR) and strategic value creation (new revenue, EBITDA, ROIC uplift)."
   },
   {
     "id": 84,
-    "title": "Act as a Managing Director in the M&A group at Goldman Sachs advising a global t...",
+    "title": "Act as a Managing Director in the M&A group at a leading global investment bank advising a global t...",
     "category": "M&A",
-    "content": "Act as a Managing Director in the M&A group at Goldman Sachs advising a global tech platform on a large, cross-border, stock-for-stock merger. Build a comprehensive valuation and merger-ratio framework. Structure the output as a Board-level memo outline, including: standalone DCFs (with WACC and terminal growth) for both parties, trading comps and relative valuation, synergy valuation and allocation between parties, EPS and FCF accretion/dilution analysis, pro forma ownership and governance, credit rating and leverage path, and sensitivity tables for exchange ratio vs key drivers (synergies, WACC, growth), leading to a recommended merger ratio range and negotiation strategy."
+    "content": "Act as a Managing Director in the M&A group at a leading global investment bank advising a global tech platform on a large, cross-border, stock-for-stock merger. Build a comprehensive valuation and merger-ratio framework. Structure the output as a Board-level memo outline, including: standalone DCFs (with WACC and terminal growth) for both parties, trading comps and relative valuation, synergy valuation and allocation between parties, EPS and FCF accretion/dilution analysis, pro forma ownership and governance, credit rating and leverage path, and sensitivity tables for exchange ratio vs key drivers (synergies, WACC, growth), leading to a recommended merger ratio range and negotiation strategy."
   },
   {
     "id": 85,
-    "title": "Act as a Senior MD at Lazard advising a mid-cap industrial company on selling a ...",
+    "title": "Act as a Senior MD at a leading independent advisory firm advising a mid-cap industrial company on selling a ...",
     "category": "Strategy",
-    "content": "Act as a Senior MD at Lazard advising a mid-cap industrial company on selling a non-core division via a carve-out IPO. Create a transaction strategy and execution plan. Structure the output as a banker-style process deck, including: strategic rationale and SOTP impact, standalone financials and EBITDA normalization, capex and working capital needs, separation and stranded cost plan, governance and management setup, IPO vs trade sale option analysis (valuation, proceeds, control, execution risk), capital structure and dividend policy for the carved-out entity, and implications for the parent’s leverage, ROIC, and valuation multiple."
+    "content": "Act as a Senior MD at a leading independent advisory firm advising a mid-cap industrial company on selling a non-core division via a carve-out IPO. Create a transaction strategy and execution plan. Structure the output as a banker-style process deck, including: strategic rationale and SOTP impact, standalone financials and EBITDA normalization, capex and working capital needs, separation and stranded cost plan, governance and management setup, IPO vs trade sale option analysis (valuation, proceeds, control, execution risk), capital structure and dividend policy for the carved-out entity, and implications for the parent’s leverage, ROIC, and valuation multiple."
   },
   {
     "id": 86,
-    "title": "Act as a Senior Post-Merger Integration (PMI) Partner at BCG advising a global p...",
+    "title": "Act as a Senior Post-Merger Integration (PMI) Partner at a top-tier global strategy consultancy advising a global p...",
     "category": "Strategy",
-    "content": "Act as a Senior Post-Merger Integration (PMI) Partner at BCG advising a global pharma company integrating a large biotech acquisition. Design an integration and value-capture blueprint. Structure the output as a workstream charter list and 100-day plus 24-month roadmap, covering: R&D and portfolio integration, commercial and market access synergies, manufacturing and supply chain optimization, G&A consolidation, culture and talent retention, TSA and system integration, synergy and dis-synergy quantification (EBITDA, FCF), and a dashboard of leading and lagging KPIs to track integration success and risk areas."
+    "content": "Act as a Senior Post-Merger Integration (PMI) Partner at a top-tier global strategy consultancy advising a global pharma company integrating a large biotech acquisition. Design an integration and value-capture blueprint. Structure the output as a workstream charter list and 100-day plus 24-month roadmap, covering: R&D and portfolio integration, commercial and market access synergies, manufacturing and supply chain optimization, G&A consolidation, culture and talent retention, TSA and system integration, synergy and dis-synergy quantification (EBITDA, FCF), and a dashboard of leading and lagging KPIs to track integration success and risk areas."
   },
   {
     "id": 87,
-    "title": "Act as a Senior Equity Research Analyst at JPMorgan initiating coverage on a glo...",
+    "title": "Act as a Senior Equity Research Analyst at a leading global investment bank initiating coverage on a glo...",
     "category": "Equity Research",
-    "content": "Act as a Senior Equity Research Analyst at JPMorgan initiating coverage on a global luxury goods company. Build a structured initiation framework. Structure the output as a report outline and model blueprint, including: demand and pricing power drivers, regional and channel mix, gross margin and EBITDA margin drivers, capex and working capital needs, brand equity and intangible asset analysis, DCF valuation (WACC, terminal growth) cross-checked with EV/EBITDA and P/E vs peers, scenario analysis (recession, FX shocks), and an investment thesis with catalysts and risk factors for institutional investors."
+    "content": "Act as a Senior Equity Research Analyst at a leading global investment bank initiating coverage on a global luxury goods company. Build a structured initiation framework. Structure the output as a report outline and model blueprint, including: demand and pricing power drivers, regional and channel mix, gross margin and EBITDA margin drivers, capex and working capital needs, brand equity and intangible asset analysis, DCF valuation (WACC, terminal growth) cross-checked with EV/EBITDA and P/E vs peers, scenario analysis (recession, FX shocks), and an investment thesis with catalysts and risk factors for institutional investors."
   },
   {
     "id": 88,
-    "title": "Act as a Senior Equity Research Analyst at Bank of America covering airlines, ta...",
+    "title": "Act as a Senior Equity Research Analyst at a leading global investment bank covering airlines, ta...",
     "category": "Equity Research",
-    "content": "Act as a Senior Equity Research Analyst at Bank of America covering airlines, tasked with building a detailed traffic, yield, and cost model for a network carrier. Create the modeling framework. Structure the output as: (1) a driver-based model blueprint, and (2) a standard exhibit list. Include: traffic and capacity (ASK/RPK) assumptions, yield and ancillary revenue, fuel and ex-fuel unit cost, capex and fleet plan, net debt and interest, FCF and leverage trajectory, DCF valuation with WACC and terminal assumptions, and sensitivity tables for fuel, FX, load factor, and yield."
+    "content": "Act as a Senior Equity Research Analyst at a leading global investment bank covering airlines, tasked with building a detailed traffic, yield, and cost model for a network carrier. Create the modeling framework. Structure the output as: (1) a driver-based model blueprint, and (2) a standard exhibit list. Include: traffic and capacity (ASK/RPK) assumptions, yield and ancillary revenue, fuel and ex-fuel unit cost, capex and fleet plan, net debt and interest, FCF and leverage trajectory, DCF valuation with WACC and terminal assumptions, and sensitivity tables for fuel, FX, load factor, and yield."
   },
   {
     "id": 89,
-    "title": "Act as a Senior Equity Strategist at Credit Suisse preparing a global equity sty...",
+    "title": "Act as a Senior Equity Strategist at a leading global investment bank preparing a global equity sty...",
     "category": "Strategy",
-    "content": "Act as a Senior Equity Strategist at Credit Suisse preparing a global equity style and sector outlook under a “higher for longer” rates regime. Build a factor and sector rotation framework. Structure the output as a thematic note outline, including: macro and policy backdrop, historical performance of value vs growth and cyclicals vs defensives in similar regimes, EPS and EBITDA sensitivity to rates and inflation by sector, valuation dispersion analysis (P/E, EV/EBITDA), recommended tilts across regions, sectors, and styles, and a scenario matrix with expected relative performance and key risks."
+    "content": "Act as a Senior Equity Strategist at a leading global investment bank preparing a global equity style and sector outlook under a “higher for longer” rates regime. Build a factor and sector rotation framework. Structure the output as a thematic note outline, including: macro and policy backdrop, historical performance of value vs growth and cyclicals vs defensives in similar regimes, EPS and EBITDA sensitivity to rates and inflation by sector, valuation dispersion analysis (P/E, EV/EBITDA), recommended tilts across regions, sectors, and styles, and a scenario matrix with expected relative performance and key risks."
   },
   {
     "id": 90,
@@ -601,51 +601,51 @@
   },
   {
     "id": 101,
-    "title": "Act as a Senior Partner in McKinsey’s Corporate Strategy practice advising the C...",
+    "title": "Act as a Senior Partner in a top-tier global strategy consultancy’s Corporate Strategy practice advising the C...",
     "category": "Strategy",
-    "content": "Act as a Senior Partner in McKinsey’s Corporate Strategy practice advising the CEO of a global automotive OEM on the transition to software-defined vehicles and mobility services. Build a MECE strategy and value-creation framework. Structure the output as a slide deck outline, covering: profit pool migration along the value chain (hardware, software, data, services), required portfolio shifts, build/buy/partner decisions, unit economics of connected services (ARPU, churn, EBITDA margin), capex and R&D allocation, impact on ROIC vs WACC, and a quantified 5–10 year revenue and EBITDA bridge with key execution risks."
+    "content": "Act as a Senior Partner in a top-tier global strategy consultancy’s Corporate Strategy practice advising the CEO of a global automotive OEM on the transition to software-defined vehicles and mobility services. Build a MECE strategy and value-creation framework. Structure the output as a slide deck outline, covering: profit pool migration along the value chain (hardware, software, data, services), required portfolio shifts, build/buy/partner decisions, unit economics of connected services (ARPU, churn, EBITDA margin), capex and R&D allocation, impact on ROIC vs WACC, and a quantified 5–10 year revenue and EBITDA bridge with key execution risks."
   },
   {
     "id": 102,
-    "title": "Act as a Senior Strategy Partner at BCG advising the executive committee of a la...",
+    "title": "Act as a Senior Strategy Partner at a top-tier global strategy consultancy advising the executive committee of a la...",
     "category": "Strategy",
-    "content": "Act as a Senior Strategy Partner at BCG advising the executive committee of a large global bank on building a scalable “banking-as-a-service” (BaaS) platform. Develop a strategy and economics blueprint. Structure the output as a consulting-style deck outline, including: market sizing and 5-year CAGR for embedded finance, competitive landscape (fintechs, other banks, platforms), architecture and operating model options, partner economics and revenue-sharing models, unit economics (TPV, take rate, contribution margin), regulatory and capital considerations, and a phased rollout plan with EBITDA and ROE impact versus current WACC."
+    "content": "Act as a Senior Strategy Partner at a top-tier global strategy consultancy advising the executive committee of a large global bank on building a scalable “banking-as-a-service” (BaaS) platform. Develop a strategy and economics blueprint. Structure the output as a consulting-style deck outline, including: market sizing and 5-year CAGR for embedded finance, competitive landscape (fintechs, other banks, platforms), architecture and operating model options, partner economics and revenue-sharing models, unit economics (TPV, take rate, contribution margin), regulatory and capital considerations, and a phased rollout plan with EBITDA and ROE impact versus current WACC."
   },
   {
     "id": 103,
-    "title": "Act as a Senior Partner at Bain & Company advising a global FMCG company on a ra...",
+    "title": "Act as a Senior Partner at a top-tier global strategy consultancy advising a global FMCG company on a ra...",
     "category": "Strategy",
-    "content": "Act as a Senior Partner at Bain & Company advising a global FMCG company on a radical SKU rationalization and assortment optimization program. Build a portfolio and financial impact framework. Structure the output as a slide outline, including: SKU profitability and complexity analysis, shelf-space and channel strategy, volume/price/mix and gross margin effects, supply chain and working capital benefits, one-off restructuring costs, EBITDA and FCF uplift, and KPIs and guardrails (customer and retailer impact) to manage execution risk."
+    "content": "Act as a Senior Partner at a top-tier global strategy consultancy advising a global FMCG company on a radical SKU rationalization and assortment optimization program. Build a portfolio and financial impact framework. Structure the output as a slide outline, including: SKU profitability and complexity analysis, shelf-space and channel strategy, volume/price/mix and gross margin effects, supply chain and working capital benefits, one-off restructuring costs, EBITDA and FCF uplift, and KPIs and guardrails (customer and retailer impact) to manage execution risk."
   },
   {
     "id": 104,
-    "title": "Act as a Managing Director in the M&A group at Morgan Stanley advising a large-c...",
+    "title": "Act as a Managing Director in the M&A group at a leading global investment bank advising a large-c...",
     "category": "M&A",
-    "content": "Act as a Managing Director in the M&A group at Morgan Stanley advising a large-cap technology company on a “programmatic M&A” strategy. Develop a target sourcing and deal design framework. Structure the output as a Board-level deck outline, including: strategic themes and capability gaps, screening criteria (size, growth, EBITDA margin, tech/IP fit), target pipeline, typical valuation bands (EV/Revenue, EV/EBITDA), synergy archetypes and ranges, integration intensity grid, impact on EPS, FCF per share, and ROIC vs WACC, and a governance model for rapid but disciplined deal execution."
+    "content": "Act as a Managing Director in the M&A group at a leading global investment bank advising a large-cap technology company on a “programmatic M&A” strategy. Develop a target sourcing and deal design framework. Structure the output as a Board-level deck outline, including: strategic themes and capability gaps, screening criteria (size, growth, EBITDA margin, tech/IP fit), target pipeline, typical valuation bands (EV/Revenue, EV/EBITDA), synergy archetypes and ranges, integration intensity grid, impact on EPS, FCF per share, and ROIC vs WACC, and a governance model for rapid but disciplined deal execution."
   },
   {
     "id": 105,
-    "title": "Act as a Senior MD at Evercore advising a sovereign wealth fund on acquiring a m...",
+    "title": "Act as a Senior MD at a leading independent advisory firm advising a sovereign wealth fund on acquiring a m...",
     "category": "Strategy",
-    "content": "Act as a Senior MD at Evercore advising a sovereign wealth fund on acquiring a minority stake in a listed infrastructure company via a structured deal. Build a transaction and valuation framework. Structure the output as a memo outline, including: rationale and strategic fit, standalone DCF valuation (WACC, explicit forecast, terminal value), trading comps and infrastructure-specific multiples (EV/EBITDA, EV/Capacity), downside protection features (convertible, preferred, ratchets), governance and rights package, impact on target’s capital structure and rating, and IRR/MOIC sensitivities for the investor under multiple exit paths."
+    "content": "Act as a Senior MD at a leading independent advisory firm advising a sovereign wealth fund on acquiring a minority stake in a listed infrastructure company via a structured deal. Build a transaction and valuation framework. Structure the output as a memo outline, including: rationale and strategic fit, standalone DCF valuation (WACC, explicit forecast, terminal value), trading comps and infrastructure-specific multiples (EV/EBITDA, EV/Capacity), downside protection features (convertible, preferred, ratchets), governance and rights package, impact on target’s capital structure and rating, and IRR/MOIC sensitivities for the investor under multiple exit paths."
   },
   {
     "id": 106,
-    "title": "Act as a Senior M&A and Strategy Partner at BCG advising a global industrial com...",
+    "title": "Act as a Senior M&A and Strategy Partner at a top-tier global strategy consultancy advising a global industrial com...",
     "category": "M&A",
-    "content": "Act as a Senior M&A and Strategy Partner at BCG advising a global industrial company on creating a separate “NewCo” to spin off its digital solutions business. Design a separation, IPO, and value-creation blueprint. Structure the output as a slide deck outline, including: strategic rationale and SOTP analysis, standalone NewCo business model and unit economics, pro forma P&L, EBITDA margin and FCF profile, capex and R&D needs, spin structure (full spin vs carve-out IPO), governance and management setup, valuation framework (DCF, EV/Revenue, EV/EBITDA), and impact on RemainCo’s ROIC, WACC, leverage, and multiple."
+    "content": "Act as a Senior M&A and Strategy Partner at a top-tier global strategy consultancy advising a global industrial company on creating a separate “NewCo” to spin off its digital solutions business. Design a separation, IPO, and value-creation blueprint. Structure the output as a slide deck outline, including: strategic rationale and SOTP analysis, standalone NewCo business model and unit economics, pro forma P&L, EBITDA margin and FCF profile, capex and R&D needs, spin structure (full spin vs carve-out IPO), governance and management setup, valuation framework (DCF, EV/Revenue, EV/EBITDA), and impact on RemainCo’s ROIC, WACC, leverage, and multiple."
   },
   {
     "id": 107,
-    "title": "Act as a Senior Equity Research Analyst at UBS initiating coverage on a global e...",
+    "title": "Act as a Senior Equity Research Analyst at a leading global investment bank initiating coverage on a global e...",
     "category": "Equity Research",
-    "content": "Act as a Senior Equity Research Analyst at UBS initiating coverage on a global exchange operator. Build a structured research and modeling framework. Structure the output as a report outline and model blueprint, including: revenue drivers (trading volumes, listings, data, clearing), cost structure and operating leverage, EBITDA margin and FCF conversion, capital deployment (capex, M&A, buybacks, dividends), regulatory and competitive risk, DCF valuation (WACC, terminal growth) cross-checked with EV/EBITDA and P/E, and a scenario matrix with bull/base/bear price targets and key catalysts."
+    "content": "Act as a Senior Equity Research Analyst at a leading global investment bank initiating coverage on a global exchange operator. Build a structured research and modeling framework. Structure the output as a report outline and model blueprint, including: revenue drivers (trading volumes, listings, data, clearing), cost structure and operating leverage, EBITDA margin and FCF conversion, capital deployment (capex, M&A, buybacks, dividends), regulatory and competitive risk, DCF valuation (WACC, terminal growth) cross-checked with EV/EBITDA and P/E, and a scenario matrix with bull/base/bear price targets and key catalysts."
   },
   {
     "id": 108,
-    "title": "Act as a Senior Equity Research Analyst at Jefferies covering global retailers, ...",
+    "title": "Act as a Senior Equity Research Analyst at a leading global investment bank covering global retailers, ...",
     "category": "Equity Research",
-    "content": "Act as a Senior Equity Research Analyst at Jefferies covering global retailers, tasked with building a detailed store and e-commerce model for an omnichannel retailer. Create the modeling framework. Structure the output as: (1) a driver-based model blueprint, and (2) standard exhibits for publication. Include: store count and productivity (sales per square meter), online penetration and growth, gross margin and opex per channel, capex and D&A, inventory and working capital, EBITDA and FCF trajectory, DCF valuation with WACC and terminal assumptions, and sensitivity tables for like-for-like growth, margins, and capex intensity."
+    "content": "Act as a Senior Equity Research Analyst at a leading global investment bank covering global retailers, tasked with building a detailed store and e-commerce model for an omnichannel retailer. Create the modeling framework. Structure the output as: (1) a driver-based model blueprint, and (2) standard exhibits for publication. Include: store count and productivity (sales per square meter), online penetration and growth, gross margin and opex per channel, capex and D&A, inventory and working capital, EBITDA and FCF trajectory, DCF valuation with WACC and terminal assumptions, and sensitivity tables for like-for-like growth, margins, and capex intensity."
   },
   {
     "id": 109,

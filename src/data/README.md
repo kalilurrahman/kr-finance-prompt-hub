@@ -64,5 +64,5 @@ It uses strategic keyword matching (e.g., "fp&a", "lbo", "macroeconom", "m&a", "
 
 ## 📤 Exported APIs
 
-- **`getAllPrompts(): Prompt[]`**: Returns the combined, standardized array of all 1,120 prompts. It caches the result in memory (`_allPrompts`) after the initial parsing.
+- **`getAllPrompts(): Prompt[]`**: Returns the combined, standardized array of all 1,120 prompt entries (500 Claude-formatted + 500 Gemini-formatted + 120 Perplexity-formatted variants; Claude and Gemini share source text, delivered in each platform's expected format). It caches the result in memory (`_allPrompts`) after the initial parsing.
 - **`getPromptStats()`**: Analyzes the generated dataset and returns aggregated statistics (`total`, `byPlatform`, `byDomain`) used by the `Analytics.tsx` and `Hero.tsx` components for visual breakdowns.

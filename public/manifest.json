@@ -1,7 +1,7 @@
 {
   "name": "KR Financial Prompts Reference",
   "short_name": "KR Prompts",
-  "description": "1,120+ curated Senior Partner/MD-level finance & economics prompts across 3 AI platforms",
+  "description": "1,120 curated MD-level finance & economics prompt entries (500 Claude-formatted + 500 Gemini-formatted + 120 Perplexity-formatted) across 3 AI platforms",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0f1a",

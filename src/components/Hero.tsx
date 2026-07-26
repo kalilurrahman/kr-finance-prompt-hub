@@ -60,7 +60,7 @@ const CAROUSEL_SLIDES = [
     icon: Sparkles,
     kicker: "Always sharp",
     title: "Curated by Kalilur Rahman",
-    body: "Hand-tuned prompts across Perplexity, Claude and Gemini — no signup, no tracking.",
+    body: "Curated finance prompts formatted for Perplexity, Claude and Gemini — no signup, no tracking.",
   },
 ];
 

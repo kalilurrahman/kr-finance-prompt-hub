@@ -2,7 +2,7 @@
 
 # 📊 Financial Engineering & Advisory Prompts Reference
 
-**Your executive prompt compendium. 1,120+ curated prompts across 3 AI platforms.**
+**Your executive prompt compendium. 1,120 curated finance & advisory prompt entries across 3 AI platforms (500 Claude + 500 Gemini + 120 Perplexity variants).**
 
 [![Live Preview](https://img.shields.io/badge/Live-Preview-blue)](https://kr-finance-prompt-hub.lovable.app/)
 [![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/)
@@ -22,7 +22,7 @@
 
 ---
 
-Welcome to the **Financial Engineering & Advisory Prompts Reference** repository. This project is a comprehensive executive prompt compendium, featuring 661+ curated prompts designed for financial professionals, strategists, and analysts. These prompts are meticulously structured and tailored for leading AI platforms.
+Welcome to the **Financial Engineering & Advisory Prompts Reference** repository. This project is a comprehensive executive prompt compendium, featuring 1,120 curated finance and advisory prompt entries — 500 Claude-formatted, 500 Gemini-formatted, and 120 Perplexity-formatted variants — designed for financial professionals, strategists, and analysts. Each prompt is titled by capability (not by firm name) and structured around the analytical frameworks used in senior-level advisory work.
 
 ## 🚀 Overview
 
@@ -48,7 +48,7 @@ The Financial Engineering & Advisory Prompts Reference hub serves as a central k
 
 ### FINPROMPT Library View
 
-The **[Prompt Library](https://kr-finance-prompt-hub.lovable.app/library)** page provides a Bloomberg-terminal style searchable, filterable grid of all 1,120+ prompts. It provides an immersive, high-speed experience to quickly search keywords via Fuse.js, filter by domains, track favorites, and copy the exact financial engineering or advisory prompt you need.
+The **[Prompt Library](https://kr-finance-prompt-hub.lovable.app/library)** page provides a Bloomberg-terminal style searchable, filterable grid of all prompt entries. It provides an immersive, high-speed experience to quickly search keywords via Fuse.js, filter by domains, track favorites, and copy the exact financial engineering or advisory prompt you need.
 
 <p align="center">
   <img src="./public/screenshot-library.png" alt="Prompt Library Terminal View" width="800" style="border-radius: 8px;" />
@@ -61,8 +61,8 @@ The **[Prompt Library](https://kr-finance-prompt-hub.lovable.app/library)** page
 </p>
 
 ### Key Features
-- **Extensive Collection:** Over 1,120 ready-to-use prompts divided across 6 main financial domains.
-- **Platform Specificity:** Prompts individually curated and formatted for Perplexity, Claude, and Google Gemini to maximize each model's strengths.
+- **Extensive Collection:** 1,120 ready-to-use prompt entries across 500 unique finance and advisory prompts, divided across 6 main financial domains and available in Claude-, Gemini-, and Perplexity-formatted variants.
+- **Platform-Formatted Variants:** Prompts are curated and formatted for Perplexity, Claude, and Google Gemini to fit each platform's typical usage; the Pro edition (see [`docs/PREMIUM_STRATEGY.md`](./docs/PREMIUM_STRATEGY.md)) adds true model-specific tuning (XML/extended-thinking for Claude, long-context for Gemini, citation-grounded for Perplexity).
 - **Advanced Filtering:** Quickly find prompts by searching keywords, selecting specific AI platforms, or filtering by specialized financial domains.
 - **Interactive Analytics:** Visual breakdown of prompts across various platforms and domains.
 - **One-Click Copy:** Easily copy complex prompts to your clipboard for immediate use.
