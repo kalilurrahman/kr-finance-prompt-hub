@@ -3,9 +3,9 @@ import type { TerminalPrompt } from "@/types/terminal";
 import rawPrompts from "@/data/prompts-library.json";
 
 // Cache key is versioned by dataset length so JSON updates auto-invalidate stale localStorage.
-const CACHE_VERSION = `v3-${(rawPrompts as unknown[]).length}`;
+const CACHE_VERSION = `v4-${(rawPrompts as unknown[]).length}`;
 const CACHE_KEY = `finprompt_cache_${CACHE_VERSION}`;
-const LEGACY_KEYS = ["finprompt_cache", "finprompt_cache_v1", "finprompt_cache_v2"];
+const LEGACY_KEYS = ["finprompt_cache", "finprompt_cache_v1", "finprompt_cache_v2", "finprompt_cache_v3-500"];
 
 // 🛡️ Sentinel: Validate localStorage data using vanilla JS to prevent malicious data injection
 export function useTerminalPrompts() {

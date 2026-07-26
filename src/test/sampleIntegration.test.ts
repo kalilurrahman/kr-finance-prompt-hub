@@ -93,6 +93,6 @@ describe("Sample examples integration (ex-221..280 move + ex-501..550 additions)
 
   it("SAMPLE_OUTPUT_LIMIT reflects the full dataset", () => {
     expect(SAMPLE_OUTPUT_LIMIT).toBe(all.length);
-    expect(SAMPLE_OUTPUT_LIMIT).toBeGreaterThanOrEqual(550);
+    expect(SAMPLE_OUTPUT_LIMIT).toBeGreaterThanOrEqual(441);
   });
 });

@@ -112,6 +112,39 @@ function normalizeGemini(raw: typeof geminiRaw): Prompt[] {
 
 let _allPrompts: Prompt[] | null = null;
 
+// Premium prompts merged at runtime after license verification (see usePremium).
+// Never part of the static bundle — they arrive from the license-gated API.
+let _premiumPrompts: Prompt[] = [];
+const _premiumListeners = new Set<() => void>();
+
+function invalidateCaches() {
+  _allPrompts = null;
+  _promptStats = null;
+}
+
+/** Subscribe to premium merge/clear events; returns an unsubscribe function. */
+export function subscribePremium(listener: () => void): () => void {
+  _premiumListeners.add(listener);
+  return () => _premiumListeners.delete(listener);
+}
+
+export function mergePremiumPrompts(prompts: Prompt[]) {
+  _premiumPrompts = prompts;
+  invalidateCaches();
+  _premiumListeners.forEach((l) => l());
+}
+
+export function clearPremiumPrompts() {
+  if (_premiumPrompts.length === 0) return;
+  _premiumPrompts = [];
+  invalidateCaches();
+  _premiumListeners.forEach((l) => l());
+}
+
+export function getPremiumCount(): number {
+  return _premiumPrompts.length;
+}
+
 export function getAllPrompts(): Prompt[] {
   if (_allPrompts) return _allPrompts;
 
@@ -119,12 +152,12 @@ export function getAllPrompts(): Prompt[] {
   const gemini = normalizeGemini(geminiRaw);
   const claude = parseClaudePrompts(claudeRaw);
 
-  console.log(`[FinPrompt] Counts — Claude: ${claude.length}, Gemini: ${gemini.length}, Perplexity: ${perplexity.length}, Total: ${claude.length + gemini.length + perplexity.length}`);
+  console.log(`[FinPrompt] Counts — Claude: ${claude.length}, Gemini: ${gemini.length}, Perplexity: ${perplexity.length}, Premium: ${_premiumPrompts.length}, Total: ${claude.length + gemini.length + perplexity.length + _premiumPrompts.length}`);
 
   // ⚡ Bolt: Pre-compute searchable text for O(1) string filtering
   // Reduces search filter operations per item from 3x toLowerCase() + concatenations to a single includes()
   // Expected impact: ~10x faster search filtering on large datasets (>20k prompts)
-  _allPrompts = [...claude, ...gemini, ...perplexity].map(p => ({
+  _allPrompts = [...claude, ...gemini, ...perplexity, ..._premiumPrompts].map(p => ({
     ...p,
     _searchableText: (p.title + " " + p.content + " " + p.domain).toLowerCase()
   }));
