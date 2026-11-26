@@ -1,42 +1,59 @@
 <!doctype html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-
-    <meta name="theme-color" content="#ffb800" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="KR Prompts" />
-    <link rel="apple-touch-icon" href="/pwa-192.png" />
-    <title>KR Financial Prompts Reference | 1,120+ Curated AI Prompts</title>
-    <meta name="description" content="1,120+ curated Senior Partner/MD-level finance &amp; economics prompts for Perplexity, Claude, and Google Gemini. By Kalilur Rahman.">
-    <meta name="author" content="Kalilur Rahman" />
-    <meta name="theme-color" content="#c9a84c" />
-    <!-- build-version is updated automatically by Lovable on each deploy. The
-         client polls index.html and hard-reloads when this value changes. -->
-    <meta name="build-version" content="__BUILD_VERSION__" />
-
-    <meta property="og:type" content="website" />
-    
-    
-
-    <meta name="twitter:card" content="summary_large_image" />
-    
-    
-
-    <link rel="icon" type="image/png" href="/pwa-192.png">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta property="og:title" content="KR Financial Prompts Reference | 1,120+ Curated AI Prompts">
-  <meta name="twitter:title" content="KR Financial Prompts Reference | 1,120+ Curated AI Prompts">
-  <meta property="og:description" content="1,120+ curated Senior Partner/MD-level finance &amp; economics prompts for Perplexity, Claude, and Google Gemini. By Kalilur Rahman.">
-  <meta name="twitter:description" content="1,120+ curated Senior Partner/MD-level finance &amp; economics prompts for Perplexity, Claude, and Google Gemini. By Kalilur Rahman.">
-  <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/a89cb50c-0ec2-434b-88d4-2c3604124ea9">
-  <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/a89cb50c-0ec2-434b-88d4-2c3604124ea9">
+<!-- finprompt.kalilurrahman.com has moved into the KR Library. Every path is sent on by this page:
+     exact path first, then "/x/*" prefixes, otherwise HOME; utm_* parameters are kept.
+     Generated from program/redirect-map.csv (portfolio programme, task P2-A). The old app is
+     still in src/ and in git history; it is no longer built (see vite.config). -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>This page has moved</title>
+  <!-- Filled in at build time. Tabs still running the old app poll this value and reload when it changes. -->
+  <meta name="build-version" content="__BUILD_VERSION__">
+  <!-- HOME is also the no-JavaScript fallback -->
+  <meta http-equiv="refresh" content="0; url=https://industrybizcapability.kalilurrahman.com/library/finance">
+  <link rel="canonical" href="https://industrybizcapability.kalilurrahman.com/library/finance">
+  <script>
+    (function () {
+      var HOME = "https://industrybizcapability.kalilurrahman.com/library/finance";
+      // exact paths first, then prefixes ending in "/*"
+      var MAP = {
+        "/": HOME,
+        "/library": HOME,
+        "/engine": HOME,
+        "/resources": HOME,
+        "/admin": HOME,
+        "/downloads": HOME
+      };
+      var p = window.location.pathname.replace(/\/+$/, "") || "/";
+      var to = MAP[p];
+      if (!to) {
+        for (var k in MAP) {
+          if (k.slice(-2) !== "/*") continue;
+          var base = k.slice(0, -2);
+          if (p === base || p.indexOf(base + "/") === 0) { to = MAP[k]; break; }
+        }
+      }
+      to = to || HOME;
+      try {
+        new URLSearchParams(window.location.search).forEach(function (v, k) {
+          if (k.indexOf("utm_") === 0 && v) to += (to.indexOf("?") < 0 ? "?" : "&") + k + "=" + encodeURIComponent(v);
+        });
+      } catch (e) {}
+      window.location.replace(to);
+      document.addEventListener("DOMContentLoaded", function () {
+        var a = document.getElementById("to"); a.href = to; a.textContent = to;
+      });
+    })();
+  </script>
+  <style>
+    body { font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: #14213D; background: #F7F5EF;
+           display: grid; place-items: center; min-height: 100vh; margin: 0; padding: 24px; text-align: center; }
+    a { color: #1F7A6B; }
+  </style>
 </head>
-
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<body>
+  <p>This page has moved to <a id="to" href="https://industrybizcapability.kalilurrahman.com/library/finance">https://industrybizcapability.kalilurrahman.com/library/finance</a>.</p>
+</body>
 </html>
