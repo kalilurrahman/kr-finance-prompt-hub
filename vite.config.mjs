@@ -23,6 +23,10 @@ function buildVersionPlugin() {
 
 export default defineConfig(({ mode }) => ({
   base: "/",
+  // P2-A: this site now only serves the redirect page in index.html (moved to the KR Library).
+  // public/ is kept in the repo but no longer published; redirect-public/ holds robots.txt,
+  // favicon.ico and a sw.js that removes the old offline cache.
+  publicDir: "redirect-public",
   server: {
     host: "::",
     port: 8080,
